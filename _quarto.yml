@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "Teach Data Science Course Website"
+  title: "Seismic Exploration Methods"
   sidebar:
     background: primary
     logo: "images/logo.png"
@@ -10,25 +10,35 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/rstudio-conf-2022/teach-ds-course-website
+        href: https://flexie.github.io/EAS-8803-FH/
         text: GitHub
-      - icon: cloud-fill
-        href: https://rstudio.cloud/spaces/237799
-        text: RStudio Cloud
     style: docked
     contents:
       - href: index.qmd
         text: Home
       - href: syllabus.qmd
-        text: Syllabus
+        text: Syllabus 
+      - href: goals.qmd
+        text: Goals
+      - href: outline.qmd
+        text: Outline                
       - href: schedule.qmd
         text: Schedule
-        
+      - href: assignments.qmd
+        text: Assignments        
+      - href: seminar.qmd
+        text: Seminar        
+      - href: project.qmd
+        text: Final Project 
+      - href: references.qmd  
 format:
   html:
     theme: cosmo
    # css: styles.css
     toc: true
+
+bibliography: references.bib
+license: CC BY
 
 
 

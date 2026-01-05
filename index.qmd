@@ -1,26 +1,29 @@
 ---
-title: "Introduction to Data Science Course Website"
+title: "Seismic Exploration Methods"
 ---
 
 ## Course overview
 
-**Course overview from STA 199: Introduction to Data Science at Duke University**
+**Course overview of EAS : Seismic Exploration Methods**
 
-Intro to data science and statistical thinking. Learn to explore, visualize,and analyze data to understand natural phenomena, investigate patterns, model outcomes,and make predictions, and do so in a reproducible and shareable manner. Gain experience in data wrangling and munging, exploratory data analysis, predictive modeling, data visualization, and effectively communicating results. Work on problems and case studies inspired by and based on real-world questions and data. The course will focus on the R statistical computing language.
+*This course contains a comprehensive review of reflection seismology and its applications that includes exploration and monitoring of underground energy storage. The course covers basic aspects of seismic data acquisition & processing and (wave-equation) based imaging and inversion.*
+
 
 ## Class meetings
 
 | Meeting | Location | Time                   |
 |---------|----------|------------------------|
-| Lecture | Room A   | Mon & Wed 10 - 11:15am |
-| Lab 01  | Room B   | Thu 10 - 11:15am       |
-| Lab 02  | Room C   | Thu 1:45 - 3pm         |
-| Lab 03  | Room D   | Thu 3:30 - 4:45pm      |
+| Lecture | Skiles, Room 254  | Mon & Wed 3:30 - 4:45PM |
+
+
 
 ## Teaching team 
 
 | Name                 | Office hours   | Location   |
 |----------------------|----------------|------------|
-| Instructor           | Tue 2 - 3pm    | Office 123 |
-| Teaching Assistant 1 | Mon 5 - 7pm    | Zoom       |
-| Teaching Assistant 2 | Fri 11am - 1pm | Zoom       |
+| [Felix J. Herrmann](mailto:felix.herrmann@gatech.edu) (Instructor)    | TBD            | Zoom       |
+| [Abhinav Gahlot](mailto:agahlot8@gatech.edu) (TA)                        | TBD            | Zoom       |
+
+## Access to Piazza
+
+Students are encouraged to post their questions on [Piazza](https://gatech.instructure.com/courses/380456/external_tools/18649) on Canvas or [Piazza direct](https://piazza.com/gatech/spring2026/eas8803fh), which will be monitored by [Abhinav Gahlot](mailto:agahlot8@gatech.edu).

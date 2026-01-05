@@ -1,63 +1,105 @@
 ---
-title: "Syllabus"
+title: "Syllabus^[Syllabus updates: This syllabus is subject to change throughout the semester. We will try to keep these updates to a minimum.
+]"
+subtitle: "Seismic Exploration Methods - EAS 8803 - FH"
 ---
 
-**Excerpts of Fall 2021 syllabus from STA 199: Introduction to Data Science at Duke University**
+## Course Description 
 
-<hr>
+### Learning Goals
 
-## Course Learning Objectives
+By the end of the semester, you will be made familiar with the principles of
 
-By the end of the semester, you will...
+- basic seismic data processing, and acquisition
+- advanced wave-equation based imaging, inversion, and inversion techniques
+- using active-source reflection seismology in areas other than Oil & Gas
 
--   learn to explore, visualize, and analyze data in a reproducible and shareable manner
--   gain experience in data wrangling and munging, exploratory data analysis, predictive modeling, and data visualization work on problems and case studies inspired by and based on real-world questions and data
--   learn to effectively communicate results through written assignments and final project presentation
+For more detail, see [Goals](goals.qmd).
 
-## Textbooks
+### Course outline
 
-All books are freely available online. Hardcopies are also available for purchase.
+The course is organized as follows:
 
-|                                                                         |                          |                                   |
-|------------------------------------|------------------|------------------|
-| [R for Data Science](http://r4ds.had.co.nz/)                            | Grolemund, Wickham       | O'Reilly, 1st edition, 2016       |
-| [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel, Hardin | OpenIntro Inc., 1st Edition, 2021 |
+- [General introduction](outline.qmd#sec-introduction)
+
+- [Seismic data acquisition](outline.qmd#sec-acquisition)
+
+- [From processing to inversion](outline.qmd#sec-proc-to-inversion)
+
+- [Compressive sensing](outline.qmd#sec-CS)
+
+- [Linearized inversion](outline.qmd#sec-lin-inv)
+
+- [RTM & FWI](outline.qmd#sec-RTM)
+
+For more detail on the Course outline, see [Outline](outline.qmd).
+
+### Course Material
+
+#### Textbook 
+
+None required
+
+#### Recommended texts
+
+- [Sheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.](https://www.amazon.com/Exploration-Seismology-R-E-Sheriff/dp/0521468264)
+
+- [Yilmaz, O. (2001), Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data, Society of Exploration Geophysicists.](https://library.seg.org/doi/book/10.1190/1.9781560801580)
+
+- [Yilmaz, O., SEG wiki page on Seismic Data Analysis](https://wiki.seg.org/wiki/Seismic_Data_Analysis)
+
+- [Zhou, H. (2014), Practical Seismic Data Analysis, Cambridge University Press.](https://www.amazon.com/Practical-Seismic-Data-Analysis-Hua-Wei/dp/0521199107)
+
+- [Heiner Igel, Computational Seismology---A Practical Introduction](https://www.amazon.com/Computational-Seismology-Introduction-Heiner-Igel/dp/0198717415)
+
+- [Fichtner, Andreas, Full Seismic Waveform Modelling and Inversion](https://www.amazon.com/Modelling-Inversion-Geophysical-Environmental-Mathematics/dp/3642158064)
+
+
+Additional material will be made available under the tab [Reading](reading.md).
+
+[website]:https://flexie.github.io/EAS-8803-FH/
+
+### Additional reading material
+
+Details on readings will be provided on a lecture by lecture basis following this [Schedule](schedule.qmd).
+
+### Lectures & computational assignments
+
+The lectures and computational assignments will be posted under [Schedule](schedule.qmd). Further details on the computational assignments see [Assignments](assignments.qmd) and [Class Project](project.qmd).
+
+In part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.
 
 ## Course community
 
 ### Inclusive community
 
-It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity and in alignment with [Duke's Commitment to Diversity and Inclusion](https://provost.duke.edu/initiatives/commitment-to-diversity-and-inclusion). Your suggestions are encouraged and appreciated.
+It is my intent that students from all diverse backgrounds and perspectives be well-served by this course, that students' learning needs be addressed both in and out of class, and that the diversity that the students bring to this class be viewed as a resource, strength, and benefit. It is my intent to present materials and activities that are respectful of diversity. Your suggestions are encouraged and appreciated.
+
+### Discrimination, Harassment, and Sexual Misconduct
+
+To maintain a safe learning environment that fosters the dignity, respect, and success of students, faculty, and staff, Tech prohibits discriminatory harassment, which is unwelcome verbal, nonverbal, or physical conduct directed at any person or group based upon race, color, religion, sex, national origin, age, disability, sexual orientation, gender identity, or veteran status that has the purpose or effect of creating an objectively hostile working or academic environment.
 
 ### Accessibility
 
 If there is any portion of the course that is not accessible to you due to challenges with technology or the course format, please let me know so we can make appropriate accommodations.
 
-The Student Disability Access Office (SDAO) is available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to request or update accommodations under these circumstances.
+[Disability Services](https://disabilityservices.gatech.edu) are available to ensure that students are able to engage with their courses and related assignments. Students should be in touch with the Student Disability Access Office to request or update accommodations under these circumstances.
 
 ### Communication
 
-All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course website.
+All lecture notes, assignment instructions, an up-to-date schedule, and other course materials may be found on the course [website](https://flexie.github.io/CSE-8803-Twin/).
 
-Announcements will be emailed through Sakai Announcements periodically. Please check your email regularly to ensure you have the latest announcements for the course.
+Announcements will be shared on [Piazza](https://piazza.com/gatech/spring2026/cse8803dtp).
 
 ## Activities & Assessment
 
-### Labs
+### Exams 
 
-In labs, you will apply the concepts discussed in lecture to various data analysis scenarios, with a focus on the computation.
+There will be a midterm (25%) and a final exam (25%). Both of them are closed book. Reference to texts or other documents such as previous semester course materials during exams is strictly forbidden. Using these materials will be considered a direct violation of academic policy and will be dealt with according to the GT Academic Honor Code. The use of electronic devices (e.g. cellular phones, computers etc.) other than non-programmable calculators during exams and quizzes is not allowed. 
 
-### Homework
+### Computational Assignments
 
-In homework, you will apply what you've learned during lecture and lab to complete data analysis tasks.
-
-### Exams
-
-There will be two, take-home, open-note exams. Through these exams you have the opportunity to demonstrate what you've learned in the course thus far.
-
-### Final Project
-
-The purpose of the [final project](/project/) is to apply what you've learned throughout the semester to analyze an interesting data-driven research question.
+Details on the assignments will be provided on a lecture by lecture basis following this [Schedule](schedule.qmd). These assignments will mostly involve Digital Twin-related programs, computer simulations, and data analysis. These assignments are designed for each student to work one by him/herself. Collaboration is to a reasonable degree encouraged. During these assignments, you will apply concepts discussed during lectures, with a focus on the computational aspects. These assignments will count towards 35% of your overall course grade. There are about ten computational assignments planned for the term. 
 
 ## Grading
 
@@ -65,45 +107,142 @@ The final course grade will be calculated as follows:
 
 <center>
 
-| Category           | Percentage |
-|--------------------|------------|
-| Homework           | 30%        |
-| Labs               | 15%        |
-| Final Project      | 15%        |
-| Exam 01            | 17.5%      |
-| Exam 02            | 17.5%      |
-| In-class exercises | 5%         |
+| Category                     | Percentage |
+|------------------------------|------------|
+| Comp. Lab Assignments        | 40%        |
+| Final Project                | 60%        |
+
+<!-- 
+| Category                     | Percentage |
+|------------------------------|------------|
+| Comp. Lab Assignments        | 35%        |
+| Midterm Exa.                 | 25%        |
+| Class Project                | 15%        |
+| Final Exam                   | 25%        |
+
+ -->
+
+## Important dates
+
+-   **Jan 5:** Phase II Registration
+
+-   **Jan 12:** Classes begin
+
+-   **Jan 16:** Deadline for Registration/Schedule Changes closes
+
+-   **March 18**: Last day to withdraw
+
+-   **March XXX **
+
+
+-   **March 23-27:** Spring break
+
+
+-   **April 27:** Final Instructional Class
 
 ## Course policies
 
 ### Academic honesty
 
-**TL;DR: Don't cheat!**
-
 Please abide by the following as you work on assignments in this course:
 
--   You may discuss individual homework and lab assignments with other students; however, you may not directly share (or copy) code or write up with other students. For team assignments, you may collaborate freely within your team. You may discuss the assignment with other teams; however, you may not directly share (or copy) code or write up with another team. Unauthorized sharing (or copying) of the code or write up will be considered a violation for all students involved.
--   You may not discuss or otherwise work with others on the exams.
+-   You may discuss individual lab assignments with other students; however, you may not directly share (or copy) code or write up with other students. For team assignments, you may collaborate freely within your team. You may discuss the assignment with other teams; however, you may not directly share (or copy) code or write up with another team. Unauthorized sharing (or copying) of the code or write up will be considered a violation for all students involved.
 -   **Reusing code**: Unless explicitly stated otherwise, you may make use of online resources (e.g. StackOverflow) for coding examples on assignments. If you directly use code from an outside source (or use it as inspiration), you must explicitly cite where you obtained the code. Any recycled code that is discovered and is not explicitly cited will be treated as plagiarism.
+
+-   **Using AI-powered coding tools and agents**: Use of tools such as Claude Code, Codex, ChatGPT, Gemini, and GitHub Copilot is permitted, but you must abide by the following principles:
+    -   **Disclosure (required)**: If you used a generative AI tool for any part of an assignment or project, include an *AI Usage Statement* in your report/README that names the tool(s) and briefly describes what you used them for (e.g., debugging, drafting, test generation, refactoring).
+    -   **Provenance (required)**: Maintain a prompt/interaction log (e.g., `PROMPTS.md` or a `prompts/` folder) and commit it to your GitHub repository. Commits should reflect meaningful iterations and should reference prompt IDs or excerpts so the evolution of your work can be audited.
+    -   **Accountability (required)**: You are responsible for everything you submit. You must be able to explain your code and results, reproduce your experiments, and verify any factual claims or citations. You may be asked to walk through your work (code, derivations, and/or experiments).
+    -   **Spec-driven workflow**: For the final project, you must use a specification-driven workflow (e.g., [spec-kit](https://github.com/github/spec-kit), [agent-os](https://github.com/buildermethods/agent-os), or [cc-sdd](https://github.com/gotalab/cc-sdd), or an equivalent workflow that includes a written spec and acceptance tests). For labs, this is strongly encouraged.
+    -   **Privacy, IP, and licensing**: Do not paste confidential, proprietary, or sensitive data into external AI services. Ensure you comply with software licensing and provide attribution where appropriate.
+
+### General guidance on the use of Generative AI
+
+AI-based assistance (e.g., ChatGPT, Claude, Gemini, Copilot, and coding agents) can be a useful *study* and *software-development* aid in this course. You may use these tools to support learning the lecture/textbook material and to help develop your ideas for proposals, labs, and the final project. However, these tools do not replace your responsibility for independent work, correctness, and academic integrity.
+
+#### Required documentation when you use Generative AI (applies to labs and the final project)
+
+If you used generative AI for any part of your work, your submission must include:
+
+-   **AI Usage Statement** (in your report/README): tool name(s) + what you used them for + what you independently verified.
+-   **Prompt/interaction log** (in your GitHub repo): e.g., `PROMPTS.md` or a `prompts/` folder (redact anything sensitive).
+-   **Verification evidence** (in your repo): tests, sanity checks, references to derivations, or short notes describing how you validated AI-assisted outputs.
+
+Example AI Usage Statement (you may copy/adapt):
+
+> *Disclosure: I used generative AI tools (tool names and versions, if known) to support portions of this assignment (briefly describe: e.g., brainstorming, debugging, refactoring, drafting). I curated prompts, reviewed and edited all outputs, verified factual statements and citations, and take full responsibility for the final submission. A prompt/provenance record is included in the repository.*
+
+#### Generating research ideas or approaches
+
+-   **Brainstorming**: You can use an AI tool as a brainstorming partner. Treat it as an iterative process—try multiple prompts, request alternatives, and compare suggestions.
+-   **Surveying existing approaches**: AI tools can provide an initial overview of methods or literature, but you must verify claims and consult authoritative sources (papers, textbooks, and library/professional-society databases).
+-   **Prompting skill matters**: The value of the output depends on the quality of the prompt. Keep prompts specific, include constraints, and document the versions you tried.
+
+#### Allowed uses (examples)
+
+-   Explaining error messages, suggesting debugging strategies, or proposing minimal reproducible examples.
+-   Generating unit tests, docstrings, documentation, or refactoring suggestions that you then review and validate.
+-   Brainstorming model/design choices, experiment plans, ablations, and evaluation criteria.
+-   Drafting pseudocode or outlines that you then implement and verify yourself.
+
+#### Not allowed uses (examples)
+
+-   Submitting AI-generated code, text, figures, results, or citations that you cannot explain or reproduce.
+-   Using AI to fabricate citations, data, experiments, or results (all citations must be verifiable).
+-   Using AI to generate a complete solution and only lightly paraphrasing/editing it as your own work.
+-   Sharing private course materials or other students' work with an external AI tool, or pasting others' code/text into a prompt.
+
+#### Advice on usage
+
+-   **Be critical**: Do not trust any output you cannot independently evaluate or trace back to credible sources.
+-   **Be scientific with prompts**: Prompting is not deterministic; small changes can yield different answers. Keep records and compare outputs across prompt variants.
+-   **Protect privacy and IP**: Do not share confidential, proprietary, or sensitive information (including personally identifiable information) with external AI services. Treat prompts and uploads as potentially non-private. If you intend to pursue commercialization or other Intellectual Property avenues, uploading information to an open AI platform may constitute disclosure.
 
 ### Late work & extensions
 
-The due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. Note that the lowest homework and lab assignment will be dropped to accommodate such circumstances.
+The due dates for assignments are there to help you keep up with the course material and to ensure the teaching team can provide feedback within a timely manner. We understand that things come up periodically that could make it difficult to submit an assignment by the deadline. Note that the lowest lab assignments will be dropped to accommodate such circumstances.
 
-## Important dates
+### Campus Resources for Students
 
--   **Aug 23:** Classes begin
+Links to Campus Resources for Students --- e.g. Center for Academic Success, Communication Center, Office of Disability Services, OMED, Division of Student Life, etc. available at: <https://bpb-us-e1.wpmucdn.com/sites.gatech.edu/dist/d/4626/files/2025/07/campus_resources_students.pdf>
 
--   **Sep 3**: Drop/add ends
+#### Quick Guide on Student Mental Health and Wellness Resources:
 
--   **Oct 4-5**: Fall break
+The [Center for Mental Health Care & Resources](https://mentalhealth.gatech.edu) is here to offer confidential support and services to students in need of mental health care. During regular business hours, students who are not actively in counseling **may call 404-894-2575 or walk-in to the office , 353 Ferst DR NW Atlanta GA 30313** (Flag building next to the Student Center). Any time outside of business hours, students may call **404-894-2575** and select the option to speak to the after-hours counselor.
 
--   **Nov 5**: Last day to withdraw with W
+#### Additional On Campus Options
 
--   **Nov 24-26:** Thanksgiving recess
+Students who are experiencing an immediate life-threatening emergency on campus, can call the Georgia Tech Campus Police at **404-894-2500**
 
--   **Dec 3**: Classes end
+#### Local and National crisis resources available 24/7:
 
--   **Dec 4-7**: Reading period
+-   Crisis Text Line: Text HOME to 741741 <https://www.crisistextline.org/>
+-   Georgia Crisis & Access Line: Call 1-800-715-4225
+-   National Suicide Prevention Lifeline: Call 988 or 1-800-273-8255, or access text chat here <https://suicidepreventionlifeline.org/chat/>
 
--   **Dec 8-13**: Final exams
+#### Additional services offered by Satellite counselors' (walk-in consultation hours):
+
+Each Satellite counselor provides weekly consultation appointments at varying times based on their schedules (see highlighted section below for my Fall '23 hours). Anyone can access a Satellite counselor during these times, to set up a consultation email is preferable, once a message is received the Satellite counselor will reply with available dates/times and a link. Some Satellite counselors will accommodate in-person walk-ins at these times as well.
+
+##### What it is
+
+-   Consulting about a brief, non-emergency concern during the counselor's posted walk-in consultation hours (similar to Let's Talk). Consultations are approximately 15 minutes.
+-   Providing information to students about mental health resources on campus and how to get connected
+-   Consulting with faculty/staff about a student of concern
+
+##### What it isn't
+
+-   Not for a walk-in counseling appointment or initial assessment
+-   Not for students who are seeking support in their counselor's absence. Students who need additional/urgent support when their counselor is unavailable should visit the Center for Mental Health Care & Resources
+-   Not for crisis
+-   Not for case management
+
+Tara Holdampf, MS, LPC, (she/her), Satellite Counselor's Consultation Hours for the College of Sciences: Please email [tara.holdampf\@studentlife.gatech.edu](mailto:tara.holdampf@studentlife.gatech.edu) for an appointment, or stop by my Office Location: MoSE 1120B. Monday-Friday 3:00 PM - 4:00 PM
+
+##### Other useful web pages to explore:
+
+[**Wellness Empowerment Center**](https://wellnesscenter.gatech.edu)  
+[**Student Engagement and Wellbeing**](https://students.gatech.edu/health-wellness-recreation)   
+[**Health, Wellness & Recreation**](https://students.gatech.edu/health-wellness-recreation)  
+[**Tech Ends Suicide**](https://mentalhealth.gatech.edu/resources/general/end-suicide-initiative) 
+[**Mental Health Services**](https://mentalhealth.gatech.edu/about/services)
