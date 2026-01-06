@@ -10,9 +10,10 @@ subtitle: "Seismic Exploration Methods - EAS 8803 - FH"
 
 By the end of the semester, you will be made familiar with the principles of
 
-- basic seismic data processing, and acquisition
-- advanced wave-equation based imaging, inversion, and inversion techniques
-- using active-source reflection seismology in areas other than Oil & Gas
+- basic seismic data processing and acquisition
+- more advanced wave-equation based imaging, inversion, and inversion techniques
+
+We will also explore alternative usage of active-source reflection seismology in areas relevant to the energy transition. 
 
 For more detail, see [Goals](goals.qmd).
 
@@ -55,7 +56,7 @@ None required
 - [Fichtner, Andreas, Full Seismic Waveform Modelling and Inversion](https://www.amazon.com/Modelling-Inversion-Geophysical-Environmental-Mathematics/dp/3642158064)
 
 
-Additional material will be made available under the tab [Reading](reading.md).
+During the term, additional material will be made available under the tab [Schedule](schedule.qmd).
 
 [website]:https://flexie.github.io/EAS-8803-FH/
 
@@ -65,7 +66,7 @@ Details on readings will be provided on a lecture by lecture basis following thi
 
 ### Lectures & computational assignments
 
-The lectures and computational assignments will be posted under [Schedule](schedule.qmd). Further details on the computational assignments see [Assignments](assignments.qmd) and [Class Project](project.qmd).
+The lectures and computational assignments will be posted under [Schedule](schedule.qmd). Further details on the computational assignments see [Assignments](assignments.qmd) and [Final Project](project.qmd).
 
 In part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.
 
@@ -95,7 +96,9 @@ Announcements will be shared on [Piazza](https://piazza.com/gatech/spring2026/cs
 
 ### Exams 
 
-There will be a midterm (25%) and a final exam (25%). Both of them are closed book. Reference to texts or other documents such as previous semester course materials during exams is strictly forbidden. Using these materials will be considered a direct violation of academic policy and will be dealt with according to the GT Academic Honor Code. The use of electronic devices (e.g. cellular phones, computers etc.) other than non-programmable calculators during exams and quizzes is not allowed. 
+There will be no exam. There will be a [Final project](project.qmd).
+
+<!-- There will be a midterm (25%) and a final exam (25%). Both of them are closed book. Reference to texts or other documents such as previous semester course materials during exams is strictly forbidden. Using these materials will be considered a direct violation of academic policy and will be dealt with according to the GT Academic Honor Code. The use of electronic devices (e.g. cellular phones, computers etc.) other than non-programmable calculators during exams and quizzes is not allowed.  -->
 
 ### Computational Assignments
 
@@ -132,13 +135,17 @@ The final course grade will be calculated as follows:
 
 -   **March 18**: Last day to withdraw
 
--   **March XXX **
+-   **March 18** Presentation of 5 min pitch
 
+-   **March 20** Submission Project Proposal
 
 -   **March 23-27:** Spring break
 
-
 -   **April 27:** Final Instructional Class
+
+-   **April 27** Final Project Presentations
+
+-   **May 1** Submission Final Project Report 
 
 ## Course policies
 

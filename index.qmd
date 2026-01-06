@@ -6,8 +6,7 @@ title: "Seismic Exploration Methods"
 
 **Course overview of EAS : Seismic Exploration Methods**
 
-*This course contains a comprehensive review of reflection seismology and its applications that includes exploration and monitoring of underground energy storage. The course covers basic aspects of seismic data acquisition & processing and (wave-equation) based imaging and inversion.*
-
+*This course contains a comprehensive review of active-source reflection seismology and its applications that includes exploration and monitoring of underground energy. The course covers basic aspects of seismic data acquisition, processing, and (wave-equation) based imaging and inversion. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, we will explore alternative applications of this technology that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations.*
 
 ## Class meetings
 
