@@ -41,8 +41,10 @@ For more detail on the Course outline, see [Outline](outline.qmd).
 
 None required
 
-#### Recommended texts
+#### Recommended texts[^1]
 
+- [Hill, Stephen, and Andreas Rüger. "Illustrated Seismic Processing." Imaging (2008).](https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging)
+  
 - [Sheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.](https://www.amazon.com/Exploration-Seismology-R-E-Sheriff/dp/0521468264)
 
 - [Yilmaz, O. (2001), Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data, Society of Exploration Geophysicists.](https://library.seg.org/doi/book/10.1190/1.9781560801580)
@@ -57,6 +59,8 @@ None required
 
 
 During the term, additional material will be made available under the tab [Schedule](schedule.qmd).
+
+[^1]: Some of these texts are available when on campus or from the Library.
 
 [website]:https://flexie.github.io/EAS-8803-FH/
 
