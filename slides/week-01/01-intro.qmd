@@ -1,0 +1,23 @@
+---
+title: "Welcome to Seismic Exploration Methods"
+subtitle: "Introduction"
+date: "Jan 12, 2026"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "images/logo.png"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    center: true
+execute:
+  freeze: auto
+  echo: true
+bibliography: ../../references.bib
+---
+
+# Slides 
+
+[🔗 View 01-intro on Dropbox](https://www.dropbox.com/scl/fi/7yvr5a6ztr3a4ncbp39jm/1-Exploration_Seismology.pptx?rlkey=f88xhsa0bq17oc3xdzd97abqv&st=mf2p7wxu&dl=0)

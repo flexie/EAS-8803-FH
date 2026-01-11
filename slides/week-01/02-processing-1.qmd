@@ -1,0 +1,23 @@
+---
+title: "Seismic Exploration Methods"
+subtitle: "Processing 1"
+date: "Jan 14, 2026"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "images/logo.png"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    slide-number: true
+    incremental: false 
+    chalkboard: true
+    center: true
+execute:
+  freeze: auto
+  echo: true
+bibliography: ../../references.bib
+---
+
+# Slides 
+
+[🔗 View 02-processing 1](https://www.dropbox.com/scl/fi/vivzknyvvtukqhse6w1lj/2-Exploration_Seismology-basics.pptx?rlkey=g69nm9ynhw0zbx1yevz8jv147&st=oeyfrr32&dl=0)
