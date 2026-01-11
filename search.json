@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Intro Data Science\n\n\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nVisualizing Data\n\n\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nWrangling Data\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nVisualizing Data\n\n\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nWrangling Data\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nAug 29 - Sep 02\n\n\nWelcome to Intro Data Science\n\n\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nVisualizing Data\n\n\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nWrangling Data\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nVisualizing Data\n\n\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nWrangling Data\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -58,62 +58,6 @@
     "crumbs": [
       "Final Project"
     ]
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#bullet-point-list",
-    "href": "slides/week-01/02-demo.html#bullet-point-list",
-    "title": "Meet the Toolkit",
-    "section": "Bullet point list",
-    "text": "Bullet point list"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#incremental-list",
-    "href": "slides/week-01/02-demo.html#incremental-list",
-    "title": "Meet the Toolkit",
-    "section": "Incremental list",
-    "text": "Incremental list"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#equations",
-    "href": "slides/week-01/02-demo.html#equations",
-    "title": "Meet the Toolkit",
-    "section": "Equations",
-    "text": "Equations"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#code",
-    "href": "slides/week-01/02-demo.html#code",
-    "title": "Meet the Toolkit",
-    "section": "Code",
-    "text": "Code"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#images",
-    "href": "slides/week-01/02-demo.html#images",
-    "title": "Meet the Toolkit",
-    "section": "Images",
-    "text": "Images"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#columns",
-    "href": "slides/week-01/02-demo.html#columns",
-    "title": "Meet the Toolkit",
-    "section": "Columns",
-    "text": "Columns"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#panels",
-    "href": "slides/week-01/02-demo.html#panels",
-    "title": "Meet the Toolkit",
-    "section": "Panels",
-    "text": "Panels"
-  },
-  {
-    "objectID": "slides/week-01/02-demo.html#themes",
-    "href": "slides/week-01/02-demo.html#themes",
-    "title": "Meet the Toolkit",
-    "section": "Themes",
-    "text": "Themes\nCustomize the appearance of the slides using\n\nBuilt-in Reveal theme\nModify built-in theme using Sass\n\nVariant of CSS that supports variables and other features\n\n\nSpecify the theme and/or Sass file (.scss) in the YAML"
   },
   {
     "objectID": "index.html",
@@ -177,7 +121,14 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Intro Data Science\n\n\nMon, Aug 29\n\n\n\n\n\n\nMeet the Toolkit\n\n\nWed, Aug 31\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\nThere are no assignments scheduled this week.\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nR for Data Science: Chapter 2 - Introduction\n\n\nIntro to Modern Data Science: Chapter 1 - Hello data\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Topic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nSeismic Exploration Methods\n\n\nProcessing 1\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "weeks/week-01.html#footnotes",
+    "href": "weeks/week-01.html#footnotes",
+    "title": "Week 01",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThere is a lot of material there that you may want to read through. Use material presented in class as a guide what is important.↩︎"
   },
   {
     "objectID": "weeks/week-02.html",
@@ -333,62 +284,6 @@
     "crumbs": [
       "Goals"
     ]
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#bullet-point-list",
-    "href": "slides/week-01/01-example.html#bullet-point-list",
-    "title": "Welcome to Intro Data Science",
-    "section": "Bullet point list",
-    "text": "Bullet point list\nUnordered\n\nItem A\nItem B\nItem C\n\nOrdered\n\nItem 1\nItem 2\nItem 3"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#incremental-list",
-    "href": "slides/week-01/01-example.html#incremental-list",
-    "title": "Welcome to Intro Data Science",
-    "section": "Incremental list",
-    "text": "Incremental list\n\nItem 1\nItem 2\nItem 3"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#equations",
-    "href": "slides/week-01/01-example.html#equations",
-    "title": "Welcome to Intro Data Science",
-    "section": "Equations",
-    "text": "Equations\nWrite mathematical symbols and equations using Latex.\nUse the formulas below to calculate \\(\\hat{\\beta}_1\\), the estimated slope, and \\(\\hat{\\beta}_0\\), the estimated intercept.\n\\[\n\\begin{aligned}\n&\\hat{\\beta}_1 = r \\frac{s_y}{s_x} \\\\\n&\\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#code",
-    "href": "slides/week-01/01-example.html#code",
-    "title": "Welcome to Intro Data Science",
-    "section": "Code",
-    "text": "Code\n\n# Use code chunk option fig-align: center to center the plot. \nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, \n                            color = species)) + \n         geom_point() + \n  labs(x = \"Flipper Length (in mm)\",y = \"Body Mass (in g)\",\n       title = \"Flipper length vs. body mass\",\n       subtitle = \"Penguins at Palmer Station, Antartica\") +\n  scale_color_viridis_d()"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#images",
-    "href": "slides/week-01/01-example.html#images",
-    "title": "Welcome to Intro Data Science",
-    "section": "Images",
-    "text": "Images\n\nArtwork by @allison_horst"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#columns",
-    "href": "slides/week-01/01-example.html#columns",
-    "title": "Welcome to Intro Data Science",
-    "section": "Columns",
-    "text": "Columns\n\n\nCalculate the proportion of penguins from each species.\n\n\npenguins |&gt;\n  count(species) |&gt;\n  mutate(prop  = n / sum(n))\n\n# A tibble: 3 × 3\n  species       n  prop\n  &lt;fct&gt;     &lt;int&gt; &lt;dbl&gt;\n1 Adelie      152 0.442\n2 Chinstrap    68 0.198\n3 Gentoo      124 0.360"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#panels",
-    "href": "slides/week-01/01-example.html#panels",
-    "title": "Welcome to Intro Data Science",
-    "section": "Panels",
-    "text": "Panels\n\nPlotCode\n\n\n\npenguins |&gt;\n  filter(species == \"Adelie\", !is.na(sex)) |&gt;\n  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = sex)) + \n  geom_point() +\n  labs(x = \"Flipper Length (in mm)\",y = \"Body Mass (in g)\",\n       title = \"Flipper length vs. body mass\",\n       subtitle = \"Adelie Penguins at Palmer Station, Antartica\") +\n  scale_color_viridis_d() + \n  facet_wrap(~island)\n\n\n\n\n\n\n\n\n\n\n\npenguins |&gt;\n  filter(species == \"Adelie\", !is.na(sex)) |&gt;\n  ggplot(aes(x = flipper_length_mm, y = body_mass_g, color = sex)) + \n  geom_point() +\n  labs(x = \"Flipper Length (in mm)\",y = \"Body Mass (in g)\",\n       title = \"Flipper length vs. body mass\",\n       subtitle = \"Adelie Penguins at Palmer Station, Antartica\") +\n  scale_color_viridis_d() + \n  facet_wrap(~island)"
-  },
-  {
-    "objectID": "slides/week-01/01-example.html#themes",
-    "href": "slides/week-01/01-example.html#themes",
-    "title": "Welcome to Intro Data Science",
-    "section": "Themes",
-    "text": "Themes\nCustomize the appearance of the slides using\n\nBuilt-in Reveal theme\nModify built-in theme using Sass\n\nVariant of CSS that supports variables and other features\n\nCreate custom thing using Sass\n\nSpecify the theme and/or Sass file (.scss) in the YAML"
   },
   {
     "objectID": "syllabus.html",
