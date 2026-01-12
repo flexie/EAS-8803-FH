@@ -24,15 +24,17 @@ The course is organized as follows:
 
 - [General introduction](outline.qmd#sec-introduction)
 
-- [Seismic data acquisition](outline.qmd#sec-acquisition)
+<!-- - [Seismic data acquisition](outline.qmd#sec-acquisition) -->
 
 - [From processing to inversion](outline.qmd#sec-proc-to-inversion)
 
-- [Compressive sensing](outline.qmd#sec-CS)
+<!-- - [Compressive sensing](outline.qmd#sec-CS) -->
 
 - [Linearized inversion](outline.qmd#sec-lin-inv)
 
-- [RTM & FWI](outline.qmd#sec-RTM)
+- [Wave-equatiob based imaging & inversion (RTM & FWI)](outline.qmd#sec-RTM)
+
+- Wave-equation based inference w/ uncertainty quantification
 
 For more detail on the Course outline, see [Outline](outline.qmd).
 
@@ -75,7 +77,7 @@ Details on readings will be provided on a lecture by lecture basis following thi
 
 The lectures and computational assignments will be posted under [Schedule](schedule.qmd). Further details on the computational assignments see [Assignments](assignments.qmd) and [Final Project](project.qmd).
 
-In part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.
+In part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and [Dr. Ravasi](https://github.com/DIG-Kaust/Seismology) formally at KAUST.
 
 ## Course community
 
