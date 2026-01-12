@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nVisualizing Data\n\n\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nWrangling Data\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nSep 05 - 09\n\n\nVisualizing Data\n\n\n\n\n\n\nWeek 03\n\n\nSep 12 - 16\n\n\nWrangling Data\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -34,7 +34,7 @@
     "href": "project.html",
     "title": "Final Project1",
     "section": "",
-    "text": "The goal of the Final Project is to give students the opportunity to apply and further develop their understanding of Seismic Exploration Methods to a topic close to their interests.\n\n\n\nThe Final Project consist of three parts\n\nProjet Proposal consisting of a “one pager” + “5 min pitch”\nProject Presentation of 20 minutes with 5 minutes questions, presented at the end of the term\nA final Project Report\n\n\n\nOn March 11th, everybody needs to give a 5 minute pitch on their project proposal. That same day, the “one pager” outlining the project is due by 6:00 PM on March 13. See description below. Your seminar will be evaluated with this form. Please send the slides for your presentation to the course instructor with CSE 8803 in the subject line or bring a memory stick. The 5 minutes presentations include time for questions. Since time is limited, the 5 minute limit will be strictly enforced. So please stick to the main message, the problem you want to tackle, what techniques you will be using, and why it is important.\n\n\n\nA 5-minute pitch is not meant to provide technical details. It is rather intended to convey context and goals of the project. A good guideline for structuring such a talk (the same applies to structuring sentences, paragraphs, sections, papers, theses) as follows\n\nSituation (1 min)\nProblem (1 min)\nSolution (2 min)\nEvaluation (1 min)\n\nFinally, always remember who you audience is and tailor your presentation towards that audience.\n\n\n\nConcise description of the work to be undertaken. The description should not exceed two pages and should contain\n\nTitle of the Final Project\nProblem Statement\nRelevance\nIdentification of methodology that will be used to solve the problem\n\nProposal should be submitted in PDF format or a link to an html page. The project proposals are due March 13 at 6:00 PM and presentations are scheduled for that same day during class. The presentations are five minutes each for each person.\n\n\n\nEach project presentation will be allotted 20 minutes precisely with 5 minutes of questions. The presentation should reflect the current status of the project, which may be subject to change when the project is finalized.\nThe seminar will be evaluated using the following form2.\n\n\n\nThe report needs to be written as a short journal paper. Students will be required to use the IEEE template in two-column mode. The paper should be four-to-six pages including abstract, body text, figures, and bibliography. Reports should consist of\n\nabstract\nintroduction\nproblem statement\nmethodology\nresults\nconclusions\nreferences\nappendices\n\n\n\n\n\n\n10% Proposal plus speed presentation\n30% Project presentation\n60% Final Report\n\n\n\n\nLate submission is unacceptable and will lead to deductions in your grade. The deadline for submission will be communicate in class.\nThis year’s project is an extension to Exercise 7. Please follow the instructions there.\n\n\n\n\nIf you get an error message about Windows version\nYou probably either have Windows Home edition or a version older than Windows 10. Download this version of Docker and install it.\nAccessing the notebook\nIP forward with docker on Windows does not work and the address http://127.0.0.1:8888/... will probably not be reachable. To reach it run the following command in the docker terminal:\ndocker-machine ip\nTis will give you the IP address of your docker that you can now use for accessing the notebook by replacing 127.0.0.1 in the address above by the output of the docker-machine command.\nToken page\nIf you are redirected to a page that ask you to input the token or to set a password, you probably have another docker container running. Run the command docker container ls to check if there is any container running. This should look like:\n\nYou can see in the PORTS column that a container is already using the port 8888. Delete all container using that port via docker container rm -f CONTAINER ID and restart the docker image:\ndocker run -p 8888:8888 -v /path/to/files:/app/judi/data ddjj1118/judi_eas_project:v4.0\nYou should now be able to access the notebooks at http://machine-ip:8888/...",
+    "text": "The goal of the Final Project is to give students the opportunity to apply and further develop their understanding of Seismic Exploration Methods to a topic close to their interests.\n\n\n\nThe Final Project consist of three parts\n\nProject Proposal consisting of a “one pager” + “5 min pitch”\nProject Presentation of 20 minutes with 5 minutes questions, presented at the end of the term\nA final Project Report\n\n\n\nOn March 11th, everybody needs to give a 5 minute pitch on their project proposal. That same day, the “one pager” outlining the project is due by 6:00 PM on March 13. See description below. Your seminar will be evaluated with this form. Please send the slides for your presentation to the course instructor with CSE 8803 in the subject line or bring a memory stick. The 5 minutes presentations include time for questions. Since time is limited, the 5 minute limit will be strictly enforced. So please stick to the main message, the problem you want to tackle, what techniques you will be using, and why it is important.\n\n\n\nA 5-minute pitch is not meant to provide technical details. It is rather intended to convey context and goals of the project. A good guideline for structuring such a talk (the same applies to structuring sentences, paragraphs, sections, papers, theses) as follows\n\nSituation (1 min)\nProblem (1 min)\nSolution (2 min)\nEvaluation (1 min)\n\nFinally, always remember who you audience is and tailor your presentation towards that audience.\n\n\n\nConcise description of the work to be undertaken. The description should not exceed two pages and should contain\n\nTitle of the Final Project\nProblem Statement\nRelevance\nIdentification of methodology that will be used to solve the problem\n\nProposal should be submitted in PDF format or a link to an html page. The project proposals are due March 13 at 6:00 PM and presentations are scheduled for that same day during class. The presentations are five minutes each for each person.\n\n\n\nEach project presentation will be allotted 20 minutes precisely with 5 minutes of questions. The presentation should reflect the current status of the project, which may be subject to change when the project is finalized.\nThe seminar will be evaluated using the following form2.\n\n\n\nThe report needs to be written as a short journal paper. Students will be required to use the IEEE template in two-column mode. The paper should be four-to-six pages including abstract, body text, figures, and bibliography. Reports should consist of\n\nabstract\nintroduction\nproblem statement\nmethodology\nresults\nconclusions\nreferences\nappendices\n\n\n\n\n\n\n10% Proposal plus speed presentation\n30% Project presentation\n60% Final Report\n\n\n\n\nLate submission is unacceptable and will lead to deductions in your grade. The deadline for submission will be communicate in class.\nThis year’s project is an extension to Exercise 7. Please follow the instructions there.\n\n\n\n\nIf you get an error message about Windows version\nYou probably either have Windows Home edition or a version older than Windows 10. Download this version of Docker and install it.\nAccessing the notebook\nIP forward with docker on Windows does not work and the address http://127.0.0.1:8888/... will probably not be reachable. To reach it run the following command in the docker terminal:\ndocker-machine ip\nTis will give you the IP address of your docker that you can now use for accessing the notebook by replacing 127.0.0.1 in the address above by the output of the docker-machine command.\nToken page\nIf you are redirected to a page that ask you to input the token or to set a password, you probably have another docker container running. Run the command docker container ls to check if there is any container running. This should look like:\n\nYou can see in the PORTS column that a container is already using the port 8888. Delete all container using that port via docker container rm -f CONTAINER ID and restart the docker image:\ndocker run -p 8888:8888 -v /path/to/files:/app/judi/data ddjj1118/judi_eas_project:v4.0\nYou should now be able to access the notebooks at http://machine-ip:8888/...",
     "crumbs": [
       "Final Project"
     ]
@@ -44,7 +44,7 @@
     "href": "project.html#final-project",
     "title": "Final Project1",
     "section": "",
-    "text": "The goal of the Final Project is to give students the opportunity to apply and further develop their understanding of Seismic Exploration Methods to a topic close to their interests.\n\n\n\nThe Final Project consist of three parts\n\nProjet Proposal consisting of a “one pager” + “5 min pitch”\nProject Presentation of 20 minutes with 5 minutes questions, presented at the end of the term\nA final Project Report\n\n\n\nOn March 11th, everybody needs to give a 5 minute pitch on their project proposal. That same day, the “one pager” outlining the project is due by 6:00 PM on March 13. See description below. Your seminar will be evaluated with this form. Please send the slides for your presentation to the course instructor with CSE 8803 in the subject line or bring a memory stick. The 5 minutes presentations include time for questions. Since time is limited, the 5 minute limit will be strictly enforced. So please stick to the main message, the problem you want to tackle, what techniques you will be using, and why it is important.\n\n\n\nA 5-minute pitch is not meant to provide technical details. It is rather intended to convey context and goals of the project. A good guideline for structuring such a talk (the same applies to structuring sentences, paragraphs, sections, papers, theses) as follows\n\nSituation (1 min)\nProblem (1 min)\nSolution (2 min)\nEvaluation (1 min)\n\nFinally, always remember who you audience is and tailor your presentation towards that audience.\n\n\n\nConcise description of the work to be undertaken. The description should not exceed two pages and should contain\n\nTitle of the Final Project\nProblem Statement\nRelevance\nIdentification of methodology that will be used to solve the problem\n\nProposal should be submitted in PDF format or a link to an html page. The project proposals are due March 13 at 6:00 PM and presentations are scheduled for that same day during class. The presentations are five minutes each for each person.\n\n\n\nEach project presentation will be allotted 20 minutes precisely with 5 minutes of questions. The presentation should reflect the current status of the project, which may be subject to change when the project is finalized.\nThe seminar will be evaluated using the following form2.\n\n\n\nThe report needs to be written as a short journal paper. Students will be required to use the IEEE template in two-column mode. The paper should be four-to-six pages including abstract, body text, figures, and bibliography. Reports should consist of\n\nabstract\nintroduction\nproblem statement\nmethodology\nresults\nconclusions\nreferences\nappendices\n\n\n\n\n\n\n10% Proposal plus speed presentation\n30% Project presentation\n60% Final Report\n\n\n\n\nLate submission is unacceptable and will lead to deductions in your grade. The deadline for submission will be communicate in class.\nThis year’s project is an extension to Exercise 7. Please follow the instructions there.\n\n\n\n\nIf you get an error message about Windows version\nYou probably either have Windows Home edition or a version older than Windows 10. Download this version of Docker and install it.\nAccessing the notebook\nIP forward with docker on Windows does not work and the address http://127.0.0.1:8888/... will probably not be reachable. To reach it run the following command in the docker terminal:\ndocker-machine ip\nTis will give you the IP address of your docker that you can now use for accessing the notebook by replacing 127.0.0.1 in the address above by the output of the docker-machine command.\nToken page\nIf you are redirected to a page that ask you to input the token or to set a password, you probably have another docker container running. Run the command docker container ls to check if there is any container running. This should look like:\n\nYou can see in the PORTS column that a container is already using the port 8888. Delete all container using that port via docker container rm -f CONTAINER ID and restart the docker image:\ndocker run -p 8888:8888 -v /path/to/files:/app/judi/data ddjj1118/judi_eas_project:v4.0\nYou should now be able to access the notebooks at http://machine-ip:8888/...",
+    "text": "The goal of the Final Project is to give students the opportunity to apply and further develop their understanding of Seismic Exploration Methods to a topic close to their interests.\n\n\n\nThe Final Project consist of three parts\n\nProject Proposal consisting of a “one pager” + “5 min pitch”\nProject Presentation of 20 minutes with 5 minutes questions, presented at the end of the term\nA final Project Report\n\n\n\nOn March 11th, everybody needs to give a 5 minute pitch on their project proposal. That same day, the “one pager” outlining the project is due by 6:00 PM on March 13. See description below. Your seminar will be evaluated with this form. Please send the slides for your presentation to the course instructor with CSE 8803 in the subject line or bring a memory stick. The 5 minutes presentations include time for questions. Since time is limited, the 5 minute limit will be strictly enforced. So please stick to the main message, the problem you want to tackle, what techniques you will be using, and why it is important.\n\n\n\nA 5-minute pitch is not meant to provide technical details. It is rather intended to convey context and goals of the project. A good guideline for structuring such a talk (the same applies to structuring sentences, paragraphs, sections, papers, theses) as follows\n\nSituation (1 min)\nProblem (1 min)\nSolution (2 min)\nEvaluation (1 min)\n\nFinally, always remember who you audience is and tailor your presentation towards that audience.\n\n\n\nConcise description of the work to be undertaken. The description should not exceed two pages and should contain\n\nTitle of the Final Project\nProblem Statement\nRelevance\nIdentification of methodology that will be used to solve the problem\n\nProposal should be submitted in PDF format or a link to an html page. The project proposals are due March 13 at 6:00 PM and presentations are scheduled for that same day during class. The presentations are five minutes each for each person.\n\n\n\nEach project presentation will be allotted 20 minutes precisely with 5 minutes of questions. The presentation should reflect the current status of the project, which may be subject to change when the project is finalized.\nThe seminar will be evaluated using the following form2.\n\n\n\nThe report needs to be written as a short journal paper. Students will be required to use the IEEE template in two-column mode. The paper should be four-to-six pages including abstract, body text, figures, and bibliography. Reports should consist of\n\nabstract\nintroduction\nproblem statement\nmethodology\nresults\nconclusions\nreferences\nappendices\n\n\n\n\n\n\n10% Proposal plus speed presentation\n30% Project presentation\n60% Final Report\n\n\n\n\nLate submission is unacceptable and will lead to deductions in your grade. The deadline for submission will be communicate in class.\nThis year’s project is an extension to Exercise 7. Please follow the instructions there.\n\n\n\n\nIf you get an error message about Windows version\nYou probably either have Windows Home edition or a version older than Windows 10. Download this version of Docker and install it.\nAccessing the notebook\nIP forward with docker on Windows does not work and the address http://127.0.0.1:8888/... will probably not be reachable. To reach it run the following command in the docker terminal:\ndocker-machine ip\nTis will give you the IP address of your docker that you can now use for accessing the notebook by replacing 127.0.0.1 in the address above by the output of the docker-machine command.\nToken page\nIf you are redirected to a page that ask you to input the token or to set a password, you probably have another docker container running. Run the command docker container ls to check if there is any container running. This should look like:\n\nYou can see in the PORTS column that a container is already using the port 8888. Delete all container using that port via docker container rm -f CONTAINER ID and restart the docker image:\ndocker run -p 8888:8888 -v /path/to/files:/app/judi/data ddjj1118/judi_eas_project:v4.0\nYou should now be able to access the notebooks at http://machine-ip:8888/...",
     "crumbs": [
       "Final Project"
     ]
@@ -58,152 +58,6 @@
     "crumbs": [
       "Final Project"
     ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Seismic Exploration Methods",
-    "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "Seismic Exploration Methods",
-    "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#class-meetings",
-    "href": "index.html#class-meetings",
-    "title": "Seismic Exploration Methods",
-    "section": "Class meetings",
-    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#teaching-team",
-    "href": "index.html#teaching-team",
-    "title": "Seismic Exploration Methods",
-    "section": "Teaching team",
-    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#access-to-piazza",
-    "href": "index.html#access-to-piazza",
-    "title": "Seismic Exploration Methods",
-    "section": "Access to Piazza",
-    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "hw/w2-hw01.html",
-    "href": "hw/w2-hw01.html",
-    "title": "HW 01: Pet Names",
-    "section": "",
-    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "Week 01",
-    "section": "",
-    "text": "Topic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nSeismic Exploration Methods\n\n\nProcessing 1\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "weeks/week-01.html#footnotes",
-    "href": "weeks/week-01.html#footnotes",
-    "title": "Week 01",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThere is a lot of material there that you may want to read through. Use material presented in class as a guide what is important.↩︎"
-  },
-  {
-    "objectID": "weeks/week-02.html",
-    "href": "weeks/week-02.html",
-    "title": "Week 02",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nDate\n\n\n\n\n\n\n\n\nVisualizing data with ggplot2\n\n\nMon, Sep 05\n\n\n\n\n\n\nVisualizing numeric data\n\n\nWed, Sep 07\n\n\n\n\n\n\nVisualizing categorical data\n\n\nWed, Sep 07\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nHomework\n\n\nHW 01: Pet Names\n\n\nWed, Sep 14\n\n\n\n\n\n\nLab\n\n\nLab 01: Hello R!\n\n\nFri, Sep 16\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\nR for Data Science: Chapter 3 - Data Visualization\nIntroduction for Modern Statistics: Chapter 4 - Exploring Categorical Data\nIntroduction to Modern Statistics: Chapter 5- Exploring Numerical Data\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/w2-lab01.html",
-    "href": "labs/w2-lab01.html",
-    "title": "Lab 01: Hello R!",
-    "section": "",
-    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/w3-lab02.html",
-    "href": "labs/w3-lab02.html",
-    "title": "Lab 02: Data visualization with ggplot2!",
-    "section": "",
-    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments1",
-    "section": "",
-    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nDocker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.\nFirst install docker for your system\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:\ndocker run -p 8888:8888 philippwitte/judi:v1.1\nThis will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy-paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it philippwitte/judi:v1.1 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "assignments.html#installation",
-    "href": "assignments.html#installation",
-    "title": "Assignments1",
-    "section": "",
-    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nDocker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.\nFirst install docker for your system\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:\ndocker run -p 8888:8888 philippwitte/judi:v1.1\nThis will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy-paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it philippwitte/judi:v1.1 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "assignments.html#exercises",
-    "href": "assignments.html#exercises",
-    "title": "Assignments1",
-    "section": "Exercises",
-    "text": "Exercises\nDuring the course you will work on the following exercises\n\nA first look at seismic data. Intro to julia Exercise 1 (Due: 11AM Feb 3, 2021)\nNMO correction and velocity analysis. Exercise 2 (Due: 11AM Feb 10, 2021)\nWavefield extrapolation and migration. Exercise 3 (Due: 11AM Feb 17, 2021)\nFourier, Radon and filtering. Exercise 4 (Due Date: 11AM Mar 15, 2021)\nFrom processing to inversion I. Exercise 5 (Due Date: April 5,2020)\nFrom processing to inversion II. Exercise 6 (Due Date: April 19,2020)\nSeismic imaging (mini-project). Exercise 7\n\n\n\nHand in\nPlease turn in your assignments as pdf files. The assignments should be send to Ziyi (Francis) Yin. Late hand ins are not accepted.\nUnless stated otherwise the labs are due one week after the assignments have been posted. For example, if a homework is posted before the lecture on Wednesday, you should submit your homework before the lecture on the next Wednesday in order for your homework to be considered as on-time. If you have difficulty on the homework and want to ask for extension, please email Dr. Felix Herrmann and cc TA in advance.\n\n\nFeedback\nWe will give you feedback on the marking of the exercises.",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "assignments.html#footnotes",
-    "href": "assignments.html#footnotes",
-    "title": "Assignments1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThese assignments are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "weeks/week-03.html",
-    "href": "weeks/week-03.html",
-    "title": "Week 03",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nDate\n\n\n\n\n\n\n\n\nGrammar of data wrangling\n\n\nMon, Sep 12\n\n\n\n\n\n\nWorking with a single data frame\n\n\nMon, Sep 12\n\n\n\n\n\n\nWorking with multiple data frames\n\n\nWed, Sep 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nHomework\n\n\nHW 02: Data visualization\n\n\nWed, Sep 21\n\n\n\n\n\n\nLab\n\n\nLab 02: Data visualization with ggplot2!\n\n\nFri, Sep 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "hw/w3-hw02.html",
-    "href": "hw/w3-hw02.html",
-    "title": "HW 02: Data visualization",
-    "section": "",
-    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "goals.html",
@@ -286,11 +140,150 @@
     ]
   },
   {
+    "objectID": "hw/w3-hw02.html",
+    "href": "hw/w3-hw02.html",
+    "title": "HW 02: Data visualization",
+    "section": "",
+    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "Week 03",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nDate\n\n\n\n\n\n\n\n\nGrammar of data wrangling\n\n\nMon, Sep 12\n\n\n\n\n\n\nWorking with a single data frame\n\n\nMon, Sep 12\n\n\n\n\n\n\nWorking with multiple data frames\n\n\nWed, Sep 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nHomework\n\n\nHW 02: Data visualization\n\n\nWed, Sep 21\n\n\n\n\n\n\nLab\n\n\nLab 02: Data visualization with ggplot2!\n\n\nFri, Sep 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments1",
+    "section": "",
+    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nDocker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.\nFirst install docker for your system\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:\ndocker run -p 8888:8888 philippwitte/judi:v1.1\nThis will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy-paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it philippwitte/judi:v1.1 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#installation",
+    "href": "assignments.html#installation",
+    "title": "Assignments1",
+    "section": "",
+    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nDocker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.\nFirst install docker for your system\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:\ndocker run -p 8888:8888 philippwitte/judi:v1.1\nThis will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy-paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it philippwitte/judi:v1.1 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#exercises",
+    "href": "assignments.html#exercises",
+    "title": "Assignments1",
+    "section": "Exercises",
+    "text": "Exercises\nDuring the course you will work on the following exercises\n\nA first look at seismic data. Intro to julia Exercise 1 (Due: 11AM Feb 3, 2021)\nNMO correction and velocity analysis. Exercise 2 (Due: 11AM Feb 10, 2021)\nWavefield extrapolation and migration. Exercise 3 (Due: 11AM Feb 17, 2021)\nFourier, Radon and filtering. Exercise 4 (Due Date: 11AM Mar 15, 2021)\nFrom processing to inversion I. Exercise 5 (Due Date: April 5,2020)\nFrom processing to inversion II. Exercise 6 (Due Date: April 19,2020)\nSeismic imaging (mini-project). Exercise 7\n\n\n\nHand in\nPlease turn in your assignments as pdf files. The assignments should be send to Ziyi (Francis) Yin. Late hand ins are not accepted.\nUnless stated otherwise the labs are due one week after the assignments have been posted. For example, if a homework is posted before the lecture on Wednesday, you should submit your homework before the lecture on the next Wednesday in order for your homework to be considered as on-time. If you have difficulty on the homework and want to ask for extension, please email Dr. Felix Herrmann and cc TA in advance.\n\n\nFeedback\nWe will give you feedback on the marking of the exercises.",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#footnotes",
+    "href": "assignments.html#footnotes",
+    "title": "Assignments1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThese assignments are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "labs/w3-lab02.html",
+    "href": "labs/w3-lab02.html",
+    "title": "Lab 02: Data visualization with ggplot2!",
+    "section": "",
+    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/w2-lab01.html",
+    "href": "labs/w2-lab01.html",
+    "title": "Lab 01: Hello R!",
+    "section": "",
+    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "Week 02",
+    "section": "",
+    "text": "Lectures\n\n\n\n\nTopic\nDate\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nHomework\n\n\nHW 01: Pet Names\n\n\nWed, Sep 14\n\n\n\n\n\n\nLab\n\n\nLab 01: Hello R!\n\n\nFri, Sep 16\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\nR for Data Science: Chapter 3 - Data Visualization\nIntroduction for Modern Statistics: Chapter 4 - Exploring Categorical Data\nIntroduction to Modern Statistics: Chapter 5- Exploring Numerical Data\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "Week 01",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "hw/w2-hw01.html",
+    "href": "hw/w2-hw01.html",
+    "title": "HW 01: Pet Names",
+    "section": "",
+    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Seismic Exploration Methods",
+    "section": "",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Seismic Exploration Methods",
+    "section": "",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#class-meetings",
+    "href": "index.html#class-meetings",
+    "title": "Seismic Exploration Methods",
+    "section": "Class meetings",
+    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#teaching-team",
+    "href": "index.html#teaching-team",
+    "title": "Seismic Exploration Methods",
+    "section": "Teaching team",
+    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#access-to-piazza",
+    "href": "index.html#access-to-piazza",
+    "title": "Seismic Exploration Methods",
+    "section": "Access to Piazza",
+    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus1",
     "section": "",
-    "text": "By the end of the semester, you will be made familiar with the principles of\n\nbasic seismic data processing and acquisition\nmore advanced wave-equation based imaging, inversion, and inversion techniques\n\nWe will also explore alternative usage of active-source reflection seismology in areas relevant to the energy transition.\nFor more detail, see Goals.\n\n\n\nThe course is organized as follows:\n\nGeneral introduction\nSeismic data acquisition\nFrom processing to inversion\nCompressive sensing\nLinearized inversion\nRTM & FWI\n\nFor more detail on the Course outline, see Outline.\n\n\n\n\n\nNone required\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2008).\nSheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.\nYilmaz, O. (2001), Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data, Society of Exploration Geophysicists.\nYilmaz, O., SEG wiki page on Seismic Data Analysis\nZhou, H. (2014), Practical Seismic Data Analysis, Cambridge University Press.\nHeiner Igel, Computational Seismology—A Practical Introduction\nFichtner, Andreas, Full Seismic Waveform Modelling and Inversion\n\nDuring the term, additional material will be made available under the tab Schedule.\n\n\n\n\nDetails on readings will be provided on a lecture by lecture basis following this Schedule.\n\n\n\nThe lectures and computational assignments will be posted under Schedule. Further details on the computational assignments see Assignments and Final Project.\nIn part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.",
+    "text": "By the end of the semester, you will be made familiar with the principles of\n\nbasic seismic data processing and acquisition\nmore advanced wave-equation based imaging, inversion, and inversion techniques\n\nWe will also explore alternative usage of active-source reflection seismology in areas relevant to the energy transition.\nFor more detail, see Goals.\n\n\n\nThe course is organized as follows:\n\nGeneral introduction\nSeismic data acquisition\nFrom processing to inversion\nCompressive sensing\nLinearized inversion\nRTM & FWI\n\nFor more detail on the Course outline, see Outline.\n\n\n\n\n\nNone required\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019).\nScales, John. “Theory of Seismic Imaging”\nSheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.\nYilmaz, O. (2001), Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data, Society of Exploration Geophysicists.\nYilmaz, O., SEG wiki page on Seismic Data Analysis\nZhou, H. (2014), Practical Seismic Data Analysis, Cambridge University Press.\nHeiner Igel, Computational Seismology—A Practical Introduction\nFichtner, Andreas, Full Seismic Waveform Modelling and Inversion\n\nDuring the term, additional material will be made available under the tab Schedule.\n\n\n\n\nDetails on readings will be provided on a lecture by lecture basis following this Schedule.\n\n\n\nThe lectures and computational assignments will be posted under Schedule. Further details on the computational assignments see Assignments and Final Project.\nIn part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.",
     "crumbs": [
       "Syllabus"
     ]
@@ -300,7 +293,7 @@
     "href": "syllabus.html#course-description",
     "title": "Syllabus1",
     "section": "",
-    "text": "By the end of the semester, you will be made familiar with the principles of\n\nbasic seismic data processing and acquisition\nmore advanced wave-equation based imaging, inversion, and inversion techniques\n\nWe will also explore alternative usage of active-source reflection seismology in areas relevant to the energy transition.\nFor more detail, see Goals.\n\n\n\nThe course is organized as follows:\n\nGeneral introduction\nSeismic data acquisition\nFrom processing to inversion\nCompressive sensing\nLinearized inversion\nRTM & FWI\n\nFor more detail on the Course outline, see Outline.\n\n\n\n\n\nNone required\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2008).\nSheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.\nYilmaz, O. (2001), Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data, Society of Exploration Geophysicists.\nYilmaz, O., SEG wiki page on Seismic Data Analysis\nZhou, H. (2014), Practical Seismic Data Analysis, Cambridge University Press.\nHeiner Igel, Computational Seismology—A Practical Introduction\nFichtner, Andreas, Full Seismic Waveform Modelling and Inversion\n\nDuring the term, additional material will be made available under the tab Schedule.\n\n\n\n\nDetails on readings will be provided on a lecture by lecture basis following this Schedule.\n\n\n\nThe lectures and computational assignments will be posted under Schedule. Further details on the computational assignments see Assignments and Final Project.\nIn part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.",
+    "text": "By the end of the semester, you will be made familiar with the principles of\n\nbasic seismic data processing and acquisition\nmore advanced wave-equation based imaging, inversion, and inversion techniques\n\nWe will also explore alternative usage of active-source reflection seismology in areas relevant to the energy transition.\nFor more detail, see Goals.\n\n\n\nThe course is organized as follows:\n\nGeneral introduction\nSeismic data acquisition\nFrom processing to inversion\nCompressive sensing\nLinearized inversion\nRTM & FWI\n\nFor more detail on the Course outline, see Outline.\n\n\n\n\n\nNone required\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019).\nScales, John. “Theory of Seismic Imaging”\nSheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.\nYilmaz, O. (2001), Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data, Society of Exploration Geophysicists.\nYilmaz, O., SEG wiki page on Seismic Data Analysis\nZhou, H. (2014), Practical Seismic Data Analysis, Cambridge University Press.\nHeiner Igel, Computational Seismology—A Practical Introduction\nFichtner, Andreas, Full Seismic Waveform Modelling and Inversion\n\nDuring the term, additional material will be made available under the tab Schedule.\n\n\n\n\nDetails on readings will be provided on a lecture by lecture basis following this Schedule.\n\n\n\nThe lectures and computational assignments will be posted under Schedule. Further details on the computational assignments see Assignments and Final Project.\nIn part, this course is an adaptation of course material developed by Dr. Eric Verschuur and Dr. Guy Drijkoningen from the Delft Technical University and Dr. Ravasi formally at KAUST.",
     "crumbs": [
       "Syllabus"
     ]
