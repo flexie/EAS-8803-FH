@@ -46,11 +46,8 @@ tbl-colwidths: [10,50,40]
 
 # Readings
 
-|                                                                                                           |
-|-----------------------------------------------------------------------------------------------------------|
-| [Course Syllabus](../syllabus.qmd)                                                                        |
-| [Chapter 1 --- A toolbox for digital twins](https://galileo-gatech.primo.exlibrisgroup.com/permalink/01GALI_GIT/naju39/alma9937674297402486)                 |
-| [Section --- 2 A comprehensive review of digital twin — part 1](https://link.springer.com/article/10.1007/s00158-022-03425-4) |
-| [Chapter 8 --- A toolbox for digital twins until section 8.7[^1] ](https://galileo-gatech.primo.exlibrisgroup.com/permalink/01GALI_GIT/naju39/alma9937674297402486)                 |
-
-[^1]: There is a lot of material there that you may want to read through. Use material presented in class as a guide what is important.
+|  |
+|------------------------------------------------------------------------|
+| [Course Syllabus](../syllabus.qmd) |
+| [Scales, John. "Theory of Seismic Imaging"](https://samizdat.mines.edu/theory-of-seismic-imaging-by-john-scales/) Chapters 1, 2, 10.3 |
+| [Hill, Stephen, and Andreas Rüger. "Illustrated Seismic Processing." Imaging (2019).](https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging) Chapters 1 and 2 |

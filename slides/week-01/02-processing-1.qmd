@@ -1,9 +1,9 @@
 ---
-title: "Seismic Exploration Methods"
-subtitle: "Processing 1"
+title: "Processing 1"
+subtitle: "basic workflow"
 date: "Jan 14, 2026"
 footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
-logo: "images/logo.png"
+logo: "../images/logo.png"
 format: 
   revealjs:
     theme: solarized

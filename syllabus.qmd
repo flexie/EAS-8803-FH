@@ -2,6 +2,7 @@
 title: "Syllabus^[Syllabus updates: This syllabus is subject to change throughout the semester. We will try to keep these updates to a minimum.
 ]"
 subtitle: "Seismic Exploration Methods - EAS 8803 - FH"
+author: Felix J. Herrmann
 ---
 
 ## Course Description 
@@ -43,7 +44,9 @@ None required
 
 #### Recommended texts[^1]
 
-- [Hill, Stephen, and Andreas Rüger. "Illustrated Seismic Processing." Imaging (2008).](https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging)
+- [Hill, Stephen, and Andreas Rüger. "Illustrated Seismic Processing." Imaging (2019).](https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging)
+
+- [Scales, John. "Theory of Seismic Imaging"](https://samizdat.mines.edu/theory-of-seismic-imaging-by-john-scales/) 
   
 - [Sheriff, R. E., and L. P. Geldart (1995), Exploration Seismology (second edition), Cambridge University Express.](https://www.amazon.com/Exploration-Seismology-R-E-Sheriff/dp/0521468264)
 

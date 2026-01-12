@@ -3,7 +3,7 @@ title: "Welcome to Seismic Exploration Methods"
 subtitle: "Introduction"
 date: "Jan 12, 2026"
 footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
-logo: "images/logo.png"
+logo: "../images/logo.png"
 format: 
   revealjs:
     theme: solarized
