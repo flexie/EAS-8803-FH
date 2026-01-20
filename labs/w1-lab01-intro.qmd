@@ -1,0 +1,18 @@
+---
+title: "First Lab"
+date: "January 23, 2026"
+categories: "Lab"
+# notebook-view: true
+resources:
+  - 01intro/Exercise1.ipynb
+notebook-view: 
+  - notebook: 01intro/Exercise1.ipynb
+    title: "Intro"
+---
+
+Follow instructions in the Notebook that can be downloaded from the top right. 
+
+<!-- {{< embed 01intro/underfitting_overfitting.ipynb >}} -->
+
+
+<!-- <a href="01intro/underfitting_overfitting.ipynb" download>Download Notebook</a> -->
