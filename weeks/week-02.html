@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="">
-<meta name="description" content="Sep 05 - 09">
+<meta name="author" content="Felix J. Herrmann">
+<meta name="description" content="Jan 19 - Jan 23">
 
 <title>Week 02 – Seismic Exploration Methods</title>
 <style>
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-title','listing-subtitle','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -261,18 +261,24 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Week 02</h1>
-<p class="subtitle lead">Visualizing Data</p>
+<p class="subtitle lead">Basics Exploration Methods</p>
 </div>
 
 <div>
   <div class="description">
-    Sep 05 - 09
+    Jan 19 - Jan 23
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Felix J. Herrmann </p>
+          </div>
+  </div>
     
   
     
@@ -286,14 +292,39 @@ window.Quarto = {
 <section id="lectures" class="level1">
 <h1>Lectures</h1>
 <div id="listing-slides" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table caption-top" data-quarto-postprocess="true">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Topic</th>
-<th data-quarto-table-cell-role="th">Date</th>
+<tr>
+
+<th>
+Topic
+</th>
+
+<th>
+Subtitle
+</th>
+
+<th>
+Date
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
+
+<tr data-index="0" data-listing-date-sort="1768971600000" data-listing-file-modified-sort="1768948862278" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="Processing 2" data-listing-filename-sort="03-processing-2.qmd">
+<td>
+<a href="../slides/week-02/03-processing-2.html" class="title listing-title">Processing 2</a>
+</td>
+<td>
+<span class="listing-subtitle">basic workflow</span>
+</td>
+<td>
+<span class="listing-date">Wed, Jan 21</span>
+</td>
+
+</tr>
+
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
@@ -322,28 +353,15 @@ Due
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-categories="SG9tZXdvcms=" data-listing-date-sort="1663128000000" data-listing-file-modified-sort="1767587659779" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5" data-listing-title-sort="HW 01: Pet Names" data-listing-filename-sort="w2-hw01.qmd">
-<td>
-<span class="listing-categories">Homework</span>
-</td>
-<td>
-<a href="../hw/w2-hw01.html" class="title listing-title">HW 01: Pet Names</a>
-</td>
-<td>
-<span class="listing-date">Wed, Sep 14</span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-categories="TGFi" data-listing-date-sort="1663300800000" data-listing-file-modified-sort="1767587659782" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="5" data-listing-title-sort="Lab 01: Hello R!" data-listing-filename-sort="w2-lab01.qmd">
+<tr data-index="0" data-categories="TGFi" data-listing-date-sort="1769144400000" data-listing-file-modified-sort="1768942500749" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="24" data-listing-title-sort="First Lab" data-listing-filename-sort="w1-lab01-intro.qmd">
 <td>
 <span class="listing-categories">Lab</span>
 </td>
 <td>
-<a href="../labs/w2-lab01.html" class="title listing-title">Lab 01: Hello R!</a>
+<a href="../labs/w1-lab01-intro.html" class="title listing-title">First Lab</a>
 </td>
 <td>
-<span class="listing-date">Fri, Sep 16</span>
+<span class="listing-date">Fri, Jan 23</span>
 </td>
 
 </tr>
@@ -355,11 +373,22 @@ Due
 </section>
 <section id="readings" class="level1">
 <h1>Readings</h1>
-<ul>
-<li><p><a href="https://r4ds.had.co.nz/data-visualisation.html">R for Data Science: Chapter 3 - Data Visualization</a></p></li>
-<li><p><a href="https://openintro-ims.netlify.app/explore-categorical.html">Introduction for Modern Statistics: Chapter 4 - Exploring Categorical Data</a></p></li>
-<li><p><a href="https://openintro-ims.netlify.app/explore-numerical.html">Introduction to Modern Statistics: Chapter 5- Exploring Numerical Data</a></p></li>
-</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 10%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><a href="../syllabus.html">Course Syllabus</a></td>
+</tr>
+<tr class="even">
+<td><a href="https://samizdat.mines.edu/theory-of-seismic-imaging-by-john-scales/">Scales, John. “Theory of Seismic Imaging”</a> Chapters 1, 2, 10.3</td>
+</tr>
+<tr class="odd">
+<td><a href="https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging">Hill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019).</a> Chapters 1 and 2</td>
+</tr>
+</tbody>
+</table>
 
 
 
