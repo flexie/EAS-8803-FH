@@ -5,6 +5,7 @@ categories: "Lab"
 # notebook-view: true
 resources:
   - 01intro/Exercise1.ipynb
+  - 01intro/Exercise1*.html  
 notebook-view: 
   - notebook: 01intro/Exercise1.ipynb
     title: "Intro"
