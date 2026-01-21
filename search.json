@@ -148,7 +148,7 @@
     "href": "assignments.html#exercises",
     "title": "Assignments1",
     "section": "Exercises",
-    "text": "Exercises\nDuring the course you will work on the following exercises\n\nA first look at seismic data. Intro to julia Exercise 1 (Due: 11AM Feb 3, 2021)\nNMO correction and velocity analysis. Exercise 2 (Due: 11AM Feb 10, 2021)\nWavefield extrapolation and migration. Exercise 3 (Due: 11AM Feb 17, 2021)\nFourier, Radon and filtering. Exercise 4 (Due Date: 11AM Mar 15, 2021)\nFrom processing to inversion I. Exercise 5 (Due Date: April 5,2020)\nFrom processing to inversion II. Exercise 6 (Due Date: April 19,2020)\nSeismic imaging (mini-project). Exercise 7\n\n\n\nHand in\nPlease turn in your assignments as pdf files. The assignments should be send to Ziyi (Francis) Yin. Late hand ins are not accepted.\nUnless stated otherwise the labs are due one week after the assignments have been posted. For example, if a homework is posted before the lecture on Wednesday, you should submit your homework before the lecture on the next Wednesday in order for your homework to be considered as on-time. If you have difficulty on the homework and want to ask for extension, please email Dr. Felix Herrmann and cc TA in advance.\n\n\nFeedback\nWe will give you feedback on the marking of the exercises.",
+    "text": "Exercises\nDuring the course you will work on exercises that you will find under Schedule each week.\n\n\n\nHand in\nPlease turn in your assignments as pdf files. The assignments should be send to Abhinav Ghalot. Late hand ins are not accepted.\nUnless stated otherwise the labs are due one week after the assignments have been posted. For example, if a homework is posted before the lecture on Wednesday, you should submit your homework before the lecture on the next Wednesday in order for your homework to be considered as on-time. If you have difficulty on the homework and want to ask for extension, please email Dr. Felix Herrmann and cc TA in advance.\n\n\nFeedback\nWe will give you feedback on the marking of the exercises.",
     "crumbs": [
       "Assignments"
     ]
@@ -182,7 +182,7 @@
     "href": "weeks/week-02.html",
     "title": "Week 02",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "hw/w3-hw02.html",
