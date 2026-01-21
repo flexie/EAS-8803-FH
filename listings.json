@@ -10,15 +10,14 @@
     "listing": "/weeks/week-01.html",
     "items": [
       "/slides/week-01/01-intro.html",
-      "/slides/week-01/02-processing-1.html",
-      "/labs/w1-lab01-intro.html"
+      "/slides/week-01/02-processing-1.html"
     ]
   },
   {
     "listing": "/weeks/week-02.html",
     "items": [
       "/slides/week-02/03-processing-2.html",
-      "/labs/w1-lab01-intro.html"
+      "/labs/w2-lab01-intro.html"
     ]
   }
 ]
