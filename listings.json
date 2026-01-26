@@ -8,10 +8,11 @@
     ]
   },
   {
-    "listing": "/weeks/week-01.html",
+    "listing": "/weeks/week-03.html",
     "items": [
-      "/slides/week-01/01-intro.html",
-      "/slides/week-01/02-processing-1.html"
+      "/slides/week-03/04-processing-3.html",
+      "/slides/week-03/05-processing-4.html",
+      "/labs/w3-lab02-NMO.html"
     ]
   },
   {
@@ -22,10 +23,10 @@
     ]
   },
   {
-    "listing": "/weeks/week-03.html",
+    "listing": "/weeks/week-01.html",
     "items": [
-      "/slides/week-03/04-processing-3.html",
-      "/labs/w3-lab02-NMO.html"
+      "/slides/week-01/01-intro.html",
+      "/slides/week-01/02-processing-1.html"
     ]
   }
 ]
