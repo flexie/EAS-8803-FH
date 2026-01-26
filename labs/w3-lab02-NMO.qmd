@@ -1,5 +1,5 @@
 ---
-title: "Differentiable Programming"
+title: "NMO correction"
 date: "January 30, 2026"
 categories: "Lab"
 resources:
