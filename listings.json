@@ -3,7 +3,8 @@
     "listing": "/schedule.html",
     "items": [
       "/weeks/week-01.html",
-      "/weeks/week-02.html"
+      "/weeks/week-02.html",
+      "/weeks/week-03.html"
     ]
   },
   {
@@ -18,6 +19,13 @@
     "items": [
       "/slides/week-02/03-processing-2.html",
       "/labs/w2-lab01-intro.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-03.html",
+    "items": [
+      "/slides/week-03/04-processing-3.html",
+      "/labs/w3-lab02-NMO.html"
     ]
   }
 ]
