@@ -1,0 +1,25 @@
+---
+title: "Processing 4"
+subtitle: "basic workflow"
+date: "Jan 28, 2026"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    slide-number: true
+    incremental: false
+    chalkboard: true
+    center: true
+execute:
+  freeze: auto
+  echo: true
+bibliography: ../../references.bib
+---
+
+# Slides 
+
+[🔗 View 03-processing 3](https://www.dropbox.com/scl/fi/g3vd8o1gkn2v7jsshelw6/5-Exploration_Seismology-basics.pptx?rlkey=ckrfkqlhghg3pjd200jrxyppw&st=48iwpqj8&dl=0)
+
+
