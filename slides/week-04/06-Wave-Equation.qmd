@@ -1,0 +1,25 @@
+---
+title: "Seismic Imaging"
+subtitle: "the Wave Equation"
+date: "February 2, 2026"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    slide-number: true
+    incremental: false
+    chalkboard: true
+    center: true
+execute:
+  freeze: auto
+  echo: true
+bibliography: ../../references.bib
+---
+
+# Slides 
+
+[🔗 View 06-Wave-Equation](https://www.dropbox.com/scl/fi/g2zo0uehssy0npoj4vlzn/06-Exploration_Seismology-WE.pptx?rlkey=qq0sw19ndp6xwewr8203ouk6n&st=o528rjaw&dl=0)
+
+

@@ -1,7 +1,7 @@
 ---
-title: "Week 03"
-subtitle: "Basics Exploration Methods"
-description: "Jan 26   - Jan 30"
+title: "Week 04"
+subtitle: "Seismic Imaging"
+description: "Feb 2  - 6"
 author: "Felix J. Herrmann"
 date: ""
 listing:
@@ -20,7 +20,7 @@ listing:
   - id: assignments
     contents:
   #     - ../hw/w2-*.qmd
-       - ../labs/w3-*.qmd
+       - ../labs/w4-*.qmd
     type: table
     fields: [categories, title, date]
     date-format: "ddd, MMM DD"
