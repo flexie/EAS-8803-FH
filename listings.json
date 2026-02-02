@@ -4,15 +4,23 @@
     "items": [
       "/weeks/week-01.html",
       "/weeks/week-02.html",
-      "/weeks/week-03.html"
+      "/weeks/week-03.html",
+      "/weeks/week-04.html"
     ]
   },
   {
     "listing": "/weeks/week-03.html",
     "items": [
-      "/slides/week-03/04-processing-3.html",
-      "/slides/week-03/05-processing-4.html",
+      "/slides/week-04/06-Wave-Equation.html",
+      "/slides/week-04/07-Wavefield-Extrapolation.html",
       "/labs/w3-lab02-NMO.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-04.html",
+    "items": [
+      "/slides/week-04/06-Wave-Equation.html",
+      "/slides/week-04/07-Wavefield-Extrapolation.html"
     ]
   },
   {
