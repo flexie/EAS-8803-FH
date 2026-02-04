@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
     <meta charset="utf-8">
-    <meta name="generator" content="quarto-1.7.32">
+    <meta name="generator" content="quarto-1.8.26">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -154,14 +154,15 @@
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-79df7ed5347781c1339259261daa236f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
      <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -222,7 +223,8 @@
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://flexie.github.io/EAS-8803-FH/" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -314,10 +316,10 @@
 <p>The Julia utilities for reading SEGY data is SegyIO</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="cell-2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add(url="https://github.com/slimgroup/SegyIO.jl.git")</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add("PyPlot")</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">SegyIO</span>, <span class="bu">PyPlot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">SegyIO</span>, <span class="bu">PyPlot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <div id="cell-3" class="cell markdown">
 <section id="scaning-the-dataset" class="level1">
@@ -328,10 +330,10 @@ The receiver position use the Group keyword such as GroupX</code></pre>
 </section>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="cell-4" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scan the dataset</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scan the dataset</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dir <span class="op">=</span> <span class="bu">Pkg</span>.<span class="fu">dir</span>(<span class="st">"SegyIO"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> <span class="st">"data"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data_dir <span class="op">=</span> <span class="st">"data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>┌ Warning: `Pkg.dir(pkgname, paths...)` is deprecated; instead, do `import SegyIO; joinpath(dirname(pathof(SegyIO)), "..", paths...)`.
 └ @ Pkg.API /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.2/Pkg/src/API.jl:415</code></pre>
@@ -344,7 +346,7 @@ The receiver position use the Group keyword such as GroupX</code></pre>
 <p>We can now scans the dataset with the segy_scan functin. This function returns a SeisCOn object where each block is a shot record with its metadata.</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="cell-6" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>blocks <span class="op">=</span> <span class="fu">segy_scan</span>(<span class="fu">string</span>(dir, data_dir), <span class="st">"overthrust"</span>, [<span class="st">"GroupX"</span>, <span class="st">"GroupY"</span>, <span class="st">"ns"</span>, <span class="st">"dt"</span>]);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>blocks <span class="op">=</span> <span class="fu">segy_scan</span>(<span class="fu">string</span>(dir, data_dir), <span class="st">"overthrust"</span>, [<span class="st">"GroupX"</span>, <span class="st">"GroupY"</span>, <span class="st">"ns"</span>, <span class="st">"dt"</span>]);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_41_60.segy
 Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_21_40.segy
@@ -357,16 +359,16 @@ Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_sh
 <p>Now extract the time, source and receiver coordinates (in seconds and meters) for all the traces. The source and receiver vectors have a length equal to the number of traces, the time vector has a length equal to the number of rows in the data matrix.</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="cell-8" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sx <span class="op">=</span> [<span class="fu">get_header</span>(blocks[i], <span class="st">"SourceX"</span>) for i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(blocks)];</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>rx <span class="op">=</span> [<span class="fu">get_header</span>(blocks[i], <span class="st">"GroupX"</span>) for i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(blocks)];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sx <span class="op">=</span> [<span class="fu">get_header</span>(blocks[i], <span class="st">"SourceX"</span>) for i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(blocks)];</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>rx <span class="op">=</span> [<span class="fu">get_header</span>(blocks[i], <span class="st">"GroupX"</span>) for i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(blocks)];</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="cell-9" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the tme axis. In this case the time axis is the same for all traces so we only need to extract it from the first trace</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the tme axis. In this case the time axis is the same for all traces so we only need to extract it from the first trace</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dt needs to be corrected for the binary setup</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># All the times are in ms</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="fu">get_header</span>(blocks[<span class="fl">1</span>], <span class="st">"dt"</span>)[<span class="fl">1</span>]<span class="op">/</span><span class="fl">1000</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>nt <span class="op">=</span> <span class="fu">get_header</span>(blocks[<span class="fl">1</span>], <span class="st">"ns"</span>)[<span class="fl">1</span>]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>dt<span class="op">:</span>(nt<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="fl">0</span><span class="op">:</span>dt<span class="op">:</span>(nt<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>dt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>0.0:4.0:3000.0</code></pre>
 </div>
@@ -377,24 +379,24 @@ Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_sh
 <p>m = (s + r)/2;</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="cell-11" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> (sx <span class="op">.-</span> rx)<span class="op">./</span><span class="fl">2</span>;</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> (sx <span class="op">.+</span> rx)<span class="op">./</span><span class="fl">2</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> (sx <span class="op">.-</span> rx)<span class="op">./</span><span class="fl">2</span>;</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> (sx <span class="op">.+</span> rx)<span class="op">./</span><span class="fl">2</span>;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <div id="cell-12" class="cell markdown">
 <p>The fold of the data is the number of traces in each midpoint gather. This can be easily visualized by a histogram. As we have a set of blocks we need to inspect each block seperately to recover the nuique set of midpoint location and the total number fo traces for this midpoint</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="cell-13" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>all_m <span class="op">=</span> <span class="fu">hcat</span>(m<span class="op">'...</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>all_m <span class="op">=</span> <span class="fu">hcat</span>(m<span class="op">'...</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fold <span class="op">=</span> [<span class="fu">sum</span>(all_m <span class="op">.==</span> <span class="fu">unique</span>(all_m)[i]) for i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fu">length</span>(<span class="fu">unique</span>(all_m))];</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>all_h <span class="op">=</span> <span class="fu">hcat</span>(h<span class="op">'...</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>all_h <span class="op">=</span> <span class="fu">hcat</span>(h<span class="op">'...</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="cell-14" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>();</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>();</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bar</span>(<span class="fu">unique</span>(all_m),fold ,align<span class="op">=</span><span class="st">"center"</span>, width<span class="op">=</span><span class="fl">100</span>);</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"midpoint [m]"</span>);</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"fold"</span>);</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"fold"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"fold"</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="">
 <figure class="figure">
@@ -409,9 +411,9 @@ Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_sh
 <p>Extract a midpoint gather. For example, a midpoint gather at m = 2550 looks like this:</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="cell-16" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Im <span class="op">=</span> <span class="fu">findall</span>(all_m <span class="op">.==</span> <span class="fl">7500</span>.)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Im <span class="op">=</span> <span class="fu">findall</span>(all_m <span class="op">.==</span> <span class="fl">7500</span>.)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>()</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(<span class="fu">Float32</span>.(blocks[<span class="fl">1</span><span class="op">:</span><span class="fl">97</span>].data[<span class="op">:</span>,<span class="fu">map</span>(i <span class="op">-&gt;</span> i[<span class="fl">2</span>], Im)]), vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, aspect<span class="op">=</span><span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(<span class="fu">Float32</span>.(blocks[<span class="fl">1</span><span class="op">:</span><span class="fl">97</span>].data[<span class="op">:</span>,<span class="fu">map</span>(i <span class="op">-&gt;</span> i[<span class="fl">2</span>], Im)]), vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, aspect<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="">
 <figure class="figure">
@@ -427,10 +429,10 @@ Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_sh
 <p>Extract an offset-gather. For example, a zero-offset section looks like:</p>
 </div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="cell-18" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Ih <span class="op">=</span> <span class="fu">findall</span>(all_h <span class="op">.==</span> <span class="fl">0</span>.)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Ih <span class="op">=</span> <span class="fu">findall</span>(all_h <span class="op">.==</span> <span class="fl">0</span>.)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>inds <span class="op">=</span> <span class="fu">sortperm</span>(all_m[Ih])</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>()</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(<span class="fu">Float32</span>.(blocks[<span class="fl">1</span><span class="op">:</span><span class="fl">97</span>].data[<span class="op">:</span>,<span class="fu">map</span>(i <span class="op">-&gt;</span> i[<span class="fl">2</span>], Ih[inds])]), vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, aspect<span class="op">=</span><span class="fl">.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(<span class="fu">Float32</span>.(blocks[<span class="fl">1</span><span class="op">:</span><span class="fl">97</span>].data[<span class="op">:</span>,<span class="fu">map</span>(i <span class="op">-&gt;</span> i[<span class="fl">2</span>], Ih[inds])]), vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, aspect<span class="op">=</span><span class="fl">.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div class="">
 <figure class="figure">
@@ -498,13 +500,14 @@ Scanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_sh
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
