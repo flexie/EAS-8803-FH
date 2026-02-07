@@ -1,0 +1,25 @@
+---
+title: "Seismic Imaging"
+subtitle: "Wavefield Extrapolation"
+date: "February 09, 2026"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    slide-number: true
+    incremental: false
+    chalkboard: true
+    center: true
+execute:
+  freeze: auto
+  echo: true
+bibliography: ../../references.bib
+---
+
+# Slides 
+
+[🔗 View 07-Wavefield Extrapolation](https://www.dropbox.com/scl/fi/hdb7wo20i0oihrhaaeqk9/07-Exploration_Seismology-migration.mov?rlkey=s1msp45ddp5ekv5stybyldfgh&st=vahbhjlq&dl=0)
+
+

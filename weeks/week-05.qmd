@@ -1,13 +1,13 @@
 ---
-title: "Week 04"
+title: "Week 05"
 subtitle: "Seismic Imaging"
-description: "Feb 02  - 06"
+description: "Feb 09  - 13"
 author: "Felix J. Herrmann"
 date: ""
 listing:
   - id: slides
     contents:
-      - ../slides/week-04/*.qmd
+      - ../slides/week-05/*.qmd
     type: table
     fields: [title, subtitle, date]
     date-format: "ddd, MMM DD"
@@ -20,7 +20,7 @@ listing:
   - id: assignments
     contents:
   #     - ../hw/w2-*.qmd
-       - ../labs/w4-*.qmd
+       - ../labs/w5-*.qmd
     type: table
     fields: [categories, title, date]
     date-format: "ddd, MMM DD"
@@ -48,5 +48,5 @@ tbl-colwidths: [10,50,40]
 
 |  |
 |------------------------------------------------------------------------|
+| [Hill, Stephen, and Andreas Rüger. "Illustrated Seismic Processing." Imaging (2019).](https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging) Chapter 11 |
 | [Scales, John. "Theory of Seismic Imaging"](https://samizdat.mines.edu/theory-of-seismic-imaging-by-john-scales/) Chapters 1, 2, 10.3 |
-| [Hill, Stephen, and Andreas Rüger. "Illustrated Seismic Processing." Imaging (2019).](https://pubs.geoscienceworld.org/seg/books/edited-volume/2532/Illustrated-Seismic-Processing-Volume-1-Imaging) Chapters 2, 3, and 4 |

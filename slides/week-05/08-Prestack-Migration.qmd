@@ -1,0 +1,25 @@
+---
+title: "Seismic Imaging"
+subtitle: "Prestack Migration + Velocity Analysis"
+date: "February 11, 2026"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+format: 
+  revealjs:
+    theme: solarized
+    transition: fade
+    slide-number: true
+    incremental: false
+    chalkboard: true
+    center: true
+execute:
+  freeze: auto
+  echo: true
+bibliography: ../../references.bib
+---
+
+# Slides 
+
+[🔗 View 08-Prestack Migration + Velocity Analysis](https://www.dropbox.com/scl/fi/tajz2u5y8reim1iaxm9qv/08-Exploration_Seismology-migration.mov?rlkey=1ntj7t31unolep0bdi4m6600r&st=mpye3pr4&dl=0)
+
+
