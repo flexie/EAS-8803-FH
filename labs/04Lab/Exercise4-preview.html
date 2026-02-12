@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.8.26">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+    <title>Seismic modeling and imaging (Acoustic vs Elastic) – Seismic Exploration Methods</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      html { -webkit-text-size-adjust: 100%; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = '/';
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+     <script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>  
+      </head>
+
+  <body class="nav-sidebar docked quarto-notebook quarto-light">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Acoustic and Elastic Imaging</h6>
+
+            <a href="../../labs/04Lab/Exercise4.ipynb" class="btn btn-primary quarto-download-embed" download="Exercise4.ipynb">Download Notebook</a>
+          </div>
+
+     <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seismic modeling and imaging (Acoustic vs Elastic)</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://flexie.github.io/EAS-8803-FH/" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../goals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Goals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../outline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outline</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#model" id="toc-model" class="nav-link active" data-scroll-target="#model">Model</a></li>
+  <li><a href="#modeling" id="toc-modeling" class="nav-link" data-scroll-target="#modeling">Modeling</a></li>
+  <li><a href="#acquisition-geometry" id="toc-acquisition-geometry" class="nav-link" data-scroll-target="#acquisition-geometry">Acquisition Geometry</a></li>
+  <li><a href="#source-wavelet" id="toc-source-wavelet" class="nav-link" data-scroll-target="#source-wavelet">Source wavelet</a></li>
+  <li><a href="#judivector" id="toc-judivector" class="nav-link" data-scroll-target="#judivector">judiVector</a></li>
+  <li><a href="#linear-operator" id="toc-linear-operator" class="nav-link" data-scroll-target="#linear-operator">Linear operator</a></li>
+  <li><a href="#seismic-data-generation" id="toc-seismic-data-generation" class="nav-link" data-scroll-target="#seismic-data-generation">Seismic Data Generation</a></li>
+  <li><a href="#elastic-simulations-p--and-s-waves" id="toc-elastic-simulations-p--and-s-waves" class="nav-link" data-scroll-target="#elastic-simulations-p--and-s-waves">Elastic simulations (P- and S-waves)</a></li>
+  <li><a href="#acoustic-imaging" id="toc-acoustic-imaging" class="nav-link" data-scroll-target="#acoustic-imaging">Acoustic Imaging</a></li>
+  <li><a href="#elastic-imaging" id="toc-elastic-imaging" class="nav-link" data-scroll-target="#elastic-imaging">Elastic Imaging</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">      <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Seismic modeling and imaging (Acoustic vs Elastic)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>     <div id="ec8a2000" class="cell markdown">
+
+</div>
+<div id="a5a562ee" class="cell markdown">
+<p>JUDI is a framework for large-scale seismic modeling and inversion and designed to enable rapid translations of algorithms to fast and efficient code that scales to industry-size 3D problems. The focus of the package lies on seismic modeling, imaging as well as PDE-constrained optimization such as full-waveform inversion (FWI) and imaging (LS-RTM). Wave equations in JUDI are solved with Devito, a Python domain-specific language for automated finite-difference (FD) computations.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [65]:</pre></div><div id="85e81f57-8870-42a2-ab2d-26d03af90a5e" class="cell" data-execution_count="65">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Lets add necessary packages. Uncomment these lines and run them only once</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(name="JUDI", version="3.4.7")</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(name="PyPlot", version="2.11.6")</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(name="SlimPlotting", version="0.1.6")</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(name="Images", version="0.2.53")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [1]:</pre></div><div id="c3beb0f3" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JUDI</span>, <span class="bu">PyPlot</span>, <span class="bu">LinearAlgebra</span>, <span class="bu">SlimPlotting</span>, <span class="bu">Images</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-cyan-fg ansi-bold">[ </span><span class="ansi-cyan-fg ansi-bold">Info: </span>JLD2 compat enabled
+</pre>
+</div>
+</div>
+</div></div>
+<div id="8a5362e6" class="cell markdown">
+<section id="physical-problem-setup" class="level1">
+<h1>Physical problem setup</h1>
+</section>
+<section id="grid" class="level1">
+<h1>Grid</h1>
+</section>
+</div>
+<div id="7c4efc26" class="cell markdown">
+<p>JUDI relies on a cartesian grid for modeling and inversion. We start by defining the parameters needed for a cartesian grid:</p>
+<p>⋅ A shape<br>
+⋅ A grid spacing in each direction<br>
+⋅ An origin</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div id="660f4e0e" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shape <span class="op">=</span> (<span class="fl">301</span>, <span class="fl">301</span>) <span class="co"># Number of gridpoints nx, nz</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>spacing <span class="op">=</span> (<span class="fl">10</span>, <span class="fl">10</span>) <span class="co"># #n meters here</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>origin <span class="op">=</span> (<span class="fl">0.0</span>, <span class="fl">0.0</span>) <span class="co"># In meters as well</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(0.0, 0.0)</code></pre>
+</div>
+</div></div>
+<div id="8c368208" class="cell markdown">
+<section id="acoustic-simulations-p-waves" class="level1">
+<h1>Acoustic simulations (P-waves)</h1>
+</section>
+<section id="physical-object" class="level1">
+<h1>Physical object</h1>
+</section>
+</div>
+<div id="6c317dad" class="cell markdown">
+<p>JUDI defines a few basic types to handle physical object such as the velocity model. The type PhyisicalParameter is an abstract vector and behaves as a standard vector. A PhysicalParameter can be constructed in various ways but always require the origin o and grid spacing d that cannot be infered from the array.</p>
+<p>PhysicalParameter(v::Array{vDT}, d, o) where <code>v</code> is an n-dimensional array and n=size(v)</p>
+<p>PhysicalParameter(n, d, o; vDT=Float32) Creates a zero PhysicalParameter</p>
+<p>PhysicalParameter(v::Array{vDT}, A::PhysicalParameter) Creates a PhysicalParameter from the Array <code>v</code> with n, d, o from <code>A</code></p>
+<p>PhysicalParameter(v::Array{vDT, N}, n::Tuple, d::Tuple, o::Tuple) where <code>v</code> is a vector or nd-array that is reshaped into shape <code>n</code></p>
+<p>PhysicalParameter(v::vDT, n::Tuple, d::Tuple, o::Tuple) Creates a constant (single number) PhyicalParameter</p>
+</div>
+<div id="c56793a2" class="cell markdown">
+
+</div>
+<div id="fa9a2d8d" class="cell markdown">
+<p>Let’s make a simple three layer velocity model</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div id="b7c67473" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the velocity (in km/sec=m/ms)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>vp <span class="op">=</span> <span class="fl">1.5f0</span> <span class="op">*</span> <span class="fu">ones</span>(<span class="dt">Float32</span>, shape)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>vp[<span class="op">:</span>, <span class="fl">100</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.=</span> <span class="fl">2.0f0</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>vp[<span class="op">:</span>, <span class="fl">180</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.=</span> <span class="fl">2.5f0</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a physical parameter</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>VP <span class="op">=</span> <span class="fu">PhysicalParameter</span>(vp, spacing, origin);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="49323fe7" class="cell markdown">
+<p>Let’s plot the velocities. Because we adopt a standad cartesian dimension ordering for generality (X, Z) in 2D and (X, Y, Z) in 3D, we plot the transpose of the velocity for proper visualization.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div id="7e34305a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subplot</span>(<span class="fl">121</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(vp<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"jet"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"vp"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">subplot</span>(<span class="fl">122</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(VP<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"jet"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"vp as a physical parameter"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>PyObject Text(0.5, 1.0, 'vp as a physical parameter')</code></pre>
+</div>
+</div></div>
+<div id="dcc11bb4" class="cell markdown">
+<p>Because the physical parameter behaves as vector, we can easily perform standard operations on it.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="b7f6cf33" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">norm</span>(VP), <span class="fu">extrema</span>(VP), <span class="fl">2f0</span> <span class="op">.*</span> VP, VP <span class="op">.^</span> <span class="fl">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>(626.8016f0, (1.5f0, 2.5f0), PhysicalParameter{Float32, 2} of size (301, 301) with origin (0.0f0, 0.0f0) and spacing (10.0f0, 10.0f0), PhysicalParameter{Float32, 2} of size (301, 301) with origin (0.0f0, 0.0f0) and spacing (10.0f0, 10.0f0))</code></pre>
+</div>
+</div></div>
+<div id="2174d18d" class="cell markdown">
+<section id="model" class="level1">
+<h1>Model</h1>
+</section>
+</div>
+<div id="16d8da0e" class="cell markdown">
+<p>JUDI then provide a Model structure that wraps multiple physical parameters toghether. A Model accept currently only accept standard Array as an input (to be fixed #1)</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div id="e88241c4" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> <span class="fu">Model</span>(shape, spacing, origin, <span class="fl">1f0</span><span class="op">./</span>vp<span class="op">.^</span><span class="fl">2f0</span>; nb <span class="op">=</span> <span class="fl">80</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>Model (n=(301, 301), d=(10.0f0, 10.0f0), o=(0.0f0, 0.0f0)) with parameters (:m, :rho)</code></pre>
+</div>
+</div></div>
+<div id="90de450d" class="cell markdown">
+<section id="modeling" class="level1">
+<h1>Modeling</h1>
+</section>
+</div>
+<div id="4b1e5e3e" class="cell markdown">
+<p>Now that we have a seismic model, we will generate a few shot records.</p>
+</div>
+<div id="4480988d" class="cell markdown">
+<section id="acquisition-geometry" class="level1">
+<h1>Acquisition Geometry</h1>
+</section>
+</div>
+<div id="503c9786" class="cell markdown">
+<p>The first thing we need is an acquisiton geometry. In JUDI there is two ways to create a Geometry.</p>
+<p>⋅ By hand, as we will show here<br>
+⋅ From a SEGY file, as we will show in a follow-up tutorial</p>
+<p>We create a split-spread geomtry with sources at the top and receivers at the ocean bottom (top of second layer).</p>
+</div>
+<div id="bf76e2ff" class="cell markdown">
+<section id="note" class="level5">
+<h5 class="anchored" data-anchor-id="note">Note:</h5>
+<p>JUDI currently expects all three coordinates to be inputed to setup a Geometry in 2D as well. This will be fixed in a later version of JUDI.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="427cac37" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sources position</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>nsrc <span class="op">=</span> <span class="fl">11</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>xsrc <span class="op">=</span> <span class="fu">range</span>(<span class="fl">0f0</span>, (shape[<span class="fl">1</span>] <span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], length<span class="op">=</span>nsrc)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ysrc <span class="op">=</span> <span class="fl">0f0</span> <span class="op">.*</span> xsrc <span class="co"># this a 2D case so we set y to zero</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>zsrc <span class="op">=</span> <span class="fl">12.5f0</span><span class="fu">*ones</span>(<span class="dt">Float32</span>, nsrc);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="aaa034ef" class="cell markdown">
+<p>Now this definition creates a single Array of position, which would correspond to a single Simultenous source. Since we are interested in single source experiments here, we convert these position into an Array of Array of size nsrc where each sub-array is a single source position</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div id="b356f240" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>xsrc, ysrc, zsrc <span class="op">=</span> <span class="fu">convertToCell</span>.([xsrc, ysrc, zsrc]);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div id="1d7708b3" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OBN position</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>nrec <span class="op">=</span> <span class="fl">101</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>xrec <span class="op">=</span> <span class="fu">range</span>(<span class="fl">0f0</span>, (shape[<span class="fl">1</span>] <span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], length<span class="op">=</span>nrec)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>yrec <span class="op">=</span> <span class="fl">0f0</span> <span class="co"># this a 2D case so we set y to zero. This can be a single number for receivers</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>zrec <span class="op">=</span> (<span class="fl">2</span><span class="op">*</span>spacing[<span class="fl">1</span>])<span class="fu">*ones</span>(<span class="dt">Float32</span>, nrec);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="78a71727" class="cell markdown">
+<p>The last step to be able to create and acquisiton geometry is to define a recording time and sampling rate</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="c590af37" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>record_time <span class="op">=</span> <span class="fl">3500f0</span> <span class="co"># Recording time in ms (since we have m/ms for the velocity)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sampling_rate <span class="op">=</span> <span class="fl">4f0</span>; <span class="co"># Let's use a standard 4ms sampling rate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="b197544e" class="cell markdown">
+<p>Now we can create the source and receivers geometry</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div id="b0be961e" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>src_geom <span class="op">=</span> <span class="fu">Geometry</span>(xsrc, ysrc, zsrc; dt<span class="op">=</span>sampling_rate, t<span class="op">=</span>record_time)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For the receiver geometry, we specify the number of source to tell JUDI to use the same receiver position for all sources</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>rec_geom <span class="op">=</span> <span class="fu">Geometry</span>(xrec, yrec, zrec, dt<span class="op">=</span>sampling_rate, t<span class="op">=</span>record_time, nsrc<span class="op">=</span>nsrc);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="14610001" class="cell markdown">
+<p>Let’s visualize the geometry onto the model</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="54464ac2" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>();</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(vp<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"jet"</span>, extent<span class="op">=</span>[<span class="fl">0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], (shape[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">2</span>], <span class="fl">0</span>])</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter</span>(xsrc, zsrc, label<span class="op">=:</span>sources)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter</span>(xrec, zrec, label<span class="op">=</span><span class="st">"OBN"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>PyObject &lt;matplotlib.legend.Legend object at 0x7fd5d57a0fd0&gt;</code></pre>
+</div>
+</div></div>
+<div id="fd8bc0a2" class="cell markdown">
+<section id="source-wavelet" class="level2">
+<h2 class="anchored" data-anchor-id="source-wavelet">Source wavelet</h2>
+</section>
+</div>
+<div id="498625fd" class="cell markdown">
+<p>For the source wavelet, we will use a standard Ricker wavelet at 10Hz for this tutorial.In practice this wavelet would be read from a file or estimated during inversion.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div id="28eb0aa0" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>f0 <span class="op">=</span> <span class="fl">0.010</span> <span class="co"># Since we use ms, the frequency is in KHz</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>wavelet <span class="op">=</span> <span class="fu">ricker_wavelet</span>(record_time, sampling_rate, f0);</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(wavelet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>1-element Vector{PyCall.PyObject}:
+ PyObject &lt;matplotlib.lines.Line2D object at 0x7fd5d54c0220&gt;</code></pre>
+</div>
+</div></div>
+<div id="2aa9cabd" class="cell markdown">
+<section id="judivector" class="level1">
+<h1>judiVector</h1>
+</section>
+</div>
+<div id="664557e5" class="cell markdown">
+<p>In order to represent seismic data, JUDI provide the judiVector type. This type wraps a geometry with the seismic data corresponding to it. Let’s cretae one for the source</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div id="9282f735" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="fu">judiVector</span>(src_geom, wavelet)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> <span class="fu">Options</span>(IC <span class="op">=</span> <span class="st">"isic"</span>, dt_comp<span class="op">=</span><span class="fl">0.7f0</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div id="09308923" class="cell markdown">
+<section id="linear-operator" class="level1">
+<h1>Linear operator</h1>
+</section>
+</div>
+<div id="0fd00e59" class="cell markdown">
+<p>The last step to model our seismic data os to create the linear operator representing the discretized wave equation on the Model we defined. We also need to define the linear operator corresponding to the source injection and the receiver interpolation.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div id="55b9c0f6" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Pr <span class="op">=</span> <span class="fu">judiProjection</span>(rec_geom) <span class="co"># receiver interpolation</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>Ps <span class="op">=</span> <span class="fu">judiProjection</span>(src_geom) <span class="co"># Source interpolation</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Ainv <span class="op">=</span> <span class="fu">judiModeling</span>(model;options<span class="op">=</span>opt) <span class="co"># Inverse of the disrete ewave equation.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>JUDI forward{Float32} propagator (x * z * time) -&gt; (x * z * time)</code></pre>
+</div>
+</div></div>
+<div id="4b37411f" class="cell markdown">
+<p>WARNING: While these three operator are well defined in JUDI, judiProjection is a no-op operator and cannot be used by itself but only in combination with a judiModeling operator</p>
+</div>
+<div id="3621ba0d" class="cell markdown">
+<section id="seismic-data-generation" class="level1">
+<h1>Seismic Data Generation</h1>
+</section>
+</div>
+<div id="aa5c3617" class="cell markdown">
+<p>Now that we have all our operators setup we can finally generate synthetic data wit ha simple mat-vec product thanks to the abstraction</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div id="d07eb653" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>d_obs <span class="op">=</span> Pr <span class="op">*</span> Ainv <span class="op">*</span> Ps<span class="op">'</span> <span class="op">*</span> q</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Building forward operator
+Operator `forward` ran in 0.41 s
+Operator `forward` ran in 0.46 s
+Operator `forward` ran in 0.49 s
+Operator `forward` ran in 0.43 s
+Operator `forward` ran in 0.44 s
+Operator `forward` ran in 0.41 s
+Operator `forward` ran in 0.39 s
+Operator `forward` ran in 0.46 s
+Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.48 s
+Operator `forward` ran in 0.39 s</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>judiVector{Float32, Matrix{Float32}} with 11 sources</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="27f7435f" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data_extent <span class="op">=</span> [xrec[<span class="fl">1</span>], xrec[<span class="kw">end</span>], <span class="fl">1f-3</span><span class="op">*</span>record_time, <span class="fl">0</span>]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">20</span>, <span class="fl">5</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subplot</span>(<span class="fl">1</span>, <span class="fl">5</span>, i)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imshow</span>(d_obs.data[<span class="fl">2</span><span class="op">*</span>i], vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlabel</span>(<span class="st">"Receiver position (m)"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylabel</span>(<span class="st">"Recording time (s)"</span>)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">title</span>(<span class="st">"xsrc=</span><span class="sc">$</span>(<span class="fl">1f-3</span>xsrc[<span class="fl">2</span><span class="op">*</span>i][<span class="fl">1</span>])<span class="st">km"</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div id="e2642ed3-edef-44b9-ae9d-6f3592456422" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(d_obs.data[<span class="fl">2</span>], vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-20-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>PyObject &lt;matplotlib.image.AxesImage object at 0x7fd5d34c5640&gt;</code></pre>
+</div>
+</div></div>
+<div id="00177bf5" class="cell markdown">
+<section id="elastic-simulations-p--and-s-waves" class="level1">
+<h1>Elastic simulations (P- and S-waves)</h1>
+<p>In the acoustic example above, the model is defined only by the <em>P-wave</em> velocity (equivalently the squared slowness (m=1/v_p^2)).<br>
+For an <strong>elastic</strong> simulation we must also provide a <strong>shear-wave velocity</strong> (v_s).</p>
+<p>A simple (not unique!) way to build (v_s) is: - <strong>Water layer (top layer):</strong> set (v_s = 0) (fluids do not support shear) - <strong>Solid layers:</strong> set (v_s v_p/)</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div id="df238ea1" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Elastic model construction (vp + vs) ---</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># "Water bottom" index (top of the second layer). In our toy model this is where vp jumps at depth index 66.</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>idx_wb <span class="op">=</span> <span class="fl">66</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Shear-wave velocity: vs = 0 in water, vs = vp/sqrt(3) in the solid</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>vs  <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">Float32</span>, shape)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>vs[<span class="op">:</span>,  idx_wb<span class="op">:</span><span class="kw">end</span>] <span class="op">.=</span> vp[<span class="op">:</span>,  idx_wb<span class="op">:</span><span class="kw">end</span>] <span class="op">./</span> <span class="fl">1.732f0</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Squared slowness (acoustic parameterization uses m = 1/vp^2)</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>m  <span class="op">=</span> <span class="fl">1f0</span> <span class="op">./</span> vp<span class="op">.^</span><span class="fl">2f0</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Elastic Models: pass vs via keyword argument</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>model_el  <span class="op">=</span> <span class="fu">Model</span>(shape, spacing, origin, m;  vs<span class="op">=</span>vs,  nb<span class="op">=</span><span class="fl">80</span>)</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>opt_el <span class="op">=</span> <span class="fu">Options</span>(IC <span class="op">=</span> <span class="st">"isic"</span>, dt_comp<span class="op">=</span><span class="fl">0.7f0</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [29]:</pre></div><div id="7f0573ed" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Elastic modeling operators + data generation ---</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>Pr_el <span class="op">=</span> <span class="fu">judiProjection</span>(rec_geom)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>Ps_el <span class="op">=</span> <span class="fu">judiProjection</span>(src_geom)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>Ainv_el  <span class="op">=</span> <span class="fu">judiModeling</span>(model_el;  options<span class="op">=</span>opt_el)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>q_el <span class="op">=</span> <span class="fu">cumsum</span>(q, dims<span class="op">=</span><span class="fl">1</span>)<span class="op">*</span>sampling_rate</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Elastic synthetic data (true + background)</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>d_obs_el  <span class="op">=</span> Pr_el <span class="op">*</span> Ainv_el  <span class="op">*</span> Ps_el<span class="op">'</span> <span class="op">*</span> q_el</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Operator `forward` ran in 1.80 s
+Operator `forward` ran in 1.77 s
+Operator `forward` ran in 1.75 s
+Operator `forward` ran in 1.77 s
+Operator `forward` ran in 1.76 s
+Operator `forward` ran in 1.89 s
+Operator `forward` ran in 1.81 s
+Operator `forward` ran in 1.77 s
+Operator `forward` ran in 1.88 s
+Operator `forward` ran in 2.01 s
+Operator `forward` ran in 2.39 s</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>judiVector{Float32, Matrix{Float32}} with 11 sources</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [30]:</pre></div><div id="bb11e485-93fe-4bc9-8547-ddda1ec86900" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data_extent <span class="op">=</span> [xrec[<span class="fl">1</span>], xrec[<span class="kw">end</span>], <span class="fl">1f-3</span><span class="op">*</span>record_time, <span class="fl">0</span>]</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">20</span>, <span class="fl">5</span>))</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subplot</span>(<span class="fl">1</span>, <span class="fl">5</span>, i)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imshow</span>(d_obs_el.data[<span class="fl">2</span><span class="op">*</span>i], vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlabel</span>(<span class="st">"Receiver position (m)"</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylabel</span>(<span class="st">"Recording time (s)"</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">title</span>(<span class="st">"xsrc=</span><span class="sc">$</span>(<span class="fl">1f-3</span>xsrc[<span class="fl">2</span><span class="op">*</span>i][<span class="fl">1</span>])<span class="st">km"</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [31]:</pre></div><div id="17622fce-37eb-4519-be03-1b8f54fdfc49" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(d_obs_el.data[<span class="fl">2</span>], vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>PyObject &lt;matplotlib.image.AxesImage object at 0x7fd5d31a7a30&gt;</code></pre>
+</div>
+</div></div>
+<div id="3186524d-0557-4b0f-8824-a9cfb7d92417" class="cell markdown">
+<p>Questions: 1) Can you interpret the differences in the acoustic and elastic events in the plots? Please also explain why are there those differences. General questions (though not related to about figures but they were used in simulations) 3) Why do we not see shear waves in the water layer? 4) What physical property of fluids explains this?</p>
+</div>
+<div id="de47c3dd-d17b-42e0-a990-f3fb0812b037" class="cell markdown">
+<p>Now that we have seen how to do seismic modeling, we will see now how to image the Earth using JUDI.</p>
+</div>
+<div id="847082c0-1a22-4835-8f5c-0850fa67b24f" class="cell markdown">
+<section id="acoustic-imaging" class="level1">
+<h1>Acoustic Imaging</h1>
+<p>For imaging we need a smooth velocity (background) model, which we can obtain by applying Gaussian smoothing on the origianl model, vp.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="d9b18759-5c81-44e7-aeeb-ee40dff97f76" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>vp0 <span class="op">=</span> <span class="fl">1f0</span><span class="op">./</span><span class="fu">imfilter</span>(<span class="fl">1f0</span><span class="op">./</span>vp, Kernel.<span class="fu">gaussian</span>(<span class="fl">5</span>))</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>model0 <span class="op">=</span> <span class="fu">Model</span>(shape, spacing, origin, <span class="fl">1f0</span><span class="op">./</span>vp0<span class="op">.^</span><span class="fl">2f0</span>; nb <span class="op">=</span> <span class="fl">80</span>)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>Ainv0 <span class="op">=</span> <span class="fu">judiModeling</span>(model0;options<span class="op">=</span>opt)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>F0 <span class="op">=</span> Pr <span class="op">*</span> Ainv0 <span class="op">*</span> Ps<span class="op">'</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> <span class="fu">judiJacobian</span>(F0, q)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>JUDI born{Float32} propagator (z * x) -&gt; (src * rec * time)</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [24]:</pre></div><div id="d0af589b-f0a1-447c-a1ab-8a6f13322b60" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>d_obs0 <span class="op">=</span> Pr <span class="op">*</span> Ainv0 <span class="op">*</span> Ps<span class="op">'</span> <span class="op">*</span> q</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Operator `forward` ran in 0.43 s
+Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.42 s
+Operator `forward` ran in 0.41 s
+Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.41 s
+Operator `forward` ran in 0.43 s
+Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.39 s
+Operator `forward` ran in 0.39 s</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>judiVector{Float32, Matrix{Float32}} with 11 sources</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div id="f9a00659-e710-4020-9ca6-a7f4fd3b9e23" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> J<span class="op">'</span><span class="fu">*</span>(d_obs<span class="op">-</span>d_obs0);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Building forward operator
+Operator `forward` ran in 0.43 s
+Building adjoint born operator
+Operator `gradient` ran in 1.04 s
+Operator `forward` ran in 0.47 s
+Operator `gradient` ran in 0.99 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.13 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.07 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.00 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.01 s
+Operator `forward` ran in 0.41 s
+Operator `gradient` ran in 1.03 s
+Operator `forward` ran in 0.50 s
+Operator `gradient` ran in 1.03 s
+Operator `forward` ran in 0.46 s
+Operator `gradient` ran in 0.99 s
+Operator `forward` ran in 0.41 s
+Operator `gradient` ran in 0.98 s
+Operator `forward` ran in 0.46 s
+Operator `gradient` ran in 1.18 s</code></pre>
+</div>
+</div></div>
+<div id="07ebcab4-f0f4-404d-8bdc-48b5131d4abb" class="cell markdown">
+<p>Question: 1) Run the below cell and interpret the shot record (what happens when the velocity is very smooth?)</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [36]:</pre></div><div id="c4ecbb07-6a35-4272-b043-b0f18be9953a" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(d_obs0.data[<span class="fl">2</span>], vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [64]:</pre></div><div id="7e86e0e2-6628-41fb-8957-92f1c67c0e4c" class="cell" data-execution_count="64">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(img<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div class="">
+<figure class="figure">
+<p class=""><img src="Exercise4_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>PyObject &lt;matplotlib.image.AxesImage object at 0x7f8ea7d25130&gt;</code></pre>
+</div>
+</div></div>
+<div id="7d42659b-57a9-417e-b8e1-72d8032d0fbf" class="cell markdown">
+<p>Question: 1) Taking the motivation from the acoustic imaging, can you perform elastic imaging in the cell below?</p>
+</div>
+<div id="d7f43c0b-051a-467a-b67a-db4a62eb2fb2" class="cell markdown">
+<section id="elastic-imaging" class="level1">
+<h1>Elastic Imaging</h1>
+</section>
+</div>
+<div id="98a6e49f-f95d-4d9d-be83-0af3a5c652e8" class="cell markdown">
+<p>Question: 1) Please repeat the same experiments (elastic and acoustic) for the case where the lower layer is slanting instead of horizontal and interpret the differences compared to the above experiments.</p>
+</div>
+<div id="675bc515-6090-4fa6-869e-d985b3290e49" class="cell markdown">
+
+</div>
+
+
+     </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>  </div> <!-- /content --> 
+  
+</body></html>

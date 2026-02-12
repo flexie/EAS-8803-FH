@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-79df7ed5347781c1339259261daa236f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,9 +109,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-categories','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
+      valueNames: ['listing-categories','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: [],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -142,7 +143,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -184,7 +185,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://flexie.github.io/EAS-8803-FH/" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -312,7 +314,7 @@ Date
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1770613200000" data-listing-file-modified-sort="1770489939783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="Seismic Imaging" data-listing-filename-sort="07-Wavefield-Extrapolation.qmd">
+<tr data-index="0" data-listing-date-sort="1770616800000" data-listing-file-modified-sort="1770489939000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="4" data-listing-title-sort="Seismic Imaging" data-listing-filename-sort="07-Wavefield-Extrapolation.qmd">
 <td>
 <a href="../slides/week-05/07-Wavefield-Extrapolation.html" class="title listing-title">Seismic Imaging</a>
 </td>
@@ -325,7 +327,7 @@ Date
 
 </tr>
 
-<tr data-index="1" data-listing-date-sort="1770786000000" data-listing-file-modified-sort="1770490188624" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="Seismic Imaging" data-listing-filename-sort="08-Prestack-Migration.qmd">
+<tr data-index="1" data-listing-date-sort="1770789600000" data-listing-file-modified-sort="1770490188000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7" data-listing-title-sort="Seismic Imaging" data-listing-filename-sort="08-Prestack-Migration.qmd">
 <td>
 <a href="../slides/week-05/08-Prestack-Migration.html" class="title listing-title">Seismic Imaging</a>
 </td>
@@ -346,15 +348,39 @@ Date
 <section id="assignments" class="level1">
 <h1>Assignments</h1>
 <div id="listing-assignments" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table caption-top" data-quarto-postprocess="true">
+<table class="quarto-listing-table table">
 <thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th">Assignment</th>
-<th data-quarto-table-cell-role="th">Title</th>
-<th data-quarto-table-cell-role="th">Due</th>
+<tr>
+
+<th>
+Assignment
+</th>
+
+<th>
+Title
+</th>
+
+<th>
+Due
+</th>
+
 </tr>
 </thead>
 <tbody class="list">
+
+<tr data-index="0" data-categories="TGFi" data-listing-date-sort="NaN" data-listing-file-modified-sort="1770872960605" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="19" data-listing-title-sort="Acoustic and Elastic Imaging" data-listing-filename-sort="w5-lab04-Imaging_Acoustic_Elastic.qmd">
+<td>
+<span class="listing-categories">Lab</span>
+</td>
+<td>
+<a href="../labs/w5-lab04-Imaging_Acoustic_Elastic.html" class="title listing-title">Acoustic and Elastic Imaging</a>
+</td>
+<td>
+<span class="listing-date">Invalid Date</span>
+</td>
+
+</tr>
+
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
@@ -432,13 +458,14 @@ Date
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -158,7 +158,7 @@
     "href": "weeks/week-05.html",
     "title": "Week 05",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nMon, Feb 09\n\n\n\n\n\n\nSeismic Imaging\n\n\nPrestack Migration + Velocity Analysis\n\n\nWed, Feb 11\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nMon, Feb 09\n\n\n\n\n\n\nSeismic Imaging\n\n\nPrestack Migration + Velocity Analysis\n\n\nWed, Feb 11\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nAcoustic and Elastic Imaging\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "assignments.html",
@@ -213,6 +213,27 @@
     "title": "NMO correction",
     "section": "",
     "text": "Please rerun both these labs. Take careful note of how to define a custom gradient. This will become relevant in the course when we compose learned layers with PDE solvers. The PDE solver gradients can be calculated with brute force with AD or as described in the custom gradient section you can define a custom routine to calculate the gradient i.e efficiently with the adjoint state method.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/w5-lab04-Imaging_Acoustic_Elastic.html",
+    "href": "labs/w5-lab04-Imaging_Acoustic_Elastic.html",
+    "title": "Acoustic and Elastic Imaging",
+    "section": "",
+    "text": "ReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/04Lab/Exercise4.html",
+    "href": "labs/04Lab/Exercise4.html",
+    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
+    "section": "",
+    "text": "JUDI is a framework for large-scale seismic modeling and inversion and designed to enable rapid translations of algorithms to fast and efficient code that scales to industry-size 3D problems. The focus of the package lies on seismic modeling, imaging as well as PDE-constrained optimization such as full-waveform inversion (FWI) and imaging (LS-RTM). Wave equations in JUDI are solved with Devito, a Python domain-specific language for automated finite-difference (FD) computations.\n## Lets add necessary packages. Uncomment these lines and run them only once\nusing Pkg\n# Pkg.add(name=\"JUDI\", version=\"3.4.7\")\n# Pkg.add(name=\"PyPlot\", version=\"2.11.6\")\n# Pkg.add(name=\"SlimPlotting\", version=\"0.1.6\")\n# Pkg.add(name=\"Images\", version=\"0.2.53\")\nusing JUDI, PyPlot, LinearAlgebra, SlimPlotting, Images\n\n\n[ Info: JLD2 compat enabled"
+  },
+  {
+    "objectID": "labs/04Lab/Exercise4.html#source-wavelet",
+    "href": "labs/04Lab/Exercise4.html#source-wavelet",
+    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
+    "section": "Source wavelet",
+    "text": "Source wavelet\nFor the source wavelet, we will use a standard Ricker wavelet at 10Hz for this tutorial.In practice this wavelet would be read from a file or estimated during inversion.\n\nf0 = 0.010 # Since we use ms, the frequency is in KHz\nwavelet = ricker_wavelet(record_time, sampling_rate, f0);\nplot(wavelet)\n\n\n\n\n\n\n\n\n1-element Vector{PyCall.PyObject}:\n PyObject &lt;matplotlib.lines.Line2D object at 0x7fd5d54c0220&gt;"
   },
   {
     "objectID": "labs/w4-lab03-Migration.html",
