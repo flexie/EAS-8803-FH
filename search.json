@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -60,98 +60,75 @@
     ]
   },
   {
-    "objectID": "goals.html",
-    "href": "goals.html",
-    "title": "Goals1",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Seismic Exploration Methods",
     "section": "",
-    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#general-introduction",
-    "href": "goals.html#general-introduction",
-    "title": "Goals1",
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Seismic Exploration Methods",
     "section": "",
-    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#seismic-data-acquisition",
-    "href": "goals.html#seismic-data-acquisition",
-    "title": "Goals1",
-    "section": "Seismic data acquisition",
-    "text": "Seismic data acquisition\n\nGive the Nyquist sampling critrion for the sampling of spatio-temporal wavefields\nDescribe aliasing in 1-D and 2- D (f-k domain).\nWhat is an airgun\nWhat is the ghost?\nWhat is the effect of the ghost on the amplitude spectrum?\nDescribe azimuth and name at least three disadvantages of near azimuth acquisition.\nWhat does a rose diagram plot?\nMention two different configurations to improve azimuthal coverage. Include sketches of the arrays and sources.\nDescribe rich azimuth acquisition and include drawing.\nWhat is the main driver behind WAZ acquisition?\nName at least four improvemens related to wide-azimuth acquisition?\nWhat is fold and why is it important?\nWhat are the main challenges in marine acquisition?\nWhat are the challenges of 3D acquisition?\nName some recent developments.\nDescribe coil sampling\nGive the main reasons why large offsets are required?",
+    "objectID": "index.html#class-meetings",
+    "href": "index.html#class-meetings",
+    "title": "Seismic Exploration Methods",
+    "section": "Class meetings",
+    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#from-processing-to-inversion",
-    "href": "goals.html#from-processing-to-inversion",
-    "title": "Goals1",
-    "section": "From processing to inversion",
-    "text": "From processing to inversion\n\nDescribe what the forward and inverse models signify.\nWhat property do unitaty matrices have?\nWhat type of solution method should be used when the data synthetic data does not fit observed data exactly?\nDescribe how one arrives at the least-squares solution m_{LS}=(A^TA)^{-1})A^Td?\nIn what situation, is the least-squares solution used? Is the matrix to be inverted tall, square, or fat?\nDescribe the minmum norm solution and when is its use appropriate?\nDescribe in words what the expression min_x|x|_2 subject to Ax=b expresses.\nExplain the difference between processing (applying the adjoint) and inversion\nHow are convolution and correlation related related to linear operations\nDescribe the ‘dot test’ and what does it accomplish\nMention and describe at least three forward-adjoint pairs relevant to exploration seismology\nWrite stacking, zero padding, and sampling as a matrix\nProof that matrices that represent convolution and correlation are adjoints.\nWhat kind of matrix is the convolution in the Fourier domain.\nSketch a column of the Parabolic Radon ‘reverse’ transform (L^H).\nExplain why it is important to ‘invert the ’reverse’ Radon transform’ for multiple removal?\nWhat is the underlying assumption of minimizing the energy (\\ell_2-norm) on the model parameters?\nWhat does high-resolution try to accomplish and what is the underlying assumption on the model and the data?",
+    "objectID": "index.html#teaching-team",
+    "href": "index.html#teaching-team",
+    "title": "Seismic Exploration Methods",
+    "section": "Teaching team",
+    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#compressive-sensing",
-    "href": "goals.html#compressive-sensing",
-    "title": "Goals1",
-    "section": "Compressive sensing",
-    "text": "Compressive sensing\n\nHow is sampling related to a linear system.\nWhen is the linear system underdetermined.\nHow do the concepts of over- and underdetermined systems relate to sampling?\nGive the key ideas of Compressive Sensing.\nGive two examples of transforms that exploit the signal’s structure by sparsity.\nWhich interferences/artifacts are worse. Coherent aliases due to periodic sampling or incoherent noise due to randomized samping and why?\nGive at least two examples of randomized sampling and describe the impact on the sampling artifacts compared to conventional deterministic acquisition.\nGive an example of measurement (M) and sampling (R) matrices with low and hight coherence\nWhich of the following acquisition scenarios creates favorable recovery conditions?\nExplain the role of sparsifying transforms and sparsity-promoting recovery.\nDescribe what happens with the recovery SNR as (i) the subsampling ratio decreases, (ii) the sparsity-level increases, (iii) the noiselevel increases, and (iv) the decay rate of the sorted transform-domain coefficients increases.\nList a number of pitfalls/challenges related to applying compressive sensing to seismic acquisition in the field.",
+    "objectID": "index.html#access-to-piazza",
+    "href": "index.html#access-to-piazza",
+    "title": "Seismic Exploration Methods",
+    "section": "Access to Piazza",
+    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#linearized-inversion",
-    "href": "goals.html#linearized-inversion",
-    "title": "Goals1",
-    "section": "Linearized inversion",
-    "text": "Linearized inversion\n\nDescribe three factors that influence the amplitudes of seismic waves\nDescribe when the linearized refflection coefficients is a good approximation\nGive two different expressions for the linearized reflection coefficient in the acoustic case\nMention “non-ray” amplitude effects\nDescribe linearized inversion. What are the two key factors expressing the relationship between the amplitudes of the reflection events and the acoustic medium properties. Introduce the corresponding matrices.\nWhat are the boundary conditions for the elastic wave equation at an interface?\nDescribe the different reflection and transmission coefficients for the elastic case.\nDescribe the linear convolutional model for the seismic reflection response. What are the underlying assupmtions of this model?\nWhat does the background velocity model describe and what properties should it have?\nList the different reflection and transmission coefficients for an interface between two elastic layers. What are these coefficients a function of and w.r.t. to which medium properties can these expressions be linearized? For non-zero and pre-critical angles, what are the orders in deltall 1 for these different reflection and transmission coefficients?\nDescribe the “work flow” of AVP inversion.\nDescribe how the amplitudes of the plane-wave decomposition (via the linear Radon transform) are related to contrasts in the density, compressional, and shear wavespeeds.\nDescribe the damped least-squares procedure to estimate the medium perturbations/contrasts. Is the system under or over determined? Why is damping needed?\nDescribe issues with the spectral gap.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#rtm-fwi",
-    "href": "goals.html#rtm-fwi",
-    "title": "Goals1",
-    "section": "RTM & FWI",
-    "text": "RTM & FWI\n\nDescribe in words what the adjoint state method corresponds to physically\nWhat is the geophysical interpretation of the gradient?\nDescribe the equations for the computation of the gradient. What is their physical meaning?\nDraw the impulse response of a the linear Born scattering operator and its adjoint for a constant velocity model.\nWhat is the relationship between least-squares migration and Gauss-Newton?\nHow is the action of the Jacobian evaluated? How many PDE solves does it take?\nList at least two difference between linearized inversion (least-squares migration and full-waveform inversion).\nDescribe for what purpose full-waveform inversion is used in the context of migration and why.\nDescribe a method to make imaging and inversion more efficient\nDescribe a cross-well experiment\nDescribe a surface-seismic experiment\nHow does the sensitivity of these two methods compare?\nWhat sort of waves does full-waveform inversion rely on and why.\nList at least two requirements of full-waveform inversion on the acquisition.\nWhat does non-uniquness in full-waveform inversion refer to?\nList at least one strategy people use to avoid getting stuck in a local minimum? What does this imply w.r.t. the wavelength and the propagation distance.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#footnotes",
-    "href": "goals.html#footnotes",
-    "title": "Goals1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThese goals are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "hw/w3-hw02.html",
-    "href": "hw/w3-hw02.html",
-    "title": "HW 02: Data visualization",
+    "objectID": "hw/w2-hw01.html",
+    "href": "hw/w2-hw01.html",
+    "title": "HW 01: Pet Names",
     "section": "",
     "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-03.html",
-    "href": "weeks/week-03.html",
-    "title": "Week 03",
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "Week 01",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nNMO correction\n\n\nFri, Jan 30\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "Week 02",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "weeks/week-05.html",
@@ -278,75 +255,385 @@
     "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nTime Migration\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-02.html",
-    "href": "weeks/week-02.html",
-    "title": "Week 02",
+    "objectID": "weeks/week-06.html",
+    "href": "weeks/week-06.html",
+    "title": "Week 06",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nInverse Problems\n\n\nFrom Forward Modeling to Regularized Inversion in Exploration Seismology\n\n\nMon, Feb 16\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "Week 01",
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "Week 03",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nNMO correction\n\n\nFri, Jan 30\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "hw/w2-hw01.html",
-    "href": "hw/w2-hw01.html",
-    "title": "HW 01: Pet Names",
+    "objectID": "hw/w3-hw02.html",
+    "href": "hw/w3-hw02.html",
+    "title": "HW 02: Data visualization",
     "section": "",
     "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Seismic Exploration Methods",
+    "objectID": "goals.html",
+    "href": "goals.html",
+    "title": "Goals1",
     "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "Seismic Exploration Methods",
+    "objectID": "goals.html#general-introduction",
+    "href": "goals.html#general-introduction",
+    "title": "Goals1",
     "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#class-meetings",
-    "href": "index.html#class-meetings",
-    "title": "Seismic Exploration Methods",
-    "section": "Class meetings",
-    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
+    "objectID": "goals.html#seismic-data-acquisition",
+    "href": "goals.html#seismic-data-acquisition",
+    "title": "Goals1",
+    "section": "Seismic data acquisition",
+    "text": "Seismic data acquisition\n\nGive the Nyquist sampling critrion for the sampling of spatio-temporal wavefields\nDescribe aliasing in 1-D and 2- D (f-k domain).\nWhat is an airgun\nWhat is the ghost?\nWhat is the effect of the ghost on the amplitude spectrum?\nDescribe azimuth and name at least three disadvantages of near azimuth acquisition.\nWhat does a rose diagram plot?\nMention two different configurations to improve azimuthal coverage. Include sketches of the arrays and sources.\nDescribe rich azimuth acquisition and include drawing.\nWhat is the main driver behind WAZ acquisition?\nName at least four improvemens related to wide-azimuth acquisition?\nWhat is fold and why is it important?\nWhat are the main challenges in marine acquisition?\nWhat are the challenges of 3D acquisition?\nName some recent developments.\nDescribe coil sampling\nGive the main reasons why large offsets are required?",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#teaching-team",
-    "href": "index.html#teaching-team",
-    "title": "Seismic Exploration Methods",
-    "section": "Teaching team",
-    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
+    "objectID": "goals.html#from-processing-to-inversion",
+    "href": "goals.html#from-processing-to-inversion",
+    "title": "Goals1",
+    "section": "From processing to inversion",
+    "text": "From processing to inversion\n\nDescribe what the forward and inverse models signify.\nWhat property do unitaty matrices have?\nWhat type of solution method should be used when the data synthetic data does not fit observed data exactly?\nDescribe how one arrives at the least-squares solution m_{LS}=(A^TA)^{-1})A^Td?\nIn what situation, is the least-squares solution used? Is the matrix to be inverted tall, square, or fat?\nDescribe the minmum norm solution and when is its use appropriate?\nDescribe in words what the expression min_x|x|_2 subject to Ax=b expresses.\nExplain the difference between processing (applying the adjoint) and inversion\nHow are convolution and correlation related related to linear operations\nDescribe the ‘dot test’ and what does it accomplish\nMention and describe at least three forward-adjoint pairs relevant to exploration seismology\nWrite stacking, zero padding, and sampling as a matrix\nProof that matrices that represent convolution and correlation are adjoints.\nWhat kind of matrix is the convolution in the Fourier domain.\nSketch a column of the Parabolic Radon ‘reverse’ transform (L^H).\nExplain why it is important to ‘invert the ’reverse’ Radon transform’ for multiple removal?\nWhat is the underlying assumption of minimizing the energy (\\ell_2-norm) on the model parameters?\nWhat does high-resolution try to accomplish and what is the underlying assumption on the model and the data?",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#access-to-piazza",
-    "href": "index.html#access-to-piazza",
-    "title": "Seismic Exploration Methods",
-    "section": "Access to Piazza",
-    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
+    "objectID": "goals.html#compressive-sensing",
+    "href": "goals.html#compressive-sensing",
+    "title": "Goals1",
+    "section": "Compressive sensing",
+    "text": "Compressive sensing\n\nHow is sampling related to a linear system.\nWhen is the linear system underdetermined.\nHow do the concepts of over- and underdetermined systems relate to sampling?\nGive the key ideas of Compressive Sensing.\nGive two examples of transforms that exploit the signal’s structure by sparsity.\nWhich interferences/artifacts are worse. Coherent aliases due to periodic sampling or incoherent noise due to randomized samping and why?\nGive at least two examples of randomized sampling and describe the impact on the sampling artifacts compared to conventional deterministic acquisition.\nGive an example of measurement (M) and sampling (R) matrices with low and hight coherence\nWhich of the following acquisition scenarios creates favorable recovery conditions?\nExplain the role of sparsifying transforms and sparsity-promoting recovery.\nDescribe what happens with the recovery SNR as (i) the subsampling ratio decreases, (ii) the sparsity-level increases, (iii) the noiselevel increases, and (iv) the decay rate of the sorted transform-domain coefficients increases.\nList a number of pitfalls/challenges related to applying compressive sensing to seismic acquisition in the field.",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
+  },
+  {
+    "objectID": "goals.html#linearized-inversion",
+    "href": "goals.html#linearized-inversion",
+    "title": "Goals1",
+    "section": "Linearized inversion",
+    "text": "Linearized inversion\n\nDescribe three factors that influence the amplitudes of seismic waves\nDescribe when the linearized refflection coefficients is a good approximation\nGive two different expressions for the linearized reflection coefficient in the acoustic case\nMention “non-ray” amplitude effects\nDescribe linearized inversion. What are the two key factors expressing the relationship between the amplitudes of the reflection events and the acoustic medium properties. Introduce the corresponding matrices.\nWhat are the boundary conditions for the elastic wave equation at an interface?\nDescribe the different reflection and transmission coefficients for the elastic case.\nDescribe the linear convolutional model for the seismic reflection response. What are the underlying assupmtions of this model?\nWhat does the background velocity model describe and what properties should it have?\nList the different reflection and transmission coefficients for an interface between two elastic layers. What are these coefficients a function of and w.r.t. to which medium properties can these expressions be linearized? For non-zero and pre-critical angles, what are the orders in deltall 1 for these different reflection and transmission coefficients?\nDescribe the “work flow” of AVP inversion.\nDescribe how the amplitudes of the plane-wave decomposition (via the linear Radon transform) are related to contrasts in the density, compressional, and shear wavespeeds.\nDescribe the damped least-squares procedure to estimate the medium perturbations/contrasts. Is the system under or over determined? Why is damping needed?\nDescribe issues with the spectral gap.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#rtm-fwi",
+    "href": "goals.html#rtm-fwi",
+    "title": "Goals1",
+    "section": "RTM & FWI",
+    "text": "RTM & FWI\n\nDescribe in words what the adjoint state method corresponds to physically\nWhat is the geophysical interpretation of the gradient?\nDescribe the equations for the computation of the gradient. What is their physical meaning?\nDraw the impulse response of a the linear Born scattering operator and its adjoint for a constant velocity model.\nWhat is the relationship between least-squares migration and Gauss-Newton?\nHow is the action of the Jacobian evaluated? How many PDE solves does it take?\nList at least two difference between linearized inversion (least-squares migration and full-waveform inversion).\nDescribe for what purpose full-waveform inversion is used in the context of migration and why.\nDescribe a method to make imaging and inversion more efficient\nDescribe a cross-well experiment\nDescribe a surface-seismic experiment\nHow does the sensitivity of these two methods compare?\nWhat sort of waves does full-waveform inversion rely on and why.\nList at least two requirements of full-waveform inversion on the acquisition.\nWhat does non-uniquness in full-waveform inversion refer to?\nList at least one strategy people use to avoid getting stuck in a local minimum? What does this imply w.r.t. the wavelength and the propagation distance.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#footnotes",
+    "href": "goals.html#footnotes",
+    "title": "Goals1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThese goals are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#outline",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#outline",
+    "title": "Inverse Problems",
+    "section": "Outline",
+    "text": "Outline\n\n\nPart I — Foundations\n\nForward & inverse problems\nLinear forward problem\nStrict inverse for invertible systems\nWhen the inverse does not exist\n\nPart II — Least-Squares Inversion\n\nLeast-squares formulation\nNormal equations\nNon-uniqueness & minimum-norm solutions\n\n\nPart III — SVD & Generalized Inverses\n\nSingular Value Decomposition\nFundamental subspaces\nPseudo-inverse & four cases\n\nPart IV — Regularization\n\nCondition number & ill-posedness\nTruncated SVD\nTikhonov regularization\nBayesian interpretation\n\nPart V — Application\n\nDeconvolution as an inverse problem\nNumerical examples in Julia"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-forward-problem",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-forward-problem",
+    "title": "Inverse Problems",
+    "section": "The Forward Problem",
+    "text": "The Forward Problem\nIn exploration seismology, we relate model parameters \\(\\mathbf{m}\\) (e.g., velocity, density, reflectivity) to observed data \\(\\mathbf{d}\\) (e.g., seismograms) through a forward operator:\n\\[\n\\mathbf{d} = F(\\mathbf{m})\n\\]\nwhere \\(F : \\mathbb{R}^M \\to \\mathbb{R}^N\\) maps from model space to data space.\n\n\n\n\n\n\n\nKey distinction\n\n\nThe forward problem — given \\(\\mathbf{m}\\), compute \\(\\mathbf{d}\\) — is typically well-posed. The inverse problem — given \\(\\mathbf{d}\\), recover \\(\\mathbf{m}\\) — is typically ill-posed."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#forward-problem-examples",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#forward-problem-examples",
+    "title": "Inverse Problems",
+    "section": "Forward Problem — Examples",
+    "text": "Forward Problem — Examples\n\n\n\nForward Operator\nModel \\(\\mathbf{m}\\)\nData \\(\\mathbf{d}\\)\n\n\n\n\nWave equation\nVelocity field\nSeismograms\n\n\nBorn approximation\nReflectivity\nScattered wavefield\n\n\nConvolution\nReflectivity series\nSeismic trace\n\n\n\n\nAll share the common mathematical structure \\(\\mathbf{d} = F(\\mathbf{m})\\)."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-linear-forward-problem",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-linear-forward-problem",
+    "title": "Inverse Problems",
+    "section": "The Linear Forward Problem",
+    "text": "The Linear Forward Problem\nWhen \\(F\\) is linear, we write\n\\[\n\\mathbf{d} = \\mathbf{A}\\,\\mathbf{m}\n\\]\nwhere \\(\\mathbf{A} \\in \\mathbb{R}^{N \\times M}\\) is the forward modeling matrix.\n\nLinearity means:\n\n\\(F(\\alpha\\,\\mathbf{m}_1 + \\beta\\,\\mathbf{m}_2) = \\alpha\\,F(\\mathbf{m}_1) + \\beta\\,F(\\mathbf{m}_2)\\)\n\n\n\nLinearization of nonlinear problems:\n\\[\nF(\\mathbf{m}_0 + \\delta\\mathbf{m}) \\approx F(\\mathbf{m}_0) + \\underbrace{\\frac{\\partial F}{\\partial \\mathbf{m}}\\bigg|_{\\mathbf{m}_0}}_{\\mathbf{A}}\\,\\delta\\mathbf{m}\n\\]\nWhen \\(F(\\mathbf{m}\\) is the solution of the wave equation, this is the\n\nsingle-scattering Born approximation — the Jacobian \\(\\mathbf{A}\\) is the Fréchet derivative.\nThe vector \\(\\mathbf{m}_0\\) is a smooth (non-reflecting) background-velocity model."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#forward-inverse-nonlinear-vs.-linear",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#forward-inverse-nonlinear-vs.-linear",
+    "title": "Inverse Problems",
+    "section": "Forward & Inverse: Nonlinear vs. Linear",
+    "text": "Forward & Inverse: Nonlinear vs. Linear\n\n\nNonlinear forward\n\\[\\mathbf{d} = F(\\mathbf{m})\\]\nNonlinear inverse\n\\[\\mathbf{m} = F^{-1}(\\mathbf{d})\\]\nSolved iteratively — e.g., Gauss–Newton, gradient descent.\n\nLinear forward\n\\[\\mathbf{d} = \\mathbf{A}\\,\\mathbf{m}\\]\nLinear inverse\n\\[\\mathbf{m} = \\mathbf{A}^{-1}\\,\\mathbf{d}\\]\nBut does \\(\\mathbf{A}^{-1}\\) exist?\n\n\n\n\n\n\n\n\nWarning\n\n\nEven when \\(\\mathbf{A}^{-1}\\) exists, computing it may be numerically unstable."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-strict-inverse",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-strict-inverse",
+    "title": "Inverse Problems",
+    "section": "The Strict Inverse",
+    "text": "The Strict Inverse\nIf \\(\\mathbf{A}\\) is square (\\(N = M\\)) and invertible (\\(\\det(\\mathbf{A}) \\neq 0\\)), the exact inverse exists:\n\\[\n\\mathbf{m} = \\mathbf{A}^{-1}\\,\\mathbf{d}\n\\]\n\nProperties:\n\n\\(\\mathbf{A}\\,\\mathbf{A}^{-1} = \\mathbf{A}^{-1}\\,\\mathbf{A} = \\mathbf{I}\\)\nUnique solution for every \\(\\mathbf{d}\\)\n\n\n\nOrthogonal matrices satisfy \\(\\mathbf{A}^\\top\\mathbf{A} = \\mathbf{A}\\,\\mathbf{A}^\\top = \\mathbf{I}\\), so the adjoint is the inverse.\nIn practice, this situation is rare because:\n\n\\(N \\neq M\\) (more data than unknowns or vice versa)\n\\(\\mathbf{A}\\) may be rank-deficient\nNoise contaminates the data"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#when-does-the-inverse-not-exist",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#when-does-the-inverse-not-exist",
+    "title": "Inverse Problems",
+    "section": "When Does the Inverse Not Exist?",
+    "text": "When Does the Inverse Not Exist?\nThree scenarios arise:\n\n1. Overdetermined (\\(N &gt; M\\)): more equations than unknowns — no exact solution in general.\n\n\n2. Underdetermined (\\(N &lt; M\\)): fewer equations than unknowns — infinitely many solutions.\n\n\n3. Rank-deficient (\\(\\text{rank}(\\mathbf{A}) &lt; \\min(N,M)\\)): even with \\(N = M\\), rows/columns are linearly dependent.\n\n\n\n\n\n\n\n\nTip\n\n\nIn seismology, we almost always face some combination of these — the inverse problem is ill-posed."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#least-squares-formulation",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#least-squares-formulation",
+    "title": "Inverse Problems",
+    "section": "Least-Squares Formulation",
+    "text": "Least-Squares Formulation\nWhen no exact solution exists, we seek the model that best fits the data in a least-squares sense:\n\\[\n\\min_{\\mathbf{m}} \\;\\; J(\\mathbf{m}) = \\frac{1}{2}\\|\\mathbf{A}\\,\\mathbf{m} - \\mathbf{d}\\|_2^2\n\\]\n\nExpanding:\n\\[\nJ(\\mathbf{m}) = \\frac{1}{2}\\left(\\mathbf{A}\\,\\mathbf{m} - \\mathbf{d}\\right)^\\top\\left(\\mathbf{A}\\,\\mathbf{m} - \\mathbf{d}\\right)\n\\]\n\\[\n= \\frac{1}{2}\\left(\\mathbf{m}^\\top\\mathbf{A}^\\top\\mathbf{A}\\,\\mathbf{m} - 2\\,\\mathbf{m}^\\top\\mathbf{A}^\\top\\mathbf{d} + \\mathbf{d}^\\top\\mathbf{d}\\right)\n\\]"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#normal-equations",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#normal-equations",
+    "title": "Inverse Problems",
+    "section": "Normal Equations",
+    "text": "Normal Equations\nSetting the gradient to zero:\n\\[\n\\nabla_{\\mathbf{m}} J = \\mathbf{A}^\\top\\mathbf{A}\\,\\mathbf{m} - \\mathbf{A}^\\top\\mathbf{d} = \\mathbf{0}\n\\]\n\nyields the normal equations:\n\\[\n\\boxed{\\mathbf{A}^\\top\\mathbf{A}\\,\\mathbf{m} = \\mathbf{A}^\\top\\mathbf{d}}\n\\]\n\n\nIf \\(\\mathbf{A}^\\top\\mathbf{A}\\) is invertible, the least-squares solution is:\n\\[\n\\hat{\\mathbf{m}}_{\\text{LS}} = \\left(\\mathbf{A}^\\top\\mathbf{A}\\right)^{-1}\\mathbf{A}^\\top\\,\\mathbf{d}\n\\]\n\n\n\n\n\n\n\n\nNote\n\n\n\\(\\mathbf{A}^\\top\\) is the transpose of the matrix \\(\\mathbf{A}\\). \\(\\mathbf{A}^\\top\\mathbf{A}\\) is the Gram matrix — symmetric positive semi-definite, and positive definite iff \\(\\mathbf{A}\\) has full column rank."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#transpose-and-adjoint",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#transpose-and-adjoint",
+    "title": "Inverse Problems",
+    "section": "Transpose and Adjoint",
+    "text": "Transpose and Adjoint\nThe adjoint (or transpose for real-valued matrices) \\(\\mathbf{A}^H\\) satisfies:\n\\[\n\\langle \\mathbf{A}\\,\\mathbf{m},\\, \\mathbf{d} \\rangle_{\\mathbb{R}^N} = \\langle \\mathbf{m},\\, \\mathbf{A}^H\\mathbf{d} \\rangle_{\\mathbb{R}^M}\n\\]\n\nPhysical interpretation in seismology:\n\n\\(\\mathbf{A}\\) = forward modeling (sources → receivers)\n\\(\\mathbf{A}^\\top\\) = migration / backprojection (receivers → model)\n\n\n\nUnitary matrices satisfy \\(\\mathbf{A}^H\\mathbf{A} = \\mathbf{A}\\,\\mathbf{A}^H = \\mathbf{I}\\), so the adjoint is the inverse.\nExample: the DFT matrix (up to a scaling factor)."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#non-uniqueness",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#non-uniqueness",
+    "title": "Inverse Problems",
+    "section": "Non-Uniqueness",
+    "text": "Non-Uniqueness\nA solution is non-unique when there exist distinct models \\(\\mathbf{m}_1 \\neq \\mathbf{m}_2\\) such that\n\\[\n\\mathbf{A}\\,\\mathbf{m}_1 = \\mathbf{A}\\,\\mathbf{m}_2 = \\mathbf{d}\n\\]\n\nEquivalently, \\(\\mathbf{A}(\\mathbf{m}_1 - \\mathbf{m}_2) = \\mathbf{0}\\), i.e., the null space \\(\\mathcal{N}(\\mathbf{A})\\) is nontrivial.\n\n\nIf \\(\\hat{\\mathbf{m}}\\) is any solution, then \\(\\hat{\\mathbf{m}} + \\mathbf{m}_0\\) is also a solution for any \\(\\mathbf{m}_0 \\in \\mathcal{N}(\\mathbf{A})\\).\n\n\n\n\n\n\n\n\nImportant\n\n\nNon-uniqueness is fundamental in seismology — limited acquisition geometry means parts of the model are invisible to the data."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#minimum-norm-solution",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#minimum-norm-solution",
+    "title": "Inverse Problems",
+    "section": "Minimum-Norm Solution",
+    "text": "Minimum-Norm Solution\nAmong all solutions, select the one with smallest norm:\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\|\\mathbf{m}\\|_2^2 \\quad \\text{subject to} \\quad \\mathbf{A}\\,\\mathbf{m} = \\mathbf{d}\n\\]\n\nUsing Lagrange multipliers, the minimum-norm solution is:\n\\[\n\\hat{\\mathbf{m}}_{\\text{MN}} = \\mathbf{A}^\\top\\left(\\mathbf{A}\\,\\mathbf{A}^\\top\\right)^{-1}\\mathbf{d}\n\\]\n\n\nThis solution:\n\nLives entirely in the row space of \\(\\mathbf{A}\\)\nHas no component in the null space\nIs unique among all solutions"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#section",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#section",
+    "title": "Inverse Problems",
+    "section": "",
+    "text": "Any vector \\(\\mathbf{m} \\in \\mathbb{R}^M\\) can be decomposed uniquely using the orthogonal decomposition of the model space:\n\\[\\mathbf{m} = \\underbrace{\\mathbf{m}_r}_{\\in \\mathcal{R}(\\mathbf{A}^\\top)} + \\underbrace{\\mathbf{m}_0}_{\\in \\mathcal{N}(\\mathbf{A})}\\]\nwhere\n\n\\(\\mathcal{R}(\\mathbf{A})\\) denotes the range (or column space) of \\(\\mathbf{A}\\) — the set of all vectors that can be written as \\(\\mathbf{A}\\mathbf{m}\\) for some \\(\\mathbf{m}\\).\n\\(\\mathcal{N}(\\mathbf{A})\\) is the null space (or kernel) of \\(\\mathbf{A}\\) — the set of all vectors that \\(\\mathbf{A}\\) maps to zero:\n\\[\\mathcal{N}(\\mathbf{A}) = \\{\\mathbf{m} \\in \\mathbb{R}^M : \\mathbf{A}\\mathbf{m} = \\mathbf{0}\\}\\]\nThese are the model components that produce no data whatsoever. In seismology, think of structure in the subsurface that your acquisition geometry simply cannot see — it’s there, but it generates no response at the receivers.\n\nThe notation parallels \\(\\mathcal{R}\\): where \\(\\mathcal{R}(\\mathbf{A})\\) collects everything \\(\\mathbf{A}\\) can produce, \\(\\mathcal{N}(\\mathbf{A})\\) collects everything \\(\\mathbf{A}\\) annihilates."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#section-1",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#section-1",
+    "title": "Inverse Problems",
+    "section": "",
+    "text": "Since \\(\\mathbf{A}\\mathbf{m}_0 = \\mathbf{0}\\) by definition of the null space, the constraint \\(\\mathbf{A}\\mathbf{m} = \\mathbf{d}\\) only sees the row-space component:\n\\[\\mathbf{A}\\mathbf{m} = \\mathbf{A}\\mathbf{m}_r + \\mathbf{A}\\mathbf{m}_0 = \\mathbf{A}\\mathbf{m}_r = \\mathbf{d}\\]\nSo the null-space component \\(\\mathbf{m}_0\\) is invisible to the data — it’s a free parameter. Now look at what it does to the norm. Because the two components are orthogonal:\n\\[\\|\\mathbf{m}\\|_2^2 = \\|\\mathbf{m}_r\\|_2^2 + \\|\\mathbf{m}_0\\|_2^2\\]\nThe first term is fixed (determined by the constraint), and the second term is non-negative. The minimum is achieved when \\(\\mathbf{m}_0 = \\mathbf{0}\\), which means the solution lives entirely in \\(\\mathcal{R}(\\mathbf{A}^\\top)\\).\nYou can also see this directly from the solution formula \\(\\hat{\\mathbf{m}} = \\mathbf{A}^\\top(\\mathbf{A}\\mathbf{A}^\\top)^{-1}\\mathbf{d}\\). The leading \\(\\mathbf{A}^\\top\\) guarantees the result is a linear combination of rows of \\(\\mathbf{A}\\), i.e., it lives in the row space by construction."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#singular-value-decomposition-svd",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#singular-value-decomposition-svd",
+    "title": "Inverse Problems",
+    "section": "Singular Value Decomposition (SVD)",
+    "text": "Singular Value Decomposition (SVD)\nAny matrix \\(\\mathbf{A} \\in \\mathbb{R}^{N \\times M}\\) admits the factorization:\n\\[\n\\mathbf{A} = \\mathbf{U}\\,\\boldsymbol{\\Sigma}\\,\\mathbf{V}^\\top\n\\]\n\nwhere:\n\n\\(\\mathbf{U} \\in \\mathbb{R}^{N \\times N}\\): orthonormal columns = left singular vectors (data space)\n\\(\\mathbf{V} \\in \\mathbb{R}^{M \\times M}\\): orthonormal columns = right singular vectors (model space)\n\\(\\boldsymbol{\\Sigma} \\in \\mathbb{R}^{N \\times M}\\): diagonal with singular values \\(\\sigma_1 \\geq \\sigma_2 \\geq \\cdots \\geq \\sigma_r &gt; 0\\)\n\\(r = \\text{rank}(\\mathbf{A})\\)"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#svd-compact-form",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#svd-compact-form",
+    "title": "Inverse Problems",
+    "section": "SVD — Compact Form",
+    "text": "SVD — Compact Form\nWriting only the nonzero singular values:\n\\[\n\\mathbf{A} = \\sum_{i=1}^{r} \\sigma_i\\,\\mathbf{u}_i\\,\\mathbf{v}_i^\\top\n\\]\n\nThis is an outer-product expansion — each term is a rank-1 matrix weighted by \\(\\sigma_i\\).\n\n\n\n\n\n\n\n\nComputational note\n\n\nWe rarely form \\(\\mathbf{A}\\) explicitly in seismology. We work with \\(\\mathbf{A}\\,\\mathbf{v}\\) (forward) and \\(\\mathbf{A}^\\top\\mathbf{u}\\) (adjoint/migration) as matrix-free operations."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-four-fundamental-subspaces",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-four-fundamental-subspaces",
+    "title": "Inverse Problems",
+    "section": "The Four Fundamental Subspaces",
+    "text": "The Four Fundamental Subspaces\nThe SVD reveals the four fundamental subspaces of \\(\\mathbf{A}\\) (Strang):\n\n\n\n\n\n\n\n\nSubspace\nBasis\nDimension\n\n\n\n\nColumn space \\(\\mathcal{R}(\\mathbf{A})\\)\n\\(\\{\\mathbf{u}_1, \\ldots, \\mathbf{u}_r\\}\\)\n\\(r\\)\n\n\nLeft null space \\(\\mathcal{N}(\\mathbf{A}^\\top)\\)\n\\(\\{\\mathbf{u}_{r+1}, \\ldots, \\mathbf{u}_N\\}\\)\n\\(N - r\\)\n\n\nRow space \\(\\mathcal{R}(\\mathbf{A}^\\top)\\)\n\\(\\{\\mathbf{v}_1, \\ldots, \\mathbf{v}_r\\}\\)\n\\(r\\)\n\n\nNull space \\(\\mathcal{N}(\\mathbf{A})\\)\n\\(\\{\\mathbf{v}_{r+1}, \\ldots, \\mathbf{v}_M\\}\\)\n\\(M - r\\)\n\n\n\n\nOrthogonal decompositions:\n\\[\n\\mathbb{R}^N = \\mathcal{R}(\\mathbf{A}) \\oplus \\mathcal{N}(\\mathbf{A}^\\top), \\qquad \\mathbb{R}^M = \\mathcal{R}(\\mathbf{A}^\\top) \\oplus \\mathcal{N}(\\mathbf{A})\n\\]"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-fundamental-theorem-of-linear-algebra",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-fundamental-theorem-of-linear-algebra",
+    "title": "Inverse Problems",
+    "section": "The Fundamental Theorem of Linear Algebra",
+    "text": "The Fundamental Theorem of Linear Algebra\n\n\n\n\n\n\nflowchart LR\n    subgraph Model[\"Model Space ℝᴹ\"]\n        RS[\"Row Space&lt;br/&gt;𝓡(Aᵀ)&lt;br/&gt;dim = r\"]\n        NS[\"Null Space&lt;br/&gt;𝓝(A)&lt;br/&gt;dim = M−r\"]\n    end\n    subgraph Data[\"Data Space ℝᴺ\"]\n        CS[\"Column Space&lt;br/&gt;𝓡(A)&lt;br/&gt;dim = r\"]\n        LNS[\"Left Null Space&lt;br/&gt;𝓝(Aᵀ)&lt;br/&gt;dim = N−r\"]\n    end\n    RS --&gt;|\"A\"| CS\n    CS --&gt;|\"Aᵀ\"| RS\n    NS -.-&gt;|\"A → 0\"| LNS"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-moorepenrose-pseudo-inverse",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-moorepenrose-pseudo-inverse",
+    "title": "Inverse Problems",
+    "section": "The Moore–Penrose Pseudo-Inverse",
+    "text": "The Moore–Penrose Pseudo-Inverse\nThe pseudo-inverse \\(\\mathbf{A}^{\\dagger}\\) is defined via the SVD:\n\\[\n\\mathbf{A}^{\\dagger} = \\mathbf{V}\\,\\boldsymbol{\\Sigma}^{\\dagger}\\,\\mathbf{U}^\\top\n\\]\nwhere \\(\\boldsymbol{\\Sigma}^{\\dagger}\\) inverts the nonzero singular values: \\(\\sigma_i^{\\dagger} = 1/\\sigma_i\\) for \\(i = 1,\\ldots,r\\) and zero otherwise.\n. . . \\(\\mathcal{N}(\\mathbf{A})\\) is the null space (or kernel) of \\(\\mathbf{A}\\) — the set of all vectors that \\(\\mathbf{A}\\) maps to zero:\n\\[\\mathcal{N}(\\mathbf{A}) = \\{\\mathbf{m} \\in \\mathbb{R}^M : \\mathbf{A}\\mathbf{m} = \\mathbf{0}\\}\\]\nThese are the model components that produce no data whatsoever. In seismology, think of structure in the subsurface that your acquisition geometry simply cannot see — it’s there, but it generates no response at the receivers.\nThe notation parallels \\(\\mathcal{R}\\): where \\(\\mathcal{R}(\\mathbf{A})\\) collects everything \\(\\mathbf{A}\\) can produce, \\(\\mathcal{N}(\\mathbf{A})\\) collects everything \\(\\mathbf{A}\\) annihilates. Some texts write \\(\\text{Ker}(\\mathbf{A})\\) instead (from the German Kern). Explicitly:\n\\[\n\\mathbf{A}^{\\dagger} = \\sum_{i=1}^{r} \\frac{1}{\\sigma_i}\\,\\mathbf{v}_i\\,\\mathbf{u}_i^\\top\n\\]"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#four-cases-of-the-pseudo-inverse",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#four-cases-of-the-pseudo-inverse",
+    "title": "Inverse Problems",
+    "section": "Four Cases of the Pseudo-Inverse",
+    "text": "Four Cases of the Pseudo-Inverse\n\n\n\n\n\n\n\n\n\nCase\nCondition\nPseudo-inverse\nSolution\n\n\n\n\nSquare, full rank\n\\(N = M = r\\)\n\\(\\mathbf{A}^{\\dagger} = \\mathbf{A}^{-1}\\)\nExact\n\n\nOverdetermined, full col. rank\n\\(N &gt; M = r\\)\n\\(\\mathbf{A}^{\\dagger} = (\\mathbf{A}^\\top\\mathbf{A})^{-1}\\mathbf{A}^\\top\\)\nLeast-squares\n\n\nUnderdetermined, full row rank\n\\(N &lt; M,\\; N = r\\)\n\\(\\mathbf{A}^{\\dagger} = \\mathbf{A}^\\top(\\mathbf{A}\\mathbf{A}^\\top)^{-1}\\)\nMinimum-norm\n\n\nRank-deficient\n\\(r &lt; \\min(N,M)\\)\n\\(\\mathbf{A}^{\\dagger} = \\mathbf{V}_r\\boldsymbol{\\Sigma}_r^{-1}\\mathbf{U}_r^\\top\\)\nMin-norm LS\n\n\n\n\nThe pseudo-inverse always gives the minimum-norm least-squares solution:\n\\[\\hat{\\mathbf{m}} = \\mathbf{A}^{\\dagger}\\mathbf{d} = \\arg\\min_{\\mathbf{m}} \\|\\mathbf{m}\\|_2 \\quad \\text{s.t.} \\quad \\|\\mathbf{A}\\mathbf{m} - \\mathbf{d}\\|_2 = \\min\\]"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#over--underdetermined-systems",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#over--underdetermined-systems",
+    "title": "Inverse Problems",
+    "section": "Over- & Underdetermined Systems",
+    "text": "Over- & Underdetermined Systems\n\n\nOverdetermined (\\(N &gt; M\\))\n\nMore data than unknowns\nNoise-free: may be inconsistent\nWith noise: least-squares solution\n\n\\[\n\\hat{\\mathbf{m}} = (\\mathbf{A}^\\top\\mathbf{A})^{-1}\\mathbf{A}^\\top\\mathbf{d}\n\\]\nSeismic example: least-squares migration.\n\nUnderdetermined (\\(N &lt; M\\))\n\nFewer data than unknowns\nInfinitely many solutions\nMinimum-norm solution\n\n\\[\n\\hat{\\mathbf{m}} = \\mathbf{A}^\\top(\\mathbf{A}\\mathbf{A}^\\top)^{-1}\\mathbf{d}\n\\]\nSeismic example: Wavefield reconstruction from undersampled data."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#condition-number-ill-posedness",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#condition-number-ill-posedness",
+    "title": "Inverse Problems",
+    "section": "Condition Number & Ill-Posedness",
+    "text": "Condition Number & Ill-Posedness\nThe condition number of \\(\\mathbf{A}\\) is:\n\\[\n\\kappa(\\mathbf{A}) = \\frac{\\sigma_1}{\\sigma_r}\n\\]\n\n\n\\(\\kappa \\approx 1\\): well-conditioned — small data perturbations cause small model perturbations\n\\(\\kappa \\gg 1\\): ill-conditioned — small data errors get amplified\n\n\n\nHadamard’s conditions for well-posedness:\n\nA solution exists\nThe solution is unique\nThe solution depends continuously on the data\n\nMost seismic inverse problems violate conditions 2 and/or 3."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#why-seismic-inversion-is-ill-posed",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#why-seismic-inversion-is-ill-posed",
+    "title": "Inverse Problems",
+    "section": "Why Seismic Inversion Is Ill-Posed",
+    "text": "Why Seismic Inversion Is Ill-Posed\nLimited bandwidth — seismic sources have bandpass character:\n\nMissing low frequencies → non-uniqueness in long wavelengths\nMissing high frequencies → limited resolution\n\n\nLimited aperture — finite acquisition geometry:\n\nIllumination gaps in the subsurface\nNull-space components invisible to the data\n\n\n\nNoise — ambient, coherent, and acquisition noise:\n\nAmplified through inversion of small singular values"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#effect-of-noise-on-inversion",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#effect-of-noise-on-inversion",
+    "title": "Inverse Problems",
+    "section": "Effect of Noise on Inversion",
+    "text": "Effect of Noise on Inversion\nWith noisy data \\(\\mathbf{d} = \\mathbf{A}\\mathbf{m}_{\\text{true}} + \\mathbf{n}\\), the naive pseudo-inverse gives:\n\\[\n\\hat{\\mathbf{m}} = \\mathbf{A}^{\\dagger}\\mathbf{d} = \\sum_{i=1}^{r}\\frac{\\mathbf{u}_i^\\top\\mathbf{d}}{\\sigma_i}\\,\\mathbf{v}_i\n\\]\n\n\\[\n= \\underbrace{\\sum_{i=1}^{r}\\frac{\\mathbf{u}_i^\\top\\mathbf{A}\\mathbf{m}_{\\text{true}}}{\\sigma_i}\\mathbf{v}_i}_{\\text{signal}} + \\underbrace{\\sum_{i=1}^{r}\\frac{\\mathbf{u}_i^\\top\\mathbf{n}}{\\sigma_i}\\mathbf{v}_i}_{\\text{amplified noise}}\n\\]\n\n\nFor small \\(\\sigma_i\\), the noise terms \\(\\mathbf{u}_i^\\top\\mathbf{n}/\\sigma_i\\) blow up."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#truncated-svd-tsvd",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#truncated-svd-tsvd",
+    "title": "Inverse Problems",
+    "section": "Truncated SVD (TSVD)",
+    "text": "Truncated SVD (TSVD)\nRegularize by keeping only the \\(p &lt; r\\) largest singular values:\n\\[\n\\hat{\\mathbf{m}}_{\\text{TSVD}} = \\sum_{i=1}^{p} \\frac{\\mathbf{u}_i^\\top\\mathbf{d}}{\\sigma_i}\\,\\mathbf{v}_i\n\\]\n\nTrade-off: choosing \\(p\\)\n\n\\(p\\) large → better resolution but more noise amplification\n\\(p\\) small → more stable but loss of detail\n\n\n\n\n\n\n\n\n\nTip\n\n\nThe Picard condition helps determine where to truncate: \\(|\\mathbf{u}_i^\\top\\mathbf{d}|\\) should decay faster than \\(\\sigma_i\\)."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#tikhonov-regularization",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#tikhonov-regularization",
+    "title": "Inverse Problems",
+    "section": "Tikhonov Regularization",
+    "text": "Tikhonov Regularization\nAdd a penalty term to the least-squares objective:\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\frac{1}{2}\\|\\mathbf{A}\\,\\mathbf{m} - \\mathbf{d}\\|_2^2 + \\frac{\\lambda}{2}\\|\\mathbf{m}\\|_2^2\n\\]\n\nSetting the gradient to zero yields the damped least-squares solution:\n\\[\n\\boxed{\\hat{\\mathbf{m}}_{\\lambda} = \\left(\\mathbf{A}^\\top\\mathbf{A} + \\lambda\\,\\mathbf{I}\\right)^{-1}\\mathbf{A}^\\top\\,\\mathbf{d}}\n\\]\n\n\nIn terms of the SVD, the filter factors become:\n\\[\nf_i = \\frac{\\sigma_i^2}{\\sigma_i^2 + \\lambda}\n\\]\nso each component is damped rather than truncated."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#tikhonov-as-an-augmented-system",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#tikhonov-as-an-augmented-system",
+    "title": "Inverse Problems",
+    "section": "Tikhonov as an Augmented System",
+    "text": "Tikhonov as an Augmented System\nThe Tikhonov objective\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\frac{1}{2}\\|\\mathbf{A}\\,\\mathbf{m} - \\mathbf{d}\\|_2^2 + \\frac{\\lambda}{2}\\|\\mathbf{m}\\|_2^2\n\\]\nis equivalent to a single least-squares problem with an augmented system:\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\left\\|\n\\begin{bmatrix} \\mathbf{A} \\\\ \\sqrt{\\lambda}\\,\\mathbf{I} \\end{bmatrix} \\mathbf{m} -\n\\begin{bmatrix} \\mathbf{d} \\\\ \\mathbf{0} \\end{bmatrix}\n\\right\\|_2^2\n\\]\n\nDefining \\(\\tilde{\\mathbf{A}} = \\begin{bmatrix} \\mathbf{A} \\\\ \\sqrt{\\lambda}\\,\\mathbf{I} \\end{bmatrix}\\) and \\(\\tilde{\\mathbf{d}} = \\begin{bmatrix} \\mathbf{d} \\\\ \\mathbf{0} \\end{bmatrix}\\), verify that the normal equations \\(\\tilde{\\mathbf{A}}^\\top\\tilde{\\mathbf{A}}\\,\\mathbf{m} = \\tilde{\\mathbf{A}}^\\top\\tilde{\\mathbf{d}}\\) give: \\(\\left(\\mathbf{A}^\\top\\mathbf{A} + \\lambda\\,\\mathbf{I}\\right)\\mathbf{m} = \\mathbf{A}^\\top\\mathbf{d}\\).\n\n\n\n\n\n\n\n\nWhy this matters\n\n\nThis formulation turns regularized inversion into a standard overdetermined least-squares problem. Solvers like LSQR work directly on the augmented system — no need to form \\(\\mathbf{A}^\\top\\mathbf{A}\\) explicitly. The damp parameter in LSQR is precisely \\(\\sqrt{\\lambda}\\)."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#tikhonov-general-form",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#tikhonov-general-form",
+    "title": "Inverse Problems",
+    "section": "Tikhonov — General Form",
+    "text": "Tikhonov — General Form\nThe generalized Tikhonov functional:\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\frac{1}{2}\\|\\mathbf{A}\\,\\mathbf{m} - \\mathbf{d}\\|_2^2 + \\frac{\\lambda}{2}\\|\\mathbf{L}\\,\\mathbf{m}\\|_2^2\n\\]\n\nwhere \\(\\mathbf{L}\\) is a regularization operator:\n\n\n\n\n\n\n\n\\(\\mathbf{L}\\)\nEffect\n\n\n\n\n\\(\\mathbf{I}\\)\nMinimum norm (zeroth-order Tikhonov)\n\n\n\\(\\mathbf{D}_1\\) (first difference)\nPenalize roughness — prefer flat models\n\n\n\\(\\mathbf{D}_2\\) (second difference)\nPenalize curvature — prefer smooth models\n\n\n\n\n\nCorresponds to\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\left\\|\n\\begin{bmatrix} \\mathbf{A} \\\\ \\sqrt{\\lambda}\\,\\mathbf{L} \\end{bmatrix} \\mathbf{m} -\n\\begin{bmatrix} \\mathbf{d} \\\\ \\mathbf{0} \\end{bmatrix}\n\\right\\|_2^2\n\\]\nSolution: \\(\\hat{\\mathbf{m}}_{\\lambda} = \\left(\\mathbf{A}^\\top\\mathbf{A} + \\lambda\\,\\mathbf{L}^\\top\\mathbf{L}\\right)^{-1}\\mathbf{A}^\\top\\,\\mathbf{d}\\)"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#regularization-as-a-biasvariance-trade-off",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#regularization-as-a-biasvariance-trade-off",
+    "title": "Inverse Problems",
+    "section": "Regularization as a Bias–Variance Trade-off",
+    "text": "Regularization as a Bias–Variance Trade-off\n\\[\n\\text{MSE}(\\hat{\\mathbf{m}}) = \\underbrace{\\|\\text{bias}\\|^2}_{\\text{increases with } \\lambda} + \\underbrace{\\text{variance}}_{\\text{decreases with } \\lambda}\n\\]\n\n\nNo regularization (\\(\\lambda = 0\\)): zero bias, high variance → unstable, noisy\nHeavy regularization (\\(\\lambda \\to \\infty\\)): high bias, zero variance → oversmoothed\nOptimal \\(\\lambda\\): balances the two\n\n\n\nMethods for choosing \\(\\lambda\\):\n\nL-curve criterion\nDiscrepancy principle: \\(\\|\\mathbf{A}\\hat{\\mathbf{m}} - \\mathbf{d}\\| \\approx \\|\\mathbf{n}\\|\\)"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-l-curve-criterion",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-l-curve-criterion",
+    "title": "Inverse Problems",
+    "section": "The L-Curve Criterion",
+    "text": "The L-Curve Criterion\nPlot \\(\\|\\hat{\\mathbf{m}}_\\lambda\\|_2\\) vs. \\(\\|\\mathbf{A}\\hat{\\mathbf{m}}_\\lambda - \\mathbf{d}\\|_2\\) on a log-log scale as \\(\\lambda\\) varies:\n\nThe corner of the L marks the optimal \\(\\lambda\\) — the point of maximum curvature where the trade-off between fitting the data and controlling the solution norm is most favorable."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#bayesian-interpretation",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#bayesian-interpretation",
+    "title": "Inverse Problems",
+    "section": "Bayesian Interpretation",
+    "text": "Bayesian Interpretation\nRewrite Tikhonov regularization as maximum a posteriori (MAP) estimation:\n\\[\n\\hat{\\mathbf{m}}_{\\text{MAP}} = \\arg\\max_{\\mathbf{m}} \\; p(\\mathbf{m} \\mid \\mathbf{d}) \\propto p(\\mathbf{d} \\mid \\mathbf{m})\\,p(\\mathbf{m})\n\\]\n\nWith Gaussian assumptions:\n\nLikelihood: \\(p(\\mathbf{d} \\mid \\mathbf{m}) \\propto \\exp\\!\\left(-\\frac{1}{2}(\\mathbf{d} - \\mathbf{A}\\mathbf{m})^\\top\\mathbf{C}_d^{-1}(\\mathbf{d} - \\mathbf{A}\\mathbf{m})\\right)\\)\nPrior: \\(p(\\mathbf{m}) \\propto \\exp\\!\\left(-\\frac{1}{2}\\mathbf{m}^\\top\\mathbf{C}_m^{-1}\\mathbf{m}\\right)\\)\n\n\n\nTaking \\(-\\log\\) recovers a generalized Tikhonov problem:\n\\[\n\\min_{\\mathbf{m}} \\;\\; \\frac{1}{2}\\|\\mathbf{C}_d^{-1/2}(\\mathbf{A}\\mathbf{m} - \\mathbf{d})\\|_2^2 + \\frac{1}{2}\\|\\mathbf{C}_m^{-1/2}\\mathbf{m}\\|_2^2\n\\]\nwhere \\(\\mathbf{C}_d\\) and \\(\\mathbf{C}_m\\) are data and model covariance matrices."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#covariance-and-factored-regularization",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#covariance-and-factored-regularization",
+    "title": "Inverse Problems",
+    "section": "Covariance and Factored Regularization",
+    "text": "Covariance and Factored Regularization\nFactor the inverse covariances:\n\\[\n\\mathbf{C}_d^{-1} = \\mathbf{W}_d^\\top\\mathbf{W}_d, \\qquad \\mathbf{C}_m^{-1} = \\mathbf{W}_m^\\top\\mathbf{W}_m\n\\]\n\nThe MAP solution becomes:\n\\[\n\\hat{\\mathbf{m}} = \\left(\\mathbf{A}^\\top\\mathbf{W}_d^\\top\\mathbf{W}_d\\mathbf{A} + \\mathbf{W}_m^\\top\\mathbf{W}_m\\right)^{-1}\\mathbf{A}^\\top\\mathbf{W}_d^\\top\\mathbf{W}_d\\,\\mathbf{d}\n\\]\n\n\nConnections:\n\n\n\n\n\n\n\nStatistical quantity\nRegularization quantity\n\n\n\n\n\\(\\mathbf{C}_d^{-1}\\)\nData weighting\n\n\n\\(\\mathbf{C}_m^{-1}\\)\nModel penalty (= \\(\\lambda\\,\\mathbf{L}^\\top\\mathbf{L}\\))\n\n\n\\(\\mathbf{C}_m^{-1/2}\\)\nSquare root of model precision"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#deconvolution-the-setup",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#deconvolution-the-setup",
+    "title": "Inverse Problems",
+    "section": "Deconvolution — The Setup",
+    "text": "Deconvolution — The Setup\n\nA sparse reflectivity \\(r(t)\\) convolved with a bandlimited Ricker wavelet \\(w(t)\\) produces the observed trace \\(d(t)\\). The wavelet spectrum \\(|W(f)|\\) shows the bandpass character — frequencies near zero and above ~60 Hz carry no signal, making inversion ill-posed."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#deconvolution-as-an-inverse-problem",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#deconvolution-as-an-inverse-problem",
+    "title": "Inverse Problems",
+    "section": "Deconvolution as an Inverse Problem",
+    "text": "Deconvolution as an Inverse Problem\nA seismic trace is modeled as a convolution:\n\\[\nd(t) = w(t) * r(t) + n(t)\n\\]\n\n\\(w(t)\\): source wavelet\n\\(r(t)\\): reflectivity series\n\\(n(t)\\): noise\n\n\nIn matrix form:\n\\[\n\\mathbf{d} = \\mathbf{W}\\,\\mathbf{r} + \\mathbf{n}\n\\]\nwhere \\(\\mathbf{W}\\) is a Toeplitz convolution matrix built from the wavelet.\n\n\nDeconvolution = inversion for \\(\\mathbf{r}\\) given \\(\\mathbf{d}\\) and \\(\\mathbf{W}\\)."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-toeplitz-convolution-matrix",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#the-toeplitz-convolution-matrix",
+    "title": "Inverse Problems",
+    "section": "The Toeplitz Convolution Matrix",
+    "text": "The Toeplitz Convolution Matrix\nConvolution \\(d_k = \\sum_j w_{k-j}\\,r_j\\) written as a matrix–vector product:\n\\[\n\\begin{bmatrix} d_1 \\\\ d_2 \\\\ d_3 \\\\ d_4 \\\\ d_5 \\\\ \\vdots \\end{bmatrix}\n=\n\\begin{bmatrix}\nw_0 & 0 & 0 & \\cdots \\\\\nw_1 & w_0 & 0 & \\cdots \\\\\nw_2 & w_1 & w_0 & \\cdots \\\\\n0 & w_2 & w_1 & \\cdots \\\\\n0 & 0 & w_2 & \\cdots \\\\\n\\vdots & \\vdots & \\vdots & \\ddots\n\\end{bmatrix}\n\\begin{bmatrix} r_1 \\\\ r_2 \\\\ r_3 \\\\ \\vdots \\end{bmatrix}\n\\]\n\nWhy Toeplitz? Because the system is time-invariant — shifting \\(r\\) by one sample shifts \\(d\\) by one sample. Each column of \\(\\mathbf{W}\\) is the wavelet, shifted down by one row. This means every descending diagonal is constant, which is the defining property of a Toeplitz matrix.\n\n\n\n\n\n\n\n\nComputational consequence\n\n\nA Toeplitz matrix–vector product is a convolution and costs \\(\\mathcal{O}(N \\log N)\\) via the FFT, not \\(\\mathcal{O}(NM)\\). This is what makes matrix-free seismic operators practical."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#deconvolution-why-its-ill-posed",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#deconvolution-why-its-ill-posed",
+    "title": "Inverse Problems",
+    "section": "Deconvolution — Why It’s Ill-Posed",
+    "text": "Deconvolution — Why It’s Ill-Posed\nThe wavelet \\(w(t)\\) is bandlimited, so:\n\n\\(\\mathbf{W}\\) has rapidly decaying singular values\nLow and high-frequency reflectivity components are attenuated\nInversion amplifies noise at those frequencies\n\n\nRegularized deconvolution:\n\\[\n\\hat{\\mathbf{r}} = \\left(\\mathbf{W}^\\top\\mathbf{W} + \\lambda\\,\\mathbf{I}\\right)^{-1}\\mathbf{W}^\\top\\mathbf{d}\n\\]\n\n\nIn the Fourier domain (circulant approximation):\n\\[\n\\hat{R}(f) = \\frac{\\overline{W}(f)}{|W(f)|^2 + \\lambda}\\,D(f)\n\\]\nThis is the Wiener filter."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#numerical-examples-in-julia",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#numerical-examples-in-julia",
+    "title": "Inverse Problems",
+    "section": "Numerical Examples in Julia",
+    "text": "Numerical Examples in Julia\nSet up matrix-free operators using JOLI.jl:\nusing JOLI, LinearAlgebra\n\n# Define a convolution operator (matrix-free)\nn = 256\nw = ricker(n, 25.0)  # Ricker wavelet, 25 Hz\nW = joConvolve(n, w)  # JOLI linear operator\n\n# W acts like a matrix but stores only the wavelet\n# W  * r  → forward (convolution)\n# W' * d  → adjoint (correlation)\n\nThe adjoint W' is defined to satisfy \\(\\langle \\mathbf{W}\\mathbf{r}, \\mathbf{d}\\rangle = \\langle \\mathbf{r}, \\mathbf{W}^\\top\\mathbf{d}\\rangle\\)."
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#julia-solving-with-lsqr",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#julia-solving-with-lsqr",
+    "title": "Inverse Problems",
+    "section": "Julia — Solving with LSQR",
+    "text": "Julia — Solving with LSQR\nusing IterativeSolvers\n\n# True reflectivity\nr_true = zeros(n)\nr_true[64]  =  1.0\nr_true[128] = -0.5\nr_true[192] =  0.7\n\n# Noisy data\nd = W * r_true + 0.05 * randn(n)\n\n# Damped least-squares via LSQR\nr_est = lsqr(W, d; damp=0.1, maxiter=50)\n\nThe damp parameter corresponds to \\(\\sqrt{\\lambda}\\) in the Tikhonov formulation:\n\\[\n\\min_{\\mathbf{r}} \\;\\; \\|\\mathbf{W}\\mathbf{r} - \\mathbf{d}\\|_2^2 + \\lambda\\|\\mathbf{r}\\|_2^2\n\\]"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#summary",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#summary",
+    "title": "Inverse Problems",
+    "section": "Summary",
+    "text": "Summary\n\n\nKey concepts:\n\nForward vs. inverse problems\nLeast-squares & normal equations\nSVD and fundamental subspaces\nPseudo-inverse — unifies all cases\nRegularization as bias–variance trade-off\n\n\nPractical takeaways:\n\nAlways assess the condition number\nUse matrix-free operators in large-scale problems\nChoose regularization via L-curve or discrepancy principle\nThe Bayesian view gives a probabilistic interpretation of regularization\nDeconvolution illustrates all key ideas"
+  },
+  {
+    "objectID": "slides/week-06/09-inverse-problems-lecture.html#references",
+    "href": "slides/week-06/09-inverse-problems-lecture.html#references",
+    "title": "Inverse Problems",
+    "section": "References",
+    "text": "References\n\nAster, R.C., Borchers, B. & Thurber, C.H. Parameter Estimation and Inverse Problems. Academic Press.\nMenke, W. Geophysical Data Analysis: Discrete Inverse Theory. Academic Press.\nTarantola, A. Inverse Problem Theory and Methods for Model Parameter Estimation. SIAM."
   },
   {
     "objectID": "syllabus.html",
@@ -463,7 +750,7 @@
     "href": "outline.html#sec-proc-to-inversion",
     "title": "Outline1",
     "section": "From processing to inversion",
-    "text": "From processing to inversion\n\nForward and inverse problems\nOver and underdermined problems\nPseudo/generalized inverses\nLeast-squares and damped least-squares inversion\nConvolution/correlation, Radon, and NMO in tems of linear operators (matrices)\nForward and adjoint operations and the ‘dot test’ a la Jon Claerbout\nPseudo inverse and regularization\nDeconvolution as an inversion problem (‘matrix inverse’)\nForward operator for NMO and least-squares NMO\nRemoving multiples by high-resolution Radon transform",
+    "text": "From processing to inversion\n\nGeneral Forward problem\nLinear Forward problem\nForward and inverse problems nonlinear and linear\nStrict inverse for invertible matrices\nWhen inverse does not exist\nLeast-squares solution by setting gradient least-squares solution to zero\nInverse for non-unique problems including definition of non-uniqueness\nMinimum-norm solution\nDefinition of transpose and adjoint of a matrix, unitary matrices\nSVD\nNullspaces\nNon-null and null spaces in terms of SVD\nPseudo/generalized inverses\nFour cases of pseudo inverse\nOver and underdermined problems noise free and noisy\nInverse and pseudo inverses from http://en.wikipedia.org/wiki/Fundamental_theorem_of_linear_algebra\nCondition number ill and well conditioned\ntruncated SVD\nRegularization\nConditions for well-posed problems\nLeast-squares and damped least-squares inversion\nTikhonov regularization + LS solution\nPseudo inverse and regularization\nDeconvolution as an inversion problem (‘matrix inverse’)\nForward operator for NMO and least-squares NMO\nRemoving multiples by high-resolution Radon transform",
     "crumbs": [
       "Outline"
     ]

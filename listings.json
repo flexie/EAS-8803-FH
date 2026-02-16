@@ -6,15 +6,22 @@
       "/weeks/week-02.html",
       "/weeks/week-03.html",
       "/weeks/week-04.html",
-      "/weeks/week-05.html"
+      "/weeks/week-05.html",
+      "/weeks/week-06.html"
     ]
   },
   {
-    "listing": "/weeks/week-03.html",
+    "listing": "/weeks/week-01.html",
     "items": [
-      "/slides/week-04/06-Wave-Equation.html",
-      "/slides/week-04/07-Wavefield-Extrapolation.html",
-      "/labs/w3-lab02-NMO.html"
+      "/slides/week-01/01-intro.html",
+      "/slides/week-01/02-processing-1.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-02.html",
+    "items": [
+      "/slides/week-02/03-processing-2.html",
+      "/labs/w2-lab01-intro.html"
     ]
   },
   {
@@ -34,17 +41,17 @@
     ]
   },
   {
-    "listing": "/weeks/week-02.html",
+    "listing": "/weeks/week-06.html",
     "items": [
-      "/slides/week-02/03-processing-2.html",
-      "/labs/w2-lab01-intro.html"
+      "/slides/week-06/09-inverse-problems-lecture.html"
     ]
   },
   {
-    "listing": "/weeks/week-01.html",
+    "listing": "/weeks/week-03.html",
     "items": [
-      "/slides/week-01/01-intro.html",
-      "/slides/week-01/02-processing-1.html"
+      "/slides/week-04/06-Wave-Equation.html",
+      "/slides/week-04/07-Wavefield-Extrapolation.html",
+      "/labs/w3-lab02-NMO.html"
     ]
   }
 ]

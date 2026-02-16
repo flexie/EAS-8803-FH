@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 500" font-family="Latin Modern Math, STIX Two Math, serif">
+  <!-- Background -->
+  <rect width="620" height="500" fill="white"/>
+
+  <!-- Axes -->
+  <line x1="80" y1="430" x2="580" y2="430" stroke="#333" stroke-width="1.5"/>
+  <line x1="80" y1="430" x2="80" y2="30" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Axis arrows -->
+  <polygon points="580,430 570,425 570,435" fill="#333"/>
+  <polygon points="80,30 75,40 85,40" fill="#333"/>
+
+  <!-- Axis labels -->
+  <text x="330" y="480" text-anchor="middle" font-size="18" fill="#333">log ‖A m̂ − d‖₂  (residual norm)</text>
+  <text x="25" y="230" text-anchor="middle" font-size="18" fill="#333" transform="rotate(-90, 25, 230)">log ‖m̂‖₂  (solution norm)</text>
+
+  <!-- Grid lines (subtle) -->
+  <line x1="80" y1="130" x2="575" y2="130" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="80" y1="230" x2="575" y2="230" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="80" y1="330" x2="575" y2="330" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="200" y1="30" x2="200" y2="430" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="340" y1="30" x2="340" y2="430" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="480" y1="30" x2="480" y2="430" stroke="#e0e0e0" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- L-curve path -->
+  <path d="M 120,60 C 125,70 128,100 130,140 C 132,180 133,220 135,260 C 137,290 140,310 148,340 C 158,370 175,390 210,400 C 250,408 310,412 400,415 C 460,417 520,418 560,419"
+        fill="none" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Data points along curve -->
+  <!-- Large lambda (over-regularized) -->
+  <circle cx="125" cy="80" r="4" fill="#c0392b"/>
+  <circle cx="129" cy="130" r="4" fill="#c0392b"/>
+  <circle cx="132" cy="190" r="4" fill="#c0392b"/>
+
+  <!-- Corner / optimal -->
+  <circle cx="148" cy="340" r="7" fill="#27ae60" stroke="#27ae60" stroke-width="2"/>
+
+  <!-- Small lambda (under-regularized) -->
+  <circle cx="210" cy="400" r="4" fill="#2980b9"/>
+  <circle cx="310" cy="412" r="4" fill="#2980b9"/>
+  <circle cx="460" cy="417" r="4" fill="#2980b9"/>
+  <circle cx="550" cy="419" r="4" fill="#2980b9"/>
+
+  <!-- Corner annotation -->
+  <line x1="155" y1="335" x2="230" y2="280" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <rect x="215" y="245" width="200" height="55" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="1"/>
+  <text x="315" y="268" text-anchor="middle" font-size="15" fill="#1e8449" font-weight="bold">optimal λ</text>
+  <text x="315" y="288" text-anchor="middle" font-size="13" fill="#1e8449">max. curvature = corner</text>
+
+  <!-- Lambda direction arrow along curve -->
+  <!-- Arrow near top: large lambda -->
+  <text x="170" y="75" text-anchor="start" font-size="14" fill="#c0392b" font-style="italic">λ large</text>
+  <text x="158" y="95" text-anchor="start" font-size="12" fill="#c0392b">(over-regularized)</text>
+
+  <!-- Arrow near bottom-right: small lambda -->
+  <text x="440" y="400" text-anchor="start" font-size="14" fill="#2980b9" font-style="italic">λ small</text>
+  <text x="428" y="416" text-anchor="start" font-size="12" fill="#2980b9">(under-regularized)</text>
+
+  <!-- Lambda direction indicator along curve -->
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#c0392b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <polygon points="8,0 0,3 8,6" fill="#2980b9"/>
+    </marker>
+  </defs>
+
+  <!-- Arrows showing lambda direction -->
+  <path d="M 127,110 C 128,125 129,135 130,145" fill="none" stroke="#c0392b" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+  <path d="M 380,414 C 340,413 300,412 270,410" fill="none" stroke="#2980b9" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+</svg>
