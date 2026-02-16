@@ -211,7 +211,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#seismic-data-generation" id="toc-seismic-data-generation" class="nav-link" data-scroll-target="#seismic-data-generation">Seismic Data Generation</a></li>
   <li><a href="#elastic-simulations-p--and-s-waves" id="toc-elastic-simulations-p--and-s-waves" class="nav-link" data-scroll-target="#elastic-simulations-p--and-s-waves">Elastic simulations (P- and S-waves)</a></li>
   <li><a href="#acoustic-imaging" id="toc-acoustic-imaging" class="nav-link" data-scroll-target="#acoustic-imaging">Acoustic Imaging</a></li>
-  <li><a href="#elastic-imaging" id="toc-elastic-imaging" class="nav-link" data-scroll-target="#elastic-imaging">Elastic Imaging</a></li>
+  <li><a href="#elastic-imaging" id="toc-elastic-imaging" class="nav-link" data-scroll-target="#elastic-imaging">Elastic Imaging</a>
+  <ul class="collapse">
+  <li><a href="#important-note-use-the-same-j-jacobian-as-acosutic-here." id="toc-important-note-use-the-same-j-jacobian-as-acosutic-here." class="nav-link" data-scroll-target="#important-note-use-the-same-j-jacobian-as-acosutic-here.">Important Note: Use the same J (Jacobian) as acosutic here.</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -580,88 +583,152 @@ Operator `forward` ran in 2.39 s</code></pre>
 <section id="acoustic-imaging" class="level1">
 <h1>Acoustic Imaging</h1>
 <p>For imaging we need a smooth velocity (background) model, which we can obtain by applying Gaussian smoothing on the origianl model, vp.</p>
-<div id="d9b18759-5c81-44e7-aeeb-ee40dff97f76" class="cell" data-execution_count="23">
+<div id="d9b18759-5c81-44e7-aeeb-ee40dff97f76" class="cell" data-execution_count="65">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>vp0 <span class="op">=</span> <span class="fl">1f0</span><span class="op">./</span><span class="fu">imfilter</span>(<span class="fl">1f0</span><span class="op">./</span>vp, Kernel.<span class="fu">gaussian</span>(<span class="fl">5</span>))</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>model0 <span class="op">=</span> <span class="fu">Model</span>(shape, spacing, origin, <span class="fl">1f0</span><span class="op">./</span>vp0<span class="op">.^</span><span class="fl">2f0</span>; nb <span class="op">=</span> <span class="fl">80</span>)</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>Ainv0 <span class="op">=</span> <span class="fu">judiModeling</span>(model0;options<span class="op">=</span>opt)</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>F0 <span class="op">=</span> Pr <span class="op">*</span> Ainv0 <span class="op">*</span> Ps<span class="op">'</span></span>
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>J <span class="op">=</span> <span class="fu">judiJacobian</span>(F0, q)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="65">
 <pre><code>JUDI born{Float32} propagator (z * x) -&gt; (src * rec * time)</code></pre>
 </div>
 </div>
-<div id="d0af589b-f0a1-447c-a1ab-8a6f13322b60" class="cell" data-execution_count="24">
+<div id="c23c76c0-c83d-42a8-9a75-5ca5781f5f77" class="cell" data-execution_count="66">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>d_obs0 <span class="op">=</span> Pr <span class="op">*</span> Ainv0 <span class="op">*</span> Ps<span class="op">'</span> <span class="op">*</span> q</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Operator `forward` ran in 0.43 s
-Operator `forward` ran in 0.40 s
+<pre><code>Operator `forward` ran in 0.47 s
 Operator `forward` ran in 0.42 s
-Operator `forward` ran in 0.41 s
-Operator `forward` ran in 0.40 s
-Operator `forward` ran in 0.41 s
-Operator `forward` ran in 0.43 s
-Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.39 s
 Operator `forward` ran in 0.40 s
 Operator `forward` ran in 0.39 s
-Operator `forward` ran in 0.39 s</code></pre>
+Operator `forward` ran in 0.39 s
+Operator `forward` ran in 0.39 s
+Operator `forward` ran in 0.40 s
+Operator `forward` ran in 0.42 s
+Operator `forward` ran in 0.39 s
+Operator `forward` ran in 0.53 s</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>judiVector{Float32, Matrix{Float32}} with 11 sources</code></pre>
 </div>
 </div>
-<div id="f9a00659-e710-4020-9ca6-a7f4fd3b9e23" class="cell" data-execution_count="25">
+<div id="f9a00659-e710-4020-9ca6-a7f4fd3b9e23" class="cell" data-execution_count="67">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> J<span class="op">'</span><span class="fu">*</span>(d_obs<span class="op">-</span>d_obs0);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Building forward operator
+<pre><code>Operator `forward` ran in 0.45 s
+Operator `gradient` ran in 1.05 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.02 s
 Operator `forward` ran in 0.43 s
-Building adjoint born operator
-Operator `gradient` ran in 1.04 s
-Operator `forward` ran in 0.47 s
-Operator `gradient` ran in 0.99 s
-Operator `forward` ran in 0.42 s
-Operator `gradient` ran in 1.13 s
-Operator `forward` ran in 0.42 s
-Operator `gradient` ran in 1.07 s
-Operator `forward` ran in 0.42 s
-Operator `gradient` ran in 1.00 s
-Operator `forward` ran in 0.42 s
-Operator `gradient` ran in 1.01 s
+Operator `gradient` ran in 1.02 s
 Operator `forward` ran in 0.41 s
-Operator `gradient` ran in 1.03 s
-Operator `forward` ran in 0.50 s
-Operator `gradient` ran in 1.03 s
-Operator `forward` ran in 0.46 s
+Operator `gradient` ran in 0.99 s
+Operator `forward` ran in 0.41 s
 Operator `gradient` ran in 0.99 s
 Operator `forward` ran in 0.41 s
 Operator `gradient` ran in 0.98 s
-Operator `forward` ran in 0.46 s
-Operator `gradient` ran in 1.18 s</code></pre>
+Operator `forward` ran in 0.41 s
+Operator `gradient` ran in 0.99 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.11 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 0.99 s
+Operator `forward` ran in 0.41 s
+Operator `gradient` ran in 1.00 s
+Operator `forward` ran in 0.41 s
+Operator `gradient` ran in 1.00 s</code></pre>
 </div>
 </div>
 <p>Question: 1) Run the below cell and interpret the shot record (what happens when the velocity is very smooth?)</p>
 <div id="c4ecbb07-6a35-4272-b043-b0f18be9953a" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(d_obs0.data[<span class="fl">2</span>], vmin<span class="op">=-</span><span class="fl">1</span>, vmax<span class="op">=</span><span class="fl">1</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="7e86e0e2-6628-41fb-8957-92f1c67c0e4c" class="cell" data-execution_count="64">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(img<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ab829f4c-b595-4f82-be77-a56aa8838071" class="cell" data-execution_count="68">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>img[<span class="op">:</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">20</span>] <span class="op">.=</span> <span class="fl">0.0f0</span>; <span class="co"># Mute a part of water column to get rid of source-receiver artifacts</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="7e86e0e2-6628-41fb-8957-92f1c67c0e4c" class="cell" data-execution_count="69">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(img<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Exercise4_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+<p><img src="Exercise4_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="64">
-<pre><code>PyObject &lt;matplotlib.image.AxesImage object at 0x7f8ea7d25130&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<pre><code>PyObject &lt;matplotlib.image.AxesImage object at 0x7fd4b84275e0&gt;</code></pre>
 </div>
 </div>
-<p>Question: 1) Taking the motivation from the acoustic imaging, can you perform elastic imaging in the cell below?</p>
+<p>Question: 1) Taking the motivation from the acoustic imaging, can you perform elastic imaging in the cells below and mention your observations from the elastic image (compared to acoustic)?</p>
 </section>
 <section id="elastic-imaging" class="level1">
 <h1>Elastic Imaging</h1>
+<div id="8de6d638-9635-4076-b5ea-2e22edcfe250" class="cell" data-execution_count="56">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>vs0 <span class="op">=</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>model0_el <span class="op">=</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>Ainv0_el <span class="op">=</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="56">
+<pre><code>JUDI forward{Float32} propagator (x * z * time) -&gt; (x * z * time)</code></pre>
+</div>
+</div>
+<div id="05ff6bc9-08a7-40ac-b275-a2a45103a326" class="cell" data-execution_count="57">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>d_obs0_el <span class="op">=</span> Pr <span class="op">*</span> Ainv0_el <span class="op">*</span> Ps<span class="op">'</span> <span class="op">*</span> q_el</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Operator `forward` ran in 2.19 s
+Operator `forward` ran in 1.98 s
+Operator `forward` ran in 2.22 s
+Operator `forward` ran in 1.96 s
+Operator `forward` ran in 1.94 s
+Operator `forward` ran in 2.24 s
+Operator `forward` ran in 2.29 s
+Operator `forward` ran in 2.13 s
+Operator `forward` ran in 2.38 s
+Operator `forward` ran in 2.16 s
+Operator `forward` ran in 2.06 s</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>judiVector{Float32, Matrix{Float32}} with 11 sources</code></pre>
+</div>
+</div>
+<section id="important-note-use-the-same-j-jacobian-as-acosutic-here." class="level2">
+<h2 class="anchored" data-anchor-id="important-note-use-the-same-j-jacobian-as-acosutic-here.">Important Note: Use the same J (Jacobian) as acosutic here.</h2>
+<div id="6b6ad508-d1ae-4e8b-8544-7246349b5bb9" class="cell" data-execution_count="61">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>img_el <span class="op">=</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Operator `forward` ran in 0.58 s
+Operator `gradient` ran in 1.32 s
+Operator `forward` ran in 0.48 s
+Operator `gradient` ran in 1.01 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 0.99 s
+Operator `forward` ran in 0.49 s
+Operator `gradient` ran in 1.04 s
+Operator `forward` ran in 0.46 s
+Operator `gradient` ran in 1.01 s
+Operator `forward` ran in 0.48 s
+Operator `gradient` ran in 1.24 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.06 s
+Operator `forward` ran in 0.44 s
+Operator `gradient` ran in 1.00 s
+Operator `forward` ran in 0.42 s
+Operator `gradient` ran in 1.00 s
+Operator `forward` ran in 0.51 s
+Operator `gradient` ran in 1.01 s
+Operator `forward` ran in 0.53 s
+Operator `gradient` ran in 1.31 s</code></pre>
+</div>
+</div>
+<div id="e6031174-7835-4ce8-9eef-a4e020101b4a" class="cell" data-execution_count="62">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>img_el[<span class="op">:</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">20</span>] <span class="op">.=</span> <span class="fl">0.0f0</span>; <span class="co"># Mute a part of water column to get rid of source-receiver artifacts</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2ffbbaa3-d14c-4225-8399-0cbaac403a10" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(img_el<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"Greys"</span>, extent<span class="op">=</span>data_extent, aspect<span class="op">=</span><span class="st">"auto"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <p>Question: 1) Please repeat the same experiments (elastic and acoustic) for the case where the lower layer is slanting instead of horizontal and interpret the differences compared to the above experiments.</p>
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
