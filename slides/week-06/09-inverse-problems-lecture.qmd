@@ -104,7 +104,7 @@ The **forward problem** — given $\mathbf{m}$, compute $\mathbf{d}$ — is typi
 | Forward Operator | Model $\mathbf{m}$ | Data $\mathbf{d}$ |
 |:---|:---|:---|
 | Wave equation | Velocity field | Seismograms |
-| Born approximation | Reflectivity | Scattered wavefield |
+| Born approximation | Reflectivity | linearized data |
 | Convolution | Reflectivity series | Seismic trace |
 
 . . .
@@ -194,7 +194,7 @@ $$
 
 . . .
 
-**Orthogonal matrices** satisfy $\mathbf{A}^\top\mathbf{A} = \mathbf{A}\,\mathbf{A}^\top = \mathbf{I}$, so the adjoint *is* the inverse.
+**Orthonormal matrices** satisfy $\mathbf{A}^\top\mathbf{A} = \mathbf{A}\,\mathbf{A}^\top = \mathbf{I}$, so the adjoint *is* the inverse.
 
 
 **In practice, this situation is rare** because:

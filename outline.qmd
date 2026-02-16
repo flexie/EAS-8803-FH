@@ -58,12 +58,28 @@ subtitle: "Seismic Exploration Methods - EAS 8803 - FH"
 
 ## From processing to inversion {#sec-proc-to-inversion}
 
-- Forward and inverse problems
-- Over and underdermined problems
+- General Forward problem
+- Linear Forward problem
+- Forward and inverse problems nonlinear and linear
+- Strict inverse for invertible matrices
+- When inverse does not exist
+- Least-squares solution by setting gradient least-squares solution to zero
+- Inverse for non-unique problems including definition of non-uniqueness
+- Minimum-norm solution
+- Definition of transpose and adjoint of a matrix, unitary matrices 
+- SVD
+- Nullspaces
+- Non-null and null spaces in terms of SVD
 - Pseudo/generalized inverses
+- Four cases of pseudo inverse
+- Over and underdermined problems noise free and noisy
+- Inverse and pseudo inverses from http://en.wikipedia.org/wiki/Fundamental_theorem_of_linear_algebra
+- Condition number ill and well conditioned
+- truncated SVD
+- Regularization
+- Conditions for well-posed problems
 - Least-squares and damped least-squares inversion
-- Convolution/correlation, Radon, and NMO in tems of linear operators (matrices)
-- Forward and adjoint operations and the 'dot test’ a la Jon Claerbout
+- Tikhonov regularization + LS solution
 - Pseudo inverse and regularization
 - Deconvolution as an inversion problem ('matrix inverse’)
 - Forward operator for NMO and least-squares NMO
