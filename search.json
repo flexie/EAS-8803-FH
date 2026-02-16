@@ -402,7 +402,7 @@
     "href": "slides/week-06/09-inverse-problems-lecture.html#forward-problem-examples",
     "title": "Inverse Problems",
     "section": "Forward Problem — Examples",
-    "text": "Forward Problem — Examples\n\n\n\nForward Operator\nModel \\(\\mathbf{m}\\)\nData \\(\\mathbf{d}\\)\n\n\n\n\nWave equation\nVelocity field\nSeismograms\n\n\nBorn approximation\nReflectivity\nScattered wavefield\n\n\nConvolution\nReflectivity series\nSeismic trace\n\n\n\n\nAll share the common mathematical structure \\(\\mathbf{d} = F(\\mathbf{m})\\)."
+    "text": "Forward Problem — Examples\n\n\n\nForward Operator\nModel \\(\\mathbf{m}\\)\nData \\(\\mathbf{d}\\)\n\n\n\n\nWave equation\nVelocity field\nSeismograms\n\n\nBorn approximation\nReflectivity\nlinearized data\n\n\nConvolution\nReflectivity series\nSeismic trace\n\n\n\n\nAll share the common mathematical structure \\(\\mathbf{d} = F(\\mathbf{m})\\)."
   },
   {
     "objectID": "slides/week-06/09-inverse-problems-lecture.html#the-linear-forward-problem",
@@ -423,7 +423,7 @@
     "href": "slides/week-06/09-inverse-problems-lecture.html#the-strict-inverse",
     "title": "Inverse Problems",
     "section": "The Strict Inverse",
-    "text": "The Strict Inverse\nIf \\(\\mathbf{A}\\) is square (\\(N = M\\)) and invertible (\\(\\det(\\mathbf{A}) \\neq 0\\)), the exact inverse exists:\n\\[\n\\mathbf{m} = \\mathbf{A}^{-1}\\,\\mathbf{d}\n\\]\n\nProperties:\n\n\\(\\mathbf{A}\\,\\mathbf{A}^{-1} = \\mathbf{A}^{-1}\\,\\mathbf{A} = \\mathbf{I}\\)\nUnique solution for every \\(\\mathbf{d}\\)\n\n\n\nOrthogonal matrices satisfy \\(\\mathbf{A}^\\top\\mathbf{A} = \\mathbf{A}\\,\\mathbf{A}^\\top = \\mathbf{I}\\), so the adjoint is the inverse.\nIn practice, this situation is rare because:\n\n\\(N \\neq M\\) (more data than unknowns or vice versa)\n\\(\\mathbf{A}\\) may be rank-deficient\nNoise contaminates the data"
+    "text": "The Strict Inverse\nIf \\(\\mathbf{A}\\) is square (\\(N = M\\)) and invertible (\\(\\det(\\mathbf{A}) \\neq 0\\)), the exact inverse exists:\n\\[\n\\mathbf{m} = \\mathbf{A}^{-1}\\,\\mathbf{d}\n\\]\n\nProperties:\n\n\\(\\mathbf{A}\\,\\mathbf{A}^{-1} = \\mathbf{A}^{-1}\\,\\mathbf{A} = \\mathbf{I}\\)\nUnique solution for every \\(\\mathbf{d}\\)\n\n\n\nOrthonormal matrices satisfy \\(\\mathbf{A}^\\top\\mathbf{A} = \\mathbf{A}\\,\\mathbf{A}^\\top = \\mathbf{I}\\), so the adjoint is the inverse.\nIn practice, this situation is rare because:\n\n\\(N \\neq M\\) (more data than unknowns or vice versa)\n\\(\\mathbf{A}\\) may be rank-deficient\nNoise contaminates the data"
   },
   {
     "objectID": "slides/week-06/09-inverse-problems-lecture.html#when-does-the-inverse-not-exist",
