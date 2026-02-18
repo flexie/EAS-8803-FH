@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -201,8 +230,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#julia" id="toc-julia" class="nav-link" data-scroll-target="#julia">Julia</a></li>
   <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  <li><a href="#docker-not-necessary-for-homework-but-important-for-project" id="toc-docker-not-necessary-for-homework-but-important-for-project" class="nav-link" data-scroll-target="#docker-not-necessary-for-homework-but-important-for-project">Docker (not necessary for homework but important for project)</a></li>
+  <li><a href="#docker-installation-not-necessary-for-homework-but-important-for-project" id="toc-docker-installation-not-necessary-for-homework-but-important-for-project" class="nav-link" data-scroll-target="#docker-installation-not-necessary-for-homework-but-important-for-project">Docker Installation (not necessary for homework but important for project)</a></li>
+  <li><a href="#window-users" id="toc-window-users" class="nav-link" data-scroll-target="#window-users">Window Users</a></li>
   </ul></li>
+  <li><a href="#new-docker-container-for-seismic-experiments" id="toc-new-docker-container-for-seismic-experiments" class="nav-link" data-scroll-target="#new-docker-container-for-seismic-experiments">New docker container for Seismic Experiments</a></li>
+  <li><a href="#some-useful-material" id="toc-some-useful-material" class="nav-link" data-scroll-target="#some-useful-material">Some Useful Material</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#hand-in" id="toc-hand-in" class="nav-link" data-scroll-target="#hand-in">Hand in</a></li>
@@ -270,21 +302,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">julia</span> <span class="at">-e</span> <span class="st">'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),"..","examples/scripts/modeling_basic_2D.jl");include(example);'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This command should finish without errors.</p>
 </section>
-<section id="docker-not-necessary-for-homework-but-important-for-project" class="level3">
-<h3 class="anchored" data-anchor-id="docker-not-necessary-for-homework-but-important-for-project">Docker (not necessary for homework but important for project)</h3>
-<p>Docker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.</p>
-<p>First install docker for your system</p>
+<section id="docker-installation-not-necessary-for-homework-but-important-for-project" class="level3">
+<h3 class="anchored" data-anchor-id="docker-installation-not-necessary-for-homework-but-important-for-project">Docker Installation (not necessary for homework but important for project)</h3>
+<p>In this course, we will have a couple of coding assignments based on <a href="https://julialang.org/downloads/">Julia</a>, a fast, dynamic, reproducible composable and general open source programming language. You are encouraged to install <a href="https://julialang.org/downloads/">Julia</a> on your system following the script to run some basic coding experiments to explore its usage and applications in scientific computing community.</p>
+<p>In particular, you will run numerical experiments for CO<span class="math inline">\(_2\)</span> dynamics simulation (in case you need it) and seismic wave-based simulations with academically developed softwares. To help you run these software, we highly recommend you use Docker, a platform which builds a virtual machine/container for you with the docker image, which is set-up by us and equipped with pre-installed softwares. The docker image is quite necessary for you to run the software without the tedious installation process, and to provide you with an environment on which the software runs out of the box.</p>
+<p>First install docker for your system following the instruction here,</p>
 <p><a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
-<p>Instead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:</p>
-<pre><code>docker run -p 8888:8888 philippwitte/judi:v1.1</code></pre>
-<p>This will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:</p>
+<p>Instead of having to install Python, Julia, Devito, JUDI, JutulDarcyRules and all the dependencies (these are the softwares that you will use for the numerical simulation) by yourself, you simply download the docker image and run it in a container. All you need to do is install docker, click the docker icon/app, open the terminal/command line (<a href="https://www.howtogeek.com/662611/9-ways-to-open-powershell-in-windows-10/">powershell</a> in windows, also see <a href="https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2">this</a>) on your system, and run:</p>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0</code></pre>
+<p>where <code>/path/on/your/machine</code> is an absolute path on your own local machine. <strong>Remember giving a folder path is important</strong>. For example, if I want to connect the folder called <code>testdocker</code> on the desktop of my laptop, I can do</p>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /Users/abhinav/Desktop/testdocker:/notebooks apgahlot/eas-8803:v1.0</code></pre>
+<p>This will download the image and launch a session that you can access from your internet browser. The command will display a link, which looks something like this:</p>
 <pre><code>Copy/paste this URL into your browser when you connect for the first time,
     to login with a token:
         http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&amp;token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4</code></pre>
-<p>Copy-paste this link and replace the address <code>0e27b13128d4:8888</code> with <code>localhost:8888</code> (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:</p>
-<pre><code>docker run -it philippwitte/judi:v1.1 /bin/bash</code></pre>
-<p>This will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.</p>
+<p>Copy/paste this link and replace the address <code>0e27b13128d4:8888</code> with <code>localhost:8888</code> (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Then, you can create a notebook there by clicking new -&gt; notebook -&gt; julia 1.8.5 (or you can copy your previous notebooks to that folder, e.g., testdocker), and run the julia code in the jupyter notebook. Try running these packages in notebook for fun</p>
+<pre><code>using JutulDarcyRules
+using LinearAlgebra
+using PyPlot
+using SlimPlotting
+using JLD2, Polynomials, Images</code></pre>
+<!-- Remember, the jupyter notebooks on the docker container don't stay there forever. Therefore, if you are half way on the homework and want to close the jupyter notebook, please remember to save the notebook to your local machine. If you do not want to save the notebook every time when you close the notebook, you can actually connect a folder on your machine to the docker container by -->
+<p>Whatever you do on the docker container will be saved in the local <code>testdocker</code> folder. And then you need to copy the homework notebook once it is released to this folder and run your codes in that notebook.</p>
+<p>Instead of a notebook, you can also launch an interactive session with a terminal by running:</p>
+<pre><code>docker run -it apgahlot/eas-8803:2.0 /bin/bash</code></pre>
+<p>This will give you access to a terminal, in which you can start Julia/Python, run a couple of lines of code interactively. However, figures from PyPlot (the plotting package) sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended for you to do the assignments.</p>
+<section id="number-of-coresthreads" class="level5">
+<h5 class="anchored" data-anchor-id="number-of-coresthreads">Number of cores/threads</h5>
+<p>By default, the command</p>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0</code></pre>
+<p>will use 4 threads because in the above command JULIA_NUM_THREADS=4 is set. If you want to increase the number of threads to run your code faster, you need to know the number of threads on your machine and then set JULIA_NUM_THREADS equal to that number. To know the number of threads on your machine you can do:</p>
+<p>For Mac, write on terminal: <code>sysctl -n hw.logicalcpu</code></p>
+<p>For Linux, write on terminal: <code>lscpu</code></p>
+<p>The number of threads = number of threads per core * No.&nbsp;of CPUs</p>
+<p>For windows: Follow this <a href="https://www.intel.com/content/www/us/en/support/articles/000029254/processors.html#:~:text=Through%20Windows%20Task%20Manager%3A,Cores%20and%20Logical%20Processors%20(Threads)">link</a></p>
 </section>
+</section>
+<section id="window-users" class="level3">
+<h3 class="anchored" data-anchor-id="window-users">Window Users</h3>
+<p>If you are using windows, you might need to enable hardware virtualization in their BIOS. You are suggested to look at <a href="https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization">here</a> and <a href="https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html">here</a>. If you have any question, please reach out to us ASAP.</p>
+</section>
+</section>
+<section id="new-docker-container-for-seismic-experiments" class="level2">
+<h2 class="anchored" data-anchor-id="new-docker-container-for-seismic-experiments">New docker container for Seismic Experiments</h2>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:4.0</code></pre>
+<p>Follow the same procedure as before to run new docker with the above command. Please note you will use this new docker image for HW4. (Later you will also need a package called MECurvelets which can be installed by <code>using Pkg; Pkg.add(url="https://github.gatech.edu/SLIM/MECurvelets.jl")</code>. We will help installing this package.)</p>
+</section>
+<section id="some-useful-material" class="level2">
+<h2 class="anchored" data-anchor-id="some-useful-material">Some Useful Material</h2>
+<p>Learn command line from <a href="https://software-carpentry.org/">Software Carpentry</a><br>
+Learn <a href="https://jupyter.org/">jupyter notebook</a><br>
+Learn <a href="https://julialang.org/learning/">Julia</a></p>
 </section>
 <section id="exercises" class="level2">
 <h2 class="anchored" data-anchor-id="exercises">Exercises</h2>

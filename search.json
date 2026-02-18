@@ -60,323 +60,6 @@
     ]
   },
   {
-    "objectID": "slides/week-06/LICENSE.html",
-    "href": "slides/week-06/LICENSE.html",
-    "title": "License",
-    "section": "",
-    "text": "Copyright (c) 2026 Felix J. Herrmann, Georgia Institute of Technology\nThis work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\n\n\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\n\n\n\n\nAttribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\nShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nFor the full legal text, see https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode."
-  },
-  {
-    "objectID": "slides/week-06/LICENSE.html#creative-commons-attribution-noncommercial-sharealike-4.0-international-cc-by-nc-sa-4.0",
-    "href": "slides/week-06/LICENSE.html#creative-commons-attribution-noncommercial-sharealike-4.0-international-cc-by-nc-sa-4.0",
-    "title": "License",
-    "section": "",
-    "text": "Copyright (c) 2026 Felix J. Herrmann, Georgia Institute of Technology\nThis work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\n\n\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\n\n\n\n\nAttribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\nShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nFor the full legal text, see https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode."
-  },
-  {
-    "objectID": "goals.html",
-    "href": "goals.html",
-    "title": "Goals1",
-    "section": "",
-    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#general-introduction",
-    "href": "goals.html#general-introduction",
-    "title": "Goals1",
-    "section": "",
-    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#seismic-data-acquisition",
-    "href": "goals.html#seismic-data-acquisition",
-    "title": "Goals1",
-    "section": "Seismic data acquisition",
-    "text": "Seismic data acquisition\n\nGive the Nyquist sampling critrion for the sampling of spatio-temporal wavefields\nDescribe aliasing in 1-D and 2- D (f-k domain).\nWhat is an airgun\nWhat is the ghost?\nWhat is the effect of the ghost on the amplitude spectrum?\nDescribe azimuth and name at least three disadvantages of near azimuth acquisition.\nWhat does a rose diagram plot?\nMention two different configurations to improve azimuthal coverage. Include sketches of the arrays and sources.\nDescribe rich azimuth acquisition and include drawing.\nWhat is the main driver behind WAZ acquisition?\nName at least four improvemens related to wide-azimuth acquisition?\nWhat is fold and why is it important?\nWhat are the main challenges in marine acquisition?\nWhat are the challenges of 3D acquisition?\nName some recent developments.\nDescribe coil sampling\nGive the main reasons why large offsets are required?",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#from-processing-to-inversion",
-    "href": "goals.html#from-processing-to-inversion",
-    "title": "Goals1",
-    "section": "From processing to inversion",
-    "text": "From processing to inversion\n\nDescribe what the forward and inverse models signify.\nWhat property do unitaty matrices have?\nWhat type of solution method should be used when the data synthetic data does not fit observed data exactly?\nDescribe how one arrives at the least-squares solution m_{LS}=(A^TA)^{-1})A^Td?\nIn what situation, is the least-squares solution used? Is the matrix to be inverted tall, square, or fat?\nDescribe the minmum norm solution and when is its use appropriate?\nDescribe in words what the expression min_x|x|_2 subject to Ax=b expresses.\nExplain the difference between processing (applying the adjoint) and inversion\nHow are convolution and correlation related related to linear operations\nDescribe the ‘dot test’ and what does it accomplish\nMention and describe at least three forward-adjoint pairs relevant to exploration seismology\nWrite stacking, zero padding, and sampling as a matrix\nProof that matrices that represent convolution and correlation are adjoints.\nWhat kind of matrix is the convolution in the Fourier domain.\nSketch a column of the Parabolic Radon ‘reverse’ transform (L^H).\nExplain why it is important to ‘invert the ’reverse’ Radon transform’ for multiple removal?\nWhat is the underlying assumption of minimizing the energy (\\ell_2-norm) on the model parameters?\nWhat does high-resolution try to accomplish and what is the underlying assumption on the model and the data?",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#compressive-sensing",
-    "href": "goals.html#compressive-sensing",
-    "title": "Goals1",
-    "section": "Compressive sensing",
-    "text": "Compressive sensing\n\nHow is sampling related to a linear system.\nWhen is the linear system underdetermined.\nHow do the concepts of over- and underdetermined systems relate to sampling?\nGive the key ideas of Compressive Sensing.\nGive two examples of transforms that exploit the signal’s structure by sparsity.\nWhich interferences/artifacts are worse. Coherent aliases due to periodic sampling or incoherent noise due to randomized samping and why?\nGive at least two examples of randomized sampling and describe the impact on the sampling artifacts compared to conventional deterministic acquisition.\nGive an example of measurement (M) and sampling (R) matrices with low and hight coherence\nWhich of the following acquisition scenarios creates favorable recovery conditions?\nExplain the role of sparsifying transforms and sparsity-promoting recovery.\nDescribe what happens with the recovery SNR as (i) the subsampling ratio decreases, (ii) the sparsity-level increases, (iii) the noiselevel increases, and (iv) the decay rate of the sorted transform-domain coefficients increases.\nList a number of pitfalls/challenges related to applying compressive sensing to seismic acquisition in the field.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#linearized-inversion",
-    "href": "goals.html#linearized-inversion",
-    "title": "Goals1",
-    "section": "Linearized inversion",
-    "text": "Linearized inversion\n\nDescribe three factors that influence the amplitudes of seismic waves\nDescribe when the linearized refflection coefficients is a good approximation\nGive two different expressions for the linearized reflection coefficient in the acoustic case\nMention “non-ray” amplitude effects\nDescribe linearized inversion. What are the two key factors expressing the relationship between the amplitudes of the reflection events and the acoustic medium properties. Introduce the corresponding matrices.\nWhat are the boundary conditions for the elastic wave equation at an interface?\nDescribe the different reflection and transmission coefficients for the elastic case.\nDescribe the linear convolutional model for the seismic reflection response. What are the underlying assupmtions of this model?\nWhat does the background velocity model describe and what properties should it have?\nList the different reflection and transmission coefficients for an interface between two elastic layers. What are these coefficients a function of and w.r.t. to which medium properties can these expressions be linearized? For non-zero and pre-critical angles, what are the orders in deltall 1 for these different reflection and transmission coefficients?\nDescribe the “work flow” of AVP inversion.\nDescribe how the amplitudes of the plane-wave decomposition (via the linear Radon transform) are related to contrasts in the density, compressional, and shear wavespeeds.\nDescribe the damped least-squares procedure to estimate the medium perturbations/contrasts. Is the system under or over determined? Why is damping needed?\nDescribe issues with the spectral gap.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#rtm-fwi",
-    "href": "goals.html#rtm-fwi",
-    "title": "Goals1",
-    "section": "RTM & FWI",
-    "text": "RTM & FWI\n\nDescribe in words what the adjoint state method corresponds to physically\nWhat is the geophysical interpretation of the gradient?\nDescribe the equations for the computation of the gradient. What is their physical meaning?\nDraw the impulse response of a the linear Born scattering operator and its adjoint for a constant velocity model.\nWhat is the relationship between least-squares migration and Gauss-Newton?\nHow is the action of the Jacobian evaluated? How many PDE solves does it take?\nList at least two difference between linearized inversion (least-squares migration and full-waveform inversion).\nDescribe for what purpose full-waveform inversion is used in the context of migration and why.\nDescribe a method to make imaging and inversion more efficient\nDescribe a cross-well experiment\nDescribe a surface-seismic experiment\nHow does the sensitivity of these two methods compare?\nWhat sort of waves does full-waveform inversion rely on and why.\nList at least two requirements of full-waveform inversion on the acquisition.\nWhat does non-uniquness in full-waveform inversion refer to?\nList at least one strategy people use to avoid getting stuck in a local minimum? What does this imply w.r.t. the wavelength and the propagation distance.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#footnotes",
-    "href": "goals.html#footnotes",
-    "title": "Goals1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThese goals are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "hw/w3-hw02.html",
-    "href": "hw/w3-hw02.html",
-    "title": "HW 02: Data visualization",
-    "section": "",
-    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "weeks/week-03.html",
-    "href": "weeks/week-03.html",
-    "title": "Week 03",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nNMO correction\n\n\nFri, Jan 30\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "weeks/week-06.html",
-    "href": "weeks/week-06.html",
-    "title": "Week 06",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nInverse Problems\n\n\nFrom Forward Modeling to Regularized Inversion in Exploration Seismology\n\n\nMon, Feb 16\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "weeks/week-04.html",
-    "href": "weeks/week-04.html",
-    "title": "Week 04",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nTime Migration\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/03Lab/Exercise3.html",
-    "href": "labs/03Lab/Exercise3.html",
-    "title": "Post-stack, time domain Kirchhoff migration",
-    "section": "",
-    "text": "In this eigth lab of the ErSE 210 - Seismology course, we will learn how to code a simple post-stack, time domain Kirchhoff demigration/migration engine.\nLet’s start by recalling the equation that can be used to model the propagation of waves from a scatterer at location \\((x_s, t_0)\\) in the subsurface to co-located sources and receivers at location \\((x, t_0=0)\\) (i.e., at the surface) under the assumption of laterally homogenous Earth with root-mean-square velocity \\(v_{rms}(t_0)\\):\n\\[\nt_{kirch}(x_s, t_0, x) = \\sqrt{t_0^2 + 4\\frac{h^2}{v_{rms}^2}}\n\\]\nwhere \\(t_0\\) is the zero-offset traveltime, \\(h=x_s-x\\) is the horizontal distance between the subsurface point of interest and the source/receiver.\nKirchoff migration refers to the process of taking the data \\(d(x_s, t)\\) and transforming it into an image of the subsurface \\(i(x, t_0)\\) (also called reflectivity), which is accomplished by summing all values along the traveltime curve \\(t_{kirch}(x_s, t_0, x) \\; \\forall x_s\\):\n\\[\ni(x, t_0) = \\int \\int d(x_s, t_{kirch}(x_s, t_0, x)) d x_s d t_0\n\\]\nKirchoff demigration is the opposite process, which entails modelling the data \\(d(x_s, t)\\) from an image of the subsurface \\(i(x, t_0)\\), which is accomplished by spreading the values of the image along the traveltime curve \\(t_{kirch}(x_s, t_0, x) \\; \\forall x\\):\n\\[\nd(x, t_{kirch}(x_s, t_0, x)) = \\int \\int i(x, t_0) d x d t_0\n\\]\nNote that in practical applications, when modelling the data, the output of the above equation is usually convolved with a wavelet. As such, in order for the Kirchoff demigration/migration operator to be consisent, convolution with a time-flipped wavelet is also applied during migration.\nThe notebook is organized as follow:\n# Install non-default Python packages (run once)\n%pip install numpy matplotlib scipy pylops\nPlease download this python script, timemig.py, from Dropbox: https://www.dropbox.com/scl/fi/u960e85ul4qd62j5mjxyr/timemig.py?rlkey=aee2oq8048axysgqie7sywrrw&st=rzfrjejq&dl=0 Password is exact same with the password which you used to access the lecture note.\nimport sys\nsys.path.append(\"/full/path/to/parent/of/timemig.py\")\n%load_ext autoreload\n\nimport warnings\nwarnings.filterwarnings('ignore')\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nfrom scipy.sparse.linalg import lsqr\n\nfrom pylops.utils.wavelets import *\nfrom pylops.utils import dottest\n\nfrom timemig import TimeKirchhoff\nLet’s start by creating a simple subsurface model composed of 3 scatterers. We also choose the root-mean-square velocity \\(v_{rms}(t_0)\\) to be linearly increasing with two-way traveltime\n# Axes\nnx, nt0 = 151, 121\ndx, dt0 = 5, 0.004\n\nx, t0 = np.arange(nx) * dx, np.arange(nt0) * dt0\n\n# Velocity and reflectivity models\nv0, kv = 1500, 1e3\nvrms1d = t0 * kv + v0\nvrms = np.repeat(vrms1d[:, None], nx, axis=1).T\n\nrefl = np.zeros((nx, nt0))\nrefl[nx//2, nt0//2] = 1\nrefl[nx//4, nt0//2] = 1\nrefl[3*nx//4, nt0//2] = 1\n\n# Wavelet\nwav, _, wavc = ricker(t0[:21], f0=30)\n\n# Visualize \nfig, axs = plt.subplots(1, 2, sharey=True, figsize=(12, 5))\naxs[0].plot(vrms1d, t0, 'k')\naxs[0].set_title(r'$v_{RMS}$')\naxs[0].set_ylabel(r'$t_0$')\naxs[1].imshow(refl.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[1].set_title('Reflectivity')\naxs[1].axis('tight')\nplt.tight_layout()\nWe create now the TimeKirchhoff operator that performs the demigration/migration operations discussed above. For convenience, this is implemented as a PyLops operator.\nWhilst the operator is created, all of the traveltimes are pre-computed. In practice, since we have a simple analytical expression the traveltimes could be computed on-the-fly when performing demigration/migration.\nTop = TimeKirchhoff(t0, x, vrms, wav, wavc, engine=\"numba\")\n\n# Display some traveltimes\nplt.figure(figsize=(8, 6))\nplt.plot(Top.trav[:, nx//2, 0], 'r', lw=2, label=fr'$t_0$={t0[0]}')\nplt.plot(Top.trav[:, nx//2, nt0//4], 'g', lw=2, label=fr'$t_0$={t0[nt0//4]}')\nplt.plot(Top.trav[:, nx//2, nt0//2], 'k', lw=2, label=fr'$t_0$={t0[nt0//2]}')\nplt.gca().invert_yaxis()\nplt.legend()\nplt.xlabel('x')\nplt.ylabel('t')\nplt.title('Traveltimes');\n\nWARNING:root:Numba not available, reverting to numpy. In order to be able to use the kirchhoff module run \"pip install numba\" or \"conda install numba\".\nLet’s now model the data and migrate it with the same engine.\n# Model data (demigration)\ndata = Top @ refl\n\n# Image data (migration)\nreflmig = Top.H @ data\n\nfig, axs = plt.subplots(1, 3, sharey=True, figsize=(18, 5))\naxs[0].imshow(refl.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[0].axis('tight')\naxs[0].set_title('Reflectivity')\n\naxs[1].imshow(data.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[1].plot(x, Top.trav[:, nx//2, nt0//2], 'r')\naxs[1].axis('tight')\naxs[1].set_title('Data')\n\naxs[2].imshow(reflmig.T, cmap='gray', vmin=-5e1, vmax=5e1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[2].axis('tight')\naxs[2].set_title('Migrated image')\n\naxs[2].set_ylim(t0[-1], t0[0]);\nWe see that the image present some artefact, so-called migration swings.\nWe can do better by either adding more sources/receivers or by solving the migration problem as an inversion process. Let’s see how to do this using PyLops."
-  },
-  {
-    "objectID": "labs/03Lab/Exercise3.html#least-squares-migration",
-    "href": "labs/03Lab/Exercise3.html#least-squares-migration",
-    "title": "Post-stack, time domain Kirchhoff migration",
-    "section": "Least-squares migration",
-    "text": "Least-squares migration\n\n# Migration by inversion (aka least-squares migration)\nreflinv = lsqr(Top, data.ravel(), iter_lim=10, damp=1e-2, show=True)[0]\nreflinv = reflinv.reshape(nx, nt0)\ndatainv = Top @ reflinv\n\nfig, axs = plt.subplots(1, 3, sharey=True, figsize=(18, 5))\naxs[0].imshow(reflinv.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[0].axis('tight')\naxs[0].set_title('Inverted reflectivity')\n\naxs[1].imshow(datainv.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[1].axis('tight')\naxs[1].set_title('Modelled Data')\n\naxs[2].imshow(data.T-datainv.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[2].axis('tight')\naxs[2].set_title('Data error')\n\naxs[2].set_ylim(t0[-1], t0[0]);\n\nRe-run the least-squares migration three times by increasing the number of iterations and compare the output.\nWhich method gives sharper reflectors?\nWhich method better recovers amplitudes?\nHow does the migrated image looks like if the reflectivity was a horizontal layer at nt0//2, instead of three point scatterres?"
-  },
-  {
-    "objectID": "labs/01Intro/Exercise1.html",
-    "href": "labs/01Intro/Exercise1.html",
-    "title": "Exercise 1: a first look at seismic data",
-    "section": "",
-    "text": "In this exercise we will load some data into Julia and perform some basic operations.\nSeismic data are typically stored in a special binary format: SEGY. These file-formats store the data as mutliple time-series (traces) with the corresponding header information containing specific information about such as time sampling and source/receiver locations.\nThe Julia utilities for reading SEGY data is SegyIO\n\nusing Pkg\n#Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")\n#Pkg.add(\"PyPlot\")\nusing SegyIO, PyPlot\n\n\nScaning the dataset\nThhe first step is to scan the dataset to extract header/metadat. This metadat contains the geometry and parameters of the survey such as the source/receiver locations and time sampling rate. The convention for the metadata is as follows:\nThe Source positions use the Source keyword such as SourceX\nThe receiver position use the Group keyword such as GroupX\n\n# scan the dataset\n\ndir = Pkg.dir(\"SegyIO\")\ndata_dir = \"data\"\n\n┌ Warning: `Pkg.dir(pkgname, paths...)` is deprecated; instead, do `import SegyIO; joinpath(dirname(pathof(SegyIO)), \"..\", paths...)`.\n└ @ Pkg.API /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.2/Pkg/src/API.jl:415\n\n\n\"data\"\n\n\nWe can now scans the dataset with the segy_scan functin. This function returns a SeisCOn object where each block is a shot record with its metadata.\n\nblocks = segy_scan(string(dir, data_dir), \"overthrust\", [\"GroupX\", \"GroupY\", \"ns\", \"dt\"]);\n\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_41_60.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_21_40.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_61_80.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_1_20.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_81_97.segy\n\n\nNow extract the time, source and receiver coordinates (in seconds and meters) for all the traces. The source and receiver vectors have a length equal to the number of traces, the time vector has a length equal to the number of rows in the data matrix.\n\nsx = [get_header(blocks[i], \"SourceX\") for i=1:length(blocks)];\nrx = [get_header(blocks[i], \"GroupX\") for i=1:length(blocks)];\n\n\n# Get the tme axis. In this case the time axis is the same for all traces so we only need to extract it from the first trace\n# dt needs to be corrected for the binary setup\n# All the times are in ms\ndt = get_header(blocks[1], \"dt\")[1]/1000\nnt = get_header(blocks[1], \"ns\")[1]\nT = 0:dt:(nt-1)*dt\n\n0.0:4.0:3000.0\n\n\nCalculate the offset and midpoint for each trace. This gives you vectors m (midpoint) and h (offset) with length equal to the number of traces.\nh = (s - r)/2;\nm = (s + r)/2;\n\nh = (sx .- rx)./2;\nm = (sx .+ rx)./2;\n\nThe fold of the data is the number of traces in each midpoint gather. This can be easily visualized by a histogram. As we have a set of blocks we need to inspect each block seperately to recover the nuique set of midpoint location and the total number fo traces for this midpoint\n\nall_m = hcat(m'...)\nfold = [sum(all_m .== unique(all_m)[i]) for i=1:length(unique(all_m))];\n\nall_h = hcat(h'...);\n\n\nfigure();\nbar(unique(all_m),fold ,align=\"center\", width=100);\nxlabel(\"midpoint [m]\");\nylabel(\"fold\");\ntitle(\"fold\");\n\n\n\n\n\n\n\n\nCan you interpret this figure?\nDifferent gathers\nExtract a midpoint gather. For example, a midpoint gather at m = 2550 looks like this:\n\nIm = findall(all_m .== 7500.)\nfigure()\nimshow(Float32.(blocks[1:97].data[:,map(i -&gt; i[2], Im)]), vmin=-1, vmax=1, cmap=\"Greys\", aspect=0.05)\n\n\n\n\n\n\n\n\nPyObject &lt;matplotlib.image.AxesImage object at 0x7f49363d4e48&gt;\n\n\nExtract an offset-gather. For example, a zero-offset section looks like:\n\nIh = findall(all_h .== 0.)\ninds = sortperm(all_m[Ih])\nfigure()\nimshow(Float32.(blocks[1:97].data[:,map(i -&gt; i[2], Ih[inds])]), vmin=-1, vmax=1, cmap=\"Greys\", aspect=.1)\n\n\n\n\n\n\n\n\nPyObject &lt;matplotlib.image.AxesImage object at 0x7f4935b5f860&gt;\n\n\nWhat other different gathers can you think of? Extract and plot an example of all the different gathers. What are characteristic properties of the different gathers? Do not forget to label the axis and choose a reasonable colorscale. Hint: use cmap=Greys and adjust the color-axis vmin/vmax\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/02Lab/Exercise2.html",
-    "href": "labs/02Lab/Exercise2.html",
-    "title": "NMO correction",
-    "section": "",
-    "text": "The traveltime as a function of offset of a reflected event can be approximated by the NMO traveltime:\n$ (t_0,h) = $\nwhere \\((t_0)\\) is the zero-offset or vertical traveltime and \\(v\\) is the effective or NMO velocity.\nWe can now correct the data for the moveout via a simple coordinate transform:\n$ d_{NMO}(t_0,h) = d((t_0,h),h) $\nYou can use the function nmo implemented below for this exercise.\nPlease download data from Dropbox: https://www.dropbox.com/scl/fi/yu3r82yhxs4tf3znky0wi/cube2.segy?rlkey=um2e51u461y0e4239mhxyz09k&st=fww1y5l5&dl=0 Password is exact same with the password which you used to access the lecture note.\n\nusing Pkg\nPkg.add(\"Dierckx\")\nusing Dierckx\nfunction nmo(cmp, t, off, v)\n# NMO correction and adjoint \n#\n# use:\n#   out = nmo(in,t,h,v,flag)\n#\n# input:\n#   in   - data matrix of size [length(t) x length(h)], each column is a trace \n#   t    - time vector [s]\n#   offsets    - offset vector [m]\n#   v    - NMO velocity [m/s] as vector of size [length(t) x 1].\n#   flag - 1:forward, -1:adjoint\n#\n# output\n#   out  - data matrix of size [length(t) x length(h)], each column is a trace \n    if size(cmp, 2) == 1\n        return cmp\n    end\n    # size of data\n    nt, nh = size(cmp)\n    # make sure t and v are column vectors\n    t = t[:]\n    v = v[:]\n    # initialize output\n    out = zeros(nt, nh)\n    # loop over offset\n    for i = 1:nh\n        # NMO traveltime\n        tau = sqrt.(t.^2 + off[i].^2 ./v.^2);\n        # interpolate, forward or adjoint\n        spl = Spline1D(t, cmp[1e-3*T.-t.&lt;1e-5, i])\n        out[:,i] = spl(tau)\n    end\n    return out\nend\n\n\n  Updating registry at `~/.julia/registries/General`\n\n  Updating git-repo `https://github.com/JuliaRegistries/General.git`\n\n[1mFetching: [========================================&gt;]  100.0 %.0 % Resolving package versions...\n\n  Updating `~/.julia/environments/v1.2/Project.toml`\n\n [no changes]\n\n  Updating `~/.julia/environments/v1.2/Manifest.toml`\n\n [no changes]\n\n\n\n\nnmo (generic function with 1 method)\n\n\n\nusing SegyIO, PyPlot\n\n\n# read the dataset\n\nblocks = segy_read(\"/home/yzhang3198/Downloads/data_segy/cube2.segy\");\n\n┌ Warning: Fixed length trace flag set in stream: IOBuffer(data=UInt8[...], readable=true, writable=false, seekable=true, append=false, size=90663444, maxsize=Inf, ptr=3601, mark=-1)\n└ @ SegyIO /home/yzhang3198/.julia/packages/SegyIO/ak2qG/src/read/read_file.jl:26\n\n\n\nsx = get_header(blocks, \"SourceX\";scale=false)\nrx = get_header(blocks, \"GroupX\";scale=false);\n\n\n# Get the time axis. In this case the time axis is the same for all traces so we only need to extract it from the first trace\n# dt needs to be corrected for the binary setup\n# All the times are in ms\ndt = get_header(blocks, \"dt\")[1]/1000\nnt = get_header(blocks, \"ns\")[1]\nT = 0:dt:(nt-1)*dt\n\n0.0:4.0:2000.0\n\n\n\n# Midpoint and offset\nh = (sx .- rx);\nm = (sx .+ rx)./2;\n\n\nall_m = hcat(m'...)'\nfold = [sum(all_m .== unique(all_m)[i]) for i=1:length(unique(all_m))];\n\nall_h = hcat(h'...)';\n\n\nPick a midpoint\n\nIm = findall(all_m .== all_m[1000])\noffsets = sort((all_h[Im]));\ninds = sortperm(all_h[Im])\ncmp = Float32.(blocks.data[:, Im[inds]]);\n\n\nfigure()\nimshow(cmp, vmin=-1, vmax=1, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nConstant velocity NMO correction\n\nnmo_corrected1 = nmo(cmp, 1e-3.*T, offsets, 2000 .+ 0 .*T);\n\n\nfigure()\nimshow(nmo_corrected1, vmin=-1, vmax=1, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nWindowing\nWe can see a lot of `artifacts’ in the NMO corrected gather above. To avoid some of the artifacts, the midpoint gathers are often windowed to select reflected data only. All events that arrive before the direct wave are removed. A typical window looks like this (Hint: the slope of the triangle is related to the veloctity of the direct wave).\n\n# grid\ntt = [1e-3*ti for ti in T for h in offsets]\nhh = [h for ti in T for h in offsets]\n\n# initialize window to zero and set times later than first arrival to 1.\nW=0 .*tt;W[tt .&gt; (.1 .+ abs.(hh)./1500)] .= 1\nW = reshape(W, size(cmp)[2], size(cmp)[1])\nimshow(W', vmin=0, vmax=1, cmap=\"jet\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\nmuted = W'.*cmp;\n\n\nfigure()\nimshow(muted, vmin=-1e0, vmax=1e0, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nStack power\nTo figure out which NMO velocity optimally flattens all the events, we can scan through a range of constant NMO velocities and see which events are flattened for which velocity. One way to judge flatness of an event is via the stackpower. The stackpower is just a sum along the offset direction of the values-squared of the NMO-corrected gather:\n$ S(t_0,v) = !!h, d((t_0,h,v),h)^2 $\nThe function $ S(t_0,v) $ is called a semblance panel.\nThe desired NMO velocity can be found by picking the maximum as a function of \\(t_0\\) and \\(v\\) from the semblance panel.\nAn example of a semblance panel and the resulting NMO velocity is shown below.\n\nv = 1000:(3000-1000)/(500-1):3000\n# scan over velocities\nS = zeros(length(T),length(v));\nfor k = 1:length(v)\n    cmp_nmo = nmo(muted, 1e-3.*T, offsets, v[k] .+ 0 .*T);\n    S[:,k]  = sum(cmp_nmo .^2, dims = 2);\nend\n\n\n#Plot semblance panel\nfigure()\nimshow(S, vmin=0, vmax=1e3, cmap=\"jet\", aspect=1, extent=[v[1], v[end], T[end], 0])\nxlabel(\"velocity\")\nylabel(\"tau\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'tau')\n\n\n\n#  pick v/tau pairs\n\n\ntv   = 1e3*[0,    0.30, 0.35, 0.46, 0.65, 1.27, 2.00];\nvnmo =     [1500, 1500, 1600, 1700, 2000, 2179, 3000];\nspl = Spline1D(tv, vnmo; k=1)\nvnmo_all = spl(T);\n\n\n\nLook at the velocity profile with the picked tau/v pairs\n\n# Enable gui to have the cursor and pick v/tau pairs\nfigure()\nimshow(S, vmin=0, vmax=1e3, cmap=\"jet\", aspect=1, extent=[v[1], v[end], T[end], 0])\nplot(vnmo_all, T, \"-k\")\nxlabel(\"velocity\")\nylabel(\"tau\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'tau')\n\n\n\nnmo_corrected = nmo(muted, 1e-3.*T, offsets, vnmo_all) ;\n\n\nfigure()\nimshow(nmo_corrected, vmin=-1e0, vmax=1e0, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nVelocity analysis\nRepeat the above outline procedure for a couple of mipdoint positions xm (e.g., xm = [500 1000 2000]). Organize the resulting NMO velocities in a matrix Vm (where column i is the NMO velocity for midpoint xm[i]) interpolate the results to obtain a velocity for all the midpoints using Spline1D(xm, VM); spl(all_m). Plot the velocity and discuss.\nUsing this NMO velocity, we can produce an NMO stack. Perform an NMO correction of all the midpoint gathers using the corresponding NMO velocity derived above and sum each along the offset direction. Organize all the stacks in a matrix and plot the result. Also make a stack using a constant NMO velocity. Discuss the results.\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/w4-lab03-Migration.html",
-    "href": "labs/w4-lab03-Migration.html",
-    "title": "Time Migration",
-    "section": "",
-    "text": "Running this lab need a python script, timemig.py. The dropbox link to the same is shown in the notebook itself. Please make sure to download it.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/04Lab/Exercise4.html",
-    "href": "labs/04Lab/Exercise4.html",
-    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
-    "section": "",
-    "text": "JUDI is a framework for large-scale seismic modeling and inversion and designed to enable rapid translations of algorithms to fast and efficient code that scales to industry-size 3D problems. The focus of the package lies on seismic modeling, imaging as well as PDE-constrained optimization such as full-waveform inversion (FWI) and imaging (LS-RTM). Wave equations in JUDI are solved with Devito, a Python domain-specific language for automated finite-difference (FD) computations.\n## Lets add necessary packages. Uncomment these lines and run them only once\nusing Pkg\n# Pkg.add(name=\"JUDI\", version=\"3.4.7\")\n# Pkg.add(name=\"PyPlot\", version=\"2.11.6\")\n# Pkg.add(name=\"SlimPlotting\", version=\"0.1.6\")\n# Pkg.add(name=\"Images\", version=\"0.2.53\")\nusing JUDI, PyPlot, LinearAlgebra, SlimPlotting, Images\n\n\n[ Info: JLD2 compat enabled"
-  },
-  {
-    "objectID": "labs/04Lab/Exercise4.html#source-wavelet",
-    "href": "labs/04Lab/Exercise4.html#source-wavelet",
-    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
-    "section": "Source wavelet",
-    "text": "Source wavelet\nFor the source wavelet, we will use a standard Ricker wavelet at 10Hz for this tutorial.In practice this wavelet would be read from a file or estimated during inversion.\n\nf0 = 0.010 # Since we use ms, the frequency is in KHz\nwavelet = ricker_wavelet(record_time, sampling_rate, f0);\nplot(wavelet)\n\n\n\n\n\n\n\n\n1-element Vector{PyCall.PyObject}:\n PyObject &lt;matplotlib.lines.Line2D object at 0x7fd5d54c0220&gt;"
-  },
-  {
-    "objectID": "labs/04Lab/Exercise4.html#important-note-use-the-same-j-jacobian-as-acosutic-here.",
-    "href": "labs/04Lab/Exercise4.html#important-note-use-the-same-j-jacobian-as-acosutic-here.",
-    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
-    "section": "Important Note: Use the same J (Jacobian) as acosutic here.",
-    "text": "Important Note: Use the same J (Jacobian) as acosutic here.\n\nimg_el = \n\nOperator `forward` ran in 0.58 s\nOperator `gradient` ran in 1.32 s\nOperator `forward` ran in 0.48 s\nOperator `gradient` ran in 1.01 s\nOperator `forward` ran in 0.42 s\nOperator `gradient` ran in 0.99 s\nOperator `forward` ran in 0.49 s\nOperator `gradient` ran in 1.04 s\nOperator `forward` ran in 0.46 s\nOperator `gradient` ran in 1.01 s\nOperator `forward` ran in 0.48 s\nOperator `gradient` ran in 1.24 s\nOperator `forward` ran in 0.42 s\nOperator `gradient` ran in 1.06 s\nOperator `forward` ran in 0.44 s\nOperator `gradient` ran in 1.00 s\nOperator `forward` ran in 0.42 s\nOperator `gradient` ran in 1.00 s\nOperator `forward` ran in 0.51 s\nOperator `gradient` ran in 1.01 s\nOperator `forward` ran in 0.53 s\nOperator `gradient` ran in 1.31 s\n\n\n\nimg_el[:,1:20] .= 0.0f0; # Mute a part of water column to get rid of source-receiver artifacts\n\n\nimshow(img_el', cmap=\"Greys\", extent=data_extent, aspect=\"auto\")\n\nQuestion: 1) Please repeat the same experiments (elastic and acoustic) for the case where the lower layer is slanting instead of horizontal and interpret the differences compared to the above experiments."
-  },
-  {
-    "objectID": "labs/w5-lab04-Imaging_Acoustic_Elastic.html",
-    "href": "labs/w5-lab04-Imaging_Acoustic_Elastic.html",
-    "title": "Acoustic and Elastic Imaging",
-    "section": "",
-    "text": "ReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/w3-lab02-NMO.html",
-    "href": "labs/w3-lab02-NMO.html",
-    "title": "NMO correction",
-    "section": "",
-    "text": "Please rerun both these labs. Take careful note of how to define a custom gradient. This will become relevant in the course when we compose learned layers with PDE solvers. The PDE solver gradients can be calculated with brute force with AD or as described in the custom gradient section you can define a custom routine to calculate the gradient i.e efficiently with the adjoint state method.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "labs/w2-lab01-intro.html",
-    "href": "labs/w2-lab01-intro.html",
-    "title": "First Lab",
-    "section": "",
-    "text": "Follow instructions in the Notebook that can be downloaded from the top right.\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments1",
-    "section": "",
-    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nDocker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.\nFirst install docker for your system\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:\ndocker run -p 8888:8888 philippwitte/judi:v1.1\nThis will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy-paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it philippwitte/judi:v1.1 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "assignments.html#installation",
-    "href": "assignments.html#installation",
-    "title": "Assignments1",
-    "section": "",
-    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nDocker is a platform which builds a virtual machine/container for you in case some softwares above cannot be installed/processed in the environment on your local machine. Thus, we suggest you first try to install the softwares above and do the programming exercises on your local machine. The exercises should work well in apple/linux machines. If it renders problems on your machine (especially a windows one), you could install docker and follow the steps below to run julia sessions in a virtual environment.\nFirst install docker for your system\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI and all the dependencies by yourself, you simply download the docker image and run it in a container. All you need to do is install docker and run:\ndocker run -p 8888:8888 philippwitte/judi:v1.1\nThis will download the image and launch a jupyter notebook that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy-paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Instead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it philippwitte/judi:v1.1 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run things interactively or modify code. However, figures from PyPlot sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended.",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "assignments.html#exercises",
-    "href": "assignments.html#exercises",
-    "title": "Assignments1",
-    "section": "Exercises",
-    "text": "Exercises\nDuring the course you will work on exercises that you will find under Schedule each week.\n\n\n\nHand in\nPlease turn in your assignments as pdf files. The assignments should be send to Abhinav Ghalot. Late hand ins are not accepted.\nUnless stated otherwise the labs are due one week after the assignments have been posted. For example, if a homework is posted before the lecture on Wednesday, you should submit your homework before the lecture on the next Wednesday in order for your homework to be considered as on-time. If you have difficulty on the homework and want to ask for extension, please email Dr. Felix Herrmann and cc TA in advance.\n\n\nFeedback\nWe will give you feedback on the marking of the exercises.",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "assignments.html#footnotes",
-    "href": "assignments.html#footnotes",
-    "title": "Assignments1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThese assignments are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
-    "crumbs": [
-      "Assignments"
-    ]
-  },
-  {
-    "objectID": "weeks/week-05.html",
-    "href": "weeks/week-05.html",
-    "title": "Week 05",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nMon, Feb 09\n\n\n\n\n\n\nSeismic Imaging\n\n\nPrestack Migration + Velocity Analysis\n\n\nWed, Feb 11\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nAcoustic and Elastic Imaging\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "weeks/week-02.html",
-    "href": "weeks/week-02.html",
-    "title": "Week 02",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "Week 01",
-    "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "hw/w2-hw01.html",
-    "href": "hw/w2-hw01.html",
-    "title": "HW 01: Pet Names",
-    "section": "",
-    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Seismic Exploration Methods",
-    "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "Seismic Exploration Methods",
-    "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#class-meetings",
-    "href": "index.html#class-meetings",
-    "title": "Seismic Exploration Methods",
-    "section": "Class meetings",
-    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#teaching-team",
-    "href": "index.html#teaching-team",
-    "title": "Seismic Exploration Methods",
-    "section": "Teaching team",
-    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#access-to-piazza",
-    "href": "index.html#access-to-piazza",
-    "title": "Seismic Exploration Methods",
-    "section": "Access to Piazza",
-    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
     "objectID": "slides/week-06/09-inverse-problems-lecture.html#title-custom",
     "href": "slides/week-06/09-inverse-problems-lecture.html#title-custom",
     "title": "Inverse Problems",
@@ -662,6 +345,770 @@
     "title": "Inverse Problems",
     "section": "References",
     "text": "References\n\nAster, R.C., Borchers, B. & Thurber, C.H. Parameter Estimation and Inverse Problems. Academic Press.\nMenke, W. Geophysical Data Analysis: Discrete Inverse Theory. Academic Press.\nTarantola, A. Inverse Problem Theory and Methods for Model Parameter Estimation. SIAM. \n\n\nThis lecture was prepared with the assistance of Claude (Anthropic) and validated by Felix J. Herrmann.\nThis work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Seismic Exploration Methods",
+    "section": "",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Seismic Exploration Methods",
+    "section": "",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#class-meetings",
+    "href": "index.html#class-meetings",
+    "title": "Seismic Exploration Methods",
+    "section": "Class meetings",
+    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#teaching-team",
+    "href": "index.html#teaching-team",
+    "title": "Seismic Exploration Methods",
+    "section": "Teaching team",
+    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#access-to-piazza",
+    "href": "index.html#access-to-piazza",
+    "title": "Seismic Exploration Methods",
+    "section": "Access to Piazza",
+    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "hw/w2-hw01.html",
+    "href": "hw/w2-hw01.html",
+    "title": "HW 01: Pet Names",
+    "section": "",
+    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "Week 01",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "Week 02",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-05.html",
+    "href": "weeks/week-05.html",
+    "title": "Week 05",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nMon, Feb 09\n\n\n\n\n\n\nSeismic Imaging\n\n\nPrestack Migration + Velocity Analysis\n\n\nWed, Feb 11\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nAcoustic and Elastic Imaging\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments1",
+    "section": "",
+    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nIn this course, we will have a couple of coding assignments based on Julia, a fast, dynamic, reproducible composable and general open source programming language. You are encouraged to install Julia on your system following the script to run some basic coding experiments to explore its usage and applications in scientific computing community.\nIn particular, you will run numerical experiments for CO\\(_2\\) dynamics simulation (in case you need it) and seismic wave-based simulations with academically developed softwares. To help you run these software, we highly recommend you use Docker, a platform which builds a virtual machine/container for you with the docker image, which is set-up by us and equipped with pre-installed softwares. The docker image is quite necessary for you to run the software without the tedious installation process, and to provide you with an environment on which the software runs out of the box.\nFirst install docker for your system following the instruction here,\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI, JutulDarcyRules and all the dependencies (these are the softwares that you will use for the numerical simulation) by yourself, you simply download the docker image and run it in a container. All you need to do is install docker, click the docker icon/app, open the terminal/command line (powershell in windows, also see this) on your system, and run:\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0\nwhere /path/on/your/machine is an absolute path on your own local machine. Remember giving a folder path is important. For example, if I want to connect the folder called testdocker on the desktop of my laptop, I can do\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /Users/abhinav/Desktop/testdocker:/notebooks apgahlot/eas-8803:v1.0\nThis will download the image and launch a session that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy/paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Then, you can create a notebook there by clicking new -&gt; notebook -&gt; julia 1.8.5 (or you can copy your previous notebooks to that folder, e.g., testdocker), and run the julia code in the jupyter notebook. Try running these packages in notebook for fun\nusing JutulDarcyRules\nusing LinearAlgebra\nusing PyPlot\nusing SlimPlotting\nusing JLD2, Polynomials, Images\n\nWhatever you do on the docker container will be saved in the local testdocker folder. And then you need to copy the homework notebook once it is released to this folder and run your codes in that notebook.\nInstead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it apgahlot/eas-8803:2.0 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run a couple of lines of code interactively. However, figures from PyPlot (the plotting package) sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended for you to do the assignments.\n\n\nBy default, the command\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0\nwill use 4 threads because in the above command JULIA_NUM_THREADS=4 is set. If you want to increase the number of threads to run your code faster, you need to know the number of threads on your machine and then set JULIA_NUM_THREADS equal to that number. To know the number of threads on your machine you can do:\nFor Mac, write on terminal: sysctl -n hw.logicalcpu\nFor Linux, write on terminal: lscpu\nThe number of threads = number of threads per core * No. of CPUs\nFor windows: Follow this link\n\n\n\n\nIf you are using windows, you might need to enable hardware virtualization in their BIOS. You are suggested to look at here and here. If you have any question, please reach out to us ASAP.",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#installation",
+    "href": "assignments.html#installation",
+    "title": "Assignments1",
+    "section": "",
+    "text": "The assignments require Julia and Python 3 to be installed (Python 2 will not work).\nFor Windows, I recommend to use docker as Devito does not support Windows.\n\n\nTo install julia follow\nhttps://julialang.org/downloads/\nAnd install Julia 1.5\n\n\n\nThe recommended installation is via conda to have a stable environment.\nhttps://conda.io/miniconda.html\n\n\n\nFor the assignments, you will need a few python and julia packages. Please follow these instructions to install all of the packages in the order described here.\nFirst, install Devito using pip (or pip3), or see the Devito’s GitHub page for installation with Conda and further information. The current release of JUDI requires Python 3 and the current Devito version. Run all of the following commands from the (bash) terminal command line (not in the Julia REPL):\npip install --user git+https://github.com/devitocodes/devito.git\nThen install matplotlib by\npip install matplotlib\nIf these commands don’t work, please replace pip by pip3 and try it again.\nFor reading and writing seismic SEG-Y data, JUDI uses the SegyIO package and matrix-free linear operators are based the Julia Operator LIbrary (JOLI), we can install these 2 packages via:\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")'\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JOLI.jl.git\")'\nOnce Devito, SegyIO and JOLI are installed, you can install JUDI with Julia’s Pkg.add.\njulia -e 'using Pkg; Pkg.add(url=\"https://github.com/slimgroup/JUDI.jl\")'\nOnce you have JUDI installed, you need to point Julia’s PyCall package to the Python version for which we previously installed Devito. To do this, copy-paste the following commands into the (bash) terminal:\nexport PYTHON=$(which python)\njulia -e 'using Pkg; Pkg.build(\"PyCall\")'\nAgain, try which python3 if which python does not work.\nYou can verify your installation by running:\njulia -e 'using Pkg; using JUDI; example=joinpath(dirname(pathof(JUDI)),\"..\",\"examples/scripts/modeling_basic_2D.jl\");include(example);'\nThis command should finish without errors.\n\n\n\nIn this course, we will have a couple of coding assignments based on Julia, a fast, dynamic, reproducible composable and general open source programming language. You are encouraged to install Julia on your system following the script to run some basic coding experiments to explore its usage and applications in scientific computing community.\nIn particular, you will run numerical experiments for CO\\(_2\\) dynamics simulation (in case you need it) and seismic wave-based simulations with academically developed softwares. To help you run these software, we highly recommend you use Docker, a platform which builds a virtual machine/container for you with the docker image, which is set-up by us and equipped with pre-installed softwares. The docker image is quite necessary for you to run the software without the tedious installation process, and to provide you with an environment on which the software runs out of the box.\nFirst install docker for your system following the instruction here,\nhttps://www.docker.com/products/docker-desktop\nInstead of having to install Python, Julia, Devito, JUDI, JutulDarcyRules and all the dependencies (these are the softwares that you will use for the numerical simulation) by yourself, you simply download the docker image and run it in a container. All you need to do is install docker, click the docker icon/app, open the terminal/command line (powershell in windows, also see this) on your system, and run:\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0\nwhere /path/on/your/machine is an absolute path on your own local machine. Remember giving a folder path is important. For example, if I want to connect the folder called testdocker on the desktop of my laptop, I can do\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /Users/abhinav/Desktop/testdocker:/notebooks apgahlot/eas-8803:v1.0\nThis will download the image and launch a session that you can access from your internet browser. The command will display a link, which looks something like this:\nCopy/paste this URL into your browser when you connect for the first time,\n    to login with a token:\n        http://0e27b13128d4:8888/?token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4&token=84a95cf4319e8e68534f20c7c6474d9875f13c70270f35f4\nCopy/paste this link and replace the address 0e27b13128d4:8888 with localhost:8888 (the link is created inside the docker container, which doesn’t know that you mapped this port to your localhost w/ port no. 8888). Then, you can create a notebook there by clicking new -&gt; notebook -&gt; julia 1.8.5 (or you can copy your previous notebooks to that folder, e.g., testdocker), and run the julia code in the jupyter notebook. Try running these packages in notebook for fun\nusing JutulDarcyRules\nusing LinearAlgebra\nusing PyPlot\nusing SlimPlotting\nusing JLD2, Polynomials, Images\n\nWhatever you do on the docker container will be saved in the local testdocker folder. And then you need to copy the homework notebook once it is released to this folder and run your codes in that notebook.\nInstead of a notebook, you can also launch an interactive session with a terminal by running:\ndocker run -it apgahlot/eas-8803:2.0 /bin/bash\nThis will give you access to a terminal, in which you can start Julia/Python, run a couple of lines of code interactively. However, figures from PyPlot (the plotting package) sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended for you to do the assignments.\n\n\nBy default, the command\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0\nwill use 4 threads because in the above command JULIA_NUM_THREADS=4 is set. If you want to increase the number of threads to run your code faster, you need to know the number of threads on your machine and then set JULIA_NUM_THREADS equal to that number. To know the number of threads on your machine you can do:\nFor Mac, write on terminal: sysctl -n hw.logicalcpu\nFor Linux, write on terminal: lscpu\nThe number of threads = number of threads per core * No. of CPUs\nFor windows: Follow this link\n\n\n\n\nIf you are using windows, you might need to enable hardware virtualization in their BIOS. You are suggested to look at here and here. If you have any question, please reach out to us ASAP.",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#new-docker-container-for-seismic-experiments",
+    "href": "assignments.html#new-docker-container-for-seismic-experiments",
+    "title": "Assignments1",
+    "section": "New docker container for Seismic Experiments",
+    "text": "New docker container for Seismic Experiments\ndocker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:4.0\nFollow the same procedure as before to run new docker with the above command. Please note you will use this new docker image for HW4. (Later you will also need a package called MECurvelets which can be installed by using Pkg; Pkg.add(url=\"https://github.gatech.edu/SLIM/MECurvelets.jl\"). We will help installing this package.)",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#some-useful-material",
+    "href": "assignments.html#some-useful-material",
+    "title": "Assignments1",
+    "section": "Some Useful Material",
+    "text": "Some Useful Material\nLearn command line from Software Carpentry\nLearn jupyter notebook\nLearn Julia",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#exercises",
+    "href": "assignments.html#exercises",
+    "title": "Assignments1",
+    "section": "Exercises",
+    "text": "Exercises\nDuring the course you will work on exercises that you will find under Schedule each week.\n\n\n\nHand in\nPlease turn in your assignments as pdf files. The assignments should be send to Abhinav Ghalot. Late hand ins are not accepted.\nUnless stated otherwise the labs are due one week after the assignments have been posted. For example, if a homework is posted before the lecture on Wednesday, you should submit your homework before the lecture on the next Wednesday in order for your homework to be considered as on-time. If you have difficulty on the homework and want to ask for extension, please email Dr. Felix Herrmann and cc TA in advance.\n\n\nFeedback\nWe will give you feedback on the marking of the exercises.",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "assignments.html#footnotes",
+    "href": "assignments.html#footnotes",
+    "title": "Assignments1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThese assignments are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
+    "crumbs": [
+      "Assignments"
+    ]
+  },
+  {
+    "objectID": "labs/w2-lab01-intro.html",
+    "href": "labs/w2-lab01-intro.html",
+    "title": "First Lab",
+    "section": "",
+    "text": "Follow instructions in the Notebook that can be downloaded from the top right.\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/w3-lab02-NMO.html",
+    "href": "labs/w3-lab02-NMO.html",
+    "title": "NMO correction",
+    "section": "",
+    "text": "Please rerun both these labs. Take careful note of how to define a custom gradient. This will become relevant in the course when we compose learned layers with PDE solvers. The PDE solver gradients can be calculated with brute force with AD or as described in the custom gradient section you can define a custom routine to calculate the gradient i.e efficiently with the adjoint state method.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/w5-lab04-Imaging_Acoustic_Elastic.html",
+    "href": "labs/w5-lab04-Imaging_Acoustic_Elastic.html",
+    "title": "Acoustic and Elastic Imaging",
+    "section": "",
+    "text": "ReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/04Lab/Exercise4.html",
+    "href": "labs/04Lab/Exercise4.html",
+    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
+    "section": "",
+    "text": "JUDI is a framework for large-scale seismic modeling and inversion and designed to enable rapid translations of algorithms to fast and efficient code that scales to industry-size 3D problems. The focus of the package lies on seismic modeling, imaging as well as PDE-constrained optimization such as full-waveform inversion (FWI) and imaging (LS-RTM). Wave equations in JUDI are solved with Devito, a Python domain-specific language for automated finite-difference (FD) computations.\n## Lets add necessary packages. Uncomment these lines and run them only once\nusing Pkg\n# Pkg.add(name=\"JUDI\", version=\"3.4.7\")\n# Pkg.add(name=\"PyPlot\", version=\"2.11.6\")\n# Pkg.add(name=\"SlimPlotting\", version=\"0.1.6\")\n# Pkg.add(name=\"Images\", version=\"0.2.53\")\nusing JUDI, PyPlot, LinearAlgebra, SlimPlotting, Images\n\n\n[ Info: JLD2 compat enabled"
+  },
+  {
+    "objectID": "labs/04Lab/Exercise4.html#source-wavelet",
+    "href": "labs/04Lab/Exercise4.html#source-wavelet",
+    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
+    "section": "Source wavelet",
+    "text": "Source wavelet\nFor the source wavelet, we will use a standard Ricker wavelet at 10Hz for this tutorial.In practice this wavelet would be read from a file or estimated during inversion.\n\nf0 = 0.010 # Since we use ms, the frequency is in KHz\nwavelet = ricker_wavelet(record_time, sampling_rate, f0);\nplot(wavelet)\n\n\n\n\n\n\n\n\n1-element Vector{PyCall.PyObject}:\n PyObject &lt;matplotlib.lines.Line2D object at 0x7fd5d54c0220&gt;"
+  },
+  {
+    "objectID": "labs/04Lab/Exercise4.html#important-note-use-the-same-j-jacobian-as-acosutic-here.",
+    "href": "labs/04Lab/Exercise4.html#important-note-use-the-same-j-jacobian-as-acosutic-here.",
+    "title": "Seismic modeling and imaging (Acoustic vs Elastic)",
+    "section": "Important Note: Use the same J (Jacobian) as acosutic here.",
+    "text": "Important Note: Use the same J (Jacobian) as acosutic here.\n\nimg_el = \n\nOperator `forward` ran in 0.58 s\nOperator `gradient` ran in 1.32 s\nOperator `forward` ran in 0.48 s\nOperator `gradient` ran in 1.01 s\nOperator `forward` ran in 0.42 s\nOperator `gradient` ran in 0.99 s\nOperator `forward` ran in 0.49 s\nOperator `gradient` ran in 1.04 s\nOperator `forward` ran in 0.46 s\nOperator `gradient` ran in 1.01 s\nOperator `forward` ran in 0.48 s\nOperator `gradient` ran in 1.24 s\nOperator `forward` ran in 0.42 s\nOperator `gradient` ran in 1.06 s\nOperator `forward` ran in 0.44 s\nOperator `gradient` ran in 1.00 s\nOperator `forward` ran in 0.42 s\nOperator `gradient` ran in 1.00 s\nOperator `forward` ran in 0.51 s\nOperator `gradient` ran in 1.01 s\nOperator `forward` ran in 0.53 s\nOperator `gradient` ran in 1.31 s\n\n\n\nimg_el[:,1:20] .= 0.0f0; # Mute a part of water column to get rid of source-receiver artifacts\n\n\nimshow(img_el', cmap=\"Greys\", extent=data_extent, aspect=\"auto\")\n\nQuestion: 1) Please repeat the same experiments (elastic and acoustic) for the case where the lower layer is slanting instead of horizontal and interpret the differences compared to the above experiments."
+  },
+  {
+    "objectID": "labs/w4-lab03-Migration.html",
+    "href": "labs/w4-lab03-Migration.html",
+    "title": "Time Migration",
+    "section": "",
+    "text": "Running this lab need a python script, timemig.py. The dropbox link to the same is shown in the notebook itself. Please make sure to download it.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/02Lab/Exercise2.html",
+    "href": "labs/02Lab/Exercise2.html",
+    "title": "NMO correction",
+    "section": "",
+    "text": "The traveltime as a function of offset of a reflected event can be approximated by the NMO traveltime:\n$ (t_0,h) = $\nwhere \\((t_0)\\) is the zero-offset or vertical traveltime and \\(v\\) is the effective or NMO velocity.\nWe can now correct the data for the moveout via a simple coordinate transform:\n$ d_{NMO}(t_0,h) = d((t_0,h),h) $\nYou can use the function nmo implemented below for this exercise.\nPlease download data from Dropbox: https://www.dropbox.com/scl/fi/yu3r82yhxs4tf3znky0wi/cube2.segy?rlkey=um2e51u461y0e4239mhxyz09k&st=fww1y5l5&dl=0 Password is exact same with the password which you used to access the lecture note.\n\nusing Pkg\nPkg.add(\"Dierckx\")\nusing Dierckx\nfunction nmo(cmp, t, off, v)\n# NMO correction and adjoint \n#\n# use:\n#   out = nmo(in,t,h,v,flag)\n#\n# input:\n#   in   - data matrix of size [length(t) x length(h)], each column is a trace \n#   t    - time vector [s]\n#   offsets    - offset vector [m]\n#   v    - NMO velocity [m/s] as vector of size [length(t) x 1].\n#   flag - 1:forward, -1:adjoint\n#\n# output\n#   out  - data matrix of size [length(t) x length(h)], each column is a trace \n    if size(cmp, 2) == 1\n        return cmp\n    end\n    # size of data\n    nt, nh = size(cmp)\n    # make sure t and v are column vectors\n    t = t[:]\n    v = v[:]\n    # initialize output\n    out = zeros(nt, nh)\n    # loop over offset\n    for i = 1:nh\n        # NMO traveltime\n        tau = sqrt.(t.^2 + off[i].^2 ./v.^2);\n        # interpolate, forward or adjoint\n        spl = Spline1D(t, cmp[1e-3*T.-t.&lt;1e-5, i])\n        out[:,i] = spl(tau)\n    end\n    return out\nend\n\n\n  Updating registry at `~/.julia/registries/General`\n\n  Updating git-repo `https://github.com/JuliaRegistries/General.git`\n\n[1mFetching: [========================================&gt;]  100.0 %.0 % Resolving package versions...\n\n  Updating `~/.julia/environments/v1.2/Project.toml`\n\n [no changes]\n\n  Updating `~/.julia/environments/v1.2/Manifest.toml`\n\n [no changes]\n\n\n\n\nnmo (generic function with 1 method)\n\n\n\nusing SegyIO, PyPlot\n\n\n# read the dataset\n\nblocks = segy_read(\"/home/yzhang3198/Downloads/data_segy/cube2.segy\");\n\n┌ Warning: Fixed length trace flag set in stream: IOBuffer(data=UInt8[...], readable=true, writable=false, seekable=true, append=false, size=90663444, maxsize=Inf, ptr=3601, mark=-1)\n└ @ SegyIO /home/yzhang3198/.julia/packages/SegyIO/ak2qG/src/read/read_file.jl:26\n\n\n\nsx = get_header(blocks, \"SourceX\";scale=false)\nrx = get_header(blocks, \"GroupX\";scale=false);\n\n\n# Get the time axis. In this case the time axis is the same for all traces so we only need to extract it from the first trace\n# dt needs to be corrected for the binary setup\n# All the times are in ms\ndt = get_header(blocks, \"dt\")[1]/1000\nnt = get_header(blocks, \"ns\")[1]\nT = 0:dt:(nt-1)*dt\n\n0.0:4.0:2000.0\n\n\n\n# Midpoint and offset\nh = (sx .- rx);\nm = (sx .+ rx)./2;\n\n\nall_m = hcat(m'...)'\nfold = [sum(all_m .== unique(all_m)[i]) for i=1:length(unique(all_m))];\n\nall_h = hcat(h'...)';\n\n\nPick a midpoint\n\nIm = findall(all_m .== all_m[1000])\noffsets = sort((all_h[Im]));\ninds = sortperm(all_h[Im])\ncmp = Float32.(blocks.data[:, Im[inds]]);\n\n\nfigure()\nimshow(cmp, vmin=-1, vmax=1, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nConstant velocity NMO correction\n\nnmo_corrected1 = nmo(cmp, 1e-3.*T, offsets, 2000 .+ 0 .*T);\n\n\nfigure()\nimshow(nmo_corrected1, vmin=-1, vmax=1, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nWindowing\nWe can see a lot of `artifacts’ in the NMO corrected gather above. To avoid some of the artifacts, the midpoint gathers are often windowed to select reflected data only. All events that arrive before the direct wave are removed. A typical window looks like this (Hint: the slope of the triangle is related to the veloctity of the direct wave).\n\n# grid\ntt = [1e-3*ti for ti in T for h in offsets]\nhh = [h for ti in T for h in offsets]\n\n# initialize window to zero and set times later than first arrival to 1.\nW=0 .*tt;W[tt .&gt; (.1 .+ abs.(hh)./1500)] .= 1\nW = reshape(W, size(cmp)[2], size(cmp)[1])\nimshow(W', vmin=0, vmax=1, cmap=\"jet\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\nmuted = W'.*cmp;\n\n\nfigure()\nimshow(muted, vmin=-1e0, vmax=1e0, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nStack power\nTo figure out which NMO velocity optimally flattens all the events, we can scan through a range of constant NMO velocities and see which events are flattened for which velocity. One way to judge flatness of an event is via the stackpower. The stackpower is just a sum along the offset direction of the values-squared of the NMO-corrected gather:\n$ S(t_0,v) = !!h, d((t_0,h,v),h)^2 $\nThe function $ S(t_0,v) $ is called a semblance panel.\nThe desired NMO velocity can be found by picking the maximum as a function of \\(t_0\\) and \\(v\\) from the semblance panel.\nAn example of a semblance panel and the resulting NMO velocity is shown below.\n\nv = 1000:(3000-1000)/(500-1):3000\n# scan over velocities\nS = zeros(length(T),length(v));\nfor k = 1:length(v)\n    cmp_nmo = nmo(muted, 1e-3.*T, offsets, v[k] .+ 0 .*T);\n    S[:,k]  = sum(cmp_nmo .^2, dims = 2);\nend\n\n\n#Plot semblance panel\nfigure()\nimshow(S, vmin=0, vmax=1e3, cmap=\"jet\", aspect=1, extent=[v[1], v[end], T[end], 0])\nxlabel(\"velocity\")\nylabel(\"tau\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'tau')\n\n\n\n#  pick v/tau pairs\n\n\ntv   = 1e3*[0,    0.30, 0.35, 0.46, 0.65, 1.27, 2.00];\nvnmo =     [1500, 1500, 1600, 1700, 2000, 2179, 3000];\nspl = Spline1D(tv, vnmo; k=1)\nvnmo_all = spl(T);\n\n\n\nLook at the velocity profile with the picked tau/v pairs\n\n# Enable gui to have the cursor and pick v/tau pairs\nfigure()\nimshow(S, vmin=0, vmax=1e3, cmap=\"jet\", aspect=1, extent=[v[1], v[end], T[end], 0])\nplot(vnmo_all, T, \"-k\")\nxlabel(\"velocity\")\nylabel(\"tau\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'tau')\n\n\n\nnmo_corrected = nmo(muted, 1e-3.*T, offsets, vnmo_all) ;\n\n\nfigure()\nimshow(nmo_corrected, vmin=-1e0, vmax=1e0, cmap=\"Greys\", aspect=3, extent=[offsets[1], offsets[end], T[end], 0])\nxlabel(\"offset\")\nylabel(\"time\")\n\n\n\n\n\n\n\n\nPyObject Text(24.0, 0.5, 'time')\n\n\n\n\nVelocity analysis\nRepeat the above outline procedure for a couple of mipdoint positions xm (e.g., xm = [500 1000 2000]). Organize the resulting NMO velocities in a matrix Vm (where column i is the NMO velocity for midpoint xm[i]) interpolate the results to obtain a velocity for all the midpoints using Spline1D(xm, VM); spl(all_m). Plot the velocity and discuss.\nUsing this NMO velocity, we can produce an NMO stack. Perform an NMO correction of all the midpoint gathers using the corresponding NMO velocity derived above and sum each along the offset direction. Organize all the stacks in a matrix and plot the result. Also make a stack using a constant NMO velocity. Discuss the results.\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/01Intro/Exercise1.html",
+    "href": "labs/01Intro/Exercise1.html",
+    "title": "Exercise 1: a first look at seismic data",
+    "section": "",
+    "text": "In this exercise we will load some data into Julia and perform some basic operations.\nSeismic data are typically stored in a special binary format: SEGY. These file-formats store the data as mutliple time-series (traces) with the corresponding header information containing specific information about such as time sampling and source/receiver locations.\nThe Julia utilities for reading SEGY data is SegyIO\n\nusing Pkg\n#Pkg.add(url=\"https://github.com/slimgroup/SegyIO.jl.git\")\n#Pkg.add(\"PyPlot\")\nusing SegyIO, PyPlot\n\n\nScaning the dataset\nThhe first step is to scan the dataset to extract header/metadat. This metadat contains the geometry and parameters of the survey such as the source/receiver locations and time sampling rate. The convention for the metadata is as follows:\nThe Source positions use the Source keyword such as SourceX\nThe receiver position use the Group keyword such as GroupX\n\n# scan the dataset\n\ndir = Pkg.dir(\"SegyIO\")\ndata_dir = \"data\"\n\n┌ Warning: `Pkg.dir(pkgname, paths...)` is deprecated; instead, do `import SegyIO; joinpath(dirname(pathof(SegyIO)), \"..\", paths...)`.\n└ @ Pkg.API /buildworker/worker/package_linux64/build/usr/share/julia/stdlib/v1.2/Pkg/src/API.jl:415\n\n\n\"data\"\n\n\nWe can now scans the dataset with the segy_scan functin. This function returns a SeisCOn object where each block is a shot record with its metadata.\n\nblocks = segy_scan(string(dir, data_dir), \"overthrust\", [\"GroupX\", \"GroupY\", \"ns\", \"dt\"]);\n\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_41_60.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_21_40.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_61_80.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_1_20.segy\nScanning ... /home/yzhang3198/.julia/packages/SegyIO/ak2qG/data/overthrust_2D_shot_81_97.segy\n\n\nNow extract the time, source and receiver coordinates (in seconds and meters) for all the traces. The source and receiver vectors have a length equal to the number of traces, the time vector has a length equal to the number of rows in the data matrix.\n\nsx = [get_header(blocks[i], \"SourceX\") for i=1:length(blocks)];\nrx = [get_header(blocks[i], \"GroupX\") for i=1:length(blocks)];\n\n\n# Get the tme axis. In this case the time axis is the same for all traces so we only need to extract it from the first trace\n# dt needs to be corrected for the binary setup\n# All the times are in ms\ndt = get_header(blocks[1], \"dt\")[1]/1000\nnt = get_header(blocks[1], \"ns\")[1]\nT = 0:dt:(nt-1)*dt\n\n0.0:4.0:3000.0\n\n\nCalculate the offset and midpoint for each trace. This gives you vectors m (midpoint) and h (offset) with length equal to the number of traces.\nh = (s - r)/2;\nm = (s + r)/2;\n\nh = (sx .- rx)./2;\nm = (sx .+ rx)./2;\n\nThe fold of the data is the number of traces in each midpoint gather. This can be easily visualized by a histogram. As we have a set of blocks we need to inspect each block seperately to recover the nuique set of midpoint location and the total number fo traces for this midpoint\n\nall_m = hcat(m'...)\nfold = [sum(all_m .== unique(all_m)[i]) for i=1:length(unique(all_m))];\n\nall_h = hcat(h'...);\n\n\nfigure();\nbar(unique(all_m),fold ,align=\"center\", width=100);\nxlabel(\"midpoint [m]\");\nylabel(\"fold\");\ntitle(\"fold\");\n\n\n\n\n\n\n\n\nCan you interpret this figure?\nDifferent gathers\nExtract a midpoint gather. For example, a midpoint gather at m = 2550 looks like this:\n\nIm = findall(all_m .== 7500.)\nfigure()\nimshow(Float32.(blocks[1:97].data[:,map(i -&gt; i[2], Im)]), vmin=-1, vmax=1, cmap=\"Greys\", aspect=0.05)\n\n\n\n\n\n\n\n\nPyObject &lt;matplotlib.image.AxesImage object at 0x7f49363d4e48&gt;\n\n\nExtract an offset-gather. For example, a zero-offset section looks like:\n\nIh = findall(all_h .== 0.)\ninds = sortperm(all_m[Ih])\nfigure()\nimshow(Float32.(blocks[1:97].data[:,map(i -&gt; i[2], Ih[inds])]), vmin=-1, vmax=1, cmap=\"Greys\", aspect=.1)\n\n\n\n\n\n\n\n\nPyObject &lt;matplotlib.image.AxesImage object at 0x7f4935b5f860&gt;\n\n\nWhat other different gathers can you think of? Extract and plot an example of all the different gathers. What are characteristic properties of the different gathers? Do not forget to label the axis and choose a reasonable colorscale. Hint: use cmap=Greys and adjust the color-axis vmin/vmax\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "labs/03Lab/Exercise3.html",
+    "href": "labs/03Lab/Exercise3.html",
+    "title": "Post-stack, time domain Kirchhoff migration",
+    "section": "",
+    "text": "In this eigth lab of the ErSE 210 - Seismology course, we will learn how to code a simple post-stack, time domain Kirchhoff demigration/migration engine.\nLet’s start by recalling the equation that can be used to model the propagation of waves from a scatterer at location \\((x_s, t_0)\\) in the subsurface to co-located sources and receivers at location \\((x, t_0=0)\\) (i.e., at the surface) under the assumption of laterally homogenous Earth with root-mean-square velocity \\(v_{rms}(t_0)\\):\n\\[\nt_{kirch}(x_s, t_0, x) = \\sqrt{t_0^2 + 4\\frac{h^2}{v_{rms}^2}}\n\\]\nwhere \\(t_0\\) is the zero-offset traveltime, \\(h=x_s-x\\) is the horizontal distance between the subsurface point of interest and the source/receiver.\nKirchoff migration refers to the process of taking the data \\(d(x_s, t)\\) and transforming it into an image of the subsurface \\(i(x, t_0)\\) (also called reflectivity), which is accomplished by summing all values along the traveltime curve \\(t_{kirch}(x_s, t_0, x) \\; \\forall x_s\\):\n\\[\ni(x, t_0) = \\int \\int d(x_s, t_{kirch}(x_s, t_0, x)) d x_s d t_0\n\\]\nKirchoff demigration is the opposite process, which entails modelling the data \\(d(x_s, t)\\) from an image of the subsurface \\(i(x, t_0)\\), which is accomplished by spreading the values of the image along the traveltime curve \\(t_{kirch}(x_s, t_0, x) \\; \\forall x\\):\n\\[\nd(x, t_{kirch}(x_s, t_0, x)) = \\int \\int i(x, t_0) d x d t_0\n\\]\nNote that in practical applications, when modelling the data, the output of the above equation is usually convolved with a wavelet. As such, in order for the Kirchoff demigration/migration operator to be consisent, convolution with a time-flipped wavelet is also applied during migration.\nThe notebook is organized as follow:\n# Install non-default Python packages (run once)\n%pip install numpy matplotlib scipy pylops\nPlease download this python script, timemig.py, from Dropbox: https://www.dropbox.com/scl/fi/u960e85ul4qd62j5mjxyr/timemig.py?rlkey=aee2oq8048axysgqie7sywrrw&st=rzfrjejq&dl=0 Password is exact same with the password which you used to access the lecture note.\nimport sys\nsys.path.append(\"/full/path/to/parent/of/timemig.py\")\n%load_ext autoreload\n\nimport warnings\nwarnings.filterwarnings('ignore')\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nfrom scipy.sparse.linalg import lsqr\n\nfrom pylops.utils.wavelets import *\nfrom pylops.utils import dottest\n\nfrom timemig import TimeKirchhoff\nLet’s start by creating a simple subsurface model composed of 3 scatterers. We also choose the root-mean-square velocity \\(v_{rms}(t_0)\\) to be linearly increasing with two-way traveltime\n# Axes\nnx, nt0 = 151, 121\ndx, dt0 = 5, 0.004\n\nx, t0 = np.arange(nx) * dx, np.arange(nt0) * dt0\n\n# Velocity and reflectivity models\nv0, kv = 1500, 1e3\nvrms1d = t0 * kv + v0\nvrms = np.repeat(vrms1d[:, None], nx, axis=1).T\n\nrefl = np.zeros((nx, nt0))\nrefl[nx//2, nt0//2] = 1\nrefl[nx//4, nt0//2] = 1\nrefl[3*nx//4, nt0//2] = 1\n\n# Wavelet\nwav, _, wavc = ricker(t0[:21], f0=30)\n\n# Visualize \nfig, axs = plt.subplots(1, 2, sharey=True, figsize=(12, 5))\naxs[0].plot(vrms1d, t0, 'k')\naxs[0].set_title(r'$v_{RMS}$')\naxs[0].set_ylabel(r'$t_0$')\naxs[1].imshow(refl.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[1].set_title('Reflectivity')\naxs[1].axis('tight')\nplt.tight_layout()\nWe create now the TimeKirchhoff operator that performs the demigration/migration operations discussed above. For convenience, this is implemented as a PyLops operator.\nWhilst the operator is created, all of the traveltimes are pre-computed. In practice, since we have a simple analytical expression the traveltimes could be computed on-the-fly when performing demigration/migration.\nTop = TimeKirchhoff(t0, x, vrms, wav, wavc, engine=\"numba\")\n\n# Display some traveltimes\nplt.figure(figsize=(8, 6))\nplt.plot(Top.trav[:, nx//2, 0], 'r', lw=2, label=fr'$t_0$={t0[0]}')\nplt.plot(Top.trav[:, nx//2, nt0//4], 'g', lw=2, label=fr'$t_0$={t0[nt0//4]}')\nplt.plot(Top.trav[:, nx//2, nt0//2], 'k', lw=2, label=fr'$t_0$={t0[nt0//2]}')\nplt.gca().invert_yaxis()\nplt.legend()\nplt.xlabel('x')\nplt.ylabel('t')\nplt.title('Traveltimes');\n\nWARNING:root:Numba not available, reverting to numpy. In order to be able to use the kirchhoff module run \"pip install numba\" or \"conda install numba\".\nLet’s now model the data and migrate it with the same engine.\n# Model data (demigration)\ndata = Top @ refl\n\n# Image data (migration)\nreflmig = Top.H @ data\n\nfig, axs = plt.subplots(1, 3, sharey=True, figsize=(18, 5))\naxs[0].imshow(refl.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[0].axis('tight')\naxs[0].set_title('Reflectivity')\n\naxs[1].imshow(data.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[1].plot(x, Top.trav[:, nx//2, nt0//2], 'r')\naxs[1].axis('tight')\naxs[1].set_title('Data')\n\naxs[2].imshow(reflmig.T, cmap='gray', vmin=-5e1, vmax=5e1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[2].axis('tight')\naxs[2].set_title('Migrated image')\n\naxs[2].set_ylim(t0[-1], t0[0]);\nWe see that the image present some artefact, so-called migration swings.\nWe can do better by either adding more sources/receivers or by solving the migration problem as an inversion process. Let’s see how to do this using PyLops."
+  },
+  {
+    "objectID": "labs/03Lab/Exercise3.html#least-squares-migration",
+    "href": "labs/03Lab/Exercise3.html#least-squares-migration",
+    "title": "Post-stack, time domain Kirchhoff migration",
+    "section": "Least-squares migration",
+    "text": "Least-squares migration\n\n# Migration by inversion (aka least-squares migration)\nreflinv = lsqr(Top, data.ravel(), iter_lim=10, damp=1e-2, show=True)[0]\nreflinv = reflinv.reshape(nx, nt0)\ndatainv = Top @ reflinv\n\nfig, axs = plt.subplots(1, 3, sharey=True, figsize=(18, 5))\naxs[0].imshow(reflinv.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[0].axis('tight')\naxs[0].set_title('Inverted reflectivity')\n\naxs[1].imshow(datainv.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[1].axis('tight')\naxs[1].set_title('Modelled Data')\n\naxs[2].imshow(data.T-datainv.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[2].axis('tight')\naxs[2].set_title('Data error')\n\naxs[2].set_ylim(t0[-1], t0[0]);\n\nRe-run the least-squares migration three times by increasing the number of iterations and compare the output.\nWhich method gives sharper reflectors?\nWhich method better recovers amplitudes?\nHow does the migrated image looks like if the reflectivity was a horizontal layer at nt0//2, instead of three point scatterres?"
+  },
+  {
+    "objectID": "weeks/week-04.html",
+    "href": "weeks/week-04.html",
+    "title": "Week 04",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nTime Migration\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-06.html",
+    "href": "weeks/week-06.html",
+    "title": "Week 06",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nInverse Problems\n\n\nFrom Forward Modeling to Regularized Inversion in Exploration Seismology\n\n\nMon, Feb 16\n\n\n\n\n\n\nSeismic Deconvolution\n\n\nExploration Methods\n\n\nWed, Feb 18\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "Week 03",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nNMO correction\n\n\nFri, Jan 30\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "hw/w3-hw02.html",
+    "href": "hw/w3-hw02.html",
+    "title": "HW 02: Data visualization",
+    "section": "",
+    "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "goals.html",
+    "href": "goals.html",
+    "title": "Goals1",
+    "section": "",
+    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#general-introduction",
+    "href": "goals.html#general-introduction",
+    "title": "Goals1",
+    "section": "",
+    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#seismic-data-acquisition",
+    "href": "goals.html#seismic-data-acquisition",
+    "title": "Goals1",
+    "section": "Seismic data acquisition",
+    "text": "Seismic data acquisition\n\nGive the Nyquist sampling critrion for the sampling of spatio-temporal wavefields\nDescribe aliasing in 1-D and 2- D (f-k domain).\nWhat is an airgun\nWhat is the ghost?\nWhat is the effect of the ghost on the amplitude spectrum?\nDescribe azimuth and name at least three disadvantages of near azimuth acquisition.\nWhat does a rose diagram plot?\nMention two different configurations to improve azimuthal coverage. Include sketches of the arrays and sources.\nDescribe rich azimuth acquisition and include drawing.\nWhat is the main driver behind WAZ acquisition?\nName at least four improvemens related to wide-azimuth acquisition?\nWhat is fold and why is it important?\nWhat are the main challenges in marine acquisition?\nWhat are the challenges of 3D acquisition?\nName some recent developments.\nDescribe coil sampling\nGive the main reasons why large offsets are required?",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#from-processing-to-inversion",
+    "href": "goals.html#from-processing-to-inversion",
+    "title": "Goals1",
+    "section": "From processing to inversion",
+    "text": "From processing to inversion\n\nDescribe what the forward and inverse models signify.\nWhat property do unitaty matrices have?\nWhat type of solution method should be used when the data synthetic data does not fit observed data exactly?\nDescribe how one arrives at the least-squares solution m_{LS}=(A^TA)^{-1})A^Td?\nIn what situation, is the least-squares solution used? Is the matrix to be inverted tall, square, or fat?\nDescribe the minmum norm solution and when is its use appropriate?\nDescribe in words what the expression min_x|x|_2 subject to Ax=b expresses.\nExplain the difference between processing (applying the adjoint) and inversion\nHow are convolution and correlation related related to linear operations\nDescribe the ‘dot test’ and what does it accomplish\nMention and describe at least three forward-adjoint pairs relevant to exploration seismology\nWrite stacking, zero padding, and sampling as a matrix\nProof that matrices that represent convolution and correlation are adjoints.\nWhat kind of matrix is the convolution in the Fourier domain.\nSketch a column of the Parabolic Radon ‘reverse’ transform (L^H).\nExplain why it is important to ‘invert the ’reverse’ Radon transform’ for multiple removal?\nWhat is the underlying assumption of minimizing the energy (\\ell_2-norm) on the model parameters?\nWhat does high-resolution try to accomplish and what is the underlying assumption on the model and the data?",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#compressive-sensing",
+    "href": "goals.html#compressive-sensing",
+    "title": "Goals1",
+    "section": "Compressive sensing",
+    "text": "Compressive sensing\n\nHow is sampling related to a linear system.\nWhen is the linear system underdetermined.\nHow do the concepts of over- and underdetermined systems relate to sampling?\nGive the key ideas of Compressive Sensing.\nGive two examples of transforms that exploit the signal’s structure by sparsity.\nWhich interferences/artifacts are worse. Coherent aliases due to periodic sampling or incoherent noise due to randomized samping and why?\nGive at least two examples of randomized sampling and describe the impact on the sampling artifacts compared to conventional deterministic acquisition.\nGive an example of measurement (M) and sampling (R) matrices with low and hight coherence\nWhich of the following acquisition scenarios creates favorable recovery conditions?\nExplain the role of sparsifying transforms and sparsity-promoting recovery.\nDescribe what happens with the recovery SNR as (i) the subsampling ratio decreases, (ii) the sparsity-level increases, (iii) the noiselevel increases, and (iv) the decay rate of the sorted transform-domain coefficients increases.\nList a number of pitfalls/challenges related to applying compressive sensing to seismic acquisition in the field.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#linearized-inversion",
+    "href": "goals.html#linearized-inversion",
+    "title": "Goals1",
+    "section": "Linearized inversion",
+    "text": "Linearized inversion\n\nDescribe three factors that influence the amplitudes of seismic waves\nDescribe when the linearized refflection coefficients is a good approximation\nGive two different expressions for the linearized reflection coefficient in the acoustic case\nMention “non-ray” amplitude effects\nDescribe linearized inversion. What are the two key factors expressing the relationship between the amplitudes of the reflection events and the acoustic medium properties. Introduce the corresponding matrices.\nWhat are the boundary conditions for the elastic wave equation at an interface?\nDescribe the different reflection and transmission coefficients for the elastic case.\nDescribe the linear convolutional model for the seismic reflection response. What are the underlying assupmtions of this model?\nWhat does the background velocity model describe and what properties should it have?\nList the different reflection and transmission coefficients for an interface between two elastic layers. What are these coefficients a function of and w.r.t. to which medium properties can these expressions be linearized? For non-zero and pre-critical angles, what are the orders in deltall 1 for these different reflection and transmission coefficients?\nDescribe the “work flow” of AVP inversion.\nDescribe how the amplitudes of the plane-wave decomposition (via the linear Radon transform) are related to contrasts in the density, compressional, and shear wavespeeds.\nDescribe the damped least-squares procedure to estimate the medium perturbations/contrasts. Is the system under or over determined? Why is damping needed?\nDescribe issues with the spectral gap.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#rtm-fwi",
+    "href": "goals.html#rtm-fwi",
+    "title": "Goals1",
+    "section": "RTM & FWI",
+    "text": "RTM & FWI\n\nDescribe in words what the adjoint state method corresponds to physically\nWhat is the geophysical interpretation of the gradient?\nDescribe the equations for the computation of the gradient. What is their physical meaning?\nDraw the impulse response of a the linear Born scattering operator and its adjoint for a constant velocity model.\nWhat is the relationship between least-squares migration and Gauss-Newton?\nHow is the action of the Jacobian evaluated? How many PDE solves does it take?\nList at least two difference between linearized inversion (least-squares migration and full-waveform inversion).\nDescribe for what purpose full-waveform inversion is used in the context of migration and why.\nDescribe a method to make imaging and inversion more efficient\nDescribe a cross-well experiment\nDescribe a surface-seismic experiment\nHow does the sensitivity of these two methods compare?\nWhat sort of waves does full-waveform inversion rely on and why.\nList at least two requirements of full-waveform inversion on the acquisition.\nWhat does non-uniquness in full-waveform inversion refer to?\nList at least one strategy people use to avoid getting stuck in a local minimum? What does this imply w.r.t. the wavelength and the propagation distance.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#footnotes",
+    "href": "goals.html#footnotes",
+    "title": "Goals1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThese goals are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "slides/week-06/LICENSE.html",
+    "href": "slides/week-06/LICENSE.html",
+    "title": "License",
+    "section": "",
+    "text": "Copyright (c) 2026 Felix J. Herrmann, Georgia Institute of Technology\nThis work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\n\n\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\n\n\n\n\nAttribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\nShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nFor the full legal text, see https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode."
+  },
+  {
+    "objectID": "slides/week-06/LICENSE.html#creative-commons-attribution-noncommercial-sharealike-4.0-international-cc-by-nc-sa-4.0",
+    "href": "slides/week-06/LICENSE.html#creative-commons-attribution-noncommercial-sharealike-4.0-international-cc-by-nc-sa-4.0",
+    "title": "License",
+    "section": "",
+    "text": "Copyright (c) 2026 Felix J. Herrmann, Georgia Institute of Technology\nThis work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\n\n\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\n\n\n\n\nAttribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\nShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nFor the full legal text, see https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#title-custom",
+    "href": "slides/week-06/10-decon.html#title-custom",
+    "title": "Seismic Deconvolution",
+    "section": "",
+    "text": "Seismic Deconvolution\n\nFelix J. Herrmann\nSchool of Earth & Atmospheric Sciences — Georgia Institute of Technology"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#why-deconvolution",
+    "href": "slides/week-06/10-decon.html#why-deconvolution",
+    "title": "Seismic Deconvolution",
+    "section": "Why deconvolution?",
+    "text": "Why deconvolution?\n\n\n\n\n\nSeismic section without (left) and with (right) deconvolution — reflectors become sharper and more interpretable. (Yilmaz 2001)\n\n\n\n\n\n\nMarine seismic data before and spiky decon. Adapted from Verschuur\n\n\n\nPurpose:\n\nremove the imprint of the source/receiver time functions and directivity\nimproves resolution"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#outline",
+    "href": "slides/week-06/10-decon.html#outline",
+    "title": "Seismic Deconvolution",
+    "section": "Outline",
+    "text": "Outline\n\n\nPart I — Foundations\n\nConvolution and correlation\nFourier-domain perspective\nSeismic convolutional model\nDeconvolution as inverse filtering\nStabilized deconvolution / Wiener filter\nTime-domain least-squares & Tikhonov\n\nPart II — Minimum-phase deconvolution\n\nMinimum-phase vs zero-phase wavelets\nBlind (statistical) deconvolution\nSpiking deconvolution\n\n\nPart III — Predictive deconvolution\n\nSurface-related multiples\nPrediction-error filtering\nExamples on field data\n\nPart IV — Sparsity-promoting deconvolution\n\nLimitations of \\(\\ell_2\\)-norm regularization\n\\(\\ell_1\\)-norm minimization\nSparse recovery of reflectivity"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#convolution-continuous",
+    "href": "slides/week-06/10-decon.html#convolution-continuous",
+    "title": "Seismic Deconvolution",
+    "section": "Convolution — continuous",
+    "text": "Convolution — continuous\nLet \\(w(t)\\) denote the source wavelet and \\(r(t)\\) the reflectivity series. Their convolution is\n\\[\nd(t) = (w \\ast r)(t) = \\int_{-\\infty}^{\\infty} w(\\tau)\\, r(t - \\tau)\\, d\\tau\n\\]\nwhere \\(d(t)\\) is the recorded seismic trace.\nPhysical interpretation: the output \\(d(t)\\) is a weighted superposition of shifted copies of \\(r(t)\\), with weights given by \\(w(\\tau)\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#correlation-as-adjoint-of-convolution",
+    "href": "slides/week-06/10-decon.html#correlation-as-adjoint-of-convolution",
+    "title": "Seismic Deconvolution",
+    "section": "Correlation — as adjoint of convolution",
+    "text": "Correlation — as adjoint of convolution\nThe cross-correlation of \\(w(t)\\) with \\(d(t)\\) is\n\\[\nr_{wd}(\\tau) = \\int_{-\\infty}^{\\infty} w(t)\\, d(t + \\tau)\\, dt\n\\]\nThis is equivalently written as convolution with the time-reversed wavelet:\n\\[\nr_{wd}(\\tau) = (w(-\\cdot) \\ast d)(\\tau)\n\\]\nIn operator language, correlation is the adjoint (transpose) of convolution: if \\(\\mathbf{d} = \\mathbf{W}\\mathbf{r}\\), then \\(\\mathbf{W}^T\\mathbf{d}\\) computes the cross-correlation between the wavelet and the seismic trace.\nThe auto-correlation is the special case: \\(r_{ww}(\\tau) = \\int w(t)\\, w(t + \\tau)\\, dt\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#fourier-domain-view",
+    "href": "slides/week-06/10-decon.html#fourier-domain-view",
+    "title": "Seismic Deconvolution",
+    "section": "Fourier-domain view",
+    "text": "Fourier-domain view\nLet \\(W(f)\\), \\(R(f)\\), \\(D(f)\\) denote the Fourier transforms of \\(w(t)\\), \\(r(t)\\), \\(d(t)\\). Then:\nConvolution in time becomes multiplication in frequency:\n\\[\nD(f) = W(f)\\, R(f)\n\\]\nCross-correlation becomes\n\\[\nR_{wd}(f) = W^*(f)\\, D(f)\n\\]\nAuto-correlation becomes\n\\[\nR_{ww}(f) = |W(f)|^2\n\\]\nwhere \\(W^*(f)\\) denotes the complex conjugate of \\(W(f)\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#discrete-convolution",
+    "href": "slides/week-06/10-decon.html#discrete-convolution",
+    "title": "Seismic Deconvolution",
+    "section": "Discrete convolution",
+    "text": "Discrete convolution\nFor sampled signals \\(w[n]\\) and \\(r[n]\\) with sampling interval \\(\\Delta t\\):\n\\[\nd[n] = \\sum_{k} w[k]\\, r[n - k]\n\\]\nConvolution is a linear operation, which can be written in matrix form:\n\\[\n\\mathbf{d} = \\mathbf{W}\\, \\mathbf{r}\n\\]\nwhere \\(\\mathbf{W}\\) is a Toeplitz matrix built from the wavelet samples. Its adjoint \\(\\mathbf{W}^T\\) computes correlation."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#discrete-fourier-domain-equivalence",
+    "href": "slides/week-06/10-decon.html#discrete-fourier-domain-equivalence",
+    "title": "Seismic Deconvolution",
+    "section": "Discrete Fourier-domain equivalence",
+    "text": "Discrete Fourier-domain equivalence\nLet \\(\\mathbf{F}\\) denote the DFT matrix. Then \\(\\hat{\\mathbf{d}} = \\mathbf{F}\\mathbf{d}\\) and the convolution becomes an elementwise (Hadamard) product:\n\\[\n\\hat{\\mathbf{d}} = \\hat{\\mathbf{w}} \\odot \\hat{\\mathbf{r}} = \\operatorname{diag}(\\hat{\\mathbf{w}})\\, \\hat{\\mathbf{r}}\n\\]\nwhere \\(\\hat{\\mathbf{W}} = \\mathbf{F}\\mathbf{w}\\), \\(\\hat{\\mathbf{R}} = \\mathbf{F}\\mathbf{r}\\), and \\(\\odot\\) is the Hadamard (elementwise) product.\nThis means convolution is diagonalized by the DFT — each frequency is independent."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#seismic-convolutional-model",
+    "href": "slides/week-06/10-decon.html#seismic-convolutional-model",
+    "title": "Seismic Deconvolution",
+    "section": "Seismic convolutional model",
+    "text": "Seismic convolutional model\nThe 1-D seismic trace is modeled as\n\\[\nd(t) = w(t) \\ast r(t) + n(t)\n\\]\nwhere:\n\n\\(w(t)\\) — source wavelet, the band-limited pulse emitted by the seismic source\n\\(r(t)\\) — reflectivity series, a sequence of spikes at impedance boundaries\n\\(n(t)\\) — additive noise (ambient, instrumental, etc.)\n\\(d(t)\\) — recorded seismogram"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#convolutional-model-geological-picture",
+    "href": "slides/week-06/10-decon.html#convolutional-model-geological-picture",
+    "title": "Seismic Deconvolution",
+    "section": "Convolutional model — geological picture",
+    "text": "Convolutional model — geological picture\n\nGeological section \\(\\to\\) impedance contrasts \\(\\to\\) reflectivity series \\(r(t)\\) convolved with source wavelet \\(w(t)\\) yields the seismic trace \\(d(t)\\). (Yilmaz 2001)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#example-reflectivity-ast-ricker-wavelet",
+    "href": "slides/week-06/10-decon.html#example-reflectivity-ast-ricker-wavelet",
+    "title": "Seismic Deconvolution",
+    "section": "Example: reflectivity \\(\\ast\\) Ricker wavelet",
+    "text": "Example: reflectivity \\(\\ast\\) Ricker wavelet\n\nEach reflector produces a shifted, scaled copy of \\(w(t)\\); the seismogram \\(d(t)\\) is their superposition."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#ricker-wavelet-and-its-amplitude-spectrum",
+    "href": "slides/week-06/10-decon.html#ricker-wavelet-and-its-amplitude-spectrum",
+    "title": "Seismic Deconvolution",
+    "section": "Ricker wavelet and its amplitude spectrum",
+    "text": "Ricker wavelet and its amplitude spectrum\n\nThe Ricker wavelet is band-limited — it has zero energy at DC \\((f=0)\\) and at high frequencies. Peak frequency \\(f_0 = 25\\) Hz."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#convolution-of-the-earth-impulse-response",
+    "href": "slides/week-06/10-decon.html#convolution-of-the-earth-impulse-response",
+    "title": "Seismic Deconvolution",
+    "section": "Convolution of the Earth impulse response",
+    "text": "Convolution of the Earth impulse response\n\nConvolution of earth’s impulse response (a) with wavelet (b) yields the seismogram (c). This is multiplicative in the amplitude spectra (top) and convolutional in the autocorrelations (middle). (Yilmaz 2001)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#vibroseis-sweep-klauder-wavelet",
+    "href": "slides/week-06/10-decon.html#vibroseis-sweep-klauder-wavelet",
+    "title": "Seismic Deconvolution",
+    "section": "Vibroseis: sweep & Klauder wavelet",
+    "text": "Vibroseis: sweep & Klauder wavelet\n\nThe vibroseis source emits a long frequency sweep. Cross-correlating the recorded data with the known sweep produces the Klauder wavelet — a compact, zero-phase pulse. (Sheriff and Geldart 1995)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#objective-of-deconvolution",
+    "href": "slides/week-06/10-decon.html#objective-of-deconvolution",
+    "title": "Seismic Deconvolution",
+    "section": "Objective of deconvolution",
+    "text": "Objective of deconvolution\nRemove unwanted effects from the seismic signal to improve temporal resolution:\n\nSource/receiver characteristics — finite-bandwidth wavelet blurs the reflectivity\nPropagation effects — near-surface reverberations, ghosting\nShallow water multiples — periodic repetitions from the water bottom\n\nThe aim is to recover a broadband, spike-like reflectivity \\(r(t)\\) from the recorded trace \\(d(t)\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#deconvolution-the-inverse-problem",
+    "href": "slides/week-06/10-decon.html#deconvolution-the-inverse-problem",
+    "title": "Seismic Deconvolution",
+    "section": "Deconvolution — the “inverse” problem",
+    "text": "Deconvolution — the “inverse” problem\n\n\nGoal: find \\(r(t)\\) from \\(d(t) = w(t) \\ast r(t) + n(t)\\).\nIn the frequency domain the noise-free inverse is\n\\[\nR(f) = \\frac{D(f)}{W(f)}\n\\]\nEquivalently, the inverse filter \\(F(f) = 1/W(f)\\) satisfies\n\\[\nF(f)\\, W(f) = 1 \\quad \\longleftrightarrow \\quad f(t) \\ast w(t) = \\delta(t)\n\\]"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#the-division-by-zero-problem",
+    "href": "slides/week-06/10-decon.html#the-division-by-zero-problem",
+    "title": "Seismic Deconvolution",
+    "section": "The division-by-zero problem",
+    "text": "The division-by-zero problem\nWherever \\(W(f) \\approx 0\\) (spectral notches), the inverse \\(1/W(f)\\) blows up:\n\\[\n\\hat{R}(f) = R(f) + \\frac{N(f)}{W(f)} \\longrightarrow \\infty\n\\]\nAny small noise \\(N(f)\\) at those frequencies gets amplified enormously."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#deconvolution-in-the-frequency-domain",
+    "href": "slides/week-06/10-decon.html#deconvolution-in-the-frequency-domain",
+    "title": "Seismic Deconvolution",
+    "section": "Deconvolution in the frequency domain",
+    "text": "Deconvolution in the frequency domain\n\nAdapted from Eric Verschuur\nBefore deconvolution: signal spectrum dominates over noise.\nAfter naïve deconvolution: noise dominates at frequencies where \\(|W(f)|\\) is small."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#types-of-deconvolution",
+    "href": "slides/week-06/10-decon.html#types-of-deconvolution",
+    "title": "Seismic Deconvolution",
+    "section": "Types of deconvolution",
+    "text": "Types of deconvolution\nThe term deconvolution is used for many different signal enhancement techniques:\n\n\n\n\n\n\n\n\nType\nGoal\nAssumption\n\n\n\n\nSpiking\nSharpen wavelet \\(\\to\\) spike \\(\\delta(t)\\)\nWavelet is minimum-phase\n\n\nMinimum-phase\nEstimate source/receiver and earth response\n\\(w(t)\\) is minimum-phase, \\(r(t)\\) is white\n\n\nPredictive\nRemove source/receiver ghosts and multiples\nPeriodic structure in the data\n\n\n\n\n\n\n\n\n\nImportant\n\n\nMain problem: the source/receiver responses and earth response are both unknown. Given \\(z = x \\ast y\\), what are \\(x\\) and \\(y\\)? This is a blind deconvolution problem."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#stabilized-deconvolution-wiener-filter",
+    "href": "slides/week-06/10-decon.html#stabilized-deconvolution-wiener-filter",
+    "title": "Seismic Deconvolution",
+    "section": "Stabilized deconvolution — Wiener filter",
+    "text": "Stabilized deconvolution — Wiener filter\nInstead of \\(1/W(f)\\), use the Wiener filter (Wiener 1949):\n\\[\nF(f) = \\frac{W^*(f)}{|W(f)|^2 + \\varepsilon}\n\\]\nwhere \\(\\varepsilon &gt; 0\\) is the stabilization (damping) parameter that prevents division by zero."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#two-regimes-of-the-wiener-filter",
+    "href": "slides/week-06/10-decon.html#two-regimes-of-the-wiener-filter",
+    "title": "Seismic Deconvolution",
+    "section": "Two regimes of the Wiener filter",
+    "text": "Two regimes of the Wiener filter\n\\[\nF(f) = \\frac{W^*(f)}{|W(f)|^2 + \\varepsilon}\n\\]\n\nwhen signal is strong: \\(|W(f)|^2 \\gg \\varepsilon\\)\n\n\\[F(f) \\approx \\frac{1}{W(f)} \\qquad \\Rightarrow \\text{inverse filtering}\\]\n\nwhen signal is weak: \\(|W(f)|^2 \\ll \\varepsilon\\)\n\n\\[F(f) \\approx \\frac{W^*(f)}{\\varepsilon} \\approx 0 \\qquad \\Rightarrow \\text{suppress noisy frequencies}\\]"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#stabilized-noise-free",
+    "href": "slides/week-06/10-decon.html#stabilized-noise-free",
+    "title": "Seismic Deconvolution",
+    "section": "Stabilized noise-free",
+    "text": "Stabilized noise-free\n\nAdapted from Eric Verschuur"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#stabilized-noisy",
+    "href": "slides/week-06/10-decon.html#stabilized-noisy",
+    "title": "Seismic Deconvolution",
+    "section": "Stabilized noisy",
+    "text": "Stabilized noisy\n\nAdapted from Eric Verschuur"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#wiener-filter-for-different-varepsilon",
+    "href": "slides/week-06/10-decon.html#wiener-filter-for-different-varepsilon",
+    "title": "Seismic Deconvolution",
+    "section": "Wiener filter for different \\(\\varepsilon\\)",
+    "text": "Wiener filter for different \\(\\varepsilon\\)\n\nLeft: Wiener filter amplitude for \\(\\varepsilon \\in \\{0.001, 0.01, 0.1, 1.0\\}\\). Right: product \\(W(f) \\cdot F(f)\\) — approaches \\(1\\) for small \\(\\varepsilon\\), increasingly damped for large \\(\\varepsilon\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#stabilized-deconvolution-results",
+    "href": "slides/week-06/10-decon.html#stabilized-deconvolution-results",
+    "title": "Seismic Deconvolution",
+    "section": "Stabilized deconvolution — results",
+    "text": "Stabilized deconvolution — results\n\nTop: noise-free. Bottom: noisy (SNR = 20 dB). Small \\(\\varepsilon\\) gives better resolution but amplifies noise — the classic resolution vs stability trade-off."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#setup-wavelet-reflectivity-and-data",
+    "href": "slides/week-06/10-decon.html#setup-wavelet-reflectivity-and-data",
+    "title": "Seismic Deconvolution",
+    "section": "Setup: wavelet, reflectivity, and data",
+    "text": "Setup: wavelet, reflectivity, and data\n\nRicker wavelet \\(w(t)\\) with \\(f_0 = 25\\) Hz convolved with a sparse reflectivity \\(r(t)\\) containing six isolated reflectors."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#noise-free-vs-noisy-observed-traces",
+    "href": "slides/week-06/10-decon.html#noise-free-vs-noisy-observed-traces",
+    "title": "Seismic Deconvolution",
+    "section": "Noise-free vs noisy observed traces",
+    "text": "Noise-free vs noisy observed traces\n\nAdditive Gaussian noise at SNR = 20 dB. The noise is broadband — it contaminates all frequencies, including those where \\(|W(f)| \\approx 0\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#naïve-inverse-ff-1wf",
+    "href": "slides/week-06/10-decon.html#naïve-inverse-ff-1wf",
+    "title": "Seismic Deconvolution",
+    "section": "Naïve inverse: \\(F(f) = 1/W(f)\\)",
+    "text": "Naïve inverse: \\(F(f) = 1/W(f)\\)\n\nSpectral division without stabilization. At spectral nulls of \\(W(f)\\) the noise is amplified without bound:\n\\[\n\\hat{R}(f) = R(f) + \\frac{N(f)}{W(f)} \\;\\longrightarrow\\; \\infty\n\\]\nThe result is useless — completely dominated by amplified noise."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#wiener-filter",
+    "href": "slides/week-06/10-decon.html#wiener-filter",
+    "title": "Seismic Deconvolution",
+    "section": "Wiener filter",
+    "text": "Wiener filter\nThe stabilized (Wiener) deconvolution filter:\n\\[\nF_\\varepsilon(f) = \\frac{W^*(f)}{|W(f)|^2 + \\varepsilon}\n\\]\nTwo regimes:\n\n\\(|W(f)|^2 \\gg \\varepsilon\\): \\(\\;F_\\varepsilon(f) \\approx 1/W(f)\\) — inverse filtering\n\\(|W(f)|^2 \\ll \\varepsilon\\): \\(\\;F_\\varepsilon(f) \\approx W^*(f)/\\varepsilon \\approx 0\\) — suppresses noisy frequencies"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#noise-free-deconvolution-varying-varepsilon",
+    "href": "slides/week-06/10-decon.html#noise-free-deconvolution-varying-varepsilon",
+    "title": "Seismic Deconvolution",
+    "section": "Noise-free deconvolution — varying \\(\\varepsilon\\)",
+    "text": "Noise-free deconvolution — varying \\(\\varepsilon\\)\n\nWith no noise, small \\(\\varepsilon\\) gives near-perfect recovery. As \\(\\varepsilon\\) increases, the result becomes over-smoothed."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#noisy-deconvolution-varying-varepsilon",
+    "href": "slides/week-06/10-decon.html#noisy-deconvolution-varying-varepsilon",
+    "title": "Seismic Deconvolution",
+    "section": "Noisy deconvolution — varying \\(\\varepsilon\\)",
+    "text": "Noisy deconvolution — varying \\(\\varepsilon\\)\n\nWith noise, small \\(\\varepsilon\\) amplifies noise dramatically. Larger \\(\\varepsilon\\) stabilizes the result at the cost of resolution."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#frequency-domain-view",
+    "href": "slides/week-06/10-decon.html#frequency-domain-view",
+    "title": "Seismic Deconvolution",
+    "section": "Frequency-domain view",
+    "text": "Frequency-domain view\n\nTop: wavelet amplitude spectrum \\(|W(f)|\\). Bottom: effective resolution filter \\(W(f) \\cdot F_\\varepsilon(f)\\) — ideally unity across the signal band."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#resolution-vs-stability-the-trade-off",
+    "href": "slides/week-06/10-decon.html#resolution-vs-stability-the-trade-off",
+    "title": "Seismic Deconvolution",
+    "section": "Resolution vs stability — the trade-off",
+    "text": "Resolution vs stability — the trade-off\n\nAll \\(\\varepsilon\\) values overlaid with true \\(r(t)\\). Left: noise-free. Right: noisy. The optimal \\(\\varepsilon\\) balances data misfit and noise amplification."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#summary",
+    "href": "slides/week-06/10-decon.html#summary",
+    "title": "Seismic Deconvolution",
+    "section": "Summary",
+    "text": "Summary\n\nSmall \\(\\varepsilon\\) — good resolution but amplifies noise\nLarge \\(\\varepsilon\\) — stable but over-smoothed (loss of resolution)\nThe optimal \\(\\varepsilon\\) balances data misfit and noise amplification\nIn practice \\(\\varepsilon\\) is chosen as a fraction of \\(\\max|W(f)|^2\\) or estimated from the noise level—i.e., \\(\\varepsilon=0.05 \\max|W(f)|^2\\)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#time-domain-least-squares-formulation",
+    "href": "slides/week-06/10-decon.html#time-domain-least-squares-formulation",
+    "title": "Seismic Deconvolution",
+    "section": "Time-domain: least-squares formulation",
+    "text": "Time-domain: least-squares formulation\nIn the time domain, deconvolution becomes a least-squares problem. Given data vector \\(\\mathbf{d}\\) and convolution matrix \\(\\mathbf{W}\\):\n\\[\n\\min_{\\mathbf{r}} \\|\\mathbf{d} - \\mathbf{W}\\mathbf{r}\\|_2^2\n\\]\nThe normal equations that solve this objective give\n\\[\n\\mathbf{W}^T \\mathbf{W}\\, {\\mathbf{r}} = \\mathbf{W}^T \\mathbf{d}\n\\]"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#tikhonov-regularization",
+    "href": "slides/week-06/10-decon.html#tikhonov-regularization",
+    "title": "Seismic Deconvolution",
+    "section": "Tikhonov regularization",
+    "text": "Tikhonov regularization\nAdding an \\(\\ell_2\\)-penalty on \\(\\mathbf{r}\\) yields the damped (Tikhonov regularized) problem:\n\\[\n\\min_{\\mathbf{r}} \\|\\mathbf{d} - \\mathbf{W}\\mathbf{r}\\|_2^2 + \\varepsilon \\|\\mathbf{r}\\|_2^2\n\\]\nwith closed-form solution\n\\[\n\\tilde{\\mathbf{r}} = (\\mathbf{W}^T\\mathbf{W} + \\varepsilon \\mathbf{I})^{-1}\\, \\mathbf{W}^T \\mathbf{d}\n\\]\n\n\n\n\n\n\nTip\n\n\nThis is exactly the Wiener filter in the time domain. The Fourier-domain Wiener filter and Tikhonov regularization are equivalent for stationary convolution."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#time-domain-wiener-filter-design",
+    "href": "slides/week-06/10-decon.html#time-domain-wiener-filter-design",
+    "title": "Seismic Deconvolution",
+    "section": "Time-domain Wiener filter design",
+    "text": "Time-domain Wiener filter design\nWe want a approximate short deconvolution filter \\(f(t)\\) that replaces the original source wavelet \\(w(t)\\) by a desired wavelet \\(v(t)\\):\n\\[f(t)\\ast w(t)=v(t)\\]\nWrite objective\n\\[\\min_{\\mathbf{f}} \\|\\mathbf{v} - \\mathbf{f}\\ast\\mathbf{w}\\|_2^2 + \\varepsilon \\|\\]\nwhich is solved by\n\\[f\\ast r_{ww} = r_{vw}\\]\nwhere\n\nthe auto-correlation \\(r_{ww}[k] = \\sum_n w[n]\\, w[n+k]\\)\nthe cross-correlation \\(r_{dw}[i] = \\sum_n d[n]\\, w[n+i]\\)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#toeplitz-structure-of-normal-equations",
+    "href": "slides/week-06/10-decon.html#toeplitz-structure-of-normal-equations",
+    "title": "Seismic Deconvolution",
+    "section": "Toeplitz structure of normal equations",
+    "text": "Toeplitz structure of normal equations\n\\[\n\\begin{bmatrix} r_{ww}[0] & r_{ww}[1] & \\cdots & r_{ww}[N{-}1] \\\\ r_{ww}[1] & r_{ww}[0] & \\cdots & r_{ww}[N{-}2] \\\\ \\vdots & & \\ddots & \\vdots \\\\ r_{ww}[N{-}1] & r_{ww}[N{-}2] & \\cdots & r_{ww}[0] \\end{bmatrix} \\begin{bmatrix}f[0]\\\\ f[1] \\\\ \\vdots \\\\ f[N]\\end{bmatrix} = \\begin{bmatrix} r_{vw}[0] \\\\ r_{vw}[1] \\\\ \\vdots \\\\ r_{vw}[N] \\end{bmatrix}\n\\]\nThis symmetric Toeplitz system can be solved in \\(O(N^2)\\) via the Levinson recursion (Levinson 1947), rather than \\(O(N^3)\\) for general systems."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#auto--and-cross-correlation-examples",
+    "href": "slides/week-06/10-decon.html#auto--and-cross-correlation-examples",
+    "title": "Seismic Deconvolution",
+    "section": "Auto- and cross-correlation examples",
+    "text": "Auto- and cross-correlation examples\n\nYilmaz (2001)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#auto--and-cross-correlation-examples-1",
+    "href": "slides/week-06/10-decon.html#auto--and-cross-correlation-examples-1",
+    "title": "Seismic Deconvolution",
+    "section": "Auto- and cross-correlation examples",
+    "text": "Auto- and cross-correlation examples\n\nYilmaz (2001)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#auto--and-cross-correlation-examples-2",
+    "href": "slides/week-06/10-decon.html#auto--and-cross-correlation-examples-2",
+    "title": "Seismic Deconvolution",
+    "section": "Auto- and cross-correlation examples",
+    "text": "Auto- and cross-correlation examples\n\nYilmaz (2001)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#minimum-phase-vs-zero-phase-wavelets",
+    "href": "slides/week-06/10-decon.html#minimum-phase-vs-zero-phase-wavelets",
+    "title": "Seismic Deconvolution",
+    "section": "Minimum-phase vs zero-phase wavelets",
+    "text": "Minimum-phase vs zero-phase wavelets\n\nAdapted from Eric VerschuurMixed-phase wavelet (left) vs its minimum-phase equivalent (right). Both share the same amplitude spectrum (bottom) but have different phase — the minimum-phase wavelet concentrates energy at early times."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#properties-minimum-phase-vs-zero-phase",
+    "href": "slides/week-06/10-decon.html#properties-minimum-phase-vs-zero-phase",
+    "title": "Seismic Deconvolution",
+    "section": "Properties: minimum-phase vs zero-phase",
+    "text": "Properties: minimum-phase vs zero-phase\n\n\nMinimum-phase wavelet\n\nCausal: \\(w(t) = 0\\) for \\(t &lt; 0\\)\nEnergy front-loaded (least delay)\nInvertible with a causal, stable inverse\nAll poles and zeros inside the unit circle\nUnique amplitude-to-phase relationship\n\n\nZero-phase wavelet\n\nSymmetric: \\(w(t) = w(-t)\\)\nMaximum resolution (sharpest main lobe)\nBest for interpretation\nNot causal — requires acausal filtering\nPhase \\(\\phi(f) = 0\\) for all \\(f\\)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#modeling-example-ideal-vs-airgun-wavelet",
+    "href": "slides/week-06/10-decon.html#modeling-example-ideal-vs-airgun-wavelet",
+    "title": "Seismic Deconvolution",
+    "section": "Modeling example: ideal vs airgun wavelet",
+    "text": "Modeling example: ideal vs airgun wavelet\n\nLeft: ideal zero-phase wavelet and corresponding shot gather. Right: realistic airgun wavelet with ghost — note the longer, ringy waveform that obscures reflector boundaries."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#minimum-phase-deconvolution",
+    "href": "slides/week-06/10-decon.html#minimum-phase-deconvolution",
+    "title": "Seismic Deconvolution",
+    "section": "Minimum-phase deconvolution",
+    "text": "Minimum-phase deconvolution\nIn practice, the wavelet \\(w(t)\\) is unknown. We make two assumptions:\n\nThe wavelet \\(w(t)\\) is minimum phase\nThe reflectivity \\(r(t)\\) is white (flat power spectrum): \\(R_{rr}(f) \\approx \\sigma_r^2\\)\n\n\\[\\min_{\\mathbf{f}} \\|\\mathbf{r} - \\mathbf{f}\\ast\\mathbf{d}\\|_2^2 + \\varepsilon \\|\\]\nSolved by the normal equation:\n\\[\\begin{align}r_{dd}\\ast f &= r_{rd}\\\\\n\\end{align}\\]\nand we have\n\\[\\begin{align}r_{dd} &= d\\star d \\\\\n  & = r_{rr}\\ast r_{ww}\n\\end{align}\\]\n\\[\\begin{align}r_{rd} &= r\\star d \\\\\n  & = r_{rr}\\star w\n\\end{align}\\]"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#section-1",
+    "href": "slides/week-06/10-decon.html#section-1",
+    "title": "Seismic Deconvolution",
+    "section": "",
+    "text": "Under these assumptions, we have\n\\[\\begin{align}r_{rr} \\ast r_{ww} \\ast f &= r_{rr}\\star w \\\\\n   r_{ss}\\ast f &= w(-\\tau)\n\\end{align}\\]\nthe data auto-correlation estimates the wavelet auto-correlation:\n\\[\nR_{dd}(f) = |W(f)|^2\\, R_{rr}(f) \\approx \\sigma_r^2\\, |W(f)|^2\n\\]\nNo explicit wavelet estimation is needed!"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#spiking-deconvolution-least-squares",
+    "href": "slides/week-06/10-decon.html#spiking-deconvolution-least-squares",
+    "title": "Seismic Deconvolution",
+    "section": "Spiking deconvolution — least-squares",
+    "text": "Spiking deconvolution — least-squares\nThe spiking deconvolution filter \\(\\mathbf{f}\\) is designed to compress the data to a spike:\n\\[\n\\min_{\\mathbf{f}} \\| \\delta[n] - (f \\ast d)[n] \\|_2^2\n\\]\nThe normal equations become\n\\[\n(\\mathbf{R}_{dd} + \\varepsilon \\mathbf{I})\\, \\hat{\\mathbf{f}} = \\mathbf{e}_0\n\\]\nwhere \\(\\mathbf{R}_{dd}\\) is the Toeplitz auto-correlation matrix of the data and \\(\\mathbf{e}_0 = [1, 0, \\ldots, 0]^T\\). (Robinson 1967)\n\n\n\n\n\n\nNote\n\n\nNo knowledge of \\(w(t)\\) is needed — only the data auto-correlation. The minimum-phase assumption guarantees that the causal inverse exists."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#example-spiking-deconvolution-wavelet",
+    "href": "slides/week-06/10-decon.html#example-spiking-deconvolution-wavelet",
+    "title": "Seismic Deconvolution",
+    "section": "Example: spiking deconvolution — wavelet",
+    "text": "Example: spiking deconvolution — wavelet\n\nAirgun wavelet (top) and result after spiking deconvolution (bottom) — the wavelet is compressed toward a spike \\(\\delta(t)\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#spiking-deconvolution-shot-gather",
+    "href": "slides/week-06/10-decon.html#spiking-deconvolution-shot-gather",
+    "title": "Seismic Deconvolution",
+    "section": "Spiking deconvolution — shot gather",
+    "text": "Spiking deconvolution — shot gather\n\nShot gather before (left) and after (right) spiking deconvolution — reflectors become sharper and more interpretable."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#surface-related-multiples",
+    "href": "slides/week-06/10-decon.html#surface-related-multiples",
+    "title": "Seismic Deconvolution",
+    "section": "Surface-related multiples",
+    "text": "Surface-related multiples\n\nIn shallow water, the seismic signal bounces between the ocean surface and the water bottom, creating multiples that are delayed by \\(\\Delta\\tau\\) (two-way water-column travel time) and alternating in sign."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#predictive-deconvolution-motivation",
+    "href": "slides/week-06/10-decon.html#predictive-deconvolution-motivation",
+    "title": "Seismic Deconvolution",
+    "section": "Predictive deconvolution — motivation",
+    "text": "Predictive deconvolution — motivation\nThe seismic trace with reverberations can be written as a geometric series:\n\\[\nd(t) = p(t) + r_1\\, p(t - \\Delta\\tau) + r_1^2\\, p(t - 2\\Delta\\tau) + \\cdots\n\\]\nwhere \\(p(t)\\) is the primary signal, \\(\\Delta\\tau\\) is the two-way travel time in the water layer, and \\(r_1\\) is the water-bottom reflection coefficient.\nIdea: if we can predict the signal \\(\\Delta\\tau\\) into the future, we can subtract the predictable (periodic) part. (Robinson 1967)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#predictive-deconvolution-filter-design",
+    "href": "slides/week-06/10-decon.html#predictive-deconvolution-filter-design",
+    "title": "Seismic Deconvolution",
+    "section": "Predictive deconvolution — filter design",
+    "text": "Predictive deconvolution — filter design\nThe prediction-error filter has the form\n\\[\nf_{\\text{pred}}(t) = \\delta(t) - a(t - \\Delta\\tau)\n\\]\nwhere \\(a(t)\\) is a prediction filter that estimates \\(d(t)\\) from \\(d(t - \\Delta\\tau)\\).\n\nLeft: ideal filter. Right: practical filter designed from data."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#predictive-decon-least-squares-objective",
+    "href": "slides/week-06/10-decon.html#predictive-decon-least-squares-objective",
+    "title": "Seismic Deconvolution",
+    "section": "Predictive decon — least-squares objective",
+    "text": "Predictive decon — least-squares objective\nThe prediction filter \\(\\mathbf{a}\\) is found by minimizing\n\\[\n\\min_{\\mathbf{a}} \\sum_n \\left| d[n] - \\sum_k a[k]\\, d[n - \\Delta - k] \\right|^2\n\\]\nwhere \\(\\Delta\\) is the prediction distance (in samples). The normal equations are\n\\[\n\\mathbf{R}_{dd}\\, \\hat{\\mathbf{a}} = \\mathbf{r}_{dd}[\\Delta]\n\\]\n\n\n\n\n\n\nNote\n\n\nSpiking deconvolution is the special case \\(\\Delta = 1\\) (predict one sample ahead). Multiple removal uses \\(\\Delta = \\Delta\\tau / \\Delta t\\) (predict one multiple period ahead)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#example-predictive-deconvolution-shot-record",
+    "href": "slides/week-06/10-decon.html#example-predictive-deconvolution-shot-record",
+    "title": "Seismic Deconvolution",
+    "section": "Example: predictive deconvolution — shot record",
+    "text": "Example: predictive deconvolution — shot record\n\nOriginal shot record with shallow-water multiples (left) vs after predictive deconvolution (right). The reverberations are strongly attenuated."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#predictive-decon-autocorrelation-check",
+    "href": "slides/week-06/10-decon.html#predictive-decon-autocorrelation-check",
+    "title": "Seismic Deconvolution",
+    "section": "Predictive decon — autocorrelation check",
+    "text": "Predictive decon — autocorrelation check\n\nAutocorrelation of input (left) shows periodic structure from multiples. After predictive deconvolution (right) the periodicity is removed — the autocorrelation approaches a spike."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#limitations-of-ell_2-norm-regularization",
+    "href": "slides/week-06/10-decon.html#limitations-of-ell_2-norm-regularization",
+    "title": "Seismic Deconvolution",
+    "section": "Limitations of \\(\\ell_2\\)-norm regularization",
+    "text": "Limitations of \\(\\ell_2\\)-norm regularization\nThe Tikhonov/\\(\\ell_2\\) solution\n\\[\n\\hat{\\mathbf{r}} = (\\mathbf{W}^T\\mathbf{W} + \\varepsilon \\mathbf{I})^{-1}\\, \\mathbf{W}^T \\mathbf{d}\n\\]\npenalizes large values of \\(r[n]\\) uniformly. This produces smooth estimates that spread energy across many samples — not ideal for recovering sparse reflectivity with isolated spikes."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#ell_1-norm-deconvolution",
+    "href": "slides/week-06/10-decon.html#ell_1-norm-deconvolution",
+    "title": "Seismic Deconvolution",
+    "section": "\\(\\ell_1\\)-norm deconvolution",
+    "text": "\\(\\ell_1\\)-norm deconvolution\nReplace the \\(\\ell_2\\) penalty with an \\(\\ell_1\\)-norm penalty that promotes sparsity (Taylor, Banks, and McCoy 1979):\n\\[\n\\min_{\\mathbf{r}} \\|\\mathbf{d} - \\mathbf{W}\\mathbf{r}\\|_2^2 + \\lambda \\|\\mathbf{r}\\|_1\n\\]\nwhere \\(\\|\\mathbf{r}\\|_1 = \\sum_n |r[n]|\\) and \\(\\lambda &gt; 0\\) controls the sparsity level.\nThe \\(\\ell_1\\) penalty drives most coefficients \\(r[n]\\) to exactly zero, keeping only the significant reflectors."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#ell_1-vs-ell_2-deconvolution-comparison",
+    "href": "slides/week-06/10-decon.html#ell_1-vs-ell_2-deconvolution-comparison",
+    "title": "Seismic Deconvolution",
+    "section": "\\(\\ell_1\\) vs \\(\\ell_2\\) deconvolution — comparison",
+    "text": "\\(\\ell_1\\) vs \\(\\ell_2\\) deconvolution — comparison\n\n\\(\\ell_2\\) (Tikhonov) recovery is smooth and smeared. \\(\\ell_1\\) (sparsity-promoting) recovery is closer to the true sparse reflectivity — it correctly identifies reflector locations."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#ell_1-deconvolution-practical-aspects",
+    "href": "slides/week-06/10-decon.html#ell_1-deconvolution-practical-aspects",
+    "title": "Seismic Deconvolution",
+    "section": "\\(\\ell_1\\) deconvolution — practical aspects",
+    "text": "\\(\\ell_1\\) deconvolution — practical aspects\nThe \\(\\ell_1\\) problem is convex but not differentiable at zero. It can be solved by:\n\nISTA (Iterative Soft Thresholding): \\(\\mathbf{r}^{k+1} = \\mathcal{S}_{\\lambda}\\!\\left(\\mathbf{r}^k + \\mathbf{W}^T(\\mathbf{d} - \\mathbf{W}\\mathbf{r}^k)\\right)\\) where \\(\\mathcal{S}_\\lambda(x) = \\operatorname{sign}(x)\\max(|x|-\\lambda,0)\\) is the soft-thresholding operator\nFISTA (Fast ISTA): adds momentum for \\(O(1/k^2)\\) convergence\nADMM, basis pursuit, or interior point methods\n\n\n\n\n\n\n\nTip\n\n\nThe connection to compressed sensing guarantees exact recovery under mild conditions on \\(\\mathbf{W}\\) and the sparsity of \\(\\mathbf{r}\\)."
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#summary-1",
+    "href": "slides/week-06/10-decon.html#summary-1",
+    "title": "Seismic Deconvolution",
+    "section": "Summary",
+    "text": "Summary\n\n\nFoundations\n\nSeismic trace = \\(w \\ast r + n\\)\nNaïve inversion amplifies noise at spectral notches\nWiener filter: \\(F = W^*/(|W|^2 + \\varepsilon)\\)\nEquivalent to Tikhonov in time domain\n\nMinimum-phase decon\n\nAssumes min-phase wavelet + white reflectivity\nUses data autocorrelation only\n\n\nPredictive decon\n\nRemoves periodic multiples\nPrediction distance \\(\\Delta\\) controls what is removed\nSpiking decon = special case with \\(\\Delta = 1\\)\n\nSparsity-promoting decon\n\n\\(\\ell_1\\)-norm promotes sparse reflectivity estimates\nBetter reflector localization than \\(\\ell_2\\)\nSolved via iterative soft thresholding (ISTA/FISTA)"
+  },
+  {
+    "objectID": "slides/week-06/10-decon.html#references",
+    "href": "slides/week-06/10-decon.html#references",
+    "title": "Seismic Deconvolution",
+    "section": "References",
+    "text": "References\n\n\n\n\nLevinson, Norman. 1947. “The Wiener (RMS) Error Criterion in Filter Design and Prediction.” Journal of Mathematics and Physics 25: 261–78.\n\n\nRobinson, Enders A. 1967. “Predictive Decomposition of Time Series with Application to Seismic Exploration.” Geophysics 32 (3): 418–84. https://doi.org/10.1190/1.1439873.\n\n\nSheriff, Robert E., and Lloyd P. Geldart. 1995. Exploration Seismology. 2nd ed. Cambridge University Press.\n\n\nTaylor, H. L., S. C. Banks, and J. F. McCoy. 1979. “Deconvolution with the \\(\\ell_1\\) Norm.” Geophysics 44 (1): 39–52. https://doi.org/10.1190/1.1440921.\n\n\nWiener, Norbert. 1949. “Extrapolation, Interpolation, and Smoothing of Stationary Time Series.”\n\n\nYilmaz, Öz. 2001. Seismic Data Analysis: Processing, Inversion, and Interpretation of Seismic Data. 2nd ed. Society of Exploration Geophysicists. https://doi.org/10.1190/1.9781560801580."
   },
   {
     "objectID": "syllabus.html",
