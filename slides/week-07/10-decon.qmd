@@ -2,7 +2,7 @@
 title: "Seismic Deconvolution"
 subtitle: "Exploration Methods"
 author: "Felix J. Herrmann"
-date: "February 18 2026"
+date: "February 23 2026"
 footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
 logo: "../images/logo.png"
 institute: "School of Earth & Atmospheric Sciences — Georgia Institute of Technology"
