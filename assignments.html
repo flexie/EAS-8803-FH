@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -233,7 +233,7 @@ window.Quarto = {
   <li><a href="#docker-installation-not-necessary-for-homework-but-important-for-project" id="toc-docker-installation-not-necessary-for-homework-but-important-for-project" class="nav-link" data-scroll-target="#docker-installation-not-necessary-for-homework-but-important-for-project">Docker Installation (not necessary for homework but important for project)</a></li>
   <li><a href="#window-users" id="toc-window-users" class="nav-link" data-scroll-target="#window-users">Window Users</a></li>
   </ul></li>
-  <li><a href="#new-docker-container-for-seismic-experiments" id="toc-new-docker-container-for-seismic-experiments" class="nav-link" data-scroll-target="#new-docker-container-for-seismic-experiments">New docker container for Seismic Experiments</a></li>
+  <li><a href="#new-docker-container-for-fluid-flow-simulations" id="toc-new-docker-container-for-fluid-flow-simulations" class="nav-link" data-scroll-target="#new-docker-container-for-fluid-flow-simulations">New docker container for fluid-flow simulations</a></li>
   <li><a href="#some-useful-material" id="toc-some-useful-material" class="nav-link" data-scroll-target="#some-useful-material">Some Useful Material</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
   <ul class="collapse">
@@ -309,9 +309,9 @@ window.Quarto = {
 <p>First install docker for your system following the instruction here,</p>
 <p><a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
 <p>Instead of having to install Python, Julia, Devito, JUDI, JutulDarcyRules and all the dependencies (these are the softwares that you will use for the numerical simulation) by yourself, you simply download the docker image and run it in a container. All you need to do is install docker, click the docker icon/app, open the terminal/command line (<a href="https://www.howtogeek.com/662611/9-ways-to-open-powershell-in-windows-10/">powershell</a> in windows, also see <a href="https://docs.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.2">this</a>) on your system, and run:</p>
-<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0</code></pre>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v2.0</code></pre>
 <p>where <code>/path/on/your/machine</code> is an absolute path on your own local machine. <strong>Remember giving a folder path is important</strong>. For example, if I want to connect the folder called <code>testdocker</code> on the desktop of my laptop, I can do</p>
-<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /Users/abhinav/Desktop/testdocker:/notebooks apgahlot/eas-8803:v1.0</code></pre>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /Users/abhinav/Desktop/testdocker:/notebooks apgahlot/eas-8803:v2.0</code></pre>
 <p>This will download the image and launch a session that you can access from your internet browser. The command will display a link, which looks something like this:</p>
 <pre><code>Copy/paste this URL into your browser when you connect for the first time,
     to login with a token:
@@ -325,12 +325,12 @@ using JLD2, Polynomials, Images</code></pre>
 <!-- Remember, the jupyter notebooks on the docker container don't stay there forever. Therefore, if you are half way on the homework and want to close the jupyter notebook, please remember to save the notebook to your local machine. If you do not want to save the notebook every time when you close the notebook, you can actually connect a folder on your machine to the docker container by -->
 <p>Whatever you do on the docker container will be saved in the local <code>testdocker</code> folder. And then you need to copy the homework notebook once it is released to this folder and run your codes in that notebook.</p>
 <p>Instead of a notebook, you can also launch an interactive session with a terminal by running:</p>
-<pre><code>docker run -it apgahlot/eas-8803:2.0 /bin/bash</code></pre>
+<pre><code>docker run -it apgahlot/eas-8803:v2.0 /bin/bash</code></pre>
 <p>This will give you access to a terminal, in which you can start Julia/Python, run a couple of lines of code interactively. However, figures from PyPlot (the plotting package) sometimes do not render well from interactive julia sessions. Therefore, jupyter notebooks on docker are recommended for you to do the assignments.</p>
 <section id="number-of-coresthreads" class="level5">
 <h5 class="anchored" data-anchor-id="number-of-coresthreads">Number of cores/threads</h5>
 <p>By default, the command</p>
-<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0</code></pre>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v2.0</code></pre>
 <p>will use 4 threads because in the above command JULIA_NUM_THREADS=4 is set. If you want to increase the number of threads to run your code faster, you need to know the number of threads on your machine and then set JULIA_NUM_THREADS equal to that number. To know the number of threads on your machine you can do:</p>
 <p>For Mac, write on terminal: <code>sysctl -n hw.logicalcpu</code></p>
 <p>For Linux, write on terminal: <code>lscpu</code></p>
@@ -343,9 +343,9 @@ using JLD2, Polynomials, Images</code></pre>
 <p>If you are using windows, you might need to enable hardware virtualization in their BIOS. You are suggested to look at <a href="https://www.virtualmetric.com/blog/how-to-enable-hardware-virtualization">here</a> and <a href="https://bce.berkeley.edu/enabling-virtualization-in-your-pc-bios.html">here</a>. If you have any question, please reach out to us ASAP.</p>
 </section>
 </section>
-<section id="new-docker-container-for-seismic-experiments" class="level2">
-<h2 class="anchored" data-anchor-id="new-docker-container-for-seismic-experiments">New docker container for Seismic Experiments</h2>
-<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:4.0</code></pre>
+<section id="new-docker-container-for-fluid-flow-simulations" class="level2">
+<h2 class="anchored" data-anchor-id="new-docker-container-for-fluid-flow-simulations">New docker container for fluid-flow simulations</h2>
+<pre><code>docker run --platform linux/x86_64 --env JULIA_NUM_THREADS=4 -p 8888:8888 -v /path/on/your/machine:/notebooks apgahlot/eas-8803:v1.0</code></pre>
 <p>Follow the same procedure as before to run new docker with the above command. Please note you will use this new docker image for HW4. (Later you will also need a package called MECurvelets which can be installed by <code>using Pkg; Pkg.add(url="https://github.gatech.edu/SLIM/MECurvelets.jl")</code>. We will help installing this package.)</p>
 </section>
 <section id="some-useful-material" class="level2">

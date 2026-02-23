@@ -7,7 +7,8 @@
       "/weeks/week-03.html",
       "/weeks/week-04.html",
       "/weeks/week-05.html",
-      "/weeks/week-06.html"
+      "/weeks/week-06.html",
+      "/weeks/week-07.html"
     ]
   },
   {
@@ -25,11 +26,9 @@
     ]
   },
   {
-    "listing": "/weeks/week-05.html",
+    "listing": "/weeks/week-07.html",
     "items": [
-      "/slides/week-05/07-Wavefield-Extrapolation.html",
-      "/slides/week-05/08-Prestack-Migration.html",
-      "/labs/w5-lab04-Imaging_Acoustic_Elastic.html"
+      "/slides/week-07/10-decon.html"
     ]
   },
   {
@@ -38,6 +37,14 @@
       "/slides/week-04/06-Wave-Equation.html",
       "/slides/week-04/07-Wavefield-Extrapolation.html",
       "/labs/w4-lab03-Migration.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-05.html",
+    "items": [
+      "/slides/week-05/07-Wavefield-Extrapolation.html",
+      "/slides/week-05/08-Prestack-Migration.html",
+      "/labs/w5-lab04-Imaging_Acoustic_Elastic.html"
     ]
   },
   {
