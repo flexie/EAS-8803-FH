@@ -5,7 +5,6 @@ author: "Felix J. Herrmann"
 institute: "School of Earth & Atmospheric Sciences — Georgia Institute of Technology"
 footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
 logo: "../images/logo.png"
-institute: "School of Earth & Atmospheric Sciences — Georgia Institute of Technology"
 format:
   revealjs:
     theme: solarized
