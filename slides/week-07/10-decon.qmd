@@ -10,7 +10,7 @@ institute: "School of Earth & Atmospheric Sciences — Georgia Institute of Tech
 bibliography: bibliography.bib
 format:
   revealjs:
-    theme: default
+    theme: solarized
     slide-number: true
     chalkboard: true
     smaller: false
