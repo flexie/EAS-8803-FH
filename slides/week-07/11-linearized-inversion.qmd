@@ -2,6 +2,7 @@
 title: "Linearized AVO Inversion"
 subtitle: "Quantitative Interpretation of Seismic Amplitudes"
 author: "Felix J. Herrmann"
+date: "February 25 2026"
 institute: "School of Earth & Atmospheric Sciences — Georgia Institute of Technology"
 footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
 logo: "../images/logo.png"
