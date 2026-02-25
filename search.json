@@ -81,6 +81,20 @@
     "text": "What Affects Seismic Amplitudes?\nFrom a ray-theoretical point of view, three factors control the amplitudes of seismic waves:\n\n\nGeometric spreading — wavefront divergence reduces amplitude with distance\nReflection and transmission coefficients — amplitude partitioning at interfaces, governed by contrast in elastic properties\nAttenuation (damping) — energy loss due to absorption and scattering\n\n\n\n\n\n\n\n\n\nTransport equation\n\n\nThese amplitude effects are described by the transport equation, the second-order term in the asymptotic ray expansion of the wave equation solution."
   },
   {
+    "objectID": "slides/week-07/11-linearized-inversion.html#the-eikonal-and-transport-equations",
+    "href": "slides/week-07/11-linearized-inversion.html#the-eikonal-and-transport-equations",
+    "title": "Linearized AVO Inversion",
+    "section": "The Eikonal and Transport Equations",
+    "text": "The Eikonal and Transport Equations\nThe asymptotic ray expansion of the wave equation solution \\(u(\\mathbf{x}, t) \\approx A(\\mathbf{x})\\,f\\!\\bigl(t - T(\\mathbf{x})\\bigr)\\) leads to two equations:\n\nEikonal equation (governs ray geometry — traveltimes):\n\\[\n\\boxed{|\\nabla T|^2 = \\frac{1}{c^2(\\mathbf{x})}}\n\\]\n\n\nTransport equation (governs amplitudes along rays):\n\\[\n\\boxed{2\\,\\nabla T \\cdot \\nabla A + A\\,\\nabla^2 T = 0}\n\\]\n\n\n\n\n\n\n\n\nNote\n\n\nThe eikonal equation determines the traveltime field \\(T(\\mathbf{x})\\) — ray paths are perpendicular to the wavefronts \\(T = \\text{const}\\). The transport equation determines how the amplitude \\(A(\\mathbf{x})\\) varies along these rays, accounting for geometric spreading."
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#non-ray-amplitude-effects",
+    "href": "slides/week-07/11-linearized-inversion.html#non-ray-amplitude-effects",
+    "title": "Linearized AVO Inversion",
+    "section": "Non-Ray Amplitude Effects",
+    "text": "Non-Ray Amplitude Effects\nBeyond the ray-theoretical amplitude factors, several wave-equation effects influence recorded amplitudes:\n\nMultiple reflections — interfering arrivals from multiple bounces\nThin-layer effects — showing up as dispersion and apparent damping\nDispersive surface waves — guided modes with frequency-dependent velocity\nResonances — constructive interference in layered structures\nEvanescent waves — non-propagating waves\n\n\n\n\n\n\n\n\nNote\n\n\nThese effects are not captured by the linearized convolutional model. Accounting for them requires full-waveform modeling or specialized corrections."
+  },
+  {
     "objectID": "slides/week-07/11-linearized-inversion.html#normal-incidence-acoustic-reflection-coefficient",
     "href": "slides/week-07/11-linearized-inversion.html#normal-incidence-acoustic-reflection-coefficient",
     "title": "Linearized AVO Inversion",
@@ -92,7 +106,7 @@
     "href": "slides/week-07/11-linearized-inversion.html#linearization-of-the-reflection-coefficient",
     "title": "Linearized AVO Inversion",
     "section": "Linearization of the Reflection Coefficient",
-    "text": "Linearization of the Reflection Coefficient\nFor small impedance contrasts (\\(\\Delta Z \\ll \\bar{Z}\\)), we write \\(Z_2 = \\bar{Z} + \\tfrac{1}{2}\\Delta Z\\) and \\(Z_1 = \\bar{Z} - \\tfrac{1}{2}\\Delta Z\\), where \\(\\bar{Z} = \\tfrac{1}{2}(Z_1 + Z_2)\\):\n\\[\nR = \\frac{Z_2 - Z_1}{Z_2 + Z_1} = \\frac{\\Delta Z}{2\\bar{Z}} \\approx \\frac{1}{2}\\frac{\\Delta Z}{\\bar{Z}}\n\\]\n\nEquivalently, since \\(\\Delta \\ln Z \\approx \\Delta Z / \\bar{Z}\\) for small contrasts:\n\\[\n\\boxed{R \\approx \\frac{1}{2}\\Delta \\ln Z}\n\\]\n\n\nTwo equivalent expressions for the linearized acoustic reflection coefficient:\n\nIn terms of impedance contrast: \\(R \\approx \\frac{1}{2}\\frac{\\Delta Z}{\\bar{Z}}\\)\nIn terms of log-impedance: \\(R \\approx \\frac{1}{2}\\Delta \\ln Z\\)"
+    "text": "Linearization of the Reflection Coefficient\nFor small impedance contrasts (\\(\\Delta Z \\ll \\bar{Z}\\)), we write \\(Z_2 = \\bar{Z} + \\tfrac{1}{2}\\Delta Z\\) and \\(Z_1 = \\bar{Z} - \\tfrac{1}{2}\\Delta Z\\), where \\(\\bar{Z} = \\tfrac{1}{2}(Z_1 + Z_2)\\):\n\\[\nR = \\frac{Z_2 - Z_1}{Z_2 + Z_1} = \\frac{\\Delta Z}{2\\bar{Z}}\n\\]\n\nSince \\(\\Delta \\ln Z \\approx \\Delta Z / \\bar{Z}\\) for small contrasts:\n\\[\n\\boxed{R \\approx \\frac{1}{2}\\Delta \\ln Z}\n\\]\n\n\nTwo equivalent expressions for the linearized acoustic reflection coefficient:\n\nIn terms of impedance contrast: \\(R = \\frac{1}{2}\\frac{\\Delta Z}{\\bar{Z}}\\)\nIn terms of log-impedance: \\(R \\approx \\frac{1}{2}\\Delta \\ln Z\\)"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#when-is-the-linearized-approximation-valid",
@@ -100,13 +114,6 @@
     "title": "Linearized AVO Inversion",
     "section": "When Is the Linearized Approximation Valid?",
     "text": "When Is the Linearized Approximation Valid?\nThe linearized reflection coefficient \\(R \\approx \\frac{1}{2}\\Delta\\ln Z\\) is a good approximation when:\n\nThe impedance contrast is small: \\(|\\Delta Z / \\bar{Z}| \\ll 1\\)\nIn practice, contrasts of up to about 20% still yield reasonable accuracy\nThe linearization fails near critical angles and for large contrasts (e.g., salt–sediment or water–rock interfaces)\n\n\n\n\n\n\n\n\nValidity condition\n\n\nThe linearized approximation is the foundation of AVO inversion. Its validity depends on the media having small relative contrasts in density and velocity across interfaces."
-  },
-  {
-    "objectID": "slides/week-07/11-linearized-inversion.html#non-ray-amplitude-effects",
-    "href": "slides/week-07/11-linearized-inversion.html#non-ray-amplitude-effects",
-    "title": "Linearized AVO Inversion",
-    "section": "Non-Ray Amplitude Effects",
-    "text": "Non-Ray Amplitude Effects\nBeyond the ray-theoretical amplitude factors, several wave-equation effects influence recorded amplitudes:\n\nMultiple reflections — interfering arrivals from multiple bounces\nThin-layer effects — showing up as dispersion and apparent damping\nDispersive surface waves — guided modes with frequency-dependent velocity\nResonances — constructive interference in layered structures \n\n\n\n\n\n\n\n\nNote\n\n\nThese effects are not captured by the linearized convolutional model. Accounting for them requires full-waveform modeling or specialized corrections."
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#the-convolutional-model",
@@ -148,7 +155,21 @@
     "href": "slides/week-07/11-linearized-inversion.html#application-marlin-field-gulf-of-mexico",
     "title": "Linearized AVO Inversion",
     "section": "Application: Marlin Field (Gulf of Mexico)",
-    "text": "Application: Marlin Field (Gulf of Mexico)\n\n\n\n\n\n\n\n\n\nInverted P-impedance section over the Marlin Field, Gulf of Mexico.\n\nAll wells correlate with amplitude anomalies\nImpedance inversion reveals gas-bearing zones\nFrom Russell, Hampson, and Bankhead (2006)"
+    "text": "Application: Marlin Field (Gulf of Mexico)\n\n\n\n\n\n\n\n\n\nInverted P-impedance section over the Marlin Field, Gulf of Mexico.\n\nAll wells correlate with amplitude anomalies\nImpedance inversion reveals gas-bearing zones at A1 and A6. Why?\nFrom Russell, Hampson, and Bankhead (2006)"
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#goals",
+    "href": "slides/week-07/11-linearized-inversion.html#goals",
+    "title": "Linearized AVO Inversion",
+    "section": "Goals",
+    "text": "Goals\n\nRelate changes in the elastic properties to angle/offset/ray-parameter dependence of seismic amplitudes.\nIntroduce elastic reflection coefficients derived from imposing boundary conditions at solid-solid interfaces."
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#stressstrain-relations-and-the-stiffness-tensor",
+    "href": "slides/week-07/11-linearized-inversion.html#stressstrain-relations-and-the-stiffness-tensor",
+    "title": "Linearized AVO Inversion",
+    "section": "Stress–Strain Relations and the Stiffness Tensor",
+    "text": "Stress–Strain Relations and the Stiffness Tensor\nThe most general linear elastic stress–strain relationship (generalized Hooke’s law) is:\n\\[\n\\tau_{ij} = c_{ijkl}\\,\\varepsilon_{kl}\n\\]\nwhere \\(c_{ijkl}\\) is the fourth-order elastic stiffness tensor with \\(3^4 = 81\\) components.\n\nSymmetry reductions:\n\nStress symmetry (\\(\\tau_{ij} = \\tau_{ji}\\)) \\(\\;\\Rightarrow\\;\\) \\(c_{ijkl} = c_{jikl}\\) — reduces to 54 components\nStrain symmetry (\\(\\varepsilon_{kl} = \\varepsilon_{lk}\\)) \\(\\;\\Rightarrow\\;\\) \\(c_{ijkl} = c_{ijlk}\\) — reduces to 36 components\nStrain energy symmetry (\\(c_{ijkl} = c_{klij}\\)) — reduces to 21 independent components\n\n\n\nFor an isotropic medium, symmetry under arbitrary rotation leaves only 2 independent parameters — the Lamé constants \\(\\lambda\\) and \\(\\mu\\):\n\\[\nc_{ijkl} = \\lambda\\,\\delta_{ij}\\delta_{kl} + \\mu\\left(\\delta_{ik}\\delta_{jl} + \\delta_{il}\\delta_{jk}\\right)\n\\]\n\n\nSubstituting into \\(\\tau_{ij} = c_{ijkl}\\,\\varepsilon_{kl}\\) gives Hooke’s law for isotropic media:\n\\[\n\\boxed{\\tau_{ij} = \\lambda\\,\\delta_{ij}\\,\\varepsilon_{kk} + 2\\mu\\,\\varepsilon_{ij} = \\lambda\\,\\delta_{ij}\\,\\nabla\\cdot\\mathbf{u} + \\mu\\left(\\frac{\\partial u_i}{\\partial x_j} + \\frac{\\partial u_j}{\\partial x_i}\\right)}\n\\]"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#the-elastic-wave-equation",
@@ -158,11 +179,11 @@
     "text": "The Elastic Wave Equation\nHooke’s law for isotropic elastic media relates stress \\(\\tau_{ij}\\) to strain via the Lamé parameters \\(\\lambda\\) and \\(\\mu\\):\n\\[\n\\tau_{ij} = \\lambda\\,\\delta_{ij}\\,\\nabla\\cdot\\mathbf{u} + \\mu\\left(\\frac{\\partial u_i}{\\partial x_j} + \\frac{\\partial u_j}{\\partial x_i}\\right)\n\\]\n\nCombined with Newton’s second law \\(\\rho\\,\\partial^2 u_i / \\partial t^2 = \\nabla\\cdot\\boldsymbol{\\tau}_i\\), we obtain the elastic wave equation:\n\\[\n\\boxed{\\rho\\,\\frac{\\partial^2\\mathbf{u}}{\\partial t^2} = (\\lambda + \\mu)\\,\\nabla(\\nabla\\cdot\\mathbf{u}) + \\mu\\,\\nabla^2\\mathbf{u}}\n\\]"
   },
   {
-    "objectID": "slides/week-07/11-linearized-inversion.html#bulk-and-shear-modulus-p--and-s-wave-speeds",
-    "href": "slides/week-07/11-linearized-inversion.html#bulk-and-shear-modulus-p--and-s-wave-speeds",
+    "objectID": "slides/week-07/11-linearized-inversion.html#bulk-shear-modulus-p--s-wave-speeds",
+    "href": "slides/week-07/11-linearized-inversion.html#bulk-shear-modulus-p--s-wave-speeds",
     "title": "Linearized AVO Inversion",
-    "section": "Bulk and Shear Modulus, P- and S-Wave Speeds",
-    "text": "Bulk and Shear Modulus, P- and S-Wave Speeds\nThe elastic medium is characterized by density \\(\\rho(\\mathbf{r})\\), bulk modulus \\(K(\\mathbf{r})\\), and shear modulus \\(\\mu(\\mathbf{r})\\).\n\n\n\nCompressional (P-wave) velocity:\n\\[\n\\alpha = c_P = \\sqrt{\\frac{K + \\frac{4}{3}\\mu}{\\rho}} = \\sqrt{\\frac{\\lambda + 2\\mu}{\\rho}}\n\\]\n\n\n\n\n\n\nShear (S-wave) velocity:\n\\[\n\\beta = c_S = \\sqrt{\\frac{\\mu}{\\rho}}\n\\]"
+    "section": "Bulk & Shear Modulus, P- & S-Wave Speeds",
+    "text": "Bulk & Shear Modulus, P- & S-Wave Speeds\nThe elastic medium is characterized by density \\(\\rho(\\mathbf{r})\\), bulk modulus \\(K(\\mathbf{r})\\), and shear modulus \\(\\mu(\\mathbf{r})\\).\n\n\n\nCompressional (P-wave) velocity:\n\\[\n\\alpha = c_P = \\sqrt{\\frac{K + \\frac{4}{3}\\mu}{\\rho}} = \\sqrt{\\frac{\\lambda + 2\\mu}{\\rho}}\n\\]\n\n\n\n\n\n\nShear (S-wave) velocity:\n\\[\n\\beta = c_S = \\sqrt{\\frac{\\mu}{\\rho}}\n\\]"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#p--and-s-waves-from-helmholtz-decomposition",
@@ -170,6 +191,13 @@
     "title": "Linearized AVO Inversion",
     "section": "P- and S-Waves from Helmholtz Decomposition",
     "text": "P- and S-Waves from Helmholtz Decomposition\nTaking the divergence of the elastic wave equation gives the P-wave equation:\n\\[\n\\rho\\,\\frac{\\partial^2\\vartheta}{\\partial t^2} = (\\lambda + 2\\mu)\\,\\nabla^2\\vartheta, \\quad \\vartheta \\equiv \\nabla\\cdot\\mathbf{u}\n\\]\n\nTaking the curl gives the S-wave equation:\n\\[\n\\rho\\,\\frac{\\partial^2\\boldsymbol{\\xi}}{\\partial t^2} = \\mu\\,\\nabla^2\\boldsymbol{\\xi}, \\quad \\boldsymbol{\\xi} \\equiv \\nabla\\times\\mathbf{u}\n\\]\n\n\n\n\n\n\n\n\nKey result\n\n\nP-waves propagate with velocity \\(c_P = \\sqrt{(\\lambda+2\\mu)/\\rho}\\) and involve compressional motion. S-waves propagate with velocity \\(c_S = \\sqrt{\\mu/\\rho}\\) and involve shear motion. Since \\(\\lambda + 2\\mu &gt; \\mu\\), we always have \\(c_P &gt; c_S\\)."
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#acoustic-and-elastic-impedance",
+    "href": "slides/week-07/11-linearized-inversion.html#acoustic-and-elastic-impedance",
+    "title": "Linearized AVO Inversion",
+    "section": "Acoustic and Elastic Impedance",
+    "text": "Acoustic and Elastic Impedance\nIn the acoustic (fluid) case, impedance is defined as:\n\\[\nZ_P = \\rho\\,\\alpha\n\\]\nwhich governs normal-incidence P-wave reflections: \\(R = (Z_{P,2} - Z_{P,1})/(Z_{P,2} + Z_{P,1})\\).\n\nIn the elastic (solid) case, there is also a shear impedance:\n\\[\nZ_S = \\rho\\,\\beta\n\\]\n\n\n\n\n\n\n\nQuantity\nSymbol\nDefinition\n\n\n\n\nP-impedance\n\\(Z_P\\)\n\\(\\rho\\,\\alpha\\)\n\n\nS-impedance\n\\(Z_S\\)\n\\(\\rho\\,\\beta\\)\n\n\nImpedance ratio\n\\(Z_S/Z_P\\)\n\\(\\beta/\\alpha\\)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nAt normal incidence, only \\(Z_P\\) matters. At oblique incidence, the reflection coefficients depend on both \\(Z_P\\) and \\(Z_S\\) — this is the physical basis for AVO analysis."
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#boundary-conditions-at-an-elastic-interface",
@@ -186,6 +214,13 @@
     "text": "Snell’s Law and Mode Conversion\n\n\n\n\n\n\nAdapted from Eric Verschuur\n\n\n\nAn incident P-wave at a solid-solid interface generates four waves:\n\nReflected P-wave (angle \\(\\theta_{P1}^{\\text{refl}}\\))\nReflected S-wave (angle \\(\\theta_{S1}^{\\text{refl}}\\))\nTransmitted P-wave (angle \\(\\theta_{P2}^{\\text{trans}}\\))\nTransmitted S-wave (angle \\(\\theta_{S2}^{\\text{trans}}\\))\n\nAll angles are related through Snell’s law via the common ray parameter \\(p\\)."
   },
   {
+    "objectID": "slides/week-07/11-linearized-inversion.html#goals-1",
+    "href": "slides/week-07/11-linearized-inversion.html#goals-1",
+    "title": "Linearized AVO Inversion",
+    "section": "Goals",
+    "text": "Goals\n\nGet information on the elastic properties rather than the locations of the reflectors alone.\nUse information that reflection coefficients depend on the angle/ray-parameter (=offset).\nDevise an inversion scheme and workflow to estimate fluctuations in the elastic properties."
+  },
+  {
     "objectID": "slides/week-07/11-linearized-inversion.html#reflection-and-transmission-coefficients",
     "href": "slides/week-07/11-linearized-inversion.html#reflection-and-transmission-coefficients",
     "title": "Linearized AVO Inversion",
@@ -200,6 +235,13 @@
     "text": "The Zoeppritz Equations\nThe exact expressions for \\(R_{PP}\\), \\(R_{PS_V}\\), \\(T_{PP}\\), \\(T_{PS_V}\\) (and similarly for S-wave incidence) in terms of \\(\\rho_1, \\rho_2, \\alpha_1, \\alpha_2, \\beta_1, \\beta_2\\) and angle of incidence are called the Zoeppritz equations (Zoeppritz 1919).\n\nThese equations express each reflection and transmission coefficient as a nonlinear function of \\(\\rho_1, \\rho_2, \\alpha_1, \\alpha_2, \\beta_1, \\beta_2\\) and the angle of incidence. For small contrasts across the interface, the Zoeppritz equations can be linearized in the logarithmic perturbations \\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), and \\(\\Delta\\ln\\beta\\)."
   },
   {
+    "objectID": "slides/week-07/11-linearized-inversion.html#the-zoeppritz-matrix-system",
+    "href": "slides/week-07/11-linearized-inversion.html#the-zoeppritz-matrix-system",
+    "title": "Linearized AVO Inversion",
+    "section": "The Zoeppritz Matrix System",
+    "text": "The Zoeppritz Matrix System\nFor an incident P-wave, the four unknown amplitudes \\(R_{PP}\\), \\(R_{PS}\\), \\(T_{PP}\\), \\(T_{PS}\\) satisfy a \\(4\\times 4\\) linear system derived from the boundary conditions:\n\\[\n\\begin{pmatrix}\n-\\sin\\theta_1 & -\\cos\\phi_1 & \\sin\\theta_2 & \\cos\\phi_2 \\\\\n\\cos\\theta_1 & -\\sin\\phi_1 & \\cos\\theta_2 & -\\sin\\phi_2 \\\\\n\\sin 2\\theta_1 & \\frac{\\beta_1}{\\alpha_1}\\cos 2\\phi_1 & \\frac{\\rho_2\\beta_2^2\\alpha_1}{\\rho_1\\beta_1^2\\alpha_2}\\sin 2\\theta_2 & \\frac{\\rho_2\\beta_2\\alpha_1}{\\rho_1\\beta_1^2}\\cos 2\\phi_2 \\\\\n-\\cos 2\\phi_1 & \\frac{\\beta_1}{\\alpha_1}\\sin 2\\phi_1 & \\frac{\\rho_2\\alpha_1}{\\rho_1\\alpha_2}\\cos 2\\phi_2 & -\\frac{\\rho_2\\beta_2\\alpha_1}{\\rho_1\\alpha_2\\beta_1}\\sin 2\\phi_2\n\\end{pmatrix}\n\\begin{pmatrix} R_{PP} \\\\ R_{PS} \\\\ T_{PP} \\\\ T_{PS} \\end{pmatrix}\n=\n\\begin{pmatrix} \\sin\\theta_1 \\\\ \\cos\\theta_1 \\\\ -\\sin 2\\theta_1 \\\\ \\cos 2\\phi_1 \\end{pmatrix}\n\\]\n\nwhere the angles follow from Snell’s law: \\(\\sin\\theta_1/\\alpha_1 = \\sin\\phi_1/\\beta_1 = \\sin\\theta_2/\\alpha_2 = \\sin\\phi_2/\\beta_2 = p\\).\n\n\n\n\n\n\n\n\nNote\n\n\nThe Zoeppritz equations are exact but nonlinear in the medium parameters (through the angle dependencies). Direct inversion is impractical — hence the need for linearization."
+  },
+  {
     "objectID": "slides/week-07/11-linearized-inversion.html#linearization-of-zoeppritz-for-small-contrasts",
     "href": "slides/week-07/11-linearized-inversion.html#linearization-of-zoeppritz-for-small-contrasts",
     "title": "Linearized AVO Inversion",
@@ -207,11 +249,32 @@
     "text": "Linearization of Zoeppritz for Small Contrasts\nFor small contrasts, the Zoeppritz equations can be linearized in \\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), and \\(\\Delta\\ln\\beta\\) (Aki and Richards 1980, 2002).\n\nFor contrasts of order \\(\\delta \\ll 1\\), at non-zero, pre-critical angles:\n\\[\n\\begin{aligned}\nR_{PP} &= O(\\delta), \\quad R_{PS_V} = O(\\delta), \\quad T_{PP} = O(1), \\quad T_{PS_V} = O(\\delta) \\\\\nR_{S_VS_V} &= O(\\delta), \\quad R_{S_VP} = O(\\delta), \\quad T_{S_VS_V} = O(1), \\quad T_{S_VP} = O(\\delta)\n\\end{aligned}\n\\]\n\n\n\n\n\n\n\n\nKey observation\n\n\nIn reflection recordings over low-contrast media, the leading amplitudes are \\(O(\\delta)\\). These arrivals have been reflected only once and have not been mode-converted on transmission. Mode conversion may occur upon reflection (\\(R_{PS}\\), \\(R_{SP}\\))."
   },
   {
+    "objectID": "slides/week-07/11-linearized-inversion.html#linearized-reflection-coefficients-all-modes",
+    "href": "slides/week-07/11-linearized-inversion.html#linearized-reflection-coefficients-all-modes",
+    "title": "Linearized AVO Inversion",
+    "section": "Linearized Reflection Coefficients — All Modes",
+    "text": "Linearized Reflection Coefficients — All Modes\nFor small contrasts \\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), \\(\\Delta\\ln\\beta\\) and using \\(\\gamma = \\beta_0/\\alpha_0\\), the linearized reflection coefficients are (Aki and Richards 1980, 2002):\n\nP-to-P reflection (\\(R_{PP}\\)):\n\\[\nR_{PP}(p) = \\frac{1}{2}\\left(1 - 4\\beta_0^2 p^2\\right)\\Delta\\ln\\rho + \\frac{1}{2\\left(1 - \\alpha_0^2 p^2\\right)}\\Delta\\ln\\alpha - 4\\beta_0^2 p^2\\,\\Delta\\ln\\beta\n\\]\n\n\nP-to-SV reflection (\\(R_{PS}\\)):\n\\[\nR_{PS}(p) = -\\frac{p\\,\\alpha_0}{2\\cos\\phi}\\left[\\left(1 - 2\\beta_0^2 p^2 + 2\\beta_0^2\\frac{p\\cos\\theta}{\\alpha_0}\\frac{p\\cos\\phi}{\\beta_0}\\right)\\Delta\\ln\\rho + \\frac{4\\beta_0^2 p^2\\cos\\theta\\cos\\phi}{\\alpha_0\\beta_0\\,p^2}\\,\\Delta\\ln\\alpha + \\left(1 - 2\\beta_0^2 p^2 + 2\\frac{\\beta_0\\cos\\phi}{\\alpha_0\\cos\\theta}\\right)\\Delta\\ln\\beta\\right]\n\\]\nwhere \\(\\cos\\theta = \\sqrt{1 - \\alpha_0^2 p^2}\\) and \\(\\cos\\phi = \\sqrt{1 - \\beta_0^2 p^2}\\).\n\n\nSV-to-SV reflection (\\(R_{SS}\\)):\n\\[\nR_{SS}(p) = -\\frac{1}{2}\\left(1 - 4\\beta_0^2 p^2\\right)\\Delta\\ln\\rho + 4\\beta_0^2 p^2\\,\\Delta\\ln\\alpha + \\frac{1}{2}\\frac{1}{1 - \\beta_0^2 p^2}\\Delta\\ln\\beta\n\\]\n\n\n\n\n\n\n\n\nNote\n\n\nFor AVO inversion, the PP reflection is most commonly used because P-wave sources and receivers dominate exploration seismology. The other modes are important for multicomponent (ocean-bottom) data."
+  },
+  {
     "objectID": "slides/week-07/11-linearized-inversion.html#the-background-medium",
     "href": "slides/week-07/11-linearized-inversion.html#the-background-medium",
     "title": "Linearized AVO Inversion",
     "section": "The Background Medium",
-    "text": "The Background Medium\nIn the linearized model, traveltimes \\(t_i\\) are computed in a background medium with slowly varying properties \\(\\rho_0(z)\\), \\(\\alpha_0(z)\\), \\(\\beta_0(z)\\).\n\nRequirements for the background medium:\n\nMust accurately match the traveltimes in the real medium\nMust describe the propagation factors (geometric spreading, ray bending)\nShould be smooth — no sharp discontinuities\nObtained from velocity analysis, well logs, or tomography\n\n\n\n\n\n\n\n\n\n\n\nSmooth inhomogeneous background (red) eliminates ~95% of kinematic inaccuracy compared to the true velocity (blue)."
+    "text": "The Background Medium\nIn the linearized model, traveltimes \\(t_i\\) are computed in a background medium with slowly varying properties \\(\\rho_0(z)\\), \\(\\alpha_0(z)\\), \\(\\beta_0(z)\\).\n\nRequirements for the background medium:\n\nMust accurately match the traveltimes in the real medium\nMust describe the propagation factors (geometric spreading, ray bending)\nShould be smooth — no sharp discontinuities\nObtained from velocity analysis, well logs, or tomography"
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#well-c_p-smoothed-well",
+    "href": "slides/week-07/11-linearized-inversion.html#well-c_p-smoothed-well",
+    "title": "Linearized AVO Inversion",
+    "section": "Well \\(c_p\\) + smoothed well",
+    "text": "Well \\(c_p\\) + smoothed well"
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#traveltimes",
+    "href": "slides/week-07/11-linearized-inversion.html#traveltimes",
+    "title": "Linearized AVO Inversion",
+    "section": "Traveltimes",
+    "text": "Traveltimes\n\n\n\n\n\n\n\n\\(\\Delta t=\\int_0^z\\mathrm{d}z' \\frac{1}{\\alpha(z')}-\\frac{1}{\\alpha_0(z')}\\)\nSmooth inhomogeneous background (yellow) eliminates ~95% of kinematic inaccuracy compared to the true velocity (blue)."
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#linearized-r_pp-in-the-ray-parameter-domain",
@@ -221,25 +284,25 @@
     "text": "Linearized \\(R_{PP}\\) in the Ray-Parameter Domain\nUsing the plane-wave decomposition, the linearized data model in the \\(\\tau\\)-\\(p\\) domain is:\n\\[\n\\hat{s}(p;\\tau) = \\sum_i R_i(p)\\,w\\!\\left[\\tau - t_i(p)\\right]\n\\]\nwhere \\(p = \\sin\\theta / \\alpha_0\\) is the horizontal ray parameter and \\(t_i(p) = \\int_0^{z_i} \\frac{\\sqrt{1 - p^2\\alpha_0^2}}{\\alpha_0}\\,dz\\).\n\nThe linearized P-to-P reflection coefficient (Aki–Richards approximation, (Aki and Richards 2002; Shuey 1985)) is:\n\\[\n\\boxed{R_{PP}(p) = \\frac{1}{2}\\left(1 - 4\\beta_0^2 p^2\\right)\\Delta\\ln\\rho + \\frac{1}{2}\\frac{1}{1 - \\alpha_0^2 p^2}\\Delta\\ln\\alpha - 4\\beta_0^2 p^2\\,\\Delta\\ln\\beta}\n\\]\n\n\nThe property contrasts across the \\(i\\)-th interface are: \\(\\Delta\\ln\\rho_i\\), \\(\\Delta\\ln\\alpha_i\\), and \\(\\Delta\\ln\\beta_i\\)."
   },
   {
-    "objectID": "slides/week-07/11-linearized-inversion.html#structure-of-the-linearized-r_pp",
-    "href": "slides/week-07/11-linearized-inversion.html#structure-of-the-linearized-r_pp",
+    "objectID": "slides/week-07/11-linearized-inversion.html#structure-of-the-linearized-r_pp-the-mathbfm-matrix",
+    "href": "slides/week-07/11-linearized-inversion.html#structure-of-the-linearized-r_pp-the-mathbfm-matrix",
     "title": "Linearized AVO Inversion",
-    "section": "Structure of the Linearized \\(R_{PP}\\)",
-    "text": "Structure of the Linearized \\(R_{PP}\\)\nThe Aki–Richards \\(R_{PP}\\) can be written as a linear combination of three contrasts with \\(p\\)-dependent weights:\n\\[\nR_{PP}(p) = w_\\rho(p)\\,\\Delta\\ln\\rho + w_\\alpha(p)\\,\\Delta\\ln\\alpha + w_\\beta(p)\\,\\Delta\\ln\\beta\n\\]\n\nwhere the weights are:\n\n\n\n\n\n\n\n\nWeight\nExpression\nAt \\(p=0\\) (normal incidence)\n\n\n\n\n\\(w_\\rho(p)\\)\n\\(\\frac{1}{2}(1 - 4\\beta_0^2 p^2)\\)\n\\(\\frac{1}{2}\\)\n\n\n\\(w_\\alpha(p)\\)\n\\(\\frac{1}{2}(1 - \\alpha_0^2 p^2)^{-1}\\)\n\\(\\frac{1}{2}\\)\n\n\n\\(w_\\beta(p)\\)\n\\(-4\\beta_0^2 p^2\\)\n\\(0\\)\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nAt normal incidence (\\(p=0\\)), \\(R_{PP} = \\frac{1}{2}(\\Delta\\ln\\rho + \\Delta\\ln\\alpha) = \\frac{1}{2}\\Delta\\ln Z_P\\), recovering the acoustic result. The shear information enters only at oblique incidence."
+    "section": "Structure of the Linearized \\(R_{PP}\\) — The \\(\\mathbf{M}\\) Matrix",
+    "text": "Structure of the Linearized \\(R_{PP}\\) — The \\(\\mathbf{M}\\) Matrix\nAt the \\(i\\)-th interface, the linearized \\(R_{PP}\\) is a linear combination of three contrasts. Writing this as a matrix–vector product:\n\\[\nR_{PP}^{(i)}(p) = \\underbrace{\\begin{pmatrix} \\tfrac{1}{2}(1 - 4\\beta_0^2 p^2) & \\tfrac{1}{2(1 - \\alpha_0^2 p^2)} & -4\\beta_0^2 p^2 \\end{pmatrix}}_{\\text{row of } \\mathbf{M}(p)} \\begin{pmatrix} \\Delta\\ln\\rho_i \\\\ \\Delta\\ln\\alpha_i \\\\ \\Delta\\ln\\beta_i \\end{pmatrix}\n\\]\n\nAt normal incidence (\\(p = 0\\)), the matrix reduces to:\n\\[\n\\mathbf{M}(0) = \\begin{pmatrix} \\tfrac{1}{2} & \\tfrac{1}{2} & 0 \\end{pmatrix} \\quad \\Rightarrow \\quad R_{PP}^{(i)}(0) = \\tfrac{1}{2}\\bigl(\\Delta\\ln\\rho_i + \\Delta\\ln\\alpha_i\\bigr) = \\tfrac{1}{2}\\Delta\\ln Z_P\n\\]\nrecovering the acoustic result. The shear contribution enters only at oblique incidence (\\(p &gt; 0\\)).\n\n\n\n\n\n\n\n\nNote\n\n\nThe matrix \\(\\mathbf{M}(p)\\) encodes the sensitivity of the reflection coefficient to each elastic parameter. At normal incidence only \\(\\rho\\) and \\(\\alpha\\) contribute; at oblique incidence all three parameters are needed."
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#linearized-convolutional-model-in-tau-p",
     "href": "slides/week-07/11-linearized-inversion.html#linearized-convolutional-model-in-tau-p",
     "title": "Linearized AVO Inversion",
     "section": "Linearized Convolutional Model in \\(\\tau\\)-\\(p\\)",
-    "text": "Linearized Convolutional Model in \\(\\tau\\)-\\(p\\)\nFor each ray parameter \\(p_j\\) (\\(j = 1, \\ldots, N_p\\)), the data at the \\(i\\)-th interface is:\n\\[\n\\hat{s}(p_j; \\tau) = \\sum_i \\left[w_\\rho(p_j)\\,\\Delta\\ln\\rho_i + w_\\alpha(p_j)\\,\\Delta\\ln\\alpha_i + w_\\beta(p_j)\\,\\Delta\\ln\\beta_i\\right] w(\\tau - t_i)\n\\]\n\nIn matrix form for all ray parameters and interfaces:\n\\[\n\\boxed{\\hat{\\mathbf{s}} = \\mathbf{M}\\,\\mathbf{x}}\n\\]\nwhere:\n\n\\(\\hat{\\mathbf{s}}\\) is the vector of \\(\\tau\\)-\\(p\\) data (for all \\(p\\) values)\n\\(\\mathbf{M}\\) encodes the wavelet convolution and the \\(p\\)-dependent weighting\n\\(\\mathbf{x} = \\begin{pmatrix} \\Delta\\ln\\rho(z) \\\\ \\Delta\\ln\\alpha(z) \\\\ \\Delta\\ln\\beta(z) \\end{pmatrix}\\) is the vector of property contrasts"
+    "text": "Linearized Convolutional Model in \\(\\tau\\)-\\(p\\)\nFor each ray parameter \\(p_j\\) (\\(j = 1, \\ldots, N_p\\)), the data at the \\(i\\)-th interface is:\n{CLAUDE: Make this equation consistent with the notation of the previous slide.} \\[\n\\hat{s}(p_j; \\tau) = \\sum_i \\left[w_\\rho(p_j)\\,\\Delta\\ln\\rho_i + w_\\alpha(p_j)\\,\\Delta\\ln\\alpha_i + w_\\beta(p_j)\\,\\Delta\\ln\\beta_i\\right] w(\\tau - t_i)\n\\]\n\nIn matrix form for all ray parameters and interfaces:\n\\[\n\\boxed{\\hat{\\mathbf{s}} = \\mathbf{M}\\,\\mathbf{m}}\n\\]\nwhere:\n\n\\(\\hat{\\mathbf{s}}\\) is the vector of \\(\\tau\\)-\\(p\\) data (for all \\(p\\) values)\n\\(\\mathbf{M}\\) encodes the wavelet convolution and the \\(p\\)-dependent weighting\n\\(\\mathbf{m} = \\begin{pmatrix} \\Delta\\ln\\rho(z) \\\\ \\Delta\\ln\\alpha(z) \\\\ \\Delta\\ln\\beta(z) \\end{pmatrix}\\) is the vector of property contrasts"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#avp-inversion-overview",
     "href": "slides/week-07/11-linearized-inversion.html#avp-inversion-overview",
     "title": "Linearized AVO Inversion",
     "section": "AVP Inversion — Overview",
-    "text": "AVP Inversion — Overview\nThe \\(\\tau\\)-\\(p\\) data model from the previous section relates the Radon-domain amplitudes to the linearized reflection coefficients:\n\\[\n\\hat{s}(p;\\tau) = \\sum_i R_i(p)\\,w[\\tau - t_i(p)]\n\\]\nwhere \\(R_{PP}(p)\\) is the Aki–Richards linearized P-to-P reflection coefficient — a linear combination of \\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), and \\(\\Delta\\ln\\beta\\) with \\(p\\)-dependent weights. The plane-wave decomposition via the linear Radon transform provides the data in the required \\(\\tau\\)-\\(p\\) domain, linking recorded amplitudes directly to subsurface property contrasts."
+    "text": "AVP Inversion — Overview\nThe \\(\\tau\\)-\\(p\\) data model from the previous section relates the Radon-domain amplitudes to the linearized reflection coefficients:\n\\[\n\\hat{s}(p;\\tau) = \\sum_i R_i(p)\\,w[\\tau - t_i(p)]\n\\]\nwhere \\(R_{PP}(p)\\) is the Aki–Richards linearized P-to-P reflection coefficient — a linear combination of \\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), and \\(\\Delta\\ln\\beta\\) with \\(p\\)-dependent weights.\nThe plane-wave decomposition via the linear Radon transform provides the data in the required \\(\\tau\\)-\\(p\\) domain.\nLinks recorded amplitudes directly to subsurface property contrasts."
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#the-linear-radon-transform",
@@ -260,14 +323,28 @@
     "href": "slides/week-07/11-linearized-inversion.html#radon-amplitudes-and-reflection-coefficients",
     "title": "Linearized AVO Inversion",
     "section": "Radon Amplitudes and Reflection Coefficients",
-    "text": "Radon Amplitudes and Reflection Coefficients\nAfter back-propagation and Radon transform, the focused amplitudes approximate the plane-wave reflection coefficient:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nAfter back-propagation, the focused point in \\(x\\)-\\(t\\) maps to a focused point in \\(\\tau\\)-\\(p\\), where the amplitudes approximate the reflection coefficients \\(R_i(p)\\) convolved with a stretched wavelet."
+    "text": "Radon Amplitudes and Reflection Coefficients\nAfter back-propagation and Radon transform, the focused amplitudes approximate the plane-wave reflection coefficient:\n\n\n\n\n\nFocussed point\n\n\n\n\n\n\nAfter Radon transform\n\n\n\n\n\n\nAmplitudes \\(\\approx\\) \\(R_{pp}(p)\\)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nAfter back-propagation, the focused point in \\(x\\)-\\(t\\) maps to a focused point in \\(\\tau\\)-\\(p\\), where the amplitudes approximate the reflection coefficients \\(R_i(p)\\) convolved with a stretched wavelet (Wijngaarden 1998)."
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#shot-data-and-migrated-data-in-tau-p",
+    "href": "slides/week-07/11-linearized-inversion.html#shot-data-and-migrated-data-in-tau-p",
+    "title": "Linearized AVO Inversion",
+    "section": "Shot data and migrated data in \\((\\tau-p)\\)",
+    "text": "Shot data and migrated data in \\((\\tau-p)\\)\n\nAfter Wijngaarden (1998)"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#least-squares-linear-inversion",
     "href": "slides/week-07/11-linearized-inversion.html#least-squares-linear-inversion",
     "title": "Linearized AVO Inversion",
     "section": "Least-Squares Linear Inversion",
-    "text": "Least-Squares Linear Inversion\nGiven the forward model \\(\\hat{\\mathbf{s}} = \\mathbf{M}\\,\\mathbf{x}\\), the least-squares solution is:\n\\[\n\\hat{\\mathbf{x}} = \\left(\\mathbf{M}^\\top\\mathbf{M}\\right)^{-1}\\mathbf{M}^\\top\\hat{\\mathbf{s}}\n\\]\n\nwhere \\(\\mathbf{x} = (\\Delta\\ln\\rho,\\;\\Delta\\ln\\alpha,\\;\\Delta\\ln\\beta)^\\top\\) stacked over all \\(N_z\\) depth points.\nThe system has \\(3N_z\\) unknowns (\\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), \\(\\Delta\\ln\\beta\\) at each of \\(N_z\\) depth points) and \\(N_p \\times N_z\\) data samples.\n\nWhen \\(N_p \\geq 3\\), the system is overdetermined in the \\(p\\)-direction\nBut \\(\\mathbf{M}^\\top\\mathbf{M}\\) may still be ill-conditioned, requiring regularization"
+    "text": "Least-Squares Linear Inversion\nGiven the forward model \\(\\hat{\\mathbf{s}} = \\mathbf{M}\\,\\mathbf{x}\\), the least-squares solution is:\n\\[\n\\hat{\\mathbf{m}} = \\left(\\mathbf{M}^\\top\\mathbf{M}\\right)^{-1}\\mathbf{M}^\\top\\hat{\\mathbf{s}}\n\\]\n\nwhere \\(\\mathbf{m} = (\\Delta\\ln\\rho,\\;\\Delta\\ln\\alpha,\\;\\Delta\\ln\\beta)^\\top\\) stacked over all \\(N_z\\) depth points.\nThe system has \\(3N_z\\) unknowns (\\(\\Delta\\ln\\rho\\), \\(\\Delta\\ln\\alpha\\), \\(\\Delta\\ln\\beta\\) at each of \\(N_z\\) depth points) and \\(N_p \\times N_z\\) data samples.\n\nWhen \\(N_p \\geq 3\\), the system is overdetermined in the \\(p\\)-direction\nBut \\(\\mathbf{M}^\\top\\mathbf{M}\\) may still be ill-conditioned, requiring regularization"
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#inversion-results",
+    "href": "slides/week-07/11-linearized-inversion.html#inversion-results",
+    "title": "Linearized AVO Inversion",
+    "section": "Inversion results",
+    "text": "Inversion results\n\nLeft: after migration and Radon. Right: inverted contrasts"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#damped-least-squares-inversion",
@@ -291,13 +368,6 @@
     "text": "Recovering Absolute Properties\nThe inversion yields contrasts \\(\\Delta\\ln\\rho_i\\), \\(\\Delta\\ln\\alpha_i\\), \\(\\Delta\\ln\\beta_i\\) at each interface. To obtain absolute property values, we accumulate contrasts on top of the background model:\n\\[\n\\ln\\rho(z) = \\ln\\rho_0(z) + \\sum_i \\Delta\\ln\\rho_i\n\\]\n\\[\n\\ln\\alpha(z) = \\ln\\alpha_0(z) + \\sum_i \\Delta\\ln\\alpha_i, \\quad \\ln\\beta(z) = \\ln\\beta_0(z) + \\sum_i \\Delta\\ln\\beta_i\n\\]\n\n\n\n\n\n\n\nNote\n\n\nThe quality of the absolute property estimate depends critically on the accuracy of the background model \\(\\rho_0(z)\\), \\(\\alpha_0(z)\\), \\(\\beta_0(z)\\)."
   },
   {
-    "objectID": "slides/week-07/11-linearized-inversion.html#the-spectral-gap",
-    "href": "slides/week-07/11-linearized-inversion.html#the-spectral-gap",
-    "title": "Linearized AVO Inversion",
-    "section": "The Spectral Gap",
-    "text": "The Spectral Gap\n\n\n\n\n\n\n\n\nWith linear imaging we cannot bridge the spectral gap between:\n\nThe low-frequency content of the background model\nThe band-limited seismic amplitudes\n\n. . .\nThe gap arises because the seismic wavelet has no energy at very low frequencies.\n. . .\n\n\n\n\n\n\nImportant\n\n\nOnly nonlinear inversion (e.g., with a sparseness constraint) or additional information (well logs) can bridge this gap."
-  },
-  {
     "objectID": "slides/week-07/11-linearized-inversion.html#synthetic-example-1.5d-layered-model",
     "href": "slides/week-07/11-linearized-inversion.html#synthetic-example-1.5d-layered-model",
     "title": "Linearized AVO Inversion",
@@ -305,11 +375,25 @@
     "text": "Synthetic Example: 1.5D Layered Model\n\n\n\n\n\n\n\n\nHorizontally layered model with smooth curves representing the background model.\n. . .\n\nSource: zero-phase wavelet with realistic bandwidth\nInversion in the \\(\\tau\\)-\\(p\\) domain\nCompare predicted vs. actual properties"
   },
   {
-    "objectID": "slides/week-07/11-linearized-inversion.html#band-limited-vs.-broadband-inversion-results",
-    "href": "slides/week-07/11-linearized-inversion.html#band-limited-vs.-broadband-inversion-results",
+    "objectID": "slides/week-07/11-linearized-inversion.html#data-residual-time-imaged-domain",
+    "href": "slides/week-07/11-linearized-inversion.html#data-residual-time-imaged-domain",
     "title": "Linearized AVO Inversion",
-    "section": "Band-Limited vs. Broadband Inversion Results",
-    "text": "Band-Limited vs. Broadband Inversion Results\n\n\nBand-limited result\n\n\n\n\n\nPredicted (green) vs. actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet.\n\nBroadband result\n\n\n\n\n\nAdding band-limited predictions to background values. Note discrepancies due to the spectral gap."
+    "section": "Data + residual time & imaged domain",
+    "text": "Data + residual time & imaged domain\n\n\nTime-domain\n\n\n\n\n\n\n\nImaged domain"
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#band-limited-vs.-broadband-inversions",
+    "href": "slides/week-07/11-linearized-inversion.html#band-limited-vs.-broadband-inversions",
+    "title": "Linearized AVO Inversion",
+    "section": "Band-Limited vs. Broadband Inversions",
+    "text": "Band-Limited vs. Broadband Inversions\n\n\nBand-limited result\n\n\n\n\n\nPredicted (green) vs. actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet.\n\nBroadband result\n\n\n\n\n\nAdding band-limited predictions to background values. Note discrepancies due to the spectral gap."
+  },
+  {
+    "objectID": "slides/week-07/11-linearized-inversion.html#the-spectral-gap",
+    "href": "slides/week-07/11-linearized-inversion.html#the-spectral-gap",
+    "title": "Linearized AVO Inversion",
+    "section": "The Spectral Gap",
+    "text": "The Spectral Gap\n\n\n\n\n\n\n\n\nWith linear imaging we cannot bridge the spectral gap between:\n\nThe low-frequency content of the background model\nThe band-limited seismic amplitudes\n\n. . .\nThe gap arises because the seismic wavelet has no energy at very low frequencies.\n. . .\n\n\n\n\n\n\nImportant\n\n\nOnly nonlinear inversion (e.g., with a sparseness constraint) or additional information (well logs) can bridge this gap."
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#low-contrast-validation-model-data",
@@ -358,7 +442,7 @@
     "href": "slides/week-07/11-linearized-inversion.html#references",
     "title": "Linearized AVO Inversion",
     "section": "References",
-    "text": "References\n\n\nAki, Keiiti, and Paul G. Richards. 1980. Quantitative Seismology: Theory and Methods. San Francisco: W.H. Freeman.\n\n\n———. 2002. Quantitative Seismology. 2nd ed. Sausalito, CA: University Science Books.\n\n\nRussell, Brian H., Dan P. Hampson, and Brad Bankhead. 2006. “An Inversion Primer.” CSEG Recorder 31: 96–103.\n\n\nShuey, R. T. 1985. “A Simplification of the Zoeppritz Equations.” Geophysics 50 (4): 609–14. https://doi.org/10.1190/1.1441936.\n\n\nZoeppritz, Karl. 1919. “Über Reflexion Und Durchgang Seismischer Wellen Durch Unstetigkeitsflächen.” Nachrichten von Der Königlichen Gesellschaft Der Wissenschaften Zu Göttingen, Mathematisch-Physikalische Klasse, 66–84."
+    "text": "References\n\n\nAki, Keiiti, and Paul G. Richards. 1980. Quantitative Seismology: Theory and Methods. San Francisco: W.H. Freeman.\n\n\n———. 2002. Quantitative Seismology. 2nd ed. Sausalito, CA: University Science Books.\n\n\nRussell, Brian H., Dan P. Hampson, and Brad Bankhead. 2006. “An Inversion Primer.” CSEG Recorder 31: 96–103.\n\n\nShuey, R. T. 1985. “A Simplification of the Zoeppritz Equations.” Geophysics 50 (4): 609–14. https://doi.org/10.1190/1.1441936.\n\n\nWijngaarden, A. J. van. 1998. “Imaging and Characterisation of Angle-Dependent Seismic Reflection Data.” PhD thesis, Delft University of Technology.\n\n\nZoeppritz, Karl. 1919. “Über Reflexion Und Durchgang Seismischer Wellen Durch Unstetigkeitsflächen.” Nachrichten von Der Königlichen Gesellschaft Der Wissenschaften Zu Göttingen, Mathematisch-Physikalische Klasse, 66–84."
   },
   {
     "objectID": "slides/week-06/10-decon.html#title-custom",

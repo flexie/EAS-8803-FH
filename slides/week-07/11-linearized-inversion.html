@@ -246,6 +246,63 @@ Felix J. Herrmann
 </div>
 </div>
 </section>
+<section id="the-eikonal-and-transport-equations" class="slide level2 smaller">
+<h2>The Eikonal and Transport Equations</h2>
+<p>The asymptotic ray expansion of the wave equation solution <span class="math inline">\(u(\mathbf{x}, t) \approx A(\mathbf{x})\,f\!\bigl(t - T(\mathbf{x})\bigr)\)</span> leads to two equations:</p>
+<div class="fragment">
+<p><strong>Eikonal equation</strong> (governs ray geometry — traveltimes):</p>
+<p><span class="math display">\[
+\boxed{|\nabla T|^2 = \frac{1}{c^2(\mathbf{x})}}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Transport equation</strong> (governs amplitudes along rays):</p>
+<p><span class="math display">\[
+\boxed{2\,\nabla T \cdot \nabla A + A\,\nabla^2 T = 0}
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The eikonal equation determines the traveltime field <span class="math inline">\(T(\mathbf{x})\)</span> — ray paths are perpendicular to the wavefronts <span class="math inline">\(T = \text{const}\)</span>. The transport equation determines how the amplitude <span class="math inline">\(A(\mathbf{x})\)</span> varies along these rays, accounting for geometric spreading.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="non-ray-amplitude-effects" class="slide level2 smaller">
+<h2>Non-Ray Amplitude Effects</h2>
+<p>Beyond the ray-theoretical amplitude factors, several <strong>wave-equation effects</strong> influence recorded amplitudes:</p>
+<ul>
+<li class="fragment"><strong>Multiple reflections</strong> — interfering arrivals from multiple bounces</li>
+<li class="fragment"><strong>Thin-layer effects</strong> — showing up as dispersion and apparent damping</li>
+<li class="fragment"><strong>Dispersive surface waves</strong> — guided modes with frequency-dependent velocity</li>
+<li class="fragment"><strong>Resonances</strong> — constructive interference in layered structures</li>
+<li class="fragment"><strong>Evanescent waves</strong> — non-propagating waves</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>These effects are <strong>not captured</strong> by the linearized convolutional model. Accounting for them requires full-waveform modeling or specialized corrections.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="normal-incidence-acoustic-reflection-coefficient" class="slide level2 smaller">
 <h2>Normal-Incidence Acoustic Reflection Coefficient</h2>
 <p>Consider a planar interface separating two acoustic media with densities <span class="math inline">\(\rho_1, \rho_2\)</span> and velocities <span class="math inline">\(c_1, c_2\)</span>.</p>
@@ -276,10 +333,10 @@ Felix J. Herrmann
 <h2>Linearization of the Reflection Coefficient</h2>
 <p>For small impedance contrasts (<span class="math inline">\(\Delta Z \ll \bar{Z}\)</span>), we write <span class="math inline">\(Z_2 = \bar{Z} + \tfrac{1}{2}\Delta Z\)</span> and <span class="math inline">\(Z_1 = \bar{Z} - \tfrac{1}{2}\Delta Z\)</span>, where <span class="math inline">\(\bar{Z} = \tfrac{1}{2}(Z_1 + Z_2)\)</span>:</p>
 <p><span class="math display">\[
-R = \frac{Z_2 - Z_1}{Z_2 + Z_1} = \frac{\Delta Z}{2\bar{Z}} \approx \frac{1}{2}\frac{\Delta Z}{\bar{Z}}
+R = \frac{Z_2 - Z_1}{Z_2 + Z_1} = \frac{\Delta Z}{2\bar{Z}}
 \]</span></p>
 <div class="fragment">
-<p>Equivalently, since <span class="math inline">\(\Delta \ln Z \approx \Delta Z / \bar{Z}\)</span> for small contrasts:</p>
+<p>Since <span class="math inline">\(\Delta \ln Z \approx \Delta Z / \bar{Z}\)</span> for small contrasts:</p>
 <p><span class="math display">\[
 \boxed{R \approx \frac{1}{2}\Delta \ln Z}
 \]</span></p>
@@ -287,7 +344,7 @@ R = \frac{Z_2 - Z_1}{Z_2 + Z_1} = \frac{\Delta Z}{2\bar{Z}} \approx \frac{1}{2}\
 <div class="fragment">
 <p><strong>Two equivalent expressions for the linearized acoustic reflection coefficient:</strong></p>
 <ul>
-<li class="fragment">In terms of impedance contrast: <span class="math inline">\(R \approx \frac{1}{2}\frac{\Delta Z}{\bar{Z}}\)</span></li>
+<li class="fragment">In terms of impedance contrast: <span class="math inline">\(R = \frac{1}{2}\frac{\Delta Z}{\bar{Z}}\)</span></li>
 <li class="fragment">In terms of log-impedance: <span class="math inline">\(R \approx \frac{1}{2}\Delta \ln Z\)</span></li>
 </ul>
 </div>
@@ -311,31 +368,6 @@ R = \frac{Z_2 - Z_1}{Z_2 + Z_1} = \frac{\Delta Z}{2\bar{Z}} \approx \frac{1}{2}\
 </div>
 <div class="callout-content">
 <p>The linearized approximation is the foundation of AVO inversion. Its validity depends on the media having <strong>small relative contrasts</strong> in density and velocity across interfaces.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="non-ray-amplitude-effects" class="slide level2 smaller">
-<h2>Non-Ray Amplitude Effects</h2>
-<p>Beyond the ray-theoretical amplitude factors, several <strong>wave-equation effects</strong> influence recorded amplitudes:</p>
-<ul>
-<li class="fragment"><strong>Multiple reflections</strong> — interfering arrivals from multiple bounces</li>
-<li class="fragment"><strong>Thin-layer effects</strong> — showing up as dispersion and apparent damping</li>
-<li class="fragment"><strong>Dispersive surface waves</strong> — guided modes with frequency-dependent velocity</li>
-<li class="fragment"><strong>Resonances</strong> — constructive interference in layered structures <!-- - **Evanescent waves** — non-propagating near-field contributions --></li>
-</ul>
-<div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Note</strong></p>
-</div>
-<div class="callout-content">
-<p>These effects are <strong>not captured</strong> by the linearized convolutional model. Accounting for them requires full-waveform modeling or specialized corrections.</p>
 </div>
 </div>
 </div>
@@ -434,7 +466,7 @@ $$ -->
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/seismic-inversion-intuitive.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+<p><img data-src="figures/seismic-inversion-intuitive.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
 </figure>
 </div>
 <p>The low-frequency background comes from well logs or velocity analysis, and the band-limited perturbation is inverted from the seismic data.</p>
@@ -444,17 +476,17 @@ $$ -->
 <h2>Application: Marlin Field (Gulf of Mexico)</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
-<!-- ![](figures_lin/marlin-field-impedance.png){fig-align="center" width="100%"} -->
+<!-- ![](figures/marlin-field-impedance.png){fig-align="center" width="100%"} -->
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/marlin.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+<p><img data-src="figures/marlin.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:30%;">
 <p>Inverted <strong>P-impedance section</strong> over the Marlin Field, Gulf of Mexico.</p>
 <ul>
 <li>All wells correlate with amplitude anomalies</li>
-<li>Impedance inversion reveals gas-bearing zones</li>
+<li>Impedance inversion reveals gas-bearing zones at A1 and A6. Why?</li>
 <li>From <span class="citation" data-cites="russell2006">Russell, Hampson, and Bankhead (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span></li>
 </ul>
 </div></div>
@@ -463,6 +495,41 @@ $$ -->
 <section id="part-iii-elastic-wave-equation-zoeppritz" class="title-slide slide level1 center" data-background-color="#2c3e50" style="color: white;">
 <h1>Part III — Elastic Wave Equation &amp; Zoeppritz</h1>
 
+</section>
+<section id="goals" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li><p>Relate changes in the elastic properties to angle/offset/ray-parameter dependence of seismic amplitudes.</p></li>
+<li><p>Introduce elastic reflection coefficients derived from imposing boundary conditions at solid-solid interfaces.</p></li>
+</ul>
+</section>
+<section id="stressstrain-relations-and-the-stiffness-tensor" class="slide level2 smaller scrollable">
+<h2>Stress–Strain Relations and the Stiffness Tensor</h2>
+<p>The most general <strong>linear elastic</strong> stress–strain relationship (generalized Hooke’s law) is:</p>
+<p><span class="math display">\[
+\tau_{ij} = c_{ijkl}\,\varepsilon_{kl}
+\]</span></p>
+<p>where <span class="math inline">\(c_{ijkl}\)</span> is the <strong>fourth-order elastic stiffness tensor</strong> with <span class="math inline">\(3^4 = 81\)</span> components.</p>
+<div class="fragment">
+<p><strong>Symmetry reductions:</strong></p>
+<ul>
+<li class="fragment"><strong>Stress symmetry</strong> (<span class="math inline">\(\tau_{ij} = \tau_{ji}\)</span>) <span class="math inline">\(\;\Rightarrow\;\)</span> <span class="math inline">\(c_{ijkl} = c_{jikl}\)</span> — reduces to 54 components</li>
+<li class="fragment"><strong>Strain symmetry</strong> (<span class="math inline">\(\varepsilon_{kl} = \varepsilon_{lk}\)</span>) <span class="math inline">\(\;\Rightarrow\;\)</span> <span class="math inline">\(c_{ijkl} = c_{ijlk}\)</span> — reduces to 36 components</li>
+<li class="fragment"><strong>Strain energy symmetry</strong> (<span class="math inline">\(c_{ijkl} = c_{klij}\)</span>) — reduces to <strong>21 independent</strong> components</li>
+</ul>
+</div>
+<div class="fragment">
+<p>For an <strong>isotropic</strong> medium, symmetry under arbitrary rotation leaves only <strong>2 independent</strong> parameters — the Lamé constants <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[
+c_{ijkl} = \lambda\,\delta_{ij}\delta_{kl} + \mu\left(\delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}\right)
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Substituting into <span class="math inline">\(\tau_{ij} = c_{ijkl}\,\varepsilon_{kl}\)</span> gives <strong>Hooke’s law for isotropic media</strong>:</p>
+<p><span class="math display">\[
+\boxed{\tau_{ij} = \lambda\,\delta_{ij}\,\varepsilon_{kk} + 2\mu\,\varepsilon_{ij} = \lambda\,\delta_{ij}\,\nabla\cdot\mathbf{u} + \mu\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\right)}
+\]</span></p>
+</div>
 </section>
 <section id="the-elastic-wave-equation" class="slide level2 smaller">
 <h2>The Elastic Wave Equation</h2>
@@ -477,8 +544,8 @@ $$ -->
 \]</span></p>
 </div>
 </section>
-<section id="bulk-and-shear-modulus-p--and-s-wave-speeds" class="slide level2 smaller">
-<h2>Bulk and Shear Modulus, P- and S-Wave Speeds</h2>
+<section id="bulk-shear-modulus-p--s-wave-speeds" class="slide level2 smaller">
+<h2>Bulk &amp; Shear Modulus, P- &amp; S-Wave Speeds</h2>
 <p>The elastic medium is characterized by density <span class="math inline">\(\rho(\mathbf{r})\)</span>, bulk modulus <span class="math inline">\(K(\mathbf{r})\)</span>, and shear modulus <span class="math inline">\(\mu(\mathbf{r})\)</span>.</p>
 <div class="fragment">
 <div class="columns">
@@ -489,7 +556,7 @@ $$ -->
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/p-wave-particle-motion.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+<p><img data-src="figures/p-wave-particle-motion.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -499,7 +566,7 @@ $$ -->
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/s-wave-particle-motion.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
+<p><img data-src="figures/s-wave-particle-motion.png" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
 </figure>
 </div>
 </div></div>
@@ -531,6 +598,65 @@ $$ -->
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="acoustic-and-elastic-impedance" class="slide level2 smaller">
+<h2>Acoustic and Elastic Impedance</h2>
+<p>In the <strong>acoustic</strong> (fluid) case, impedance is defined as:</p>
+<p><span class="math display">\[
+Z_P = \rho\,\alpha
+\]</span></p>
+<p>which governs normal-incidence P-wave reflections: <span class="math inline">\(R = (Z_{P,2} - Z_{P,1})/(Z_{P,2} + Z_{P,1})\)</span>.</p>
+<div class="fragment">
+<p>In the <strong>elastic</strong> (solid) case, there is also a <strong>shear impedance</strong>:</p>
+<p><span class="math display">\[
+Z_S = \rho\,\beta
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Quantity</th>
+<th style="text-align: center;">Symbol</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">P-impedance</td>
+<td style="text-align: center;"><span class="math inline">\(Z_P\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\rho\,\alpha\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S-impedance</td>
+<td style="text-align: center;"><span class="math inline">\(Z_S\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\rho\,\beta\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Impedance ratio</td>
+<td style="text-align: center;"><span class="math inline">\(Z_S/Z_P\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\beta/\alpha\)</span></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>At normal incidence, only <span class="math inline">\(Z_P\)</span> matters. At oblique incidence, the reflection coefficients depend on <strong>both</strong> <span class="math inline">\(Z_P\)</span> and <span class="math inline">\(Z_S\)</span> — this is the physical basis for AVO analysis.</p>
+</div>
+</div>
+</div>
+</div></div>
 </div>
 </section>
 <section id="boundary-conditions-at-an-elastic-interface" class="slide level2 smaller">
@@ -574,7 +700,7 @@ $$ -->
 ::: -->
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/snell.png"></p>
+<p><img data-src="figures/snell.png"></p>
 <figcaption>Adapted from Eric Verschuur</figcaption>
 </figure>
 </div>
@@ -588,6 +714,14 @@ $$ -->
 </ul>
 <p>All angles are related through Snell’s law via the common <strong>ray parameter</strong> <span class="math inline">\(p\)</span>.</p>
 </div></div>
+</section>
+<section id="goals-1" class="slide level2">
+<h2>Goals</h2>
+<ul>
+<li><p>Get information on the elastic properties rather than the locations of the reflectors alone.</p></li>
+<li><p>Use information that reflection coefficients depend on the angle/ray-parameter (=offset).</p></li>
+<li><p>Devise an inversion scheme and workflow to estimate fluctuations in the elastic properties.</p></li>
+</ul>
 </section>
 <section id="reflection-and-transmission-coefficients" class="slide level2 smaller">
 <h2>Reflection and Transmission Coefficients</h2>
@@ -623,6 +757,39 @@ $$ -->
 <p>These equations express each reflection and transmission coefficient as a nonlinear function of <span class="math inline">\(\rho_1, \rho_2, \alpha_1, \alpha_2, \beta_1, \beta_2\)</span> and the angle of incidence. For <strong>small contrasts</strong> across the interface, the Zoeppritz equations can be <strong>linearized</strong> in the logarithmic perturbations <span class="math inline">\(\Delta\ln\rho\)</span>, <span class="math inline">\(\Delta\ln\alpha\)</span>, and <span class="math inline">\(\Delta\ln\beta\)</span>.</p>
 </div>
 </section>
+<section id="the-zoeppritz-matrix-system" class="slide level2 smaller scrollable">
+<h2>The Zoeppritz Matrix System</h2>
+<p>For an incident P-wave, the four unknown amplitudes <span class="math inline">\(R_{PP}\)</span>, <span class="math inline">\(R_{PS}\)</span>, <span class="math inline">\(T_{PP}\)</span>, <span class="math inline">\(T_{PS}\)</span> satisfy a <span class="math inline">\(4\times 4\)</span> linear system derived from the boundary conditions:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+-\sin\theta_1 &amp; -\cos\phi_1 &amp; \sin\theta_2 &amp; \cos\phi_2 \\
+\cos\theta_1 &amp; -\sin\phi_1 &amp; \cos\theta_2 &amp; -\sin\phi_2 \\
+\sin 2\theta_1 &amp; \frac{\beta_1}{\alpha_1}\cos 2\phi_1 &amp; \frac{\rho_2\beta_2^2\alpha_1}{\rho_1\beta_1^2\alpha_2}\sin 2\theta_2 &amp; \frac{\rho_2\beta_2\alpha_1}{\rho_1\beta_1^2}\cos 2\phi_2 \\
+-\cos 2\phi_1 &amp; \frac{\beta_1}{\alpha_1}\sin 2\phi_1 &amp; \frac{\rho_2\alpha_1}{\rho_1\alpha_2}\cos 2\phi_2 &amp; -\frac{\rho_2\beta_2\alpha_1}{\rho_1\alpha_2\beta_1}\sin 2\phi_2
+\end{pmatrix}
+\begin{pmatrix} R_{PP} \\ R_{PS} \\ T_{PP} \\ T_{PS} \end{pmatrix}
+=
+\begin{pmatrix} \sin\theta_1 \\ \cos\theta_1 \\ -\sin 2\theta_1 \\ \cos 2\phi_1 \end{pmatrix}
+\]</span></p>
+<div class="fragment">
+<p>where the angles follow from Snell’s law: <span class="math inline">\(\sin\theta_1/\alpha_1 = \sin\phi_1/\beta_1 = \sin\theta_2/\alpha_2 = \sin\phi_2/\beta_2 = p\)</span>.</p>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The Zoeppritz equations are exact but <strong>nonlinear</strong> in the medium parameters (through the angle dependencies). Direct inversion is impractical — hence the need for linearization.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="linearization-of-zoeppritz-for-small-contrasts" class="slide level2 smaller">
 <h2>Linearization of Zoeppritz for Small Contrasts</h2>
 <p>For <strong>small contrasts</strong>, the Zoeppritz equations can be linearized in <span class="math inline">\(\Delta\ln\rho\)</span>, <span class="math inline">\(\Delta\ln\alpha\)</span>, and <span class="math inline">\(\Delta\ln\beta\)</span> <span class="citation" data-cites="aki1980 aki2002">(<a href="#/references" role="doc-biblioref" onclick="">Aki and Richards 1980</a>, <a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>.</p>
@@ -650,6 +817,44 @@ R_{S_VS_V} &amp;= O(\delta), \quad R_{S_VP} = O(\delta), \quad T_{S_VS_V} = O(1)
 </div>
 </div>
 </div>
+</section>
+<section id="linearized-reflection-coefficients-all-modes" class="slide level2 smaller scrollable">
+<h2>Linearized Reflection Coefficients — All Modes</h2>
+<p>For small contrasts <span class="math inline">\(\Delta\ln\rho\)</span>, <span class="math inline">\(\Delta\ln\alpha\)</span>, <span class="math inline">\(\Delta\ln\beta\)</span> and using <span class="math inline">\(\gamma = \beta_0/\alpha_0\)</span>, the linearized reflection coefficients are <span class="citation" data-cites="aki1980 aki2002">(<a href="#/references" role="doc-biblioref" onclick="">Aki and Richards 1980</a>, <a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>:</p>
+<div class="fragment">
+<p><strong>P-to-P reflection</strong> (<span class="math inline">\(R_{PP}\)</span>):</p>
+<p><span class="math display">\[
+R_{PP}(p) = \frac{1}{2}\left(1 - 4\beta_0^2 p^2\right)\Delta\ln\rho + \frac{1}{2\left(1 - \alpha_0^2 p^2\right)}\Delta\ln\alpha - 4\beta_0^2 p^2\,\Delta\ln\beta
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>P-to-SV reflection</strong> (<span class="math inline">\(R_{PS}\)</span>):</p>
+<p><span class="math display">\[
+R_{PS}(p) = -\frac{p\,\alpha_0}{2\cos\phi}\left[\left(1 - 2\beta_0^2 p^2 + 2\beta_0^2\frac{p\cos\theta}{\alpha_0}\frac{p\cos\phi}{\beta_0}\right)\Delta\ln\rho + \frac{4\beta_0^2 p^2\cos\theta\cos\phi}{\alpha_0\beta_0\,p^2}\,\Delta\ln\alpha + \left(1 - 2\beta_0^2 p^2 + 2\frac{\beta_0\cos\phi}{\alpha_0\cos\theta}\right)\Delta\ln\beta\right]
+\]</span></p>
+<p>where <span class="math inline">\(\cos\theta = \sqrt{1 - \alpha_0^2 p^2}\)</span> and <span class="math inline">\(\cos\phi = \sqrt{1 - \beta_0^2 p^2}\)</span>.</p>
+</div>
+<div class="fragment">
+<p><strong>SV-to-SV reflection</strong> (<span class="math inline">\(R_{SS}\)</span>):</p>
+<p><span class="math display">\[
+R_{SS}(p) = -\frac{1}{2}\left(1 - 4\beta_0^2 p^2\right)\Delta\ln\rho + 4\beta_0^2 p^2\,\Delta\ln\alpha + \frac{1}{2}\frac{1}{1 - \beta_0^2 p^2}\Delta\ln\beta
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>For AVO inversion, the <strong>PP reflection</strong> is most commonly used because P-wave sources and receivers dominate exploration seismology. The other modes are important for multicomponent (ocean-bottom) data.</p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="part-iv-linearized-convolutional-model" class="title-slide slide level1 center" data-background-color="#2c3e50" style="color: white;">
@@ -668,16 +873,22 @@ R_{S_VS_V} &amp;= O(\delta), \quad R_{S_VP} = O(\delta), \quad T_{S_VS_V} = O(1)
 <li class="fragment">Obtained from velocity analysis, well logs, or tomography</li>
 </ul>
 </div>
-<div class="fragment">
+</section>
+<section id="well-c_p-smoothed-well" class="slide level2">
+<h2>Well <span class="math inline">\(c_p\)</span> + smoothed well</h2>
+
+<img data-src="figures/well.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"></section>
+<section id="traveltimes" class="slide level2">
+<h2>Traveltimes</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/smooth-background-velocity-profile.jpeg" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+<p><img data-src="figures/traveltimes.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 </figure>
 </div>
 
-</div>
 <aside><div>
-<p>Smooth inhomogeneous background (red) eliminates ~95% of kinematic inaccuracy compared to the true velocity (blue).</p>
+<p><span class="math inline">\(\Delta t=\int_0^z\mathrm{d}z' \frac{1}{\alpha(z')}-\frac{1}{\alpha_0(z')}\)</span></p>
+<p>Smooth inhomogeneous background (yellow) eliminates ~95% of kinematic inaccuracy compared to the true velocity (blue).</p>
 </div></aside></section>
 <section id="linearized-r_pp-in-the-ray-parameter-domain" class="slide level2 smaller">
 <h2>Linearized <span class="math inline">\(R_{PP}\)</span> in the Ray-Parameter Domain</h2>
@@ -696,45 +907,18 @@ R_{S_VS_V} &amp;= O(\delta), \quad R_{S_VP} = O(\delta), \quad T_{S_VS_V} = O(1)
 <p>The property contrasts across the <span class="math inline">\(i\)</span>-th interface are: <span class="math inline">\(\Delta\ln\rho_i\)</span>, <span class="math inline">\(\Delta\ln\alpha_i\)</span>, and <span class="math inline">\(\Delta\ln\beta_i\)</span>.</p>
 </div>
 </section>
-<section id="structure-of-the-linearized-r_pp" class="slide level2 smaller">
-<h2>Structure of the Linearized <span class="math inline">\(R_{PP}\)</span></h2>
-<p>The Aki–Richards <span class="math inline">\(R_{PP}\)</span> can be written as a <strong>linear combination</strong> of three contrasts with <span class="math inline">\(p\)</span>-dependent weights:</p>
+<section id="structure-of-the-linearized-r_pp-the-mathbfm-matrix" class="slide level2 smaller scrollable">
+<h2>Structure of the Linearized <span class="math inline">\(R_{PP}\)</span> — The <span class="math inline">\(\mathbf{M}\)</span> Matrix</h2>
+<p>At the <span class="math inline">\(i\)</span>-th interface, the linearized <span class="math inline">\(R_{PP}\)</span> is a <strong>linear combination</strong> of three contrasts. Writing this as a matrix–vector product:</p>
 <p><span class="math display">\[
-R_{PP}(p) = w_\rho(p)\,\Delta\ln\rho + w_\alpha(p)\,\Delta\ln\alpha + w_\beta(p)\,\Delta\ln\beta
+R_{PP}^{(i)}(p) = \underbrace{\begin{pmatrix} \tfrac{1}{2}(1 - 4\beta_0^2 p^2) &amp; \tfrac{1}{2(1 - \alpha_0^2 p^2)} &amp; -4\beta_0^2 p^2 \end{pmatrix}}_{\text{row of } \mathbf{M}(p)} \begin{pmatrix} \Delta\ln\rho_i \\ \Delta\ln\alpha_i \\ \Delta\ln\beta_i \end{pmatrix}
 \]</span></p>
 <div class="fragment">
-<p>where the weights are:</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Weight</th>
-<th style="text-align: left;">Expression</th>
-<th style="text-align: left;">At <span class="math inline">\(p=0\)</span> (normal incidence)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(w_\rho(p)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{2}(1 - 4\beta_0^2 p^2)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{2}\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><span class="math inline">\(w_\alpha(p)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{2}(1 - \alpha_0^2 p^2)^{-1}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{1}{2}\)</span></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><span class="math inline">\(w_\beta(p)\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(-4\beta_0^2 p^2\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(0\)</span></td>
-</tr>
-</tbody>
-</table>
+<p>At <strong>normal incidence</strong> (<span class="math inline">\(p = 0\)</span>), the matrix reduces to:</p>
+<p><span class="math display">\[
+\mathbf{M}(0) = \begin{pmatrix} \tfrac{1}{2} &amp; \tfrac{1}{2} &amp; 0 \end{pmatrix} \quad \Rightarrow \quad R_{PP}^{(i)}(0) = \tfrac{1}{2}\bigl(\Delta\ln\rho_i + \Delta\ln\alpha_i\bigr) = \tfrac{1}{2}\Delta\ln Z_P
+\]</span></p>
+<p>recovering the <strong>acoustic result</strong>. The shear contribution enters only at oblique incidence (<span class="math inline">\(p &gt; 0\)</span>).</p>
 </div>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -746,7 +930,7 @@ R_{PP}(p) = w_\rho(p)\,\Delta\ln\rho + w_\alpha(p)\,\Delta\ln\alpha + w_\beta(p)
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>At <strong>normal incidence</strong> (<span class="math inline">\(p=0\)</span>), <span class="math inline">\(R_{PP} = \frac{1}{2}(\Delta\ln\rho + \Delta\ln\alpha) = \frac{1}{2}\Delta\ln Z_P\)</span>, recovering the acoustic result. The <strong>shear information</strong> enters only at oblique incidence.</p>
+<p>The matrix <span class="math inline">\(\mathbf{M}(p)\)</span> encodes the <strong>sensitivity</strong> of the reflection coefficient to each elastic parameter. At normal incidence only <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\alpha\)</span> contribute; at oblique incidence all three parameters are needed.</p>
 </div>
 </div>
 </div>
@@ -755,26 +939,27 @@ R_{PP}(p) = w_\rho(p)\,\Delta\ln\rho + w_\alpha(p)\,\Delta\ln\alpha + w_\beta(p)
 <section id="linearized-convolutional-model-in-tau-p" class="slide level2 smaller">
 <h2>Linearized Convolutional Model in <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span></h2>
 <p>For each ray parameter <span class="math inline">\(p_j\)</span> (<span class="math inline">\(j = 1, \ldots, N_p\)</span>), the data at the <span class="math inline">\(i\)</span>-th interface is:</p>
-<p><span class="math display">\[
+<p>{CLAUDE: Make this equation consistent with the notation of the previous slide.} <span class="math display">\[
 \hat{s}(p_j; \tau) = \sum_i \left[w_\rho(p_j)\,\Delta\ln\rho_i + w_\alpha(p_j)\,\Delta\ln\alpha_i + w_\beta(p_j)\,\Delta\ln\beta_i\right] w(\tau - t_i)
 \]</span></p>
 <div class="fragment">
 <p>In matrix form for all ray parameters and interfaces:</p>
 <p><span class="math display">\[
-\boxed{\hat{\mathbf{s}} = \mathbf{M}\,\mathbf{x}}
+\boxed{\hat{\mathbf{s}} = \mathbf{M}\,\mathbf{m}}
 \]</span></p>
 <p>where:</p>
 <ul>
 <li><span class="math inline">\(\hat{\mathbf{s}}\)</span> is the vector of <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span> data (for all <span class="math inline">\(p\)</span> values)</li>
 <li><span class="math inline">\(\mathbf{M}\)</span> encodes the wavelet convolution and the <span class="math inline">\(p\)</span>-dependent weighting</li>
-<li><span class="math inline">\(\mathbf{x} = \begin{pmatrix} \Delta\ln\rho(z) \\ \Delta\ln\alpha(z) \\ \Delta\ln\beta(z) \end{pmatrix}\)</span> is the vector of property contrasts</li>
+<li><span class="math inline">\(\mathbf{m} = \begin{pmatrix} \Delta\ln\rho(z) \\ \Delta\ln\alpha(z) \\ \Delta\ln\beta(z) \end{pmatrix}\)</span> is the vector of property contrasts</li>
 </ul>
+<!-- {CLAUDE: please add damped least squares inversion for $\mathbf{m}$.} -->
 </div>
 </section></section>
 <section>
 <section id="part-v-avoavp-inversion-workflow" class="title-slide slide level1 center" data-background-color="#2c3e50" style="color: white;">
 <h1>Part V — AVO/AVP Inversion Workflow</h1>
-
+<!-- {CLAUDE: Add detailed descriptions of AVO, AVA and AVP workflows. Introduce different processing steps. Add table that compares worklows } -->
 </section>
 <section id="avp-inversion-overview" class="slide level2 smaller">
 <h2>AVP Inversion — Overview</h2>
@@ -782,7 +967,9 @@ R_{PP}(p) = w_\rho(p)\,\Delta\ln\rho + w_\alpha(p)\,\Delta\ln\alpha + w_\beta(p)
 <p><span class="math display">\[
 \hat{s}(p;\tau) = \sum_i R_i(p)\,w[\tau - t_i(p)]
 \]</span></p>
-<p>where <span class="math inline">\(R_{PP}(p)\)</span> is the Aki–Richards linearized P-to-P reflection coefficient — a <strong>linear combination</strong> of <span class="math inline">\(\Delta\ln\rho\)</span>, <span class="math inline">\(\Delta\ln\alpha\)</span>, and <span class="math inline">\(\Delta\ln\beta\)</span> with <span class="math inline">\(p\)</span>-dependent weights. The plane-wave decomposition via the <strong>linear Radon transform</strong> provides the data in the required <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span> domain, linking recorded amplitudes directly to subsurface property contrasts.</p>
+<p>where <span class="math inline">\(R_{PP}(p)\)</span> is the Aki–Richards linearized P-to-P reflection coefficient — a <strong>linear combination</strong> of <span class="math inline">\(\Delta\ln\rho\)</span>, <span class="math inline">\(\Delta\ln\alpha\)</span>, and <span class="math inline">\(\Delta\ln\beta\)</span> with <span class="math inline">\(p\)</span>-dependent weights.</p>
+<p>The plane-wave decomposition via the <strong>linear Radon transform</strong> provides the data in the required <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span> domain.</p>
+<p>Links recorded amplitudes directly to subsurface property contrasts.</p>
 </section>
 <section id="the-linear-radon-transform" class="slide level2 smaller">
 <h2>The Linear Radon Transform</h2>
@@ -795,13 +982,13 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/radon-transform-xt.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/radon-transform-xt.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/radon-transform-taup.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/radon-transform-taup.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 </div></div>
@@ -823,16 +1010,25 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 <h2>Radon Amplitudes and Reflection Coefficients</h2>
 <p>After back-propagation and Radon transform, the focused amplitudes approximate the <strong>plane-wave reflection coefficient</strong>:</p>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/focused-reflection-xt.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/focused-reflection-xt.png" style="width:90.0%"></p>
+<figcaption>Focussed point</figcaption>
 </figure>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/focused-radon-amplitudes.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/focused-reflection-taup.png" style="width:95.0%"></p>
+<figcaption>After Radon transform</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/focused-radon-amplitudes.png" style="width:95.0%"></p>
+<figcaption>Amplitudes <span class="math inline">\(\approx\)</span> <span class="math inline">\(R_{pp}(p)\)</span></figcaption>
 </figure>
 </div>
 </div></div>
@@ -846,20 +1042,24 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>After back-propagation, the focused point in <span class="math inline">\(x\)</span>-<span class="math inline">\(t\)</span> maps to a focused point in <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span>, where the <strong>amplitudes approximate the reflection coefficients</strong> <span class="math inline">\(R_i(p)\)</span> convolved with a stretched wavelet.</p>
+<p>After back-propagation, the focused point in <span class="math inline">\(x\)</span>-<span class="math inline">\(t\)</span> maps to a focused point in <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span>, where the <strong>amplitudes approximate the reflection coefficients</strong> <span class="math inline">\(R_i(p)\)</span> convolved with a stretched wavelet <span class="citation" data-cites="vanwijngaarden1998">(<a href="#/references" role="doc-biblioref" onclick="">Wijngaarden 1998</a>)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
+<section id="shot-data-and-migrated-data-in-tau-p" class="slide level2">
+<h2>Shot data and migrated data in <span class="math inline">\((\tau-p)\)</span></h2>
+
+<img data-src="figures/data-xt-focused-taup.png" style="width:60.0%" class="r-stretch quarto-figure-center"><p class="caption">After <span class="citation" data-cites="vanwijngaarden1998">Wijngaarden (<a href="#/references" role="doc-biblioref" onclick="">1998</a>)</span></p></section>
 <section id="least-squares-linear-inversion" class="slide level2 smaller">
 <h2>Least-Squares Linear Inversion</h2>
 <p>Given the forward model <span class="math inline">\(\hat{\mathbf{s}} = \mathbf{M}\,\mathbf{x}\)</span>, the <strong>least-squares solution</strong> is:</p>
 <p><span class="math display">\[
-\hat{\mathbf{x}} = \left(\mathbf{M}^\top\mathbf{M}\right)^{-1}\mathbf{M}^\top\hat{\mathbf{s}}
+\hat{\mathbf{m}} = \left(\mathbf{M}^\top\mathbf{M}\right)^{-1}\mathbf{M}^\top\hat{\mathbf{s}}
 \]</span></p>
 <div class="fragment">
-<p>where <span class="math inline">\(\mathbf{x} = (\Delta\ln\rho,\;\Delta\ln\alpha,\;\Delta\ln\beta)^\top\)</span> stacked over all <span class="math inline">\(N_z\)</span> depth points.</p>
+<p>where <span class="math inline">\(\mathbf{m} = (\Delta\ln\rho,\;\Delta\ln\alpha,\;\Delta\ln\beta)^\top\)</span> stacked over all <span class="math inline">\(N_z\)</span> depth points.</p>
 <p>The system has <span class="math inline">\(3N_z\)</span> unknowns (<span class="math inline">\(\Delta\ln\rho\)</span>, <span class="math inline">\(\Delta\ln\alpha\)</span>, <span class="math inline">\(\Delta\ln\beta\)</span> at each of <span class="math inline">\(N_z\)</span> depth points) and <span class="math inline">\(N_p \times N_z\)</span> data samples.</p>
 <ul>
 <li>When <span class="math inline">\(N_p \geq 3\)</span>, the system is <strong>overdetermined</strong> in the <span class="math inline">\(p\)</span>-direction</li>
@@ -867,6 +1067,10 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 </ul>
 </div>
 </section>
+<section id="inversion-results" class="slide level2">
+<h2>Inversion results</h2>
+
+<img data-src="figures/linearized-inversion-results.png" class="r-stretch quarto-figure-center"><p class="caption">Left: after migration and Radon. Right: inverted contrasts</p></section>
 <section id="damped-least-squares-inversion" class="slide level2 smaller">
 <h2>Damped Least-Squares Inversion</h2>
 <p>For <strong>damped least-squares inversion</strong>, we add a regularization term:</p>
@@ -938,13 +1142,74 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 </div>
 </div>
 </section>
+<section id="synthetic-example-1.5d-layered-model" class="slide level2 smaller">
+<h2>Synthetic Example: 1.5D Layered Model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/synthetic-1d-model.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p>Horizontally layered model with smooth curves representing the <strong>background model</strong>.</p>
+<p>. . .</p>
+<ul>
+<li>Source: zero-phase wavelet with realistic bandwidth</li>
+<li>Inversion in the <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span> domain</li>
+<li>Compare predicted vs.&nbsp;actual properties</li>
+</ul>
+</div></div>
+</section>
+<section id="data-residual-time-imaged-domain" class="slide level2 smaller">
+<h2>Data + residual time &amp; imaged domain</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Time-domain</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/time-domain-inversion-residual.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+</figure>
+</div>
+<!-- Predicted (green) vs. actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet. -->
+</div><div class="column" style="width:50%;">
+<p><strong>Imaged domain</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/image-domain-inversion-residual.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+</figure>
+</div>
+<!-- Adding band-limited predictions to background values. Note discrepancies due to the **spectral gap**. -->
+</div></div>
+</section>
+<section id="band-limited-vs.-broadband-inversions" class="slide level2 smaller">
+<h2>Band-Limited vs.&nbsp;Broadband Inversions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Band-limited result</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/predicted-vs-actual-bandlimited.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+</figure>
+</div>
+<p>Predicted (green) vs.&nbsp;actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet.</p>
+</div><div class="column" style="width:50%;">
+<p><strong>Broadband result</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/predicted-vs-actual-broadband.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+</figure>
+</div>
+<p>Adding band-limited predictions to background values. Note discrepancies due to the <strong>spectral gap</strong>.</p>
+</div></div>
+</section>
 <section id="the-spectral-gap" class="slide level2 smaller">
 <h2>The Spectral Gap</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/spectral-gap.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/spectral-gap.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
@@ -971,60 +1236,20 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 </div>
 </div></div>
 </section>
-<section id="synthetic-example-1.5d-layered-model" class="slide level2">
-<h2>Synthetic Example: 1.5D Layered Model</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures_lin/synthetic-1d-model.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<p>Horizontally layered model with smooth curves representing the <strong>background model</strong>.</p>
-<p>. . .</p>
-<ul>
-<li>Source: zero-phase wavelet with realistic bandwidth</li>
-<li>Inversion in the <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span> domain</li>
-<li>Compare predicted vs.&nbsp;actual properties</li>
-</ul>
-</div></div>
-</section>
-<section id="band-limited-vs.-broadband-inversion-results" class="slide level2 smaller">
-<h2>Band-Limited vs.&nbsp;Broadband Inversion Results</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><strong>Band-limited result</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures_lin/predicted-vs-actual-bandlimited.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
-</figure>
-</div>
-<p>Predicted (green) vs.&nbsp;actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet.</p>
-</div><div class="column" style="width:50%;">
-<p><strong>Broadband result</strong></p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures_lin/predicted-vs-actual-broadband.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
-</figure>
-</div>
-<p>Adding band-limited predictions to background values. Note discrepancies due to the <strong>spectral gap</strong>.</p>
-</div></div>
-</section>
 <section id="low-contrast-validation-model-data" class="slide level2 smaller">
 <h2>Low-Contrast Validation — Model &amp; Data</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/low-contrast-model.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/low-contrast-model.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 <p>Low-contrast model (0.01<span class="math inline">\(\times\)</span> real contrasts) with <span class="math inline">\(\rho\)</span>, <span class="math inline">\(v_P\)</span>, <span class="math inline">\(v_S\)</span> vs.&nbsp;depth. Smooth red curves show the background model.</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/low-contrast-radon.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/low-contrast-radon.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 <p><span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span> Radon-domain data for the low-contrast model, showing the amplitude-versus-ray-parameter variation.</p>
@@ -1036,14 +1261,14 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/low-contrast-inversion-bandlimited.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/low-contrast-inversion-bandlimited.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 <p>For very low contrasts (0.01<span class="math inline">\(\times\)</span> real), the linearized inversion performs <strong>excellently</strong> — validating the method.</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/low-contrast-inversion-broadband.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/low-contrast-inversion-broadband.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 <p>Even with near-perfect linear inversion, the <strong>spectral gap</strong> still causes discrepancies in the broadband result.</p>
@@ -1055,14 +1280,14 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/real-data-shot-stacked.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/real-data-shot-stacked.jpeg" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 <p>Input processed surface shot record and stacked section.</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures_lin/real-data-inversion-results.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
+<p><img data-src="figures/real-data-inversion-results.png" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
 </figure>
 </div>
 <p>Linear elastic inversion results of redatumed data at top of target interval. (MSc thesis work by Xander Staal)</p>
@@ -1087,7 +1312,7 @@ m(p, \tau) = \int_{-\infty}^{+\infty} d(x, t = \tau + px)\,dx
 <li class="fragment"><strong>Interpret</strong> — use recovered <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> (or derived quantities like Poisson’s ratio) for reservoir characterization</li>
 </ol>
 </section>
-<section id="summary" class="slide level2 smaller">
+<section id="summary" class="slide level2 smaller scrollable">
 <h2>Summary</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1129,6 +1354,9 @@ Russell, Brian H., Dan P. Hampson, and Brad Bankhead. 2006. <span>“An Inversio
 </div>
 <div id="ref-shuey1985" class="csl-entry" role="listitem">
 Shuey, R. T. 1985. <span>“A Simplification of the <span>Z</span>oeppritz Equations.”</span> <em>Geophysics</em> 50 (4): 609–14. <a href="https://doi.org/10.1190/1.1441936">https://doi.org/10.1190/1.1441936</a>.
+</div>
+<div id="ref-vanwijngaarden1998" class="csl-entry" role="listitem">
+Wijngaarden, A. J. van. 1998. <span>“Imaging and Characterisation of Angle-Dependent Seismic Reflection Data.”</span> PhD thesis, Delft University of Technology.
 </div>
 <div id="ref-zoeppritz1919" class="csl-entry" role="listitem">
 Zoeppritz, Karl. 1919. <span>“<span>Ü</span>ber <span>R</span>eflexion Und <span>D</span>urchgang Seismischer <span>W</span>ellen Durch <span>U</span>nstetigkeitsfl<span>ä</span>chen.”</span> <em>Nachrichten von Der K<span>ö</span>niglichen Gesellschaft Der Wissenschaften Zu G<span>ö</span>ttingen, Mathematisch-Physikalische Klasse</em>, 66–84.
