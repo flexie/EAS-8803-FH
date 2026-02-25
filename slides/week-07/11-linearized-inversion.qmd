@@ -109,6 +109,51 @@ From a ray-theoretical point of view, three factors control the amplitudes of se
 These amplitude effects are described by the **transport equation**, the second-order term in the asymptotic ray expansion of the wave equation solution.
 :::
 
+## The Eikonal and Transport Equations {.smaller}
+
+The asymptotic ray expansion of the wave equation solution $u(\mathbf{x}, t) \approx A(\mathbf{x})\,f\!\bigl(t - T(\mathbf{x})\bigr)$ leads to two equations:
+
+. . .
+
+**Eikonal equation** (governs ray geometry — traveltimes):
+
+$$
+\boxed{|\nabla T|^2 = \frac{1}{c^2(\mathbf{x})}}
+$$
+
+. . .
+
+**Transport equation** (governs amplitudes along rays):
+
+$$
+\boxed{2\,\nabla T \cdot \nabla A + A\,\nabla^2 T = 0}
+$$
+
+. . .
+
+::: {.callout-note}
+The eikonal equation determines the traveltime field $T(\mathbf{x})$ — ray paths are perpendicular to the wavefronts $T = \text{const}$. The transport equation determines how the amplitude $A(\mathbf{x})$ varies along these rays, accounting for geometric spreading.
+:::
+
+## Non-Ray Amplitude Effects {.smaller}
+
+Beyond the ray-theoretical amplitude factors, several **wave-equation effects** influence recorded amplitudes:
+
+::: {.incremental}
+- **Multiple reflections** — interfering arrivals from multiple bounces
+- **Thin-layer effects** — showing up as dispersion and apparent damping
+- **Dispersive surface waves** — guided modes with frequency-dependent velocity
+- **Resonances** — constructive interference in layered structures
+- **Evanescent waves** — non-propagating waves
+:::
+
+. . .
+
+::: {.callout-note}
+These effects are **not captured** by the linearized convolutional model. Accounting for them requires full-waveform modeling or specialized corrections.
+:::
+
+
 ## Normal-Incidence Acoustic Reflection Coefficient {.smaller}
 
 Consider a planar interface separating two acoustic media with densities $\rho_1, \rho_2$ and velocities $c_1, c_2$.
@@ -134,12 +179,12 @@ The reflection coefficient $R$ depends only on the impedance **contrast** across
 For small impedance contrasts ($\Delta Z \ll \bar{Z}$), we write $Z_2 = \bar{Z} + \tfrac{1}{2}\Delta Z$ and $Z_1 = \bar{Z} - \tfrac{1}{2}\Delta Z$, where $\bar{Z} = \tfrac{1}{2}(Z_1 + Z_2)$:
 
 $$
-R = \frac{Z_2 - Z_1}{Z_2 + Z_1} = \frac{\Delta Z}{2\bar{Z}} \approx \frac{1}{2}\frac{\Delta Z}{\bar{Z}}
+R = \frac{Z_2 - Z_1}{Z_2 + Z_1} = \frac{\Delta Z}{2\bar{Z}} 
 $$
 
 . . .
 
-Equivalently, since $\Delta \ln Z \approx \Delta Z / \bar{Z}$ for small contrasts:
+Since $\Delta \ln Z \approx \Delta Z / \bar{Z}$ for small contrasts:
 
 $$
 \boxed{R \approx \frac{1}{2}\Delta \ln Z}
@@ -150,7 +195,7 @@ $$
 **Two equivalent expressions for the linearized acoustic reflection coefficient:**
 
 ::: {.incremental}
-- In terms of impedance contrast: $R \approx \frac{1}{2}\frac{\Delta Z}{\bar{Z}}$
+- In terms of impedance contrast: $R = \frac{1}{2}\frac{\Delta Z}{\bar{Z}}$
 - In terms of log-impedance: $R \approx \frac{1}{2}\Delta \ln Z$
 :::
 
@@ -171,23 +216,6 @@ The linearized reflection coefficient $R \approx \frac{1}{2}\Delta\ln Z$ is a go
 The linearized approximation is the foundation of AVO inversion. Its validity depends on the media having **small relative contrasts** in density and velocity across interfaces.
 :::
 
-## Non-Ray Amplitude Effects {.smaller}
-
-Beyond the ray-theoretical amplitude factors, several **wave-equation effects** influence recorded amplitudes:
-
-::: {.incremental}
-- **Multiple reflections** — interfering arrivals from multiple bounces
-- **Thin-layer effects** — showing up as dispersion and apparent damping
-- **Dispersive surface waves** — guided modes with frequency-dependent velocity
-- **Resonances** — constructive interference in layered structures
-<!-- - **Evanescent waves** — non-propagating near-field contributions -->
-:::
-
-. . .
-
-::: {.callout-note}
-These effects are **not captured** by the linearized convolutional model. Accounting for them requires full-waveform modeling or specialized corrections.
-:::
 
 # Part II — Linearized Acoustic Inversion {background-color="#2c3e50" style="color: white;"}
 
@@ -285,7 +313,7 @@ $$ -->
 
 . . .
 
-![](figures_lin/seismic-inversion-intuitive.png){fig-align="center" width="55%"}
+![](figures/seismic-inversion-intuitive.png){fig-align="center" width="55%"}
 
 The low-frequency background comes from well logs or velocity analysis, and the band-limited perturbation is inverted from the seismic data.
 
@@ -294,8 +322,8 @@ The low-frequency background comes from well logs or velocity analysis, and the 
 :::: {.columns}
 ::: {.column width="70%"}
 
-<!-- ![](figures_lin/marlin-field-impedance.png){fig-align="center" width="100%"} -->
-![](figures_lin/marlin.png){fig-align="center" width="100%"}
+<!-- ![](figures/marlin-field-impedance.png){fig-align="center" width="100%"} -->
+![](figures/marlin.png){fig-align="center" width="100%"}
 
 :::
 ::: {.column width="30%"}
@@ -303,13 +331,57 @@ The low-frequency background comes from well logs or velocity analysis, and the 
 Inverted **P-impedance section** over the Marlin Field, Gulf of Mexico.
 
 - All wells correlate with amplitude anomalies
-- Impedance inversion reveals gas-bearing zones
+- Impedance inversion reveals gas-bearing zones at A1 and A6. Why?
 - From @russell2006
 
 :::
 ::::
 
 # Part III — Elastic Wave Equation & Zoeppritz {background-color="#2c3e50" style="color: white;"}
+
+## Goals
+
+- Relate changes in the elastic properties to angle/offset/ray-parameter dependence of seismic amplitudes.
+
+- Introduce elastic reflection coefficients derived from imposing boundary conditions at solid-solid interfaces.
+
+## Stress–Strain Relations and the Stiffness Tensor {.smaller .scrollable}
+
+The most general **linear elastic** stress–strain relationship (generalized Hooke's law) is:
+
+$$
+\tau_{ij} = c_{ijkl}\,\varepsilon_{kl}
+$$
+
+where $c_{ijkl}$ is the **fourth-order elastic stiffness tensor** with $3^4 = 81$ components.
+
+. . .
+
+**Symmetry reductions:**
+
+::: {.incremental}
+
+- **Stress symmetry** ($\tau_{ij} = \tau_{ji}$) $\;\Rightarrow\;$ $c_{ijkl} = c_{jikl}$ — reduces to 54 components
+- **Strain symmetry** ($\varepsilon_{kl} = \varepsilon_{lk}$) $\;\Rightarrow\;$ $c_{ijkl} = c_{ijlk}$ — reduces to 36 components
+- **Strain energy symmetry** ($c_{ijkl} = c_{klij}$) — reduces to **21 independent** components
+
+:::
+
+. . .
+
+For an **isotropic** medium, symmetry under arbitrary rotation leaves only **2 independent** parameters — the Lamé constants $\lambda$ and $\mu$:
+
+$$
+c_{ijkl} = \lambda\,\delta_{ij}\delta_{kl} + \mu\left(\delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk}\right)
+$$
+
+. . .
+
+Substituting into $\tau_{ij} = c_{ijkl}\,\varepsilon_{kl}$ gives **Hooke's law for isotropic media**:
+
+$$
+\boxed{\tau_{ij} = \lambda\,\delta_{ij}\,\varepsilon_{kk} + 2\mu\,\varepsilon_{ij} = \lambda\,\delta_{ij}\,\nabla\cdot\mathbf{u} + \mu\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\right)}
+$$
 
 ## The Elastic Wave Equation {.smaller}
 
@@ -327,7 +399,7 @@ $$
 \boxed{\rho\,\frac{\partial^2\mathbf{u}}{\partial t^2} = (\lambda + \mu)\,\nabla(\nabla\cdot\mathbf{u}) + \mu\,\nabla^2\mathbf{u}}
 $$
 
-## Bulk and Shear Modulus, P- and S-Wave Speeds {.smaller}
+## Bulk & Shear Modulus, P- & S-Wave Speeds {.smaller}
 
 The elastic medium is characterized by density $\rho(\mathbf{r})$, bulk modulus $K(\mathbf{r})$, and shear modulus $\mu(\mathbf{r})$.
 
@@ -342,7 +414,7 @@ $$
 \alpha = c_P = \sqrt{\frac{K + \frac{4}{3}\mu}{\rho}} = \sqrt{\frac{\lambda + 2\mu}{\rho}}
 $$
 
-![](figures_lin/p-wave-particle-motion.png){fig-align="center" width="85%"}
+![](figures/p-wave-particle-motion.png){fig-align="center" width="85%"}
 
 :::
 ::: {.column width="50%"}
@@ -353,7 +425,7 @@ $$
 \beta = c_S = \sqrt{\frac{\mu}{\rho}}
 $$
 
-![](figures_lin/s-wave-particle-motion.png){fig-align="center" width="85%"}
+![](figures/s-wave-particle-motion.png){fig-align="center" width="85%"}
 
 :::
 ::::
@@ -380,6 +452,45 @@ $$
 ## Key result
 P-waves propagate with velocity $c_P = \sqrt{(\lambda+2\mu)/\rho}$ and involve compressional motion. S-waves propagate with velocity $c_S = \sqrt{\mu/\rho}$ and involve shear motion. Since $\lambda + 2\mu > \mu$, we always have $c_P > c_S$.
 :::
+
+## Acoustic and Elastic Impedance {.smaller}
+
+In the **acoustic** (fluid) case, impedance is defined as:
+
+$$
+Z_P = \rho\,\alpha
+$$
+
+which governs normal-incidence P-wave reflections: $R = (Z_{P,2} - Z_{P,1})/(Z_{P,2} + Z_{P,1})$.
+
+. . .
+
+In the **elastic** (solid) case, there is also a **shear impedance**:
+
+$$
+Z_S = \rho\,\beta
+$$
+
+. . .
+
+:::: {.columns}
+::: {.column width="50%"}
+
+| Quantity | Symbol | Definition |
+|:---------|:------:|:-----------|
+| P-impedance | $Z_P$ | $\rho\,\alpha$ |
+| S-impedance | $Z_S$ | $\rho\,\beta$ |
+| Impedance ratio | $Z_S/Z_P$ | $\beta/\alpha$ |
+
+:::
+::: {.column width="50%"}
+
+::: {.callout-note}
+At normal incidence, only $Z_P$ matters. At oblique incidence, the reflection coefficients depend on **both** $Z_P$ and $Z_S$ — this is the physical basis for AVO analysis.
+:::
+
+:::
+::::
 
 ## Boundary Conditions at an Elastic Interface {.smaller}
 
@@ -426,7 +537,7 @@ lead to a system of equations coupling the amplitudes of all reflected and trans
 ```
 ::: -->
 
-![Adapted from Eric Verschuur](figures_lin/snell.png)
+![Adapted from Eric Verschuur](figures/snell.png)
 
 :::
 ::: {.column width="50%"}
@@ -442,6 +553,14 @@ All angles are related through Snell's law via the common **ray parameter** $p$.
 
 :::
 ::::
+
+## Goals
+
+- Get information on the elastic properties rather than the locations of the reflectors alone.
+ 
+- Use information that reflection coefficients depend on the angle/ray-parameter (=offset).
+ 
+- Devise an inversion scheme and workflow to estimate fluctuations in the elastic properties.
 
 ## Reflection and Transmission Coefficients {.smaller}
 
@@ -484,6 +603,32 @@ The exact expressions for $R_{PP}$, $R_{PS_V}$, $T_{PP}$, $T_{PS_V}$ (and simila
 
 These equations express each reflection and transmission coefficient as a nonlinear function of $\rho_1, \rho_2, \alpha_1, \alpha_2, \beta_1, \beta_2$ and the angle of incidence. For **small contrasts** across the interface, the Zoeppritz equations can be **linearized** in the logarithmic perturbations $\Delta\ln\rho$, $\Delta\ln\alpha$, and $\Delta\ln\beta$.
 
+## The Zoeppritz Matrix System {.smaller .scrollable}
+
+For an incident P-wave, the four unknown amplitudes $R_{PP}$, $R_{PS}$, $T_{PP}$, $T_{PS}$ satisfy a $4\times 4$ linear system derived from the boundary conditions:
+
+$$
+\begin{pmatrix}
+-\sin\theta_1 & -\cos\phi_1 & \sin\theta_2 & \cos\phi_2 \\
+\cos\theta_1 & -\sin\phi_1 & \cos\theta_2 & -\sin\phi_2 \\
+\sin 2\theta_1 & \frac{\beta_1}{\alpha_1}\cos 2\phi_1 & \frac{\rho_2\beta_2^2\alpha_1}{\rho_1\beta_1^2\alpha_2}\sin 2\theta_2 & \frac{\rho_2\beta_2\alpha_1}{\rho_1\beta_1^2}\cos 2\phi_2 \\
+-\cos 2\phi_1 & \frac{\beta_1}{\alpha_1}\sin 2\phi_1 & \frac{\rho_2\alpha_1}{\rho_1\alpha_2}\cos 2\phi_2 & -\frac{\rho_2\beta_2\alpha_1}{\rho_1\alpha_2\beta_1}\sin 2\phi_2
+\end{pmatrix}
+\begin{pmatrix} R_{PP} \\ R_{PS} \\ T_{PP} \\ T_{PS} \end{pmatrix}
+=
+\begin{pmatrix} \sin\theta_1 \\ \cos\theta_1 \\ -\sin 2\theta_1 \\ \cos 2\phi_1 \end{pmatrix}
+$$
+
+. . .
+
+where the angles follow from Snell's law: $\sin\theta_1/\alpha_1 = \sin\phi_1/\beta_1 = \sin\theta_2/\alpha_2 = \sin\phi_2/\beta_2 = p$.
+
+. . .
+
+::: {.callout-note}
+The Zoeppritz equations are exact but **nonlinear** in the medium parameters (through the angle dependencies). Direct inversion is impractical — hence the need for linearization.
+:::
+
 ## Linearization of Zoeppritz for Small Contrasts {.smaller}
 
 For **small contrasts**, the Zoeppritz equations can be linearized in $\Delta\ln\rho$, $\Delta\ln\alpha$, and $\Delta\ln\beta$ [@aki1980; @aki2002].
@@ -506,6 +651,42 @@ $$
 In reflection recordings over low-contrast media, the **leading amplitudes are $O(\delta)$**. These arrivals have been reflected only once and have not been mode-converted on transmission. Mode conversion may occur upon reflection ($R_{PS}$, $R_{SP}$).
 :::
 
+## Linearized Reflection Coefficients — All Modes {.smaller .scrollable}
+
+For small contrasts $\Delta\ln\rho$, $\Delta\ln\alpha$, $\Delta\ln\beta$ and using $\gamma = \beta_0/\alpha_0$, the linearized reflection coefficients are [@aki1980; @aki2002]:
+
+. . .
+
+**P-to-P reflection** ($R_{PP}$):
+
+$$
+R_{PP}(p) = \frac{1}{2}\left(1 - 4\beta_0^2 p^2\right)\Delta\ln\rho + \frac{1}{2\left(1 - \alpha_0^2 p^2\right)}\Delta\ln\alpha - 4\beta_0^2 p^2\,\Delta\ln\beta
+$$
+
+. . .
+
+**P-to-SV reflection** ($R_{PS}$):
+
+$$
+R_{PS}(p) = -\frac{p\,\alpha_0}{2\cos\phi}\left[\left(1 - 2\beta_0^2 p^2 + 2\beta_0^2\frac{p\cos\theta}{\alpha_0}\frac{p\cos\phi}{\beta_0}\right)\Delta\ln\rho + \frac{4\beta_0^2 p^2\cos\theta\cos\phi}{\alpha_0\beta_0\,p^2}\,\Delta\ln\alpha + \left(1 - 2\beta_0^2 p^2 + 2\frac{\beta_0\cos\phi}{\alpha_0\cos\theta}\right)\Delta\ln\beta\right]
+$$
+
+where $\cos\theta = \sqrt{1 - \alpha_0^2 p^2}$ and $\cos\phi = \sqrt{1 - \beta_0^2 p^2}$.
+
+. . .
+
+**SV-to-SV reflection** ($R_{SS}$):
+
+$$
+R_{SS}(p) = -\frac{1}{2}\left(1 - 4\beta_0^2 p^2\right)\Delta\ln\rho + 4\beta_0^2 p^2\,\Delta\ln\alpha + \frac{1}{2}\frac{1}{1 - \beta_0^2 p^2}\Delta\ln\beta
+$$
+
+. . .
+
+::: {.callout-note}
+For AVO inversion, the **PP reflection** is most commonly used because P-wave sources and receivers dominate exploration seismology. The other modes are important for multicomponent (ocean-bottom) data.
+:::
+
 # Part IV — Linearized Convolutional Model {background-color="#2c3e50" style="color: white;"}
 
 ## The Background Medium {.smaller}
@@ -523,12 +704,20 @@ In the linearized model, traveltimes $t_i$ are computed in a **background medium
 - Obtained from velocity analysis, well logs, or tomography
 :::
 
-. . .
+## Well $c_p$ + smoothed well
 
-![](figures_lin/smooth-background-velocity-profile.jpeg){fig-align="center" width="55%"}
+![](figures/well.png){fig-align="center" width="55%"}
+
+
+## Traveltimes
+
+![](figures/traveltimes.png){fig-align="center" width="60%"}
+
 
 ::: aside
-Smooth inhomogeneous background (red) eliminates ~95% of kinematic inaccuracy compared to the true velocity (blue).
+$\Delta t=\int_0^z\mathrm{d}z' \frac{1}{\alpha(z')}-\frac{1}{\alpha_0(z')}$
+
+Smooth inhomogeneous background (yellow) eliminates ~95% of kinematic inaccuracy compared to the true velocity (blue).
 :::
 
 ## Linearized $R_{PP}$ in the Ray-Parameter Domain {.smaller}
@@ -553,34 +742,35 @@ $$
 
 The property contrasts across the $i$-th interface are: $\Delta\ln\rho_i$, $\Delta\ln\alpha_i$, and $\Delta\ln\beta_i$.
 
-## Structure of the Linearized $R_{PP}$ {.smaller}
+## Structure of the Linearized $R_{PP}$ — The $\mathbf{M}$ Matrix {.smaller .scrollable} 
 
-The Aki–Richards $R_{PP}$ can be written as a **linear combination** of three contrasts with $p$-dependent weights:
+At the $i$-th interface, the linearized $R_{PP}$ is a **linear combination** of three contrasts. Writing this as a matrix–vector product:
 
 $$
-R_{PP}(p) = w_\rho(p)\,\Delta\ln\rho + w_\alpha(p)\,\Delta\ln\alpha + w_\beta(p)\,\Delta\ln\beta
+R_{PP}^{(i)}(p) = \underbrace{\begin{pmatrix} \tfrac{1}{2}(1 - 4\beta_0^2 p^2) & \tfrac{1}{2(1 - \alpha_0^2 p^2)} & -4\beta_0^2 p^2 \end{pmatrix}}_{\text{row of } \mathbf{M}(p)} \begin{pmatrix} \Delta\ln\rho_i \\ \Delta\ln\alpha_i \\ \Delta\ln\beta_i \end{pmatrix}
 $$
 
 . . .
 
-where the weights are:
+At **normal incidence** ($p = 0$), the matrix reduces to:
 
-| Weight | Expression | At $p=0$ (normal incidence) |
-|:---|:---|:---|
-| $w_\rho(p)$ | $\frac{1}{2}(1 - 4\beta_0^2 p^2)$ | $\frac{1}{2}$ |
-| $w_\alpha(p)$ | $\frac{1}{2}(1 - \alpha_0^2 p^2)^{-1}$ | $\frac{1}{2}$ |
-| $w_\beta(p)$ | $-4\beta_0^2 p^2$ | $0$ |
+$$
+\mathbf{M}(0) = \begin{pmatrix} \tfrac{1}{2} & \tfrac{1}{2} & 0 \end{pmatrix} \quad \Rightarrow \quad R_{PP}^{(i)}(0) = \tfrac{1}{2}\bigl(\Delta\ln\rho_i + \Delta\ln\alpha_i\bigr) = \tfrac{1}{2}\Delta\ln Z_P
+$$
+
+recovering the **acoustic result**. The shear contribution enters only at oblique incidence ($p > 0$).
 
 . . .
 
 ::: {.callout-note}
-At **normal incidence** ($p=0$), $R_{PP} = \frac{1}{2}(\Delta\ln\rho + \Delta\ln\alpha) = \frac{1}{2}\Delta\ln Z_P$, recovering the acoustic result. The **shear information** enters only at oblique incidence.
+The matrix $\mathbf{M}(p)$ encodes the **sensitivity** of the reflection coefficient to each elastic parameter. At normal incidence only $\rho$ and $\alpha$ contribute; at oblique incidence all three parameters are needed.
 :::
 
 ## Linearized Convolutional Model in $\tau$-$p$ {.smaller}
 
 For each ray parameter $p_j$ ($j = 1, \ldots, N_p$), the data at the $i$-th interface is:
 
+{CLAUDE: Make this equation consistent with the notation of the previous slide.}
 $$
 \hat{s}(p_j; \tau) = \sum_i \left[w_\rho(p_j)\,\Delta\ln\rho_i + w_\alpha(p_j)\,\Delta\ln\alpha_i + w_\beta(p_j)\,\Delta\ln\beta_i\right] w(\tau - t_i)
 $$
@@ -590,16 +780,20 @@ $$
 In matrix form for all ray parameters and interfaces:
 
 $$
-\boxed{\hat{\mathbf{s}} = \mathbf{M}\,\mathbf{x}}
+\boxed{\hat{\mathbf{s}} = \mathbf{M}\,\mathbf{m}}
 $$
 
 where:
 
 - $\hat{\mathbf{s}}$ is the vector of $\tau$-$p$ data (for all $p$ values)
 - $\mathbf{M}$ encodes the wavelet convolution and the $p$-dependent weighting
-- $\mathbf{x} = \begin{pmatrix} \Delta\ln\rho(z) \\ \Delta\ln\alpha(z) \\ \Delta\ln\beta(z) \end{pmatrix}$ is the vector of property contrasts
+- $\mathbf{m} = \begin{pmatrix} \Delta\ln\rho(z) \\ \Delta\ln\alpha(z) \\ \Delta\ln\beta(z) \end{pmatrix}$ is the vector of property contrasts
+
+<!-- {CLAUDE: please add damped least squares inversion for $\mathbf{m}$.} -->
 
 # Part V — AVO/AVP Inversion Workflow {background-color="#2c3e50" style="color: white;"}
+
+<!-- {CLAUDE: Add detailed descriptions of AVO, AVA and AVP workflows. Introduce different processing steps. Add table that compares worklows } -->
 
 ## AVP Inversion — Overview {.smaller}
 
@@ -609,7 +803,12 @@ $$
 \hat{s}(p;\tau) = \sum_i R_i(p)\,w[\tau - t_i(p)]
 $$
 
-where $R_{PP}(p)$ is the Aki–Richards linearized P-to-P reflection coefficient — a **linear combination** of $\Delta\ln\rho$, $\Delta\ln\alpha$, and $\Delta\ln\beta$ with $p$-dependent weights. The plane-wave decomposition via the **linear Radon transform** provides the data in the required $\tau$-$p$ domain, linking recorded amplitudes directly to subsurface property contrasts.
+where $R_{PP}(p)$ is the Aki–Richards linearized P-to-P reflection coefficient — a **linear combination** of $\Delta\ln\rho$, $\Delta\ln\alpha$, and $\Delta\ln\beta$ with $p$-dependent weights. 
+
+The plane-wave decomposition via the **linear Radon transform** provides the data in the required $\tau$-$p$ domain.
+
+Links recorded amplitudes directly to subsurface property contrasts.
+
 
 ## The Linear Radon Transform {.smaller}
 
@@ -623,10 +822,10 @@ $$
 
 :::: {.columns}
 ::: {.column width="50%"}
-![](figures_lin/radon-transform-xt.png){fig-align="center" width="95%"}
+![](figures/radon-transform-xt.png){fig-align="center" width="95%"}
 :::
 ::: {.column width="50%"}
-![](figures_lin/radon-transform-taup.png){fig-align="center" width="95%"}
+![](figures/radon-transform-taup.png){fig-align="center" width="95%"}
 :::
 ::::
 
@@ -649,40 +848,57 @@ The AVP inversion workflow involves three stages:
 After back-propagation and Radon transform, the focused amplitudes approximate the **plane-wave reflection coefficient**:
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="30%"}
 
-![](figures_lin/focused-reflection-xt.png){fig-align="center" width="95%"}
-
-:::
-::: {.column width="50%"}
-
-![](figures_lin/focused-radon-amplitudes.png){fig-align="center" width="95%"}
+![Focussed point](figures/focused-reflection-xt.png){fig-align="center" width="90%"}
 
 :::
+::: {.column width="30%"}
+
+![After Radon transform](figures/focused-reflection-taup){fig-align="center" width="95%"}
+
+:::
+
+::: {.column width="30%"}
+
+![Amplitudes $\approx$ $R_{pp}(p)$](figures/focused-radon-amplitudes.png){fig-align="center" width="95%"}
+
+:::
+
 ::::
 
 . . .
 
 ::: {.callout-note}
-After back-propagation, the focused point in $x$-$t$ maps to a focused point in $\tau$-$p$, where the **amplitudes approximate the reflection coefficients** $R_i(p)$ convolved with a stretched wavelet.
+After back-propagation, the focused point in $x$-$t$ maps to a focused point in $\tau$-$p$, where the **amplitudes approximate the reflection coefficients** $R_i(p)$ convolved with a stretched wavelet [@vanwijngaarden1998].
 :::
+
+## Shot data and migrated data in $(\tau-p)$
+
+![After @vanwijngaarden1998](figures/data-xt-focused-taup){fig-align="center" width="60%"}
+
 
 ## Least-Squares Linear Inversion {.smaller}
 
 Given the forward model $\hat{\mathbf{s}} = \mathbf{M}\,\mathbf{x}$, the **least-squares solution** is:
 
 $$
-\hat{\mathbf{x}} = \left(\mathbf{M}^\top\mathbf{M}\right)^{-1}\mathbf{M}^\top\hat{\mathbf{s}}
+\hat{\mathbf{m}} = \left(\mathbf{M}^\top\mathbf{M}\right)^{-1}\mathbf{M}^\top\hat{\mathbf{s}}
 $$
 
 . . .
 
-where $\mathbf{x} = (\Delta\ln\rho,\;\Delta\ln\alpha,\;\Delta\ln\beta)^\top$ stacked over all $N_z$ depth points.
+where $\mathbf{m} = (\Delta\ln\rho,\;\Delta\ln\alpha,\;\Delta\ln\beta)^\top$ stacked over all $N_z$ depth points.
 
 The system has $3N_z$ unknowns ($\Delta\ln\rho$, $\Delta\ln\alpha$, $\Delta\ln\beta$ at each of $N_z$ depth points) and $N_p \times N_z$ data samples.
 
 - When $N_p \geq 3$, the system is **overdetermined** in the $p$-direction
 - But $\mathbf{M}^\top\mathbf{M}$ may still be **ill-conditioned**, requiring regularization
+
+## Inversion results
+
+![Left: after migration and Radon. Right: inverted contrasts](figures/linearized-inversion-results.png)
+
 
 ## Damped Least-Squares Inversion {.smaller}
 
@@ -735,12 +951,82 @@ $$
 The quality of the absolute property estimate depends critically on the accuracy of the **background model** $\rho_0(z)$, $\alpha_0(z)$, $\beta_0(z)$.
 :::
 
+
+## Synthetic Example: 1.5D Layered Model{.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+![](figures/synthetic-1d-model.jpeg){fig-align="center" width="95%"}
+
+:::
+::: {.column width="50%"}
+
+Horizontally layered model with smooth curves representing the **background model**.
+
+. . .
+
+- Source: zero-phase wavelet with realistic bandwidth
+- Inversion in the $\tau$-$p$ domain
+- Compare predicted vs. actual properties
+
+:::
+::::
+
+## Data + residual time & imaged domain {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Time-domain**
+
+![](figures/time-domain-inversion-residual.png){fig-align="center" width="95%"}
+
+<!-- Predicted (green) vs. actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet. -->
+
+:::
+::: {.column width="50%"}
+
+**Imaged domain**
+
+![](figures/image-domain-inversion-residual){fig-align="center" width="95%"}
+
+<!-- Adding band-limited predictions to background values. Note discrepancies due to the **spectral gap**. -->
+
+:::
+::::
+
+
+
+## Band-Limited vs. Broadband Inversions {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+**Band-limited result**
+
+![](figures/predicted-vs-actual-bandlimited.jpeg){fig-align="center" width="95%"}
+
+Predicted (green) vs. actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet.
+
+:::
+::: {.column width="50%"}
+
+**Broadband result**
+
+![](figures/predicted-vs-actual-broadband.jpeg){fig-align="center" width="95%"}
+
+Adding band-limited predictions to background values. Note discrepancies due to the **spectral gap**.
+
+:::
+::::
+
 ## The Spectral Gap {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
 
-![](figures_lin/spectral-gap.jpeg){fig-align="center" width="95%"}
+![](figures/spectral-gap.jpeg){fig-align="center" width="95%"}
 
 :::
 ::: {.column width="50%"}
@@ -763,63 +1049,19 @@ Only **nonlinear inversion** (e.g., with a sparseness constraint) or additional 
 :::
 ::::
 
-## Synthetic Example: 1.5D Layered Model
-
-:::: {.columns}
-::: {.column width="50%"}
-
-![](figures_lin/synthetic-1d-model.jpeg){fig-align="center" width="95%"}
-
-:::
-::: {.column width="50%"}
-
-Horizontally layered model with smooth curves representing the **background model**.
-
-. . .
-
-- Source: zero-phase wavelet with realistic bandwidth
-- Inversion in the $\tau$-$p$ domain
-- Compare predicted vs. actual properties
-
-:::
-::::
-
-## Band-Limited vs. Broadband Inversion Results {.smaller}
-
-:::: {.columns}
-::: {.column width="50%"}
-
-**Band-limited result**
-
-![](figures_lin/predicted-vs-actual-bandlimited.jpeg){fig-align="center" width="95%"}
-
-Predicted (green) vs. actual (blue) band-limited log properties. Spatial band-limitation is derived from the source wavelet.
-
-:::
-::: {.column width="50%"}
-
-**Broadband result**
-
-![](figures_lin/predicted-vs-actual-broadband.jpeg){fig-align="center" width="95%"}
-
-Adding band-limited predictions to background values. Note discrepancies due to the **spectral gap**.
-
-:::
-::::
-
 ## Low-Contrast Validation — Model & Data {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
 
-![](figures_lin/low-contrast-model.jpeg){fig-align="center" width="95%"}
+![](figures/low-contrast-model.jpeg){fig-align="center" width="95%"}
 
 Low-contrast model (0.01$\times$ real contrasts) with $\rho$, $v_P$, $v_S$ vs. depth. Smooth red curves show the background model.
 
 :::
 ::: {.column width="50%"}
 
-![](figures_lin/low-contrast-radon.jpeg){fig-align="center" width="95%"}
+![](figures/low-contrast-radon.jpeg){fig-align="center" width="95%"}
 
 $\tau$-$p$ Radon-domain data for the low-contrast model, showing the amplitude-versus-ray-parameter variation.
 
@@ -831,14 +1073,14 @@ $\tau$-$p$ Radon-domain data for the low-contrast model, showing the amplitude-v
 :::: {.columns}
 ::: {.column width="50%"}
 
-![](figures_lin/low-contrast-inversion-bandlimited.jpeg){fig-align="center" width="95%"}
+![](figures/low-contrast-inversion-bandlimited.jpeg){fig-align="center" width="95%"}
 
 For very low contrasts (0.01$\times$ real), the linearized inversion performs **excellently** — validating the method.
 
 :::
 ::: {.column width="50%"}
 
-![](figures_lin/low-contrast-inversion-broadband.jpeg){fig-align="center" width="95%"}
+![](figures/low-contrast-inversion-broadband.jpeg){fig-align="center" width="95%"}
 
 Even with near-perfect linear inversion, the **spectral gap** still causes discrepancies in the broadband result.
 
@@ -850,14 +1092,14 @@ Even with near-perfect linear inversion, the **spectral gap** still causes discr
 :::: {.columns}
 ::: {.column width="50%"}
 
-![](figures_lin/real-data-shot-stacked.jpeg){fig-align="center" width="95%"}
+![](figures/real-data-shot-stacked.jpeg){fig-align="center" width="95%"}
 
 Input processed surface shot record and stacked section.
 
 :::
 ::: {.column width="50%"}
 
-![](figures_lin/real-data-inversion-results.png){fig-align="center" width="95%"}
+![](figures/real-data-inversion-results.png){fig-align="center" width="95%"}
 
 Linear elastic inversion results of redatumed data at top of target interval. (MSc thesis work by Xander Staal)
 
@@ -888,7 +1130,7 @@ The complete workflow for linearized AVO/AVP inversion:
 
 :::
 
-## Summary {.smaller}
+## Summary {.smaller .scrollable}
 
 :::: {.columns}
 ::: {.column width="50%"}
