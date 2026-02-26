@@ -1,6 +1,6 @@
 ---
 title: "Acoustic and Elastic Imaging"
-date: "Friday 13, 2026"
+date: "February 13, 2026"
 categories: "Lab"
 resources:
   - 04Lab/Exercise4.ipynb
