@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="Felix J. Herrmann">
+  <meta name="dcterms.date" content="2026-03-02">
+  <title>Seismic Exploration Methods – Reverse-Time Migration</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-832775eafbd512325564c8c290c39367.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Reverse-Time Migration</h1>
+  <p class="subtitle">RTM via the Discretize-Then-Optimize Approach</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felix J. Herrmann 
+</div>
+        <p class="quarto-title-affiliation">
+            Schools of EAS, CSE, ECE — Georgia Institute of Technology
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-03-02</p>
+</section>
+<section id="motivation" class="slide level2 smaller center">
+<h2>Motivation</h2>
+<p>Seismic migration aims to move reflected energy to its true subsurface location. Not all migration methods handle complex geology equally well.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Kirchhoff</strong></td>
+<td>Fast, flexible geometry, parallelizable</td>
+<td>Fails with multipathing, poor in complex media</td>
+</tr>
+<tr class="even">
+<td><strong>Gaussian Beam</strong></td>
+<td>Handles multipathing, smooth amplitudes</td>
+<td>Limited accuracy in sharp velocity contrasts</td>
+</tr>
+<tr class="odd">
+<td><strong>One-way WEM</strong></td>
+<td>Accurate for lateral velocity variations</td>
+<td>Cannot image steep dips (&gt;90°), no turning waves</td>
+</tr>
+<tr class="even">
+<td><strong>RTM</strong></td>
+<td>Full wave equation, all dips and turning waves</td>
+<td>Computationally expensive, low-frequency artifacts</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="overview-different-migration-methods" class="slide level2 center">
+<h2>Overview different Migration Methods</h2>
+
+<img data-src="figures/Overview-migrations.png" style="width:250.0%" class="r-stretch quarto-figure-center"><p class="caption">Overview of migration methods <span class="citation" data-cites="hill2020">(<a href="#/references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>)</span></p></section>
+<section id="impulse-responses" class="slide level2 smaller center">
+<h2>Impulse Responses</h2>
+
+<img data-src="figures/Wavefields.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">(a) Kirchhoff migration. (b) Gaussian beam migration. (c) One-way wave-equation migration. (d) Reverse-time migration. As the migration method becomes more accurate, the impulse response becomes more complex. <span class="citation" data-cites="etgen2009">(<a href="#/references" role="doc-biblioref" onclick="">Etgen, Gray, and Zhang 2009</a>)</span></p><p>Impulse responses for four migration methods on the <strong>Sigsbee escarpment model</strong>, a common industry migration benchmark <span class="citation" data-cites="hill2020">(<a href="#/references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>)</span>.</p>
+</section>
+<section id="impulse-responses-1" class="slide level2 smaller center">
+<h2>Impulse Responses</h2>
+<ul>
+<li><strong>Kirchhoff</strong>: single-valued wavefront (one ray per angle); discontinuous in the presence of large velocity contrasts</li>
+<li><strong>Gaussian Beam</strong>: smooth, continuous wavefronts that handle multipathing better than Kirchhoff but with limited resolution at sharp velocity boundaries</li>
+<li><strong>One-way Wave-equation Migration</strong>: multi-valued wavefront captures complex wave paths; no internal reflections; smooth, gradational changes instead of discontinuities</li>
+<li><strong>Two-way (RTM)</strong>: most complex and accurate; includes reflections from salt-sediment interfaces; practitioners suppress these by setting zero reflection coefficients in the density model</li>
+</ul>
+</section>
+<section id="different-migration-methods" class="slide level2 smaller center">
+<h2>Different Migration Methods</h2>
+
+<img data-src="figures/Comparison-4-Kirch-Gaussian-One-way-RTM.png" style="width:200.0%" class="r-stretch quarto-figure-center"><p class="caption">Kirchhoff, Gaussian Beam, One-way WEM, and RTM comparison <span class="citation" data-cites="etgen2009">(<a href="#/references" role="doc-biblioref" onclick="">Etgen, Gray, and Zhang 2009</a>)</span></p><ul>
+<li><strong>Kirchhoff</strong> and <strong>Gaussian Beam</strong> struggle beneath complex salt bodies</li>
+<li><strong>Gaussian Beam</strong> migration provides smoother results than Kirchhoff but still degrades beneath complex salt geometries</li>
+<li><strong>One-way</strong> migration improves subsalt imaging but misses steep dips</li>
+<li><strong>RTM</strong> produces the most complete and accurate image</li>
+</ul>
+</section>
+<section id="kirchhoff-vs.-rtm" class="slide level2 smaller center">
+<h2>Kirchhoff vs.&nbsp;RTM</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Compare-kirchoff.png"></p>
+<figcaption>Kirchhoff migration</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Compare-RTM.png"></p>
+<figcaption>Reverse-Time Migration</figcaption>
+</figure>
+</div>
+</div></div>
+<p>Kirchhoff migration vs.&nbsp;RTM on a complex salt model <span class="citation" data-cites="hill2020">(<a href="#/references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>)</span>.</p>
+</section>
+<section id="kirchhoff-vs.-rtm-contd" class="slide level2 smaller center">
+<h2>Kirchhoff vs.&nbsp;RTM cont’d</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Compare-2-Kirchhoff.png"></p>
+<figcaption>Kirchhoff migration</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Comare-2-RTM.png"></p>
+<figcaption>Reverse-Time Migration</figcaption>
+</figure>
+</div>
+</div></div>
+<p>Kirchhoff vs.&nbsp;RTM — another example <span class="citation" data-cites="hill2020">(<a href="#/references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>)</span>.</p>
+</section>
+<section id="one-way-vs.-rtm" class="slide level2 smaller center">
+<h2>One-way vs.&nbsp;RTM</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Compare-3-one-way.png"></p>
+<figcaption>One-way wave-equation migration</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Compare-3-RTM.png"></p>
+<figcaption>Reverse-Time Migration</figcaption>
+</figure>
+</div>
+</div></div>
+<p>One-way WEM vs.&nbsp;RTM <span class="citation" data-cites="hill2020">(<a href="#/references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>)</span>.</p>
+</section>
+<section id="rtm-in-words" class="slide level2 smaller center">
+<h2>RTM in words</h2>
+<p>RTM in four steps <span class="citation" data-cites="zhou2018">(<a href="#/references" role="doc-biblioref" onclick="">Zhou et al. 2018</a>)</span>:</p>
+<ol type="1">
+<li><strong>Forward propagation</strong> — propagate the source wavelet forward in time through the velocity model using the two-way wave equation</li>
+<li><strong>Backward propagation</strong> — inject the time-reversed recorded data at receiver locations and propagate backward through the same velocity model; stack contributions from all receivers</li>
+<li><strong>Imaging condition</strong> — cross-correlate the forward and backward wavefields at every subsurface point; the zero-lag correlation values form the image for each shot</li>
+<li><strong>Post-processing</strong> — apply a Laplacian filter to suppress low-frequency artifacts in the stacked RTM image</li>
+</ol>
+</section>
+<section id="outline" class="slide level2 smaller center">
+<h2>Outline</h2>
+<ol type="1">
+<li><strong>Motivation</strong> — RTM as the gradient of an optimization problem</li>
+<li><strong>Discretize first</strong> — The wave equation as a matrix system</li>
+<li><strong>The objective</strong> — Least-squares misfit in vectors</li>
+<li><strong>The Lagrangian</strong> — Constrained optimization with multipliers</li>
+<li><strong>Three partial derivatives</strong> — Adjoint equation + gradient via calculus</li>
+<li><strong>What is <span class="math inline">\(\frac{\partial \mathbf{A}}{\partial m_i}\)</span>?</strong> — Anatomy of the key matrix</li>
+<li><strong>RTM algorithm</strong> — Putting it together</li>
+<li><strong>From RTM to FWI</strong> — Iteration and the Hessian</li>
+</ol>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>This lecture follows the discretize-then-optimize philosophy: we discretize the wave equation first, then apply standard multivariate calculus. No functional analysis, no Fréchet derivatives — just vectors, matrices, and the chain rule.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="philosophy-two-routes-to-the-gradient" class="slide level2 smaller center">
+<h2>Philosophy: Two Routes to the Gradient</h2>
+<h3 id="optimize-then-discretize">Optimize-then-discretize</h3>
+<p><span class="math display">\[
+\text{PDE} \;\xrightarrow{\text{variations}}\; \text{continuous gradient} \;\xrightarrow{\text{discretize}}\; \text{code}
+\]</span></p>
+<h3 id="discretize-then-optimize">Discretize-then-optimize</h3>
+<p><span class="math display">\[
+\text{PDE} \;\xrightarrow{\text{discretize}}\; \text{matrix system} \;\xrightarrow{\partial / \partial m_i}\; \text{gradient vector}
+\]</span></p>
+<p>. . .</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Why this route?</strong></p>
+</div>
+<div class="callout-content">
+<p>Everything is finite-dimensional. The gradient is a <strong>vector</strong> <span class="math inline">\(\nabla_{\mathbf{m}} J \in \mathbb{R}^n\)</span>, computed via <strong>partial derivatives</strong> <span class="math inline">\(\frac{\partial}{\partial m_i}\)</span> — standard multivariate calculus. No mathematical function spaces, no method of variations.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="step-1-discretize-the-wave-equation" class="slide level2 smaller center">
+<h2>Step 1: Discretize the Wave Equation</h2>
+<!-- ### From PDE to matrix system -->
+<p>Start from the acoustic wave equation <span class="math inline">\(m(\mathbf{x})\,\partial_{tt} u - \nabla^2 u = q_s\)</span> and discretize on a grid with <span class="math inline">\(n\)</span> spatial points and <span class="math inline">\(n_t\)</span> time steps.</p>
+<div class="fragment">
+<p>Stack the wavefield at all space-time points into a single vector:</p>
+<p><span class="math display">\[
+\mathbf{u}_s \in \mathbb{R}^{N}, \qquad N = n \times n_t
+\]</span></p>
+<p>The discretized wave equation becomes:</p>
+<p><span class="math display">\[
+\boxed{\mathbf{A}(\mathbf{m})\,\mathbf{u}_s = \mathbf{q}_s}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Dimensions</strong>:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{m} \in \mathbb{R}^n\)</span> — squared slowness at each grid point (what we want to find)</li>
+<li><span class="math inline">\(\mathbf{A}(\mathbf{m}) \in \mathbb{R}^{N \times N}\)</span> — discrete wave-equation matrix</li>
+<li><span class="math inline">\(\mathbf{u}_s \in \mathbb{R}^{N}\)</span> — wavefield vector</li>
+<li><span class="math inline">\(\mathbf{q}_s \in \mathbb{R}^{N}\)</span> — source vector</li>
+</ul>
+</div>
+</section>
+<section id="structure-of-mathbfamathbfm" class="slide level2 smaller center">
+<h2>Structure of <span class="math inline">\(\mathbf{A}(\mathbf{m})\)</span></h2>
+<!-- ### How does $\mathbf{m}$ enter the matrix? -->
+<p>The wave equation has two terms: <span class="math inline">\(m(\mathbf{x})\,\partial_{tt}u\)</span> (mass/inertia) and <span class="math inline">\(-\nabla^2 u\)</span> (stiffness). After discretization:</p>
+<p><span class="math display">\[
+\mathbf{A}(\mathbf{m}) = \mathbf{M}(\mathbf{m})\,\mathbf{D}_{tt} - \mathbf{L}
+\]</span></p>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(\mathbf{D}_{tt} \in \mathbb{R}^{N \times N}\)</span>: discrete second time-derivative (finite differences in <span class="math inline">\(t\)</span>)</li>
+<li><span class="math inline">\(\mathbf{L} \in \mathbb{R}^{N \times N}\)</span>: discrete Laplacian (finite differences in <span class="math inline">\(\mathbf{x}\)</span>) — <strong>does not depend on</strong> <span class="math inline">\(\mathbf{m}\)</span></li>
+<li><span class="math inline">\(\mathbf{M}(\mathbf{m}) \in \mathbb{R}^{N \times N}\)</span>: diagonal mass matrix that puts <span class="math inline">\(m_i\)</span> at every time step for grid point <span class="math inline">\(i\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key observation</strong></p>
+</div>
+<div class="callout-content">
+<p>Only <span class="math inline">\(\mathbf{M}(\mathbf{m})\)</span> depends on <span class="math inline">\(\mathbf{m}\)</span>, and it does so <strong>linearly</strong>. Changing <span class="math inline">\(m_i\)</span> at one spatial grid point affects a specific diagonal block of <span class="math inline">\(\mathbf{A}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-the-discrete-objective" class="slide level2 smaller center">
+<h2>Step 2: The Discrete Objective</h2>
+<!-- ### Receivers and data -->
+<p>A <strong>sampling matrix</strong> <span class="math inline">\(\mathbf{P} \in \mathbb{R}^{M \times N}\)</span> (<span class="math inline">\(M = n_r \times n_t\)</span>) extracts the wavefield at receiver locations:</p>
+<p><span class="math display">\[
+\mathbf{d}_s^{\text{pred}} = \mathbf{P}\,\mathbf{u}_s = \mathbf{P}\,\mathbf{A}^{-1}(\mathbf{m})\,\mathbf{q}_s
+\]</span></p>
+<div class="fragment">
+<h3 id="least-squares-misfit">Least-squares misfit</h3>
+<p><span class="math display">\[
+\boxed{J(\mathbf{m}) = \frac{1}{2}\sum_{s=1}^{n_s} \left\|\mathbf{P}\,\mathbf{u}_s - \mathbf{d}_s^{\text{obs}}\right\|_2^2}
+\]</span></p>
+<p>subject to <span class="math inline">\(\mathbf{A}(\mathbf{m})\,\mathbf{u}_s = \mathbf{q}_s\)</span> for each shot <span class="math inline">\(s\)</span>.</p>
+<p>. . .</p>
+<p><strong>Goal</strong>: compute the <strong>gradient vector</strong> <span class="math inline">\(\nabla_{\mathbf{m}} J \in \mathbb{R}^n\)</span>, i.e., all <span class="math inline">\(n\)</span> partial derivatives <span class="math inline">\(\frac{\partial J}{\partial m_i}\)</span>.</p>
+</div>
+</section>
+<section id="the-naïve-approach" class="slide level2 smaller center">
+<h2>The Naïve Approach</h2>
+<!-- ### Finite-difference gradient — correct but expensive -->
+<p>Perturb one parameter at a time:</p>
+<p><span class="math display">\[
+\frac{\partial J}{\partial m_i} \approx \frac{J(\mathbf{m} + \epsilon\,\mathbf{e}_i) - J(\mathbf{m})}{\epsilon}
+\]</span></p>
+<div class="fragment">
+<p>Each perturbation requires <strong>re-solving</strong> <span class="math inline">\(\mathbf{A}(\mathbf{m} + \epsilon\,\mathbf{e}_i)\,\mathbf{u}_s = \mathbf{q}_s\)</span> for all shots.</p>
+<p><strong>Cost</strong>: <span class="math inline">\(n \times n_s\)</span> PDE solves — one per parameter per shot.</p>
+</div>
+<div class="fragment">
+<p>For a model with <span class="math inline">\(n = 10^6\)</span> grid points and <span class="math inline">\(n_s = 10^3\)</span> shots, that’s <span class="math inline">\(10^9\)</span> PDE solves.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>This is unaffordable!</strong></p>
+</div>
+<div class="callout-content">
+<p>We need a way to get <strong>all</strong> <span class="math inline">\(n\)</span> partial derivatives from a small, fixed number of PDE solves per shot.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-3-the-lagrangian" class="slide level2 smaller center">
+<h2>Step 3: The Lagrangian</h2>
+<!-- ### Constrained optimization with multipliers -->
+<p>Introduce a vector of Lagrange multipliers <span class="math inline">\(\mathbf{v}_s \in \mathbb{R}^N\)</span> for each shot:</p>
+<p><span class="math display">\[
+\boxed{\mathcal{L}(\mathbf{m}, \{\mathbf{u}_s\}, \{\mathbf{v}_s\}) = \frac{1}{2}\sum_s \|\mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}}\|_2^2 + \sum_s \mathbf{v}_s^\top\!\left(\mathbf{A}(\mathbf{m})\,\mathbf{u}_s - \mathbf{q}_s\right)}
+\]</span></p>
+<div class="fragment">
+<p>This is a <strong>scalar-valued function</strong> of three groups of variables:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Lives in</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{m}\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^n\)</span></td>
+<td>model parameters</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbf{u}_s\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^N\)</span></td>
+<td>wavefield (one per shot)</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbf{v}_s\)</span></td>
+<td><span class="math inline">\(\mathbb{R}^N\)</span></td>
+<td>Lagrange multipliers (one per shot)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><strong>Key property</strong>: when the constraint is satisfied (<span class="math inline">\(\mathbf{A}\mathbf{u}_s = \mathbf{q}_s\)</span>), the second term vanishes and <span class="math inline">\(\mathcal{L} = J\)</span>.</p>
+</div>
+</section>
+<section id="step-4-three-sets-of-partial-derivatives" class="slide level2 smaller center">
+<h2>Step 4: Three Sets of Partial Derivatives</h2>
+<!-- ### Stationarity conditions -->
+<p>At a stationary point of <span class="math inline">\(\mathcal{L}\)</span>, we have <span class="math inline">\(\nabla_{\mathbf{m}}\mathcal{L} = \nabla_{\mathbf{m}} J\)</span>. To find it, we set the partial derivatives of <span class="math inline">\(\mathcal{L}\)</span> w.r.t. each group of variables to zero.</p>
+<div class="fragment">
+<p>We will take three derivatives:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Derivative</th>
+<th>What it gives us</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\frac{\partial \mathcal{L}}{\partial \mathbf{v}_s} = \mathbf{0}\)</span></td>
+<td>recovers the <strong>forward</strong> (state) equation</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\frac{\partial \mathcal{L}}{\partial \mathbf{u}_s} = \mathbf{0}\)</span></td>
+<td>gives the <strong>adjoint</strong> equation — determines <span class="math inline">\(\mathbf{v}_s\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\frac{\partial \mathcal{L}}{\partial m_i}\)</span></td>
+<td>gives the <span class="math inline">\(i\)</span>-th component of the <strong>gradient</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>No variations needed!</strong></p>
+</div>
+<div class="callout-content">
+<p>These are ordinary partial derivatives of a scalar function w.r.t. vector/scalar variables. Standard multivariate calculus.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivative-1-w.r.t.-mathbfv_s" class="slide level2 smaller center">
+<h2>Derivative 1: w.r.t. <span class="math inline">\(\mathbf{v}_s\)</span></h2>
+<!-- ### Recovering the state (forward) equation -->
+<p>The Lagrangian depends on <span class="math inline">\(\mathbf{v}_s\)</span> only through <span class="math inline">\(\mathbf{v}_s^\top(\mathbf{A}\mathbf{u}_s - \mathbf{q}_s)\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \mathbf{v}_s} = \mathbf{A}(\mathbf{m})\,\mathbf{u}_s - \mathbf{q}_s = \mathbf{0}
+\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[
+\boxed{\mathbf{A}(\mathbf{m})\,\mathbf{u}_s = \mathbf{q}_s}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>No surprise — this just says “the wave equation must be satisfied.” It confirms that <span class="math inline">\(\mathbf{v}_s\)</span> enforces the PDE constraint.</p>
+</div>
+</section>
+<section id="derivative-2-w.r.t.-mathbfu_s-the-adjoint-equation" class="slide level2 smaller center">
+<h2>Derivative 2: w.r.t. <span class="math inline">\(\mathbf{u}_s\)</span> — The adjoint equation</h2>
+<!-- ### The adjoint equation -->
+<p><span class="math inline">\(\mathcal{L}\)</span> depends on <span class="math inline">\(\mathbf{u}_s\)</span> through <strong>two</strong> terms. Take the derivative of each:</p>
+<div class="fragment">
+<p><strong>From the misfit term</strong> <span class="math inline">\(\frac{1}{2}\|\mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}}\|_2^2\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial \mathbf{u}_s}\left[\frac{1}{2}(\mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}})^\top(\mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}})\right] = \mathbf{P}^\top(\mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}})
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>From the constraint term</strong> <span class="math inline">\(\mathbf{v}_s^\top \mathbf{A}\mathbf{u}_s\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial}{\partial \mathbf{u}_s}\left[\mathbf{v}_s^\top \mathbf{A}\mathbf{u}_s\right] = \mathbf{A}^\top \mathbf{v}_s
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Setting the sum to zero and defining the <strong>residual</strong> <span class="math inline">\(\delta\mathbf{d}_s = \mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}}\)</span>:</p>
+<p><span class="math display">\[
+\boxed{\mathbf{A}^\top\!\mathbf{v}_s = -\mathbf{P}^\top\,\delta\mathbf{d}_s}
+\]</span></p>
+</div>
+</section>
+<section id="what-is-mathbfatop" class="slide level2 smaller center">
+<h2>What is <span class="math inline">\(\mathbf{A}^\top\)</span>?</h2>
+<!-- ### The matrix transpose = reverse-time propagation -->
+<p>Recall <span class="math inline">\(\mathbf{A} = \mathbf{M}(\mathbf{m})\,\mathbf{D}_{tt} - \mathbf{L}\)</span>, so</p>
+<p><span class="math display">\[
+\mathbf{A}^\top = \mathbf{D}_{tt}^\top\,\mathbf{M}(\mathbf{m}) - \mathbf{L}^\top
+\]</span></p>
+<div class="fragment">
+<ul>
+<li><span class="math inline">\(\mathbf{M}(\mathbf{m})\)</span> is diagonal → <span class="math inline">\(\mathbf{M}^\top = \mathbf{M}\)</span> ✓</li>
+<li><span class="math inline">\(\mathbf{L}\)</span> (Laplacian) is symmetric → <span class="math inline">\(\mathbf{L}^\top = \mathbf{L}\)</span> ✓</li>
+<li><span class="math inline">\(\mathbf{D}_{tt}\)</span> (second time derivative): transposing <strong>reverses the direction of time</strong>—i.e., the matrix transpose = reverse-time propagation</li>
+</ul>
+</div>
+<div class="fragment">
+<p>So <span class="math inline">\(\mathbf{A}^\top\)</span> is the <strong>same</strong> wave equation, but solved <strong>backward in time</strong>.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>This is the “reverse-time” in RTM!</strong></p>
+</div>
+<div class="callout-content">
+<p>The matrix transpose is all it takes. No new physics — just linear algebra.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretation-of-the-adjoint-equation" class="slide level2 smaller center">
+<h2>Interpretation of the Adjoint Equation</h2>
+<p><span class="math inline">\(\mathbf{A}^\top\mathbf{v}_s = -\mathbf{P}^\top\delta\mathbf{d}_s\)</span></p>
+<div class="fragment">
+<p><strong>Right-hand side</strong> <span class="math inline">\(-\mathbf{P}^\top\delta\mathbf{d}_s\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\delta\mathbf{d}_s \in \mathbb{R}^M\)</span>: data residual (predicted minus observed)</li>
+<li><span class="math inline">\(\mathbf{P}^\top\)</span>: injects the residual back at receiver locations into the full grid</li>
+<li>The minus sign: we want to minimize the misfit</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Operator</strong> <span class="math inline">\(\mathbf{A}^\top\)</span>: propagates backward in time.</p>
+</div>
+<div class="fragment">
+<p><strong>Solution</strong> <span class="math inline">\(\mathbf{v}_s \in \mathbb{R}^N\)</span>: the <strong>back-propagated residual wavefield</strong> — the data residual sent backward through the Earth model.</p>
+</div>
+</section>
+<section id="derivative-3-w.r.t.-model-parameters" class="slide level2 smaller center">
+<h2>Derivative 3: w.r.t. model parameters</h2>
+<p>The gradient of <span class="math inline">\(m_i\)</span> -— one component at a time</p>
+<p>Now the payoff. Differentiate <span class="math inline">\(\mathcal{L}\)</span> w.r.t. the <span class="math inline">\(i\)</span>-th model parameter <span class="math inline">\(m_i\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial m_i} = \frac{\partial}{\partial m_i}\left[\sum_s \mathbf{v}_s^\top \mathbf{A}(\mathbf{m})\,\mathbf{u}_s\right]
+\]</span></p>
+<div class="fragment">
+<p>The misfit term does not depend on <span class="math inline">\(m_i\)</span> directly (only through <span class="math inline">\(\mathbf{u}_s\)</span>, which we’ve already dealt with). The constraint term gives:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial m_i} = \sum_s \mathbf{v}_s^\top\,\frac{\partial \mathbf{A}}{\partial m_i}\,\mathbf{u}_s
+\]</span></p>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observation</strong></p>
+</div>
+<div class="callout-content">
+<p>Each component <span class="math inline">\([\nabla_{\mathbf{m}} J]_i\)</span> is a scalar: the dot product <span class="math inline">\(\mathbf{v}_s^\top (\cdots) \mathbf{u}_s\)</span>. Stack all <span class="math inline">\(n\)</span> of them and you get the gradient <strong>vector</strong> <span class="math inline">\(\nabla_{\mathbf{m}} J \in \mathbb{R}^n\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivative-of-the-modeling-w.r.t.-its-parameters" class="slide level2 smaller center">
+<h2>Derivative of the Modeling w.r.t. its parameters?</h2>
+<p>What is <span class="math inline">\(\frac{\partial \mathbf{A}}{\partial m_i}\)</span>?</p>
+<!-- ### Anatomy of a key matrix -->
+<div class="fragment">
+<p>Recall <span class="math inline">\(\mathbf{A}(\mathbf{m}) = \mathbf{M}(\mathbf{m})\,\mathbf{D}_{tt} - \mathbf{L}\)</span>. The Laplacian <span class="math inline">\(\mathbf{L}\)</span> doesn’t depend on <span class="math inline">\(\mathbf{m}\)</span>, so:</p>
+<p><span class="math display">\[
+\frac{\partial \mathbf{A}}{\partial m_i} = \frac{\partial \mathbf{M}}{\partial m_i}\,\mathbf{D}_{tt}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\mathbf{M}(\mathbf{m})\)</span> is diagonal with <span class="math inline">\(m_i\)</span> repeated along the entries corresponding to grid point <span class="math inline">\(i\)</span> at each time step.</p>
+<p>So <span class="math inline">\(\frac{\partial \mathbf{M}}{\partial m_i}\)</span> is a <strong>very sparse</strong> matrix — it has <span class="math inline">\(n_t\)</span> ones on the diagonal, at the positions corresponding to <span class="math inline">\((\mathbf{x}_i, t_1), (\mathbf{x}_i, t_2), \ldots, (\mathbf{x}_i, t_{n_t})\)</span>, and zeros everywhere else.</p>
+</div>
+</section>
+<section id="contd" class="slide level2 smaller center">
+<h2>Cont’d</h2>
+<p><strong>Effect</strong>: <span class="math inline">\(\frac{\partial \mathbf{A}}{\partial m_i}\,\mathbf{u}_s\)</span> <strong>selects</strong> the second time derivative of <span class="math inline">\(\mathbf{u}_s\)</span> at spatial point <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[
+\frac{\partial \mathbf{A}}{\partial m_i}\,\mathbf{u}_s = \begin{pmatrix} \vdots \\ 0 \\ \ddot{u}_s(\mathbf{x}_i, t_1) \\ \ddot{u}_s(\mathbf{x}_i, t_2) \\ \vdots \\ \ddot{u}_s(\mathbf{x}_i, t_{n_t}) \\ 0 \\ \vdots \end{pmatrix}
+\]</span></p>
+</section>
+<section id="assembling-the-gradient" class="slide level2 smaller center">
+<h2>Assembling the Gradient</h2>
+<!-- ### Putting the pieces together -->
+<p>The dot product <span class="math inline">\(\mathbf{v}_s^\top\,\frac{\partial \mathbf{A}}{\partial m_i}\,\mathbf{u}_s\)</span> selects the time traces at <span class="math inline">\(\mathbf{x}_i\)</span> and sums their products:</p>
+<p><span class="math display">\[
+\mathbf{v}_s^\top\,\frac{\partial \mathbf{A}}{\partial m_i}\,\mathbf{u}_s = \sum_{k=1}^{n_t} v_s(\mathbf{x}_i, t_k)\;\ddot{u}_s(\mathbf{x}_i, t_k)\,\Delta t
+\]</span></p>
+<div class="fragment">
+<p>Sum over shots to get the <span class="math inline">\(i\)</span>-th gradient component:</p>
+<p><span class="math display">\[
+\boxed{[\nabla_{\mathbf{m}} J]_i = \sum_{s=1}^{n_s}\sum_{k=1}^{n_t} v_s(\mathbf{x}_i, t_k)\;\ddot{u}_s(\mathbf{x}_i, t_k)\,\Delta t}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>This is the discrete zero-lag cross-correlation</strong> of the forward wavefield <span class="math inline">\(\mathbf{u}_s\)</span> (its second time derivative) and the adjoint wavefield <span class="math inline">\(\mathbf{v}_s\)</span>, evaluated at grid point <span class="math inline">\(i\)</span>.</p>
+</div>
+</section>
+<section id="the-full-gradient-vector" class="slide level2 smaller center">
+<h2>The Full Gradient Vector</h2>
+<!-- ### All $n$ components at once -->
+<p>Stack all <span class="math inline">\(n\)</span> components:</p>
+<p><span class="math display">\[
+\nabla_{\mathbf{m}} J = \begin{pmatrix} [\nabla_{\mathbf{m}} J]_1 \\ [\nabla_{\mathbf{m}} J]_2 \\ \vdots \\ [\nabla_{\mathbf{m}} J]_n \end{pmatrix} \in \mathbb{R}^n
+\]</span></p>
+<div class="fragment">
+<p>Each entry is the time cross-correlation at one grid point. Together, they form a <strong>spatial image</strong> — the RTM image.</p>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key result</strong></p>
+</div>
+<div class="callout-content">
+<p>The gradient is a <strong>vector</strong> with <span class="math inline">\(n\)</span> entries — one per grid point. No ambiguity about scalars vs.&nbsp;functions. This is the RTM image, derived entirely from matrix calculus.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cost-analysis" class="slide level2 smaller center">
+<h2>Cost Analysis</h2>
+<!-- ### Why the adjoint-state method is efficient -->
+<p>For <strong>each shot</strong> <span class="math inline">\(s\)</span>, the gradient computation requires:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Step</th>
+<th>Operation</th>
+<th>Cost</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Solve <span class="math inline">\(\mathbf{A}\mathbf{u}_s = \mathbf{q}_s\)</span> (forward)</td>
+<td>1 PDE solve</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Compute <span class="math inline">\(\delta\mathbf{d}_s = \mathbf{P}\mathbf{u}_s - \mathbf{d}_s^{\text{obs}}\)</span></td>
+<td>cheap</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Solve <span class="math inline">\(\mathbf{A}^\top\mathbf{v}_s = -\mathbf{P}^\top\delta\mathbf{d}_s\)</span> (adjoint)</td>
+<td>1 PDE solve</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Cross-correlate to get <span class="math inline">\([\nabla J]_i\)</span> for all <span class="math inline">\(i\)</span></td>
+<td>cheap</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Total</strong>: <span class="math inline">\(2 \times n_s\)</span> PDE solves for the <strong>entire</strong> gradient vector.</p>
+<p>Compare with the naïve approach: <span class="math inline">\(n \times n_s\)</span> PDE solves.</p>
+<p>For <span class="math inline">\(n = 10^6\)</span>: <strong>speedup of 500,000×</strong>.</p>
+</div>
+</section>
+<section id="the-rtm-algorithm" class="slide level2 smaller center">
+<h2>The RTM Algorithm</h2>
+<p>Recipe for each shot <span class="math inline">\(s\)</span>:</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>RTM — Discretize-then-optimize version</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li><strong>Forward solve</strong>: <span class="math inline">\(\mathbf{u}_s = \mathbf{A}^{-1}(\mathbf{m}_0)\,\mathbf{q}_s\)</span> — store <span class="math inline">\(\mathbf{u}_s\)</span></li>
+<li><strong>Residual</strong>: <span class="math inline">\(\delta\mathbf{d}_s = \mathbf{P}\,\mathbf{u}_s - \mathbf{d}_s^{\text{obs}}\)</span></li>
+<li><strong>Adjoint solve</strong>: <span class="math inline">\(\mathbf{v}_s = \mathbf{A}^{-\top}(\mathbf{m}_0)\,(-\mathbf{P}^\top\delta\mathbf{d}_s)\)</span></li>
+<li><strong>Image</strong> (accumulate): <span class="math inline">\(\text{image}_i \;\mathrel{+}= \sum_k v_s(\mathbf{x}_i,t_k)\,\ddot{u}_s(\mathbf{x}_i,t_k)\,\Delta t\)</span></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>After looping over all shots: <span class="math inline">\(\text{image} = \nabla_{\mathbf{m}} J \in \mathbb{R}^n\)</span>.</p>
+</div>
+</section>
+<section id="physical-intuition" class="slide level2 smaller center">
+<h2>Physical Intuition</h2>
+<p>Why cross-correlation finds reflectors?</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Forward wavefield</strong> <span class="math inline">\(\mathbf{u}_s\)</span></p>
+<ul>
+<li>Source energy propagates <strong>downward</strong></li>
+<li>“Illuminates” reflectors</li>
+<li>Runs forward in time</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Adjoint wavefield</strong> <span class="math inline">\(\mathbf{v}_s\)</span></p>
+<ul>
+<li>Data residual propagates from receivers</li>
+<li>Focuses energy back to reflectors</li>
+<li>Runs <strong>backward</strong> in time (via <span class="math inline">\(\mathbf{A}^\top\)</span>)</li>
+</ul>
+</div></div>
+<div class="fragment">
+<p>At reflector locations, both wavefields are <strong>simultaneously nonzero at the same times</strong> → their time cross-correlation peaks.</p>
+<p>At non-reflector locations, the wavefields are out of sync → cross-correlation is small.</p>
+</div>
+</section>
+<section id="jacobian-and-its-adjoint" class="slide level2 smaller center">
+<h2>Jacobian and its adjoint</h2>
+<p>The <strong>Jacobian</strong> (sensitivity matrix) <span class="math inline">\(\mathbf{J} \in \mathbb{R}^{M \times n}\)</span> maps model perturbations <span class="math inline">\(\delta\mathbf{m}\)</span> to data perturbations <span class="math inline">\(\delta\mathbf{d}\)</span>:</p>
+<p><span class="math display">\[
+\delta\mathbf{d}_s = \mathbf{J}_s\,\delta\mathbf{m}, \qquad [\mathbf{J}_s]_{j,i} = \frac{\partial [\mathbf{d}_s]_j}{\partial m_i}
+\]</span></p>
+<div class="fragment">
+<ul>
+<li><strong><span class="math inline">\(\mathbf{J}_s\,\delta\mathbf{m}\)</span></strong> = <strong>linearized Born modeling</strong> — propagate a source, scatter off <span class="math inline">\(\delta\mathbf{m}\)</span>, record at receivers</li>
+<li><strong><span class="math inline">\(\mathbf{J}_s^\top\,\delta\mathbf{d}_s\)</span></strong> = <strong>RTM</strong> — back-propagate the data residual, cross-correlate with the forward wavefield</li>
+</ul>
+</div>
+<div class="fragment">
+<p>The gradient is:</p>
+<p><span class="math display">\[
+\nabla_{\mathbf{m}} J = \sum_s \mathbf{J}_s^\top\,\delta\mathbf{d}_s
+\]</span></p>
+<p>RTM is the action of <span class="math inline">\(\mathbf{J}^\top\)</span> on the data residual — the <strong>adjoint</strong> of linearized Born scattering.</p>
+</div>
+</section>
+<section id="connection-to-fwi-rtm-one-gradient-step-of-fwi" class="slide level2 smaller center">
+<h2>Connection to FWI: RTM = One Gradient Step of FWI</h2>
+<!-- ### The connection -->
+<p>RTM computes <span class="math inline">\(\nabla_{\mathbf{m}} J\)</span> once, at a <strong>fixed</strong> background model <span class="math inline">\(\mathbf{m}_0\)</span>.</p>
+<div class="fragment">
+<p>FWI <strong>iterates</strong>:</p>
+<p><span class="math display">\[
+\mathbf{m}^{(k+1)} = \mathbf{m}^{(k)} - \alpha_k\;\nabla_{\mathbf{m}} J(\mathbf{m}^{(k)})
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Each FWI iteration is essentially an RTM — recompute forward and adjoint wavefields in the updated model, cross-correlate, update.</p>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>With preconditioning</strong></p>
+</div>
+<div class="callout-content">
+<p>In practice, FWI uses approximate Hessian information: <span class="math display">\[\mathbf{m}^{(k+1)} = \mathbf{m}^{(k)} - \alpha_k\;\mathbf{H}_k^{-1}\;\nabla_{\mathbf{m}} J(\mathbf{m}^{(k)})\]</span> The Hessian corrects for illumination and geometric spreading — things that plain RTM gets wrong.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rtm-vs.-fwi" class="slide level2 smaller center">
+<h2>RTM vs.&nbsp;FWI</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>RTM</strong></th>
+<th><strong>FWI</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Iterations</td>
+<td><strong>1</strong> (single gradient)</td>
+<td>Many</td>
+</tr>
+<tr class="even">
+<td>Updates velocity?</td>
+<td>No (fixed <span class="math inline">\(\mathbf{m}_0\)</span>)</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Output</td>
+<td>Reflectivity image (<span class="math inline">\(\nabla_{\mathbf{m}} J\)</span>)</td>
+<td>Velocity model (<span class="math inline">\(\mathbf{m}\)</span>)</td>
+</tr>
+<tr class="even">
+<td>Needs starting model?</td>
+<td>Yes (for kinematics)</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Cost per iteration</td>
+<td>2 PDE solves/shot</td>
+<td>2 PDE solves/shot</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<blockquote>
+<p>RTM gives you <strong>where</strong> reflectors are (image). FWI also gives you <strong>what</strong> the velocity is (model).</p>
+</blockquote>
+</div>
+</section>
+<section id="comparison-two-routes-to-the-same-gradient" class="slide level2 smaller center">
+<h2>Comparison: Two Routes to the Same Gradient</h2>
+<p>Discretize-then-optimize vs.&nbsp;optimize-then-discretize:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>This lecture</strong></th>
+<th><strong>Other approach</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Starting point</td>
+<td>Matrix system <span class="math inline">\(\mathbf{A}\mathbf{u} = \mathbf{q}\)</span></td>
+<td>PDE <span class="math inline">\(A(m)u = q\)</span></td>
+</tr>
+<tr class="even">
+<td>Calculus</td>
+<td><span class="math inline">\(\frac{\partial}{\partial m_i}\)</span> (partial derivatives)</td>
+<td><span class="math inline">\(\delta_m\)</span> (Fréchet derivative)</td>
+</tr>
+<tr class="odd">
+<td>Gradient type</td>
+<td>Vector <span class="math inline">\(\nabla_{\mathbf{m}} J \in \mathbb{R}^n\)</span></td>
+<td>Function <span class="math inline">\(\nabla_m J(\mathbf{x})\)</span></td>
+</tr>
+<tr class="even">
+<td>Adjoint</td>
+<td>Matrix transpose <span class="math inline">\(\mathbf{A}^\top\)</span></td>
+<td>Adjoint operator <span class="math inline">\(A^\top\)</span></td>
+</tr>
+<tr class="odd">
+<td>Advantage</td>
+<td>Concrete, no ambiguity</td>
+<td>Mesh-independent, elegant</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Both give the <strong>same imaging condition</strong>: cross-correlate forward and adjoint wavefields, sum over time and shots.</p>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caveat</strong></p>
+</div>
+<div class="callout-content">
+<p>The two routes don’t always commute perfectly — discretizing the adjoint PDE may differ slightly from transposing the discrete forward operator. In practice, the discretize-then-optimize route guarantees that your gradient is <strong>exactly consistent</strong> with your numerical forward solver.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary-key-takeaways" class="slide level2 smaller center">
+<h2>Summary – Key takeaways</h2>
+<ol type="1">
+<li><p><strong>Discretize first</strong>: write the wave equation as <span class="math inline">\(\mathbf{A}(\mathbf{m})\mathbf{u}_s = \mathbf{q}_s\)</span> with everything being finite vectors and matrices.</p></li>
+<li><p><strong>Standard calculus</strong>: the gradient <span class="math inline">\(\nabla_{\mathbf{m}} J \in \mathbb{R}^n\)</span> is computed via partial derivatives <span class="math inline">\(\frac{\partial \mathcal{L}}{\partial m_i}\)</span> — no variations needed.</p></li>
+<li><p><strong>Three derivatives</strong> of the Lagrangian give: the forward equation, the adjoint equation, and the gradient.</p></li>
+<li><p><strong><span class="math inline">\(\mathbf{A}^\top\)</span> = reverse time</strong>: transposing the discrete wave-equation matrix reverses the direction of time propagation.</p></li>
+<li><p><strong>RTM = one gradient step</strong>: the cross-correlation imaging condition emerges from <span class="math inline">\(\mathbf{v}_s^\top \frac{\partial \mathbf{A}}{\partial m_i}\mathbf{u}_s\)</span>.</p></li>
+<li><p><strong>FWI = iterate</strong>: keep computing gradients (RTM images) and updating the model.</p></li>
+</ol>
+</section>
+<section id="further-reading" class="slide level2 smaller center">
+<h2>Further Reading</h2>
+<ul>
+<li>Plessix, R.-É. (2006). <em>A review of the adjoint-state method for computing the gradient of a functional with geophysical applications.</em> Geophysical Journal International, 167(2), 495–503.</li>
+<li>Virieux, J. &amp; Operto, S. (2009). <em>An overview of full-waveform inversion in exploration geophysics.</em> Geophysics, 74(6), WCC1–WCC26.</li>
+<li>Nocedal, J. &amp; Wright, S.J. (2006). <em>Numerical Optimization.</em> Springer. — Ch. 18 on constrained optimization.</li>
+</ul>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-etgen2009" class="csl-entry" role="listitem">
+Etgen, John, Samuel H. Gray, and Yu Zhang. 2009. <span>“An Overview of Depth Imaging in Exploration Geophysics.”</span> <em>Geophysics</em> 74 (6): WCA5–17. <a href="https://doi.org/10.1190/1.3223188">https://doi.org/10.1190/1.3223188</a>.
+</div>
+<div id="ref-hill2020" class="csl-entry" role="listitem">
+Hill, Stephen J., and Andreas Rüger. 2020. <em>Illustrated Seismic Processing, Volume 1: Imaging</em>. Course Notes Series 15. Society of Exploration Geophysicists.
+</div>
+<div id="ref-zhou2018" class="csl-entry" role="listitem">
+Zhou, Hua-Wei, Hao Hu, Zhihui Zou, Yukai Wo, and Oong Youn. 2018. <span>“Reverse Time Migration: A Prospect of Seismic Imaging Methodology.”</span> <em>Earth-Science Reviews</em> 179: 207–27. <a href="https://doi.org/10.1016/j.earscirev.2018.02.008">https://doi.org/10.1016/j.earscirev.2018.02.008</a>.
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div style="text-align: center; font-size: 0.6em; color: #888; margin-top: 2em;">
+<p>This lecture was prepared with the assistance of Claude (Anthropic) and validated by Felix J. Herrmann.</p>
+<p>This work is licensed under a <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+<p><img data-src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png"></p>
+</div>
+<!-- ## {background-color="#002855"}
+
+### Questions?
+
+::: {style="text-align: center; font-size: 1.2em;"}
+Seismic Laboratory for Imaging and Modeling
+
+[slim.gatech.edu](https://slim.gatech.edu)
+::: -->
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://flexie.github.io/EAS-8803-FH/">🔗 https://flexie.github.io/EAS-88-3-FH</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/flexie\.github\.io\/EAS-8803-FH\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

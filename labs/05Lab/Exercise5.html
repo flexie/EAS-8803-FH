@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -66,14 +66,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-79df7ed5347781c1339259261daa236f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -116,7 +117,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -158,7 +159,8 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../../index.html" class="sidebar-logo-link">
-      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://flexie.github.io/EAS-8803-FH/" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -281,7 +283,7 @@ window.Quarto = {
 </ul>
 <p>Let’s start with some basic julia matrix operations</p>
 <div id="e479c199" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span>;<span class="fl">3</span> <span class="op">-</span><span class="fl">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span>;<span class="fl">3</span> <span class="op">-</span><span class="fl">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>2×2 Matrix{Int64}:
  1   2
@@ -289,7 +291,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="63e661d5" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>2×2 adjoint(::Matrix{Int64}) with eltype Int64:
  1   3
@@ -297,7 +299,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="b97c61f2" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="fl">2</span>; <span class="fl">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="fl">2</span>; <span class="fl">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>2-element Vector{Int64}:
  2
@@ -310,37 +312,37 @@ window.Quarto = {
 <section id="tasks" class="level1">
 <h1>Tasks</h1>
 <div id="8cd81611" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> [<span class="fl">1</span><span class="op">/</span><span class="fu">sqrt</span>(<span class="fl">2</span>) <span class="fl">2</span><span class="op">/</span><span class="fl">3</span> <span class="fu">sqrt</span>(<span class="fl">2</span>)<span class="op">/</span><span class="fl">6</span>;<span class="fl">0</span> <span class="fl">1</span><span class="op">/</span><span class="fl">3</span> <span class="fu">-2*sqrt</span>(<span class="fl">2</span>)<span class="op">/</span><span class="fl">3</span>;<span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fu">sqrt</span>(<span class="fl">2</span>) <span class="fl">2</span><span class="op">/</span><span class="fl">3</span> <span class="fu">sqrt</span>(<span class="fl">2</span>)<span class="op">/</span><span class="fl">6</span>];</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>A1 <span class="op">=</span> [<span class="fl">1</span><span class="op">/</span><span class="fu">sqrt</span>(<span class="fl">2</span>) <span class="fl">2</span><span class="op">/</span><span class="fl">3</span> <span class="fu">sqrt</span>(<span class="fl">2</span>)<span class="op">/</span><span class="fl">6</span>;<span class="fl">0</span> <span class="fl">1</span><span class="op">/</span><span class="fl">3</span> <span class="fu">-2*sqrt</span>(<span class="fl">2</span>)<span class="op">/</span><span class="fl">3</span>;<span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fu">sqrt</span>(<span class="fl">2</span>) <span class="fl">2</span><span class="op">/</span><span class="fl">3</span> <span class="fu">sqrt</span>(<span class="fl">2</span>)<span class="op">/</span><span class="fl">6</span>];</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>A2 <span class="op">=</span> [<span class="fl">0</span> <span class="fl">2</span> <span class="fl">2</span>;<span class="fl">2</span> <span class="fl">1</span> <span class="op">-</span><span class="fl">3</span>;<span class="fl">1</span> <span class="fl">0</span> <span class="op">-</span><span class="fl">2</span>];</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>A3 <span class="op">=</span> [<span class="fl">3</span> <span class="fl">1</span>;<span class="fl">1</span> <span class="fl">0</span>;<span class="fl">2</span> <span class="fl">1</span>];</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>A4 <span class="op">=</span> [<span class="fl">2</span> <span class="fl">4</span> <span class="fl">3</span>; <span class="fl">1</span> <span class="fl">3</span> <span class="fl">1</span>];</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>A4 <span class="op">=</span> [<span class="fl">2</span> <span class="fl">4</span> <span class="fl">3</span>; <span class="fl">1</span> <span class="fl">3</span> <span class="fl">1</span>];</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Look at A1’*A1, what kind of matrix is A1? What does this mean?</li>
 </ul>
 <div id="9fbb7cea" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A1<span class="op">'*</span>A1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A1<span class="op">'*</span>A1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Look at A2[1;2;3] and A2[3;1;4], what can you say about the matrix A2?</li>
 </ul>
 <div id="9c6ab2a4" class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>A2<span class="op">*</span>[<span class="fl">1</span>;<span class="fl">2</span>;<span class="fl">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>A2<span class="op">*</span>[<span class="fl">1</span>;<span class="fl">2</span>;<span class="fl">3</span>] </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="d9d98345" class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A2<span class="op">*</span>[<span class="fl">3</span>;<span class="fl">1</span>;<span class="fl">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A2<span class="op">*</span>[<span class="fl">3</span>;<span class="fl">1</span>;<span class="fl">4</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>What do you call a linear system defined by matrix A3?</li>
 </ul>
 <div id="d95eb0d5" class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>A3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>What do you call a linear system defined by matrix A4?</li>
 </ul>
 <div id="58455f8a" class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>A4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>A4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li><p>Find a solution of A1*x = [6;-3;0], is there only one solution? Do you really need inv here?</p></li>
@@ -352,11 +354,11 @@ window.Quarto = {
 <section id="joli-julia-operator-library-is-a-package-for-creating-algebraic-linear-operators" class="level1">
 <h1>JOLI (Julia Operator LIbrary) is a package for creating algebraic linear operators)</h1>
 <div id="8ffcd98c-8dd3-4778-a352-010b08c49cda" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add("FFTW")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add("FFTW")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="7f4b750e" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">FFTW</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">FFTW</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># dimension</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>N  <span class="op">=</span> <span class="fl">10</span></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>F1 <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">Complex</span>{<span class="dt">Float64</span>}, N,N)</span>
@@ -367,26 +369,26 @@ window.Quarto = {
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># make column of matrix</span></span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    F1[<span class="op">:</span>, k]<span class="op">=</span> <span class="fu">fft</span>(ek)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Look at the matrix, what do you notice?</li>
 </ul>
 <div id="6dd29b50" class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>F1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>F1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Verify that it gives the same result as fft by trying on a vector</li>
 </ul>
 <div id="81fb8f92" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Random</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> <span class="fu">rand</span>(<span class="dt">Float64</span>,<span class="fl">10</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Random</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> <span class="fu">rand</span>(<span class="dt">Float64</span>,<span class="fl">10</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="10f169e8" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JOLI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JOLI</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="dc064320" class="cell" data-scrolled="true" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>F2  <span class="op">=</span> <span class="fu">joDFT</span>(N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>F2  <span class="op">=</span> <span class="fu">joDFT</span>(N)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>joLinearFunction{Float64, ComplexF64}("joDFT_p", 10, 10, JOLI.var"#855#871"{DataType, Tuple{Int64}, FFTW.cFFTWPlan{ComplexF64, -1, false, 1, UnitRange{Int64}}}(ComplexF64, (10,), FFTW forward plan for 10-element array of ComplexF64
 (dft-direct-10 "n2fv_10_avx2_128")), Nullable{Function}(JOLI.var"#122#126"{JOLI.var"#856#872"{DataType, Tuple{Int64}, AbstractFFTs.ScaledPlan{ComplexF64, FFTW.cFFTWPlan{ComplexF64, 1, false, 1, UnitRange{Int64}}, Float64}}}(JOLI.var"#856#872"{DataType, Tuple{Int64}, AbstractFFTs.ScaledPlan{ComplexF64, FFTW.cFFTWPlan{ComplexF64, 1, false, 1, UnitRange{Int64}}, Float64}}(Float64, (10,), 0.1 * FFTW backward plan for 10-element array of ComplexF64
@@ -400,7 +402,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="677ed202" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varinfo</span>(<span class="st">r"F1"</span>), <span class="fu">varinfo</span>(<span class="st">r"F2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varinfo</span>(<span class="st">r"F1"</span>), <span class="fu">varinfo</span>(<span class="st">r"F2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>(| name |      size | summary                  |
 |:---- | ---------:|:------------------------ |
@@ -412,16 +414,16 @@ window.Quarto = {
 </div>
 </div>
 <div id="664b292c" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>N  <span class="op">=</span> <span class="fl">10000</span>;</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>N  <span class="op">=</span> <span class="fl">10000</span>;</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># NxN Gaussian matrix</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>G1 <span class="op">=</span> <span class="fu">ones</span>(N, N);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>G1 <span class="op">=</span> <span class="fu">ones</span>(N, N);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="4fa6f214" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NxN Gaussian JOLI operator (will represent a different matrix than G1 becuase it is gerenated randomly)</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>G2 <span class="op">=</span> <span class="fu">joOnes</span>(N);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NxN Gaussian JOLI operator (will represent a different matrix than G1 becuase it is gerenated randomly)</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>G2 <span class="op">=</span> <span class="fu">joOnes</span>(N);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="f617fc49" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varinfo</span>(<span class="st">r"G1"</span>),<span class="fu">varinfo</span>(<span class="st">r"G2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varinfo</span>(<span class="st">r"G1"</span>),<span class="fu">varinfo</span>(<span class="st">r"G2"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>(| name |        size | summary                     |
 |:---- | -----------:|:--------------------------- |
@@ -437,7 +439,7 @@ window.Quarto = {
 <h1>Deconvolution</h1>
 <p>Note: Plotting of signals is compulsory for the tasks below.</p>
 <div id="77b6a32f" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># time axis</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># time axis</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">.001</span><span class="op">:</span><span class="fl">2</span><span class="op">'</span>;</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="fu">length</span>(t);</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -457,7 +459,7 @@ window.Quarto = {
 <span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>();</span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,w);</span>
-<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>);<span class="fu">ylabel</span>(<span class="st">"w(t)"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>);<span class="fu">ylabel</span>(<span class="st">"w(t)"</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -477,13 +479,13 @@ window.Quarto = {
 <section id="task-perform-the-convolution-using-the-usual-julia-commands-fft-ifft-and-element-wise-multiplication.-name-your-result-f1.-plot-it" class="level1">
 <h1>Task: Perform the convolution using the usual julia commands fft, ifft and element-wise multiplication. Name your result f1. Plot it</h1>
 <div id="50b4dfa5" class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>f1 <span class="op">=</span> </span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,f1)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"f1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"f1"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="15111acc" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JOLI operator to perform convolution.</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># JOLI operator to perform convolution.</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>wf <span class="op">=</span> <span class="fu">fft</span>(w);</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> <span class="fu">joDFT</span>(N)<span class="ch">'*joDiag(wf)*joDFT(N);</span></span>
@@ -493,7 +495,7 @@ window.Quarto = {
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,f1)</span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,f2)</span>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,g);</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>);<span class="fu">ylabel</span>(<span class="st">"f(t)"</span>);<span class="fu">legend</span>([<span class="st">"normal"</span>,<span class="st">"JOLI"</span>, <span class="st">"g"</span>]);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>);<span class="fu">ylabel</span>(<span class="st">"f(t)"</span>);<span class="fu">legend</span>([<span class="st">"normal"</span>,<span class="st">"JOLI"</span>, <span class="st">"g"</span>]);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -511,11 +513,11 @@ window.Quarto = {
 <li><p>Assuming that your convolution operator is called C: Do you think C has a null-space? If so, describe it. (Hint: look at the filter).</p></li>
 </ul>
 <div id="5695867c" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#filter</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#filter</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>w</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="dd68a17f" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> C<span class="op">*</span>g <span class="op">+</span> <span class="fl">1e-3</span><span class="fu">*randn</span>(N);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> C<span class="op">*</span>g <span class="op">+</span> <span class="fl">1e-3</span><span class="fu">*randn</span>(N);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="task-1" class="level1">
@@ -524,7 +526,7 @@ window.Quarto = {
 <li>Use the adjoint of C as an approximation to the inverse, i.e.&nbsp;approximate the adjoint of C to the observation f.&nbsp;what does this correspond to and what does the reconstruction look like?</li>
 </ul>
 <div id="11c28469" class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>g_recons <span class="op">=</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>g_recons <span class="op">=</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="matrix-free-damped-lsqr-vs-normal-equations" class="level1">
@@ -544,7 +546,7 @@ x = (A^T A + \lambda I)^{-1} A^T b
 <section id="matrix-free-damped-lsqr" class="level3">
 <h3 class="anchored" data-anchor-id="matrix-free-damped-lsqr">2) Matrix-Free Damped LSQR</h3>
 <p>Instead, we can use:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x_lsqr <span class="op">=</span> <span class="fu">lsqr</span>(A, b; damp <span class="op">=</span> <span class="fu">sqrt</span>(λ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x_lsqr <span class="op">=</span> <span class="fu">lsqr</span>(A, b; damp <span class="op">=</span> <span class="fu">sqrt</span>(λ))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>LSQR never forms <code>A' * A</code> explicitly. It only requires the ability to compute:</p>
 <ul>
 <li><code>A * x</code></li>
@@ -560,7 +562,7 @@ x = (A^T A + \lambda I)^{-1} A^T b
 <p>This is why matrix-free methods are essential in large-scale inverse problems, such as seismic imaging and deconvolution.</p>
 <p>We now verify that damped LSQR gives the same solution as the normal equations (for small problem sizes where forming matrices is feasible).</p>
 <div id="a4d7f8b4-2aae-4198-9ef2-a20a2cc497e6" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare Normal Equations and LSQR</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare Normal Equations and LSQR</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>λ <span class="op">=</span> <span class="fl">1.0</span></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -569,7 +571,7 @@ x = (A^T A + \lambda I)^{-1} A^T b
 <span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="fu">size</span>(C, <span class="fl">2</span>)</span>
 <span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>Id <span class="op">=</span> <span class="fu">Matrix</span><span class="dt">{Float64}</span>(I, n, n)</span>
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>Cmat <span class="op">=</span> C <span class="op">*</span> Id  <span class="co"># Only safe for small N!</span></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>x_ne <span class="op">=</span> (Cmat<span class="op">'</span> <span class="op">*</span> Cmat <span class="op">+</span> λ <span class="op">*</span> I) <span class="op">\</span> (Cmat<span class="op">'</span> <span class="op">*</span> f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>x_ne <span class="op">=</span> (Cmat<span class="op">'</span> <span class="op">*</span> Cmat <span class="op">+</span> λ <span class="op">*</span> I) <span class="op">\</span> (Cmat<span class="op">'</span> <span class="op">*</span> f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>2001-element Vector{Float64}:
  -0.0014099840169985787
@@ -608,7 +610,7 @@ x = (A^T A + \lambda I)^{-1} A^T b
 <li>Follow the script below, use lsqr to invert for g. (you might need to increase the number of iterations). Do you notice the relative difference between the normal equations lsqr? Now look at the signal that is predicted by your reconstruction, do you see a difference with the true signal?</li>
 </ul>
 <div id="dbe3b62b-c9d7-48ac-b683-9dcae5e61c0f" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Damped LSQR (matrix-free)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Damped LSQR (matrix-free)</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">#import Pkg;</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add("IterativeSolvers")</span></span>
@@ -617,26 +619,26 @@ x = (A^T A + \lambda I)^{-1} A^T b
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>x_lsqr <span class="op">=</span> <span class="fu">lsqr</span>(C, f; damp <span class="op">=</span> <span class="fu">sqrt</span>(λ))</span>
 <span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Relative difference between solutions: "</span>,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">norm</span>(x_ne <span class="op">-</span> x_lsqr) <span class="op">/</span> <span class="fu">norm</span>(x_ne))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">norm</span>(x_ne <span class="op">-</span> x_lsqr) <span class="op">/</span> <span class="fu">norm</span>(x_ne))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Relative difference between solutions: 5.666950223694139e-7</code></pre>
 </div>
 </div>
 <div id="8e425214" class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,x_lsqr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,x_lsqr)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"x_lsqr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"x_lsqr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Check with a larger problem size (larger N) and observe the scalability advantage in case of matrix-free opeartors.</p>
 <p>Let’s use another method</p>
 <div id="f25b2cf3" class="cell" data-scrolled="true">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add(url="https://github.com/slimgroup/GenSPGL.jl")</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pkg.add(url="https://github.com/slimgroup/GenSPGL.jl")</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">GenSPGL</span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Solve</span></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>opts <span class="op">=</span> <span class="fu">spgOptions</span>(optTol <span class="op">=</span> <span class="fl">1e-10</span>,</span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                  verbosity <span class="op">=</span> <span class="fl">1</span>)</span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>gtt, r, grads, info <span class="op">=</span> <span class="fu">spgl1</span>(C, f, tau <span class="op">=</span> <span class="fl">0</span>., sigma <span class="op">=</span> <span class="fu">norm</span>(f <span class="op">-</span> C<span class="op">*</span>gt));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>gtt, r, grads, info <span class="op">=</span> <span class="fu">spgl1</span>(C, f, tau <span class="op">=</span> <span class="fl">0</span>., sigma <span class="op">=</span> <span class="fu">norm</span>(f <span class="op">-</span> C<span class="op">*</span>gt));</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  114  1.3479129e+00  2.1893027e-01   7.85e-01  9.695e-01     0.0
   115  1.3475799e+00  1.9146569e-01   7.85e-01  9.479e-01     0.0
@@ -776,9 +778,9 @@ Additional Information:         EXIT -- Found a BP solution
 </div>
 </div>
 <div id="d7b26e6d" class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,gtt)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(t,gtt)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"t [s]"</span>)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"gtt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"gtt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="task-3" class="level1">
@@ -843,13 +845,14 @@ Additional Information:         EXIT -- Found a BP solution
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

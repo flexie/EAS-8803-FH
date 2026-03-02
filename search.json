@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nWeek 08\n\n\nMar 3 - 6\n\n\nReverse-time Migration\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nWeek 08\n\n\nMar 3 - 6\n\n\nReverse-time Migration\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -288,7 +288,7 @@
     "href": "slides/week-07/11-linearized-inversion.html#structure-of-the-linearized-r_pp-the-mathbfm-matrix",
     "title": "Linearized AVO Inversion",
     "section": "Structure of the Linearized \\(R_{PP}\\) — The \\(\\mathbf{M}\\) Matrix",
-    "text": "Structure of the Linearized \\(R_{PP}\\) — The \\(\\mathbf{M}\\) Matrix\nAt the \\(i\\)-th interface, the linearized \\(R_{PP}\\) is a linear combination of three contrasts. Writing this as a matrix–vector product:\n\\[\nR_{PP}^{(i)}(p) = \\underbrace{\\begin{pmatrix} \\tfrac{1}{2}(1 - 4\\beta_0^2 p^2) & \\tfrac{1}{2(1 - \\alpha_0^2 p^2)} & -4\\beta_0^2 p^2 \\end{pmatrix}}_{\\text{row of } \\mathbf{M}(p)} \\begin{pmatrix} \\Delta\\ln\\rho_i \\\\ \\Delta\\ln\\alpha_i \\\\ \\Delta\\ln\\beta_i \\end{pmatrix}\n\\]\n\nAt normal incidence (\\(p = 0\\)), the matrix reduces to:\n\\[\n\\mathbf{M}(0) = \\begin{pmatrix} \\tfrac{1}{2} & \\tfrac{1}{2} & 0 \\end{pmatrix} \\quad \\Rightarrow \\quad R_{PP}^{(i)}(0) = \\tfrac{1}{2}\\bigl(\\Delta\\ln\\rho_i + \\Delta\\ln\\alpha_i\\bigr) = \\tfrac{1}{2}\\Delta\\ln Z_P\n\\]\nrecovering the acoustic result. The shear contribution enters only at oblique incidence (\\(p &gt; 0\\)).\n\n\n\n\n\n\n\n\nNote\n\n\nThe matrix \\(\\mathbf{M}(p)\\) encodes the sensitivity of the reflection coefficient to each elastic parameter. At normal incidence only \\(\\rho\\) and \\(\\alpha\\) contribute; at oblique incidence all three parameters are needed."
+    "text": "Structure of the Linearized \\(R_{PP}\\) — The \\(\\mathbf{M}\\) Matrix\nAt the \\(i\\)-th interface, the linearized \\(R_{PP}\\) is a linear combination of three contrasts. Writing this as a matrix–vector product:\n\\[\nR_{PP}^{(i)}(p) = \\underbrace{\\begin{pmatrix} \\tfrac{1}{2}(1 - 4\\beta_0^2 p^2) & \\tfrac{1}{2(1 - \\alpha_0^2 p^2)} & -4\\beta_0^2 p^2 \\end{pmatrix}}_{\\text{row of } \\mathbf{M}(p)} \\begin{pmatrix} \\Delta\\ln\\rho_i \\\\ \\Delta\\ln\\alpha_i \\\\ \\Delta\\ln\\beta_i \\end{pmatrix}\n\\]\n\nAt normal incidence (\\(p = 0\\)), the matrix reduces to:\n\\[\n\\mathbf{M}(0) = \\begin{pmatrix} \\tfrac{1}{2} & \\tfrac{1}{2} & 0 \\end{pmatrix} \\quad \\Rightarrow \\quad R_{PP}^{(i)}(0) = \\tfrac{1}{2}\\bigl(\\Delta\\ln\\rho_i + \\Delta\\ln\\alpha_i\\bigr) = \\tfrac{1}{2}\\Delta\\ln Z_P\n\\]\nrecovering the acoustic result. The shear contribution enters only at oblique incidence (\\(p &gt; 0\\)).\n\n\n\n\n\n\n\n\nNote\n\n\nThe matrix \\(\\mathbf{M}(p)\\) encodes the sensitivity of the reflection coefficient to each elastic parameter. At normal incidence only \\(\\rho\\) and \\(\\alpha\\) contribute; at oblique incidence all three parameters are needed.\n\n\n\n{CLAUDE: Please also derive linearization in terms of impedances and velocities and explain the difference. Hint. one may not depend on the angle…}"
   },
   {
     "objectID": "slides/week-07/11-linearized-inversion.html#linearized-convolutional-model-in-tau-p",
@@ -893,112 +893,89 @@
     "text": "Copyright (c) 2026 Felix J. Herrmann, Georgia Institute of Technology\nThis work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.\n\n\n\nShare — copy and redistribute the material in any medium or format\nAdapt — remix, transform, and build upon the material\n\n\n\n\n\nAttribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.\nNonCommercial — You may not use the material for commercial purposes.\nShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.\nNo additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.\n\nFor the full legal text, see https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode."
   },
   {
-    "objectID": "goals.html",
-    "href": "goals.html",
-    "title": "Goals1",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Seismic Exploration Methods",
     "section": "",
-    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#general-introduction",
-    "href": "goals.html#general-introduction",
-    "title": "Goals1",
+    "objectID": "index.html#course-overview",
+    "href": "index.html#course-overview",
+    "title": "Seismic Exploration Methods",
     "section": "",
-    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
+    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#seismic-data-acquisition",
-    "href": "goals.html#seismic-data-acquisition",
-    "title": "Goals1",
-    "section": "Seismic data acquisition",
-    "text": "Seismic data acquisition\n\nGive the Nyquist sampling critrion for the sampling of spatio-temporal wavefields\nDescribe aliasing in 1-D and 2- D (f-k domain).\nWhat is an airgun\nWhat is the ghost?\nWhat is the effect of the ghost on the amplitude spectrum?\nDescribe azimuth and name at least three disadvantages of near azimuth acquisition.\nWhat does a rose diagram plot?\nMention two different configurations to improve azimuthal coverage. Include sketches of the arrays and sources.\nDescribe rich azimuth acquisition and include drawing.\nWhat is the main driver behind WAZ acquisition?\nName at least four improvemens related to wide-azimuth acquisition?\nWhat is fold and why is it important?\nWhat are the main challenges in marine acquisition?\nWhat are the challenges of 3D acquisition?\nName some recent developments.\nDescribe coil sampling\nGive the main reasons why large offsets are required?",
+    "objectID": "index.html#class-meetings",
+    "href": "index.html#class-meetings",
+    "title": "Seismic Exploration Methods",
+    "section": "Class meetings",
+    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#from-processing-to-inversion",
-    "href": "goals.html#from-processing-to-inversion",
-    "title": "Goals1",
-    "section": "From processing to inversion",
-    "text": "From processing to inversion\n\nDescribe what the forward and inverse models signify.\nWhat property do unitaty matrices have?\nWhat type of solution method should be used when the data synthetic data does not fit observed data exactly?\nDescribe how one arrives at the least-squares solution m_{LS}=(A^TA)^{-1})A^Td?\nIn what situation, is the least-squares solution used? Is the matrix to be inverted tall, square, or fat?\nDescribe the minmum norm solution and when is its use appropriate?\nDescribe in words what the expression min_x|x|_2 subject to Ax=b expresses.\nExplain the difference between processing (applying the adjoint) and inversion\nHow are convolution and correlation related related to linear operations\nDescribe the ‘dot test’ and what does it accomplish\nMention and describe at least three forward-adjoint pairs relevant to exploration seismology\nWrite stacking, zero padding, and sampling as a matrix\nProof that matrices that represent convolution and correlation are adjoints.\nWhat kind of matrix is the convolution in the Fourier domain.\nSketch a column of the Parabolic Radon ‘reverse’ transform (L^H).\nExplain why it is important to ‘invert the ’reverse’ Radon transform’ for multiple removal?\nWhat is the underlying assumption of minimizing the energy (\\ell_2-norm) on the model parameters?\nWhat does high-resolution try to accomplish and what is the underlying assumption on the model and the data?",
+    "objectID": "index.html#teaching-team",
+    "href": "index.html#teaching-team",
+    "title": "Seismic Exploration Methods",
+    "section": "Teaching team",
+    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#compressive-sensing",
-    "href": "goals.html#compressive-sensing",
-    "title": "Goals1",
-    "section": "Compressive sensing",
-    "text": "Compressive sensing\n\nHow is sampling related to a linear system.\nWhen is the linear system underdetermined.\nHow do the concepts of over- and underdetermined systems relate to sampling?\nGive the key ideas of Compressive Sensing.\nGive two examples of transforms that exploit the signal’s structure by sparsity.\nWhich interferences/artifacts are worse. Coherent aliases due to periodic sampling or incoherent noise due to randomized samping and why?\nGive at least two examples of randomized sampling and describe the impact on the sampling artifacts compared to conventional deterministic acquisition.\nGive an example of measurement (M) and sampling (R) matrices with low and hight coherence\nWhich of the following acquisition scenarios creates favorable recovery conditions?\nExplain the role of sparsifying transforms and sparsity-promoting recovery.\nDescribe what happens with the recovery SNR as (i) the subsampling ratio decreases, (ii) the sparsity-level increases, (iii) the noiselevel increases, and (iv) the decay rate of the sorted transform-domain coefficients increases.\nList a number of pitfalls/challenges related to applying compressive sensing to seismic acquisition in the field.",
+    "objectID": "index.html#access-to-piazza",
+    "href": "index.html#access-to-piazza",
+    "title": "Seismic Exploration Methods",
+    "section": "Access to Piazza",
+    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
     "crumbs": [
-      "Goals"
+      "Home"
     ]
   },
   {
-    "objectID": "goals.html#linearized-inversion",
-    "href": "goals.html#linearized-inversion",
-    "title": "Goals1",
-    "section": "Linearized inversion",
-    "text": "Linearized inversion\n\nDescribe three factors that influence the amplitudes of seismic waves\nDescribe when the linearized refflection coefficients is a good approximation\nGive two different expressions for the linearized reflection coefficient in the acoustic case\nMention “non-ray” amplitude effects\nDescribe linearized inversion. What are the two key factors expressing the relationship between the amplitudes of the reflection events and the acoustic medium properties. Introduce the corresponding matrices.\nWhat are the boundary conditions for the elastic wave equation at an interface?\nDescribe the different reflection and transmission coefficients for the elastic case.\nDescribe the linear convolutional model for the seismic reflection response. What are the underlying assupmtions of this model?\nWhat does the background velocity model describe and what properties should it have?\nList the different reflection and transmission coefficients for an interface between two elastic layers. What are these coefficients a function of and w.r.t. to which medium properties can these expressions be linearized? For non-zero and pre-critical angles, what are the orders in deltall 1 for these different reflection and transmission coefficients?\nDescribe the “work flow” of AVP inversion.\nDescribe how the amplitudes of the plane-wave decomposition (via the linear Radon transform) are related to contrasts in the density, compressional, and shear wavespeeds.\nDescribe the damped least-squares procedure to estimate the medium perturbations/contrasts. Is the system under or over determined? Why is damping needed?\nDescribe issues with the spectral gap.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#rtm-fwi",
-    "href": "goals.html#rtm-fwi",
-    "title": "Goals1",
-    "section": "RTM & FWI",
-    "text": "RTM & FWI\n\nDescribe in words what the adjoint state method corresponds to physically\nWhat is the geophysical interpretation of the gradient?\nDescribe the equations for the computation of the gradient. What is their physical meaning?\nDraw the impulse response of a the linear Born scattering operator and its adjoint for a constant velocity model.\nWhat is the relationship between least-squares migration and Gauss-Newton?\nHow is the action of the Jacobian evaluated? How many PDE solves does it take?\nList at least two difference between linearized inversion (least-squares migration and full-waveform inversion).\nDescribe for what purpose full-waveform inversion is used in the context of migration and why.\nDescribe a method to make imaging and inversion more efficient\nDescribe a cross-well experiment\nDescribe a surface-seismic experiment\nHow does the sensitivity of these two methods compare?\nWhat sort of waves does full-waveform inversion rely on and why.\nList at least two requirements of full-waveform inversion on the acquisition.\nWhat does non-uniquness in full-waveform inversion refer to?\nList at least one strategy people use to avoid getting stuck in a local minimum? What does this imply w.r.t. the wavelength and the propagation distance.",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "goals.html#footnotes",
-    "href": "goals.html#footnotes",
-    "title": "Goals1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThese goals are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
-    "crumbs": [
-      "Goals"
-    ]
-  },
-  {
-    "objectID": "hw/w3-hw02.html",
-    "href": "hw/w3-hw02.html",
-    "title": "HW 02: Data visualization",
+    "objectID": "hw/w2-hw01.html",
+    "href": "hw/w2-hw01.html",
+    "title": "HW 01: Pet Names",
     "section": "",
     "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-03.html",
-    "href": "weeks/week-03.html",
-    "title": "Week 03",
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "Week 01",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nNMO correction\n\n\nFri, Jan 30\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-06.html",
-    "href": "weeks/week-06.html",
-    "title": "Week 06",
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "Week 02",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nInverse Problems\n\n\nFrom Forward Modeling to Regularized Inversion in Exploration Seismology\n\n\nMon, Feb 16\n\n\n\n\n\n\nSeismic Deconvolution\n\n\nExploration Methods\n\n\nWed, Feb 18\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-05.html",
-    "href": "weeks/week-05.html",
-    "title": "Week 05",
+    "objectID": "weeks/week-07.html",
+    "href": "weeks/week-07.html",
+    "title": "Week 07",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nMon, Feb 09\n\n\n\n\n\n\nSeismic Imaging\n\n\nPrestack Migration + Velocity Analysis\n\n\nWed, Feb 11\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nAcoustic and Elastic Imaging\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Deconvolution\n\n\nExploration Methods\n\n\nMon, Feb 23\n\n\n\n\n\n\nLinearized AVO Inversion\n\n\nQuantitative Interpretation of Seismic Amplitudes\n\n\nWed, Feb 25\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nSeismic Deconvolution\n\n\nWed, Mar 04\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "weeks/week-04.html",
+    "href": "weeks/week-04.html",
+    "title": "Week 04",
+    "section": "",
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nTime Migration\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "assignments.html",
@@ -1152,89 +1129,371 @@
     "text": "Least-squares migration\n\n# Migration by inversion (aka least-squares migration)\nreflinv = lsqr(Top, data.ravel(), iter_lim=10, damp=1e-2, show=True)[0]\nreflinv = reflinv.reshape(nx, nt0)\ndatainv = Top @ reflinv\n\nfig, axs = plt.subplots(1, 3, sharey=True, figsize=(18, 5))\naxs[0].imshow(reflinv.T, cmap='gray', extent=(x[0], x[-1], t0[-1], t0[0]), vmin=-.5, vmax=.5)\naxs[0].axis('tight')\naxs[0].set_title('Inverted reflectivity')\n\naxs[1].imshow(datainv.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[1].axis('tight')\naxs[1].set_title('Modelled Data')\n\naxs[2].imshow(data.T-datainv.T, cmap='gray', vmin=-1, vmax=1, extent=(x[0], x[-1], t0[-1], t0[0]))\naxs[2].axis('tight')\naxs[2].set_title('Data error')\n\naxs[2].set_ylim(t0[-1], t0[0]);\n\nRe-run the least-squares migration three times by increasing the number of iterations and compare the output.\nWhich method gives sharper reflectors?\nWhich method better recovers amplitudes?\nHow does the migrated image looks like if the reflectivity was a horizontal layer at nt0//2, instead of three point scatterres?"
   },
   {
-    "objectID": "weeks/week-04.html",
-    "href": "weeks/week-04.html",
-    "title": "Week 04",
+    "objectID": "weeks/week-08.html",
+    "href": "weeks/week-08.html",
+    "title": "Week 08",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nTime Migration\n\n\nInvalid Date\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nReverse-Time Migration\n\n\nRTM via the Discretize-Then-Optimize Approach\n\n\nMon, Mar 02\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-07.html",
-    "href": "weeks/week-07.html",
-    "title": "Week 07",
+    "objectID": "weeks/week-05.html",
+    "href": "weeks/week-05.html",
+    "title": "Week 05",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Deconvolution\n\n\nExploration Methods\n\n\nMon, Feb 23\n\n\n\n\n\n\nLinearized AVO Inversion\n\n\nQuantitative Interpretation of Seismic Amplitudes\n\n\nWed, Feb 25\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nSeismic Deconvolution\n\n\nWed, Mar 04\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nMon, Feb 09\n\n\n\n\n\n\nSeismic Imaging\n\n\nPrestack Migration + Velocity Analysis\n\n\nWed, Feb 11\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nAcoustic and Elastic Imaging\n\n\nFri, Feb 13\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-02.html",
-    "href": "weeks/week-02.html",
-    "title": "Week 02",
+    "objectID": "weeks/week-06.html",
+    "href": "weeks/week-06.html",
+    "title": "Week 06",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nProcessing 2\n\n\nbasic workflow\n\n\nWed, Jan 21\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nFirst Lab\n\n\nFri, Jan 23\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nInverse Problems\n\n\nFrom Forward Modeling to Regularized Inversion in Exploration Seismology\n\n\nMon, Feb 16\n\n\n\n\n\n\nSeismic Deconvolution\n\n\nExploration Methods\n\n\nWed, Feb 18\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "weeks/week-01.html",
-    "href": "weeks/week-01.html",
-    "title": "Week 01",
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "Week 03",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nWelcome to Seismic Exploration Methods\n\n\nIntroduction\n\n\nMon, Jan 12\n\n\n\n\n\n\nProcessing 1\n\n\nbasic workflow\n\n\nWed, Jan 14\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nCourse Syllabus\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 1 and 2\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSeismic Imaging\n\n\nthe Wave Equation\n\n\nMon, Feb 02\n\n\n\n\n\n\nSeismic Imaging\n\n\nWavefield Extrapolation\n\n\nWed, Feb 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nNMO correction\n\n\nFri, Jan 30\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nScales, John. “Theory of Seismic Imaging” Chapters 1, 2, 10.3\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapters 2, 3, and 4\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "hw/w2-hw01.html",
-    "href": "hw/w2-hw01.html",
-    "title": "HW 01: Pet Names",
+    "objectID": "hw/w3-hw02.html",
+    "href": "hw/w3-hw02.html",
+    "title": "HW 02: Data visualization",
     "section": "",
     "text": "Add instructions for assignment.\n\n\n\nReuseCC BY 4.0"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Seismic Exploration Methods",
+    "objectID": "goals.html",
+    "href": "goals.html",
+    "title": "Goals1",
     "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#course-overview",
-    "href": "index.html#course-overview",
-    "title": "Seismic Exploration Methods",
+    "objectID": "goals.html#general-introduction",
+    "href": "goals.html#general-introduction",
+    "title": "Goals1",
     "section": "",
-    "text": "Course overview of EAS : Seismic Exploration Methods\nThis course contains a comprehensive review of active-source reflection seismology and its applications. The course covers aspects of seismic data acquisition, basic data processing, and advanced (wave-equation) based imaging and inversion workflows. While the field of computational reflection seismology has mostly been directed towards the exploration & production of Oil & Gas, alternative applications of this technology will be explored that will help society navigate the energy transition. This includes the use of seismic methods to monitor and manage underground operations such as geothermal and carbon storage.",
+    "text": "Give a description of a surface-seismic experiment\nDescribe the basic steps of the post-stack seismic data flow and why they are important\nExplain why we need seismic exploration\nName seismic transducers and setup for land and marine acquition\nDescribe different seismic gathers\nWhat are the assumptions underlying NMO\nWhat is the role of the “fold” of the acquisition and why is it important\nDescribe the mathematical relation between midpoint/offset and source-receiver coordinates\nWhy is the sampling rate different for common-shot and common midpoint gathers\nDescribe the principle of velocity estimation with NMO\nWhat does migration try to accomplish\nGive a geometric description of the process of zero-offset migration.\nDescribe the different terms in the Rayleigh II integral\nDecribe the extrapolation “work flow”\nFlowshart for shot extrapolation in the f-k domain\nWhat is the expression for the wavefield extrapolation operator in the f-k domain.\nWhat change do you need to make to do inverse extrapolation\nDescribe in pictures forward wavefield extrapolation for a shot record with two events\nDescribe recursive inverse wavefield extrapolation of a shot record with a single reflection event by a number of plots\nWhat is the main assumption on the behavior of the velocity in f-k based recursive extrapolation and what happens to the extrapolation operator compared to the lateral invariant case\nName the five steps of prestack migration\nWhat are the underlying assumptions regarding the use of a particular migration scheme in relation to the complexity of the subsurface.\nDraw a schematic of the “impulse” response of the migration operator and the linearized scattering operator.\nDescribe the different steps of pre-stack shot migration\nWhat is the difference between pre- and post-stack migration?\nWhat is the effect of summing the images of the different shot gathers\nIn what situation is pre-stack time migration a viable option and when not\nWhat migration scheme would you use in case of complex velocities and complex structure\n\n\n\n\n\nWavefield extrapolation via Rayleigh II\nWavefield extrapolation via the f-k domain\n\\(V(z)\\) migration\nShot record migration\nRecursive extrapolation in varying media\nPre-stack shot migration\nOne-way wave-equation migration\nReverse-time migration\nVelocity-model estimation\n\nTraveltime tomography\nmigration-velocity analysis\n\nWhat are the two prevailing methods to estimate the velocity model and what information do they need\nDescribe the main principles of travel-time tomography\nDescribe the main principles of migration velocity analyses\nWhat are the differences between these two methods of velocity model estimation\n\n\n\n\n\nDescribe the principle and assumptions behind f-k filtering\nWrite down the Radon transform in the physical and Fourier domain\nDescribe Radon filtering sequence of operations to remove multiples\nDescribe what the process of seismic deconvolution tries to accomplish",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#class-meetings",
-    "href": "index.html#class-meetings",
-    "title": "Seismic Exploration Methods",
-    "section": "Class meetings",
-    "text": "Class meetings\n\n\n\nMeeting\nLocation\nTime\n\n\n\n\nLecture\nSkiles, Room 254\nMon & Wed 3:30 - 4:45PM",
+    "objectID": "goals.html#seismic-data-acquisition",
+    "href": "goals.html#seismic-data-acquisition",
+    "title": "Goals1",
+    "section": "Seismic data acquisition",
+    "text": "Seismic data acquisition\n\nGive the Nyquist sampling critrion for the sampling of spatio-temporal wavefields\nDescribe aliasing in 1-D and 2- D (f-k domain).\nWhat is an airgun\nWhat is the ghost?\nWhat is the effect of the ghost on the amplitude spectrum?\nDescribe azimuth and name at least three disadvantages of near azimuth acquisition.\nWhat does a rose diagram plot?\nMention two different configurations to improve azimuthal coverage. Include sketches of the arrays and sources.\nDescribe rich azimuth acquisition and include drawing.\nWhat is the main driver behind WAZ acquisition?\nName at least four improvemens related to wide-azimuth acquisition?\nWhat is fold and why is it important?\nWhat are the main challenges in marine acquisition?\nWhat are the challenges of 3D acquisition?\nName some recent developments.\nDescribe coil sampling\nGive the main reasons why large offsets are required?",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#teaching-team",
-    "href": "index.html#teaching-team",
-    "title": "Seismic Exploration Methods",
-    "section": "Teaching team",
-    "text": "Teaching team\n\n\n\nName\nOffice hours\nLocation\n\n\n\n\nFelix J. Herrmann (Instructor)\nTBD\nZoom\n\n\nAbhinav Gahlot (TA)\nTBD\nZoom",
+    "objectID": "goals.html#from-processing-to-inversion",
+    "href": "goals.html#from-processing-to-inversion",
+    "title": "Goals1",
+    "section": "From processing to inversion",
+    "text": "From processing to inversion\n\nDescribe what the forward and inverse models signify.\nWhat property do unitaty matrices have?\nWhat type of solution method should be used when the data synthetic data does not fit observed data exactly?\nDescribe how one arrives at the least-squares solution m_{LS}=(A^TA)^{-1})A^Td?\nIn what situation, is the least-squares solution used? Is the matrix to be inverted tall, square, or fat?\nDescribe the minmum norm solution and when is its use appropriate?\nDescribe in words what the expression min_x|x|_2 subject to Ax=b expresses.\nExplain the difference between processing (applying the adjoint) and inversion\nHow are convolution and correlation related related to linear operations\nDescribe the ‘dot test’ and what does it accomplish\nMention and describe at least three forward-adjoint pairs relevant to exploration seismology\nWrite stacking, zero padding, and sampling as a matrix\nProof that matrices that represent convolution and correlation are adjoints.\nWhat kind of matrix is the convolution in the Fourier domain.\nSketch a column of the Parabolic Radon ‘reverse’ transform (L^H).\nExplain why it is important to ‘invert the ’reverse’ Radon transform’ for multiple removal?\nWhat is the underlying assumption of minimizing the energy (\\ell_2-norm) on the model parameters?\nWhat does high-resolution try to accomplish and what is the underlying assumption on the model and the data?",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
   },
   {
-    "objectID": "index.html#access-to-piazza",
-    "href": "index.html#access-to-piazza",
-    "title": "Seismic Exploration Methods",
-    "section": "Access to Piazza",
-    "text": "Access to Piazza\nStudents are encouraged to post their questions on Piazza on Canvas or Piazza direct, which will be monitored by Abhinav Gahlot.",
+    "objectID": "goals.html#compressive-sensing",
+    "href": "goals.html#compressive-sensing",
+    "title": "Goals1",
+    "section": "Compressive sensing",
+    "text": "Compressive sensing\n\nHow is sampling related to a linear system.\nWhen is the linear system underdetermined.\nHow do the concepts of over- and underdetermined systems relate to sampling?\nGive the key ideas of Compressive Sensing.\nGive two examples of transforms that exploit the signal’s structure by sparsity.\nWhich interferences/artifacts are worse. Coherent aliases due to periodic sampling or incoherent noise due to randomized samping and why?\nGive at least two examples of randomized sampling and describe the impact on the sampling artifacts compared to conventional deterministic acquisition.\nGive an example of measurement (M) and sampling (R) matrices with low and hight coherence\nWhich of the following acquisition scenarios creates favorable recovery conditions?\nExplain the role of sparsifying transforms and sparsity-promoting recovery.\nDescribe what happens with the recovery SNR as (i) the subsampling ratio decreases, (ii) the sparsity-level increases, (iii) the noiselevel increases, and (iv) the decay rate of the sorted transform-domain coefficients increases.\nList a number of pitfalls/challenges related to applying compressive sensing to seismic acquisition in the field.",
     "crumbs": [
-      "Home"
+      "Goals"
     ]
+  },
+  {
+    "objectID": "goals.html#linearized-inversion",
+    "href": "goals.html#linearized-inversion",
+    "title": "Goals1",
+    "section": "Linearized inversion",
+    "text": "Linearized inversion\n\nDescribe three factors that influence the amplitudes of seismic waves\nDescribe when the linearized refflection coefficients is a good approximation\nGive two different expressions for the linearized reflection coefficient in the acoustic case\nMention “non-ray” amplitude effects\nDescribe linearized inversion. What are the two key factors expressing the relationship between the amplitudes of the reflection events and the acoustic medium properties. Introduce the corresponding matrices.\nWhat are the boundary conditions for the elastic wave equation at an interface?\nDescribe the different reflection and transmission coefficients for the elastic case.\nDescribe the linear convolutional model for the seismic reflection response. What are the underlying assupmtions of this model?\nWhat does the background velocity model describe and what properties should it have?\nList the different reflection and transmission coefficients for an interface between two elastic layers. What are these coefficients a function of and w.r.t. to which medium properties can these expressions be linearized? For non-zero and pre-critical angles, what are the orders in deltall 1 for these different reflection and transmission coefficients?\nDescribe the “work flow” of AVP inversion.\nDescribe how the amplitudes of the plane-wave decomposition (via the linear Radon transform) are related to contrasts in the density, compressional, and shear wavespeeds.\nDescribe the damped least-squares procedure to estimate the medium perturbations/contrasts. Is the system under or over determined? Why is damping needed?\nDescribe issues with the spectral gap.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#rtm-fwi",
+    "href": "goals.html#rtm-fwi",
+    "title": "Goals1",
+    "section": "RTM & FWI",
+    "text": "RTM & FWI\n\nDescribe in words what the adjoint state method corresponds to physically\nWhat is the geophysical interpretation of the gradient?\nDescribe the equations for the computation of the gradient. What is their physical meaning?\nDraw the impulse response of a the linear Born scattering operator and its adjoint for a constant velocity model.\nWhat is the relationship between least-squares migration and Gauss-Newton?\nHow is the action of the Jacobian evaluated? How many PDE solves does it take?\nList at least two difference between linearized inversion (least-squares migration and full-waveform inversion).\nDescribe for what purpose full-waveform inversion is used in the context of migration and why.\nDescribe a method to make imaging and inversion more efficient\nDescribe a cross-well experiment\nDescribe a surface-seismic experiment\nHow does the sensitivity of these two methods compare?\nWhat sort of waves does full-waveform inversion rely on and why.\nList at least two requirements of full-waveform inversion on the acquisition.\nWhat does non-uniquness in full-waveform inversion refer to?\nList at least one strategy people use to avoid getting stuck in a local minimum? What does this imply w.r.t. the wavelength and the propagation distance.",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "goals.html#footnotes",
+    "href": "goals.html#footnotes",
+    "title": "Goals1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThese goals are subject to change throughout the semester. We will try to keep these updates to a minimum. ↩︎",
+    "crumbs": [
+      "Goals"
+    ]
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#motivation",
+    "href": "slides/week-08/12-rtm.html#motivation",
+    "title": "Reverse-Time Migration",
+    "section": "Motivation",
+    "text": "Motivation\nSeismic migration aims to move reflected energy to its true subsurface location. Not all migration methods handle complex geology equally well.\n\n\n\n\n\n\n\n\nMethod\nPros\nCons\n\n\n\n\nKirchhoff\nFast, flexible geometry, parallelizable\nFails with multipathing, poor in complex media\n\n\nGaussian Beam\nHandles multipathing, smooth amplitudes\nLimited accuracy in sharp velocity contrasts\n\n\nOne-way WEM\nAccurate for lateral velocity variations\nCannot image steep dips (&gt;90°), no turning waves\n\n\nRTM\nFull wave equation, all dips and turning waves\nComputationally expensive, low-frequency artifacts"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#overview-different-migration-methods",
+    "href": "slides/week-08/12-rtm.html#overview-different-migration-methods",
+    "title": "Reverse-Time Migration",
+    "section": "Overview different Migration Methods",
+    "text": "Overview different Migration Methods\n\nOverview of migration methods (Hill and Rüger 2020)"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#impulse-responses",
+    "href": "slides/week-08/12-rtm.html#impulse-responses",
+    "title": "Reverse-Time Migration",
+    "section": "Impulse Responses",
+    "text": "Impulse Responses\n\n(a) Kirchhoff migration. (b) Gaussian beam migration. (c) One-way wave-equation migration. (d) Reverse-time migration. As the migration method becomes more accurate, the impulse response becomes more complex. (Etgen, Gray, and Zhang 2009)Impulse responses for four migration methods on the Sigsbee escarpment model, a common industry migration benchmark (Hill and Rüger 2020)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#impulse-responses-1",
+    "href": "slides/week-08/12-rtm.html#impulse-responses-1",
+    "title": "Reverse-Time Migration",
+    "section": "Impulse Responses",
+    "text": "Impulse Responses\n\nKirchhoff: single-valued wavefront (one ray per angle); discontinuous in the presence of large velocity contrasts\nGaussian Beam: smooth, continuous wavefronts that handle multipathing better than Kirchhoff but with limited resolution at sharp velocity boundaries\nOne-way Wave-equation Migration: multi-valued wavefront captures complex wave paths; no internal reflections; smooth, gradational changes instead of discontinuities\nTwo-way (RTM): most complex and accurate; includes reflections from salt-sediment interfaces; practitioners suppress these by setting zero reflection coefficients in the density model"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#different-migration-methods",
+    "href": "slides/week-08/12-rtm.html#different-migration-methods",
+    "title": "Reverse-Time Migration",
+    "section": "Different Migration Methods",
+    "text": "Different Migration Methods\n\nKirchhoff, Gaussian Beam, One-way WEM, and RTM comparison (Etgen, Gray, and Zhang 2009)\nKirchhoff and Gaussian Beam struggle beneath complex salt bodies\nGaussian Beam migration provides smoother results than Kirchhoff but still degrades beneath complex salt geometries\nOne-way migration improves subsalt imaging but misses steep dips\nRTM produces the most complete and accurate image"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#kirchhoff-vs.-rtm",
+    "href": "slides/week-08/12-rtm.html#kirchhoff-vs.-rtm",
+    "title": "Reverse-Time Migration",
+    "section": "Kirchhoff vs. RTM",
+    "text": "Kirchhoff vs. RTM\n\n\n\n\n\nKirchhoff migration\n\n\n\n\n\n\nReverse-Time Migration\n\n\n\nKirchhoff migration vs. RTM on a complex salt model (Hill and Rüger 2020)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#kirchhoff-vs.-rtm-contd",
+    "href": "slides/week-08/12-rtm.html#kirchhoff-vs.-rtm-contd",
+    "title": "Reverse-Time Migration",
+    "section": "Kirchhoff vs. RTM cont’d",
+    "text": "Kirchhoff vs. RTM cont’d\n\n\n\n\n\nKirchhoff migration\n\n\n\n\n\n\nReverse-Time Migration\n\n\n\nKirchhoff vs. RTM — another example (Hill and Rüger 2020)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#one-way-vs.-rtm",
+    "href": "slides/week-08/12-rtm.html#one-way-vs.-rtm",
+    "title": "Reverse-Time Migration",
+    "section": "One-way vs. RTM",
+    "text": "One-way vs. RTM\n\n\n\n\n\nOne-way wave-equation migration\n\n\n\n\n\n\nReverse-Time Migration\n\n\n\nOne-way WEM vs. RTM (Hill and Rüger 2020)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#rtm-in-words",
+    "href": "slides/week-08/12-rtm.html#rtm-in-words",
+    "title": "Reverse-Time Migration",
+    "section": "RTM in words",
+    "text": "RTM in words\nRTM in four steps (Zhou et al. 2018):\n\nForward propagation — propagate the source wavelet forward in time through the velocity model using the two-way wave equation\nBackward propagation — inject the time-reversed recorded data at receiver locations and propagate backward through the same velocity model; stack contributions from all receivers\nImaging condition — cross-correlate the forward and backward wavefields at every subsurface point; the zero-lag correlation values form the image for each shot\nPost-processing — apply a Laplacian filter to suppress low-frequency artifacts in the stacked RTM image"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#outline",
+    "href": "slides/week-08/12-rtm.html#outline",
+    "title": "Reverse-Time Migration",
+    "section": "Outline",
+    "text": "Outline\n\nMotivation — RTM as the gradient of an optimization problem\nDiscretize first — The wave equation as a matrix system\nThe objective — Least-squares misfit in vectors\nThe Lagrangian — Constrained optimization with multipliers\nThree partial derivatives — Adjoint equation + gradient via calculus\nWhat is \\(\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\)? — Anatomy of the key matrix\nRTM algorithm — Putting it together\nFrom RTM to FWI — Iteration and the Hessian\n\n\n\n\n\n\n\nTip\n\n\nThis lecture follows the discretize-then-optimize philosophy: we discretize the wave equation first, then apply standard multivariate calculus. No functional analysis, no Fréchet derivatives — just vectors, matrices, and the chain rule."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#philosophy-two-routes-to-the-gradient",
+    "href": "slides/week-08/12-rtm.html#philosophy-two-routes-to-the-gradient",
+    "title": "Reverse-Time Migration",
+    "section": "Philosophy: Two Routes to the Gradient",
+    "text": "Philosophy: Two Routes to the Gradient\nOptimize-then-discretize\n\\[\n\\text{PDE} \\;\\xrightarrow{\\text{variations}}\\; \\text{continuous gradient} \\;\\xrightarrow{\\text{discretize}}\\; \\text{code}\n\\]\nDiscretize-then-optimize\n\\[\n\\text{PDE} \\;\\xrightarrow{\\text{discretize}}\\; \\text{matrix system} \\;\\xrightarrow{\\partial / \\partial m_i}\\; \\text{gradient vector}\n\\]\n. . .\n\n\n\n\n\n\nWhy this route?\n\n\nEverything is finite-dimensional. The gradient is a vector \\(\\nabla_{\\mathbf{m}} J \\in \\mathbb{R}^n\\), computed via partial derivatives \\(\\frac{\\partial}{\\partial m_i}\\) — standard multivariate calculus. No mathematical function spaces, no method of variations."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#step-1-discretize-the-wave-equation",
+    "href": "slides/week-08/12-rtm.html#step-1-discretize-the-wave-equation",
+    "title": "Reverse-Time Migration",
+    "section": "Step 1: Discretize the Wave Equation",
+    "text": "Step 1: Discretize the Wave Equation\n\nStart from the acoustic wave equation \\(m(\\mathbf{x})\\,\\partial_{tt} u - \\nabla^2 u = q_s\\) and discretize on a grid with \\(n\\) spatial points and \\(n_t\\) time steps.\n\nStack the wavefield at all space-time points into a single vector:\n\\[\n\\mathbf{u}_s \\in \\mathbb{R}^{N}, \\qquad N = n \\times n_t\n\\]\nThe discretized wave equation becomes:\n\\[\n\\boxed{\\mathbf{A}(\\mathbf{m})\\,\\mathbf{u}_s = \\mathbf{q}_s}\n\\]\n\n\nDimensions:\n\n\\(\\mathbf{m} \\in \\mathbb{R}^n\\) — squared slowness at each grid point (what we want to find)\n\\(\\mathbf{A}(\\mathbf{m}) \\in \\mathbb{R}^{N \\times N}\\) — discrete wave-equation matrix\n\\(\\mathbf{u}_s \\in \\mathbb{R}^{N}\\) — wavefield vector\n\\(\\mathbf{q}_s \\in \\mathbb{R}^{N}\\) — source vector"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#structure-of-mathbfamathbfm",
+    "href": "slides/week-08/12-rtm.html#structure-of-mathbfamathbfm",
+    "title": "Reverse-Time Migration",
+    "section": "Structure of \\(\\mathbf{A}(\\mathbf{m})\\)",
+    "text": "Structure of \\(\\mathbf{A}(\\mathbf{m})\\)\n\nThe wave equation has two terms: \\(m(\\mathbf{x})\\,\\partial_{tt}u\\) (mass/inertia) and \\(-\\nabla^2 u\\) (stiffness). After discretization:\n\\[\n\\mathbf{A}(\\mathbf{m}) = \\mathbf{M}(\\mathbf{m})\\,\\mathbf{D}_{tt} - \\mathbf{L}\n\\]\n\n\n\\(\\mathbf{D}_{tt} \\in \\mathbb{R}^{N \\times N}\\): discrete second time-derivative (finite differences in \\(t\\))\n\\(\\mathbf{L} \\in \\mathbb{R}^{N \\times N}\\): discrete Laplacian (finite differences in \\(\\mathbf{x}\\)) — does not depend on \\(\\mathbf{m}\\)\n\\(\\mathbf{M}(\\mathbf{m}) \\in \\mathbb{R}^{N \\times N}\\): diagonal mass matrix that puts \\(m_i\\) at every time step for grid point \\(i\\)\n\n\n\n\n\n\n\n\n\nKey observation\n\n\nOnly \\(\\mathbf{M}(\\mathbf{m})\\) depends on \\(\\mathbf{m}\\), and it does so linearly. Changing \\(m_i\\) at one spatial grid point affects a specific diagonal block of \\(\\mathbf{A}\\)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#step-2-the-discrete-objective",
+    "href": "slides/week-08/12-rtm.html#step-2-the-discrete-objective",
+    "title": "Reverse-Time Migration",
+    "section": "Step 2: The Discrete Objective",
+    "text": "Step 2: The Discrete Objective\n\nA sampling matrix \\(\\mathbf{P} \\in \\mathbb{R}^{M \\times N}\\) (\\(M = n_r \\times n_t\\)) extracts the wavefield at receiver locations:\n\\[\n\\mathbf{d}_s^{\\text{pred}} = \\mathbf{P}\\,\\mathbf{u}_s = \\mathbf{P}\\,\\mathbf{A}^{-1}(\\mathbf{m})\\,\\mathbf{q}_s\n\\]\n\nLeast-squares misfit\n\\[\n\\boxed{J(\\mathbf{m}) = \\frac{1}{2}\\sum_{s=1}^{n_s} \\left\\|\\mathbf{P}\\,\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}}\\right\\|_2^2}\n\\]\nsubject to \\(\\mathbf{A}(\\mathbf{m})\\,\\mathbf{u}_s = \\mathbf{q}_s\\) for each shot \\(s\\).\n. . .\nGoal: compute the gradient vector \\(\\nabla_{\\mathbf{m}} J \\in \\mathbb{R}^n\\), i.e., all \\(n\\) partial derivatives \\(\\frac{\\partial J}{\\partial m_i}\\)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#the-naïve-approach",
+    "href": "slides/week-08/12-rtm.html#the-naïve-approach",
+    "title": "Reverse-Time Migration",
+    "section": "The Naïve Approach",
+    "text": "The Naïve Approach\n\nPerturb one parameter at a time:\n\\[\n\\frac{\\partial J}{\\partial m_i} \\approx \\frac{J(\\mathbf{m} + \\epsilon\\,\\mathbf{e}_i) - J(\\mathbf{m})}{\\epsilon}\n\\]\n\nEach perturbation requires re-solving \\(\\mathbf{A}(\\mathbf{m} + \\epsilon\\,\\mathbf{e}_i)\\,\\mathbf{u}_s = \\mathbf{q}_s\\) for all shots.\nCost: \\(n \\times n_s\\) PDE solves — one per parameter per shot.\n\n\nFor a model with \\(n = 10^6\\) grid points and \\(n_s = 10^3\\) shots, that’s \\(10^9\\) PDE solves.\n\n\n\n\n\n\nThis is unaffordable!\n\n\nWe need a way to get all \\(n\\) partial derivatives from a small, fixed number of PDE solves per shot."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#step-3-the-lagrangian",
+    "href": "slides/week-08/12-rtm.html#step-3-the-lagrangian",
+    "title": "Reverse-Time Migration",
+    "section": "Step 3: The Lagrangian",
+    "text": "Step 3: The Lagrangian\n\nIntroduce a vector of Lagrange multipliers \\(\\mathbf{v}_s \\in \\mathbb{R}^N\\) for each shot:\n\\[\n\\boxed{\\mathcal{L}(\\mathbf{m}, \\{\\mathbf{u}_s\\}, \\{\\mathbf{v}_s\\}) = \\frac{1}{2}\\sum_s \\|\\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}}\\|_2^2 + \\sum_s \\mathbf{v}_s^\\top\\!\\left(\\mathbf{A}(\\mathbf{m})\\,\\mathbf{u}_s - \\mathbf{q}_s\\right)}\n\\]\n\nThis is a scalar-valued function of three groups of variables:\n\n\n\n\n\n\n\n\nVariable\nLives in\nMeaning\n\n\n\n\n\\(\\mathbf{m}\\)\n\\(\\mathbb{R}^n\\)\nmodel parameters\n\n\n\\(\\mathbf{u}_s\\)\n\\(\\mathbb{R}^N\\)\nwavefield (one per shot)\n\n\n\\(\\mathbf{v}_s\\)\n\\(\\mathbb{R}^N\\)\nLagrange multipliers (one per shot)\n\n\n\n\n\nKey property: when the constraint is satisfied (\\(\\mathbf{A}\\mathbf{u}_s = \\mathbf{q}_s\\)), the second term vanishes and \\(\\mathcal{L} = J\\)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#step-4-three-sets-of-partial-derivatives",
+    "href": "slides/week-08/12-rtm.html#step-4-three-sets-of-partial-derivatives",
+    "title": "Reverse-Time Migration",
+    "section": "Step 4: Three Sets of Partial Derivatives",
+    "text": "Step 4: Three Sets of Partial Derivatives\n\nAt a stationary point of \\(\\mathcal{L}\\), we have \\(\\nabla_{\\mathbf{m}}\\mathcal{L} = \\nabla_{\\mathbf{m}} J\\). To find it, we set the partial derivatives of \\(\\mathcal{L}\\) w.r.t. each group of variables to zero.\n\nWe will take three derivatives:\n\n\n\n\n\n\n\nDerivative\nWhat it gives us\n\n\n\n\n\\(\\frac{\\partial \\mathcal{L}}{\\partial \\mathbf{v}_s} = \\mathbf{0}\\)\nrecovers the forward (state) equation\n\n\n\\(\\frac{\\partial \\mathcal{L}}{\\partial \\mathbf{u}_s} = \\mathbf{0}\\)\ngives the adjoint equation — determines \\(\\mathbf{v}_s\\)\n\n\n\\(\\frac{\\partial \\mathcal{L}}{\\partial m_i}\\)\ngives the \\(i\\)-th component of the gradient\n\n\n\n\n\n\n\n\n\n\n\nNo variations needed!\n\n\nThese are ordinary partial derivatives of a scalar function w.r.t. vector/scalar variables. Standard multivariate calculus."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#derivative-1-w.r.t.-mathbfv_s",
+    "href": "slides/week-08/12-rtm.html#derivative-1-w.r.t.-mathbfv_s",
+    "title": "Reverse-Time Migration",
+    "section": "Derivative 1: w.r.t. \\(\\mathbf{v}_s\\)",
+    "text": "Derivative 1: w.r.t. \\(\\mathbf{v}_s\\)\n\nThe Lagrangian depends on \\(\\mathbf{v}_s\\) only through \\(\\mathbf{v}_s^\\top(\\mathbf{A}\\mathbf{u}_s - \\mathbf{q}_s)\\):\n\\[\n\\frac{\\partial \\mathcal{L}}{\\partial \\mathbf{v}_s} = \\mathbf{A}(\\mathbf{m})\\,\\mathbf{u}_s - \\mathbf{q}_s = \\mathbf{0}\n\\]\n\n\\[\n\\boxed{\\mathbf{A}(\\mathbf{m})\\,\\mathbf{u}_s = \\mathbf{q}_s}\n\\]\n\n\nNo surprise — this just says “the wave equation must be satisfied.” It confirms that \\(\\mathbf{v}_s\\) enforces the PDE constraint."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#derivative-2-w.r.t.-mathbfu_s-the-adjoint-equation",
+    "href": "slides/week-08/12-rtm.html#derivative-2-w.r.t.-mathbfu_s-the-adjoint-equation",
+    "title": "Reverse-Time Migration",
+    "section": "Derivative 2: w.r.t. \\(\\mathbf{u}_s\\) — The adjoint equation",
+    "text": "Derivative 2: w.r.t. \\(\\mathbf{u}_s\\) — The adjoint equation\n\n\\(\\mathcal{L}\\) depends on \\(\\mathbf{u}_s\\) through two terms. Take the derivative of each:\n\nFrom the misfit term \\(\\frac{1}{2}\\|\\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}}\\|_2^2\\):\n\\[\n\\frac{\\partial}{\\partial \\mathbf{u}_s}\\left[\\frac{1}{2}(\\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}})^\\top(\\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}})\\right] = \\mathbf{P}^\\top(\\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}})\n\\]\n\n\nFrom the constraint term \\(\\mathbf{v}_s^\\top \\mathbf{A}\\mathbf{u}_s\\):\n\\[\n\\frac{\\partial}{\\partial \\mathbf{u}_s}\\left[\\mathbf{v}_s^\\top \\mathbf{A}\\mathbf{u}_s\\right] = \\mathbf{A}^\\top \\mathbf{v}_s\n\\]\n\n\nSetting the sum to zero and defining the residual \\(\\delta\\mathbf{d}_s = \\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}}\\):\n\\[\n\\boxed{\\mathbf{A}^\\top\\!\\mathbf{v}_s = -\\mathbf{P}^\\top\\,\\delta\\mathbf{d}_s}\n\\]"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#what-is-mathbfatop",
+    "href": "slides/week-08/12-rtm.html#what-is-mathbfatop",
+    "title": "Reverse-Time Migration",
+    "section": "What is \\(\\mathbf{A}^\\top\\)?",
+    "text": "What is \\(\\mathbf{A}^\\top\\)?\n\nRecall \\(\\mathbf{A} = \\mathbf{M}(\\mathbf{m})\\,\\mathbf{D}_{tt} - \\mathbf{L}\\), so\n\\[\n\\mathbf{A}^\\top = \\mathbf{D}_{tt}^\\top\\,\\mathbf{M}(\\mathbf{m}) - \\mathbf{L}^\\top\n\\]\n\n\n\\(\\mathbf{M}(\\mathbf{m})\\) is diagonal → \\(\\mathbf{M}^\\top = \\mathbf{M}\\) ✓\n\\(\\mathbf{L}\\) (Laplacian) is symmetric → \\(\\mathbf{L}^\\top = \\mathbf{L}\\) ✓\n\\(\\mathbf{D}_{tt}\\) (second time derivative): transposing reverses the direction of time—i.e., the matrix transpose = reverse-time propagation\n\n\n\nSo \\(\\mathbf{A}^\\top\\) is the same wave equation, but solved backward in time.\n\n\n\n\n\n\nThis is the “reverse-time” in RTM!\n\n\nThe matrix transpose is all it takes. No new physics — just linear algebra."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#interpretation-of-the-adjoint-equation",
+    "href": "slides/week-08/12-rtm.html#interpretation-of-the-adjoint-equation",
+    "title": "Reverse-Time Migration",
+    "section": "Interpretation of the Adjoint Equation",
+    "text": "Interpretation of the Adjoint Equation\n\\(\\mathbf{A}^\\top\\mathbf{v}_s = -\\mathbf{P}^\\top\\delta\\mathbf{d}_s\\)\n\nRight-hand side \\(-\\mathbf{P}^\\top\\delta\\mathbf{d}_s\\):\n\n\\(\\delta\\mathbf{d}_s \\in \\mathbb{R}^M\\): data residual (predicted minus observed)\n\\(\\mathbf{P}^\\top\\): injects the residual back at receiver locations into the full grid\nThe minus sign: we want to minimize the misfit\n\n\n\nOperator \\(\\mathbf{A}^\\top\\): propagates backward in time.\n\n\nSolution \\(\\mathbf{v}_s \\in \\mathbb{R}^N\\): the back-propagated residual wavefield — the data residual sent backward through the Earth model."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#derivative-3-w.r.t.-model-parameters",
+    "href": "slides/week-08/12-rtm.html#derivative-3-w.r.t.-model-parameters",
+    "title": "Reverse-Time Migration",
+    "section": "Derivative 3: w.r.t. model parameters",
+    "text": "Derivative 3: w.r.t. model parameters\nThe gradient of \\(m_i\\) -— one component at a time\nNow the payoff. Differentiate \\(\\mathcal{L}\\) w.r.t. the \\(i\\)-th model parameter \\(m_i\\):\n\\[\n\\frac{\\partial \\mathcal{L}}{\\partial m_i} = \\frac{\\partial}{\\partial m_i}\\left[\\sum_s \\mathbf{v}_s^\\top \\mathbf{A}(\\mathbf{m})\\,\\mathbf{u}_s\\right]\n\\]\n\nThe misfit term does not depend on \\(m_i\\) directly (only through \\(\\mathbf{u}_s\\), which we’ve already dealt with). The constraint term gives:\n\\[\n\\frac{\\partial \\mathcal{L}}{\\partial m_i} = \\sum_s \\mathbf{v}_s^\\top\\,\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\,\\mathbf{u}_s\n\\]\n\n\n\n\n\n\n\n\nObservation\n\n\nEach component \\([\\nabla_{\\mathbf{m}} J]_i\\) is a scalar: the dot product \\(\\mathbf{v}_s^\\top (\\cdots) \\mathbf{u}_s\\). Stack all \\(n\\) of them and you get the gradient vector \\(\\nabla_{\\mathbf{m}} J \\in \\mathbb{R}^n\\)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#derivative-of-the-modeling-w.r.t.-its-parameters",
+    "href": "slides/week-08/12-rtm.html#derivative-of-the-modeling-w.r.t.-its-parameters",
+    "title": "Reverse-Time Migration",
+    "section": "Derivative of the Modeling w.r.t. its parameters?",
+    "text": "Derivative of the Modeling w.r.t. its parameters?\nWhat is \\(\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\)?\n\n\nRecall \\(\\mathbf{A}(\\mathbf{m}) = \\mathbf{M}(\\mathbf{m})\\,\\mathbf{D}_{tt} - \\mathbf{L}\\). The Laplacian \\(\\mathbf{L}\\) doesn’t depend on \\(\\mathbf{m}\\), so:\n\\[\n\\frac{\\partial \\mathbf{A}}{\\partial m_i} = \\frac{\\partial \\mathbf{M}}{\\partial m_i}\\,\\mathbf{D}_{tt}\n\\]\n\n\n\\(\\mathbf{M}(\\mathbf{m})\\) is diagonal with \\(m_i\\) repeated along the entries corresponding to grid point \\(i\\) at each time step.\nSo \\(\\frac{\\partial \\mathbf{M}}{\\partial m_i}\\) is a very sparse matrix — it has \\(n_t\\) ones on the diagonal, at the positions corresponding to \\((\\mathbf{x}_i, t_1), (\\mathbf{x}_i, t_2), \\ldots, (\\mathbf{x}_i, t_{n_t})\\), and zeros everywhere else."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#contd",
+    "href": "slides/week-08/12-rtm.html#contd",
+    "title": "Reverse-Time Migration",
+    "section": "Cont’d",
+    "text": "Cont’d\nEffect: \\(\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\,\\mathbf{u}_s\\) selects the second time derivative of \\(\\mathbf{u}_s\\) at spatial point \\(i\\):\n\\[\n\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\,\\mathbf{u}_s = \\begin{pmatrix} \\vdots \\\\ 0 \\\\ \\ddot{u}_s(\\mathbf{x}_i, t_1) \\\\ \\ddot{u}_s(\\mathbf{x}_i, t_2) \\\\ \\vdots \\\\ \\ddot{u}_s(\\mathbf{x}_i, t_{n_t}) \\\\ 0 \\\\ \\vdots \\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#assembling-the-gradient",
+    "href": "slides/week-08/12-rtm.html#assembling-the-gradient",
+    "title": "Reverse-Time Migration",
+    "section": "Assembling the Gradient",
+    "text": "Assembling the Gradient\n\nThe dot product \\(\\mathbf{v}_s^\\top\\,\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\,\\mathbf{u}_s\\) selects the time traces at \\(\\mathbf{x}_i\\) and sums their products:\n\\[\n\\mathbf{v}_s^\\top\\,\\frac{\\partial \\mathbf{A}}{\\partial m_i}\\,\\mathbf{u}_s = \\sum_{k=1}^{n_t} v_s(\\mathbf{x}_i, t_k)\\;\\ddot{u}_s(\\mathbf{x}_i, t_k)\\,\\Delta t\n\\]\n\nSum over shots to get the \\(i\\)-th gradient component:\n\\[\n\\boxed{[\\nabla_{\\mathbf{m}} J]_i = \\sum_{s=1}^{n_s}\\sum_{k=1}^{n_t} v_s(\\mathbf{x}_i, t_k)\\;\\ddot{u}_s(\\mathbf{x}_i, t_k)\\,\\Delta t}\n\\]\n\n\nThis is the discrete zero-lag cross-correlation of the forward wavefield \\(\\mathbf{u}_s\\) (its second time derivative) and the adjoint wavefield \\(\\mathbf{v}_s\\), evaluated at grid point \\(i\\)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#the-full-gradient-vector",
+    "href": "slides/week-08/12-rtm.html#the-full-gradient-vector",
+    "title": "Reverse-Time Migration",
+    "section": "The Full Gradient Vector",
+    "text": "The Full Gradient Vector\n\nStack all \\(n\\) components:\n\\[\n\\nabla_{\\mathbf{m}} J = \\begin{pmatrix} [\\nabla_{\\mathbf{m}} J]_1 \\\\ [\\nabla_{\\mathbf{m}} J]_2 \\\\ \\vdots \\\\ [\\nabla_{\\mathbf{m}} J]_n \\end{pmatrix} \\in \\mathbb{R}^n\n\\]\n\nEach entry is the time cross-correlation at one grid point. Together, they form a spatial image — the RTM image.\n\n\n\n\n\n\n\n\nKey result\n\n\nThe gradient is a vector with \\(n\\) entries — one per grid point. No ambiguity about scalars vs. functions. This is the RTM image, derived entirely from matrix calculus."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#cost-analysis",
+    "href": "slides/week-08/12-rtm.html#cost-analysis",
+    "title": "Reverse-Time Migration",
+    "section": "Cost Analysis",
+    "text": "Cost Analysis\n\nFor each shot \\(s\\), the gradient computation requires:\n\n\n\n\n\n\n\n\nStep\nOperation\nCost\n\n\n\n\n1\nSolve \\(\\mathbf{A}\\mathbf{u}_s = \\mathbf{q}_s\\) (forward)\n1 PDE solve\n\n\n2\nCompute \\(\\delta\\mathbf{d}_s = \\mathbf{P}\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}}\\)\ncheap\n\n\n3\nSolve \\(\\mathbf{A}^\\top\\mathbf{v}_s = -\\mathbf{P}^\\top\\delta\\mathbf{d}_s\\) (adjoint)\n1 PDE solve\n\n\n4\nCross-correlate to get \\([\\nabla J]_i\\) for all \\(i\\)\ncheap\n\n\n\n\nTotal: \\(2 \\times n_s\\) PDE solves for the entire gradient vector.\nCompare with the naïve approach: \\(n \\times n_s\\) PDE solves.\nFor \\(n = 10^6\\): speedup of 500,000×."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#the-rtm-algorithm",
+    "href": "slides/week-08/12-rtm.html#the-rtm-algorithm",
+    "title": "Reverse-Time Migration",
+    "section": "The RTM Algorithm",
+    "text": "The RTM Algorithm\nRecipe for each shot \\(s\\):\n\n\n\n\n\n\nRTM — Discretize-then-optimize version\n\n\n\nForward solve: \\(\\mathbf{u}_s = \\mathbf{A}^{-1}(\\mathbf{m}_0)\\,\\mathbf{q}_s\\) — store \\(\\mathbf{u}_s\\)\nResidual: \\(\\delta\\mathbf{d}_s = \\mathbf{P}\\,\\mathbf{u}_s - \\mathbf{d}_s^{\\text{obs}}\\)\nAdjoint solve: \\(\\mathbf{v}_s = \\mathbf{A}^{-\\top}(\\mathbf{m}_0)\\,(-\\mathbf{P}^\\top\\delta\\mathbf{d}_s)\\)\nImage (accumulate): \\(\\text{image}_i \\;\\mathrel{+}= \\sum_k v_s(\\mathbf{x}_i,t_k)\\,\\ddot{u}_s(\\mathbf{x}_i,t_k)\\,\\Delta t\\)\n\n\n\n\n\nAfter looping over all shots: \\(\\text{image} = \\nabla_{\\mathbf{m}} J \\in \\mathbb{R}^n\\)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#physical-intuition",
+    "href": "slides/week-08/12-rtm.html#physical-intuition",
+    "title": "Reverse-Time Migration",
+    "section": "Physical Intuition",
+    "text": "Physical Intuition\nWhy cross-correlation finds reflectors?\n\n\nForward wavefield \\(\\mathbf{u}_s\\)\n\nSource energy propagates downward\n“Illuminates” reflectors\nRuns forward in time\n\n\nAdjoint wavefield \\(\\mathbf{v}_s\\)\n\nData residual propagates from receivers\nFocuses energy back to reflectors\nRuns backward in time (via \\(\\mathbf{A}^\\top\\))\n\n\n\nAt reflector locations, both wavefields are simultaneously nonzero at the same times → their time cross-correlation peaks.\nAt non-reflector locations, the wavefields are out of sync → cross-correlation is small."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#jacobian-and-its-adjoint",
+    "href": "slides/week-08/12-rtm.html#jacobian-and-its-adjoint",
+    "title": "Reverse-Time Migration",
+    "section": "Jacobian and its adjoint",
+    "text": "Jacobian and its adjoint\nThe Jacobian (sensitivity matrix) \\(\\mathbf{J} \\in \\mathbb{R}^{M \\times n}\\) maps model perturbations \\(\\delta\\mathbf{m}\\) to data perturbations \\(\\delta\\mathbf{d}\\):\n\\[\n\\delta\\mathbf{d}_s = \\mathbf{J}_s\\,\\delta\\mathbf{m}, \\qquad [\\mathbf{J}_s]_{j,i} = \\frac{\\partial [\\mathbf{d}_s]_j}{\\partial m_i}\n\\]\n\n\n\\(\\mathbf{J}_s\\,\\delta\\mathbf{m}\\) = linearized Born modeling — propagate a source, scatter off \\(\\delta\\mathbf{m}\\), record at receivers\n\\(\\mathbf{J}_s^\\top\\,\\delta\\mathbf{d}_s\\) = RTM — back-propagate the data residual, cross-correlate with the forward wavefield\n\n\n\nThe gradient is:\n\\[\n\\nabla_{\\mathbf{m}} J = \\sum_s \\mathbf{J}_s^\\top\\,\\delta\\mathbf{d}_s\n\\]\nRTM is the action of \\(\\mathbf{J}^\\top\\) on the data residual — the adjoint of linearized Born scattering."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#connection-to-fwi-rtm-one-gradient-step-of-fwi",
+    "href": "slides/week-08/12-rtm.html#connection-to-fwi-rtm-one-gradient-step-of-fwi",
+    "title": "Reverse-Time Migration",
+    "section": "Connection to FWI: RTM = One Gradient Step of FWI",
+    "text": "Connection to FWI: RTM = One Gradient Step of FWI\n\nRTM computes \\(\\nabla_{\\mathbf{m}} J\\) once, at a fixed background model \\(\\mathbf{m}_0\\).\n\nFWI iterates:\n\\[\n\\mathbf{m}^{(k+1)} = \\mathbf{m}^{(k)} - \\alpha_k\\;\\nabla_{\\mathbf{m}} J(\\mathbf{m}^{(k)})\n\\]\n\n\nEach FWI iteration is essentially an RTM — recompute forward and adjoint wavefields in the updated model, cross-correlate, update.\n\n\n\n\n\n\n\n\nWith preconditioning\n\n\nIn practice, FWI uses approximate Hessian information: \\[\\mathbf{m}^{(k+1)} = \\mathbf{m}^{(k)} - \\alpha_k\\;\\mathbf{H}_k^{-1}\\;\\nabla_{\\mathbf{m}} J(\\mathbf{m}^{(k)})\\] The Hessian corrects for illumination and geometric spreading — things that plain RTM gets wrong."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#rtm-vs.-fwi",
+    "href": "slides/week-08/12-rtm.html#rtm-vs.-fwi",
+    "title": "Reverse-Time Migration",
+    "section": "RTM vs. FWI",
+    "text": "RTM vs. FWI\n\n\n\n\n\n\n\n\n\nRTM\nFWI\n\n\n\n\nIterations\n1 (single gradient)\nMany\n\n\nUpdates velocity?\nNo (fixed \\(\\mathbf{m}_0\\))\nYes\n\n\nOutput\nReflectivity image (\\(\\nabla_{\\mathbf{m}} J\\))\nVelocity model (\\(\\mathbf{m}\\))\n\n\nNeeds starting model?\nYes (for kinematics)\nYes\n\n\nCost per iteration\n2 PDE solves/shot\n2 PDE solves/shot\n\n\n\n\n\nRTM gives you where reflectors are (image). FWI also gives you what the velocity is (model)."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#comparison-two-routes-to-the-same-gradient",
+    "href": "slides/week-08/12-rtm.html#comparison-two-routes-to-the-same-gradient",
+    "title": "Reverse-Time Migration",
+    "section": "Comparison: Two Routes to the Same Gradient",
+    "text": "Comparison: Two Routes to the Same Gradient\nDiscretize-then-optimize vs. optimize-then-discretize:\n\n\n\n\n\n\n\n\n\nThis lecture\nOther approach\n\n\n\n\nStarting point\nMatrix system \\(\\mathbf{A}\\mathbf{u} = \\mathbf{q}\\)\nPDE \\(A(m)u = q\\)\n\n\nCalculus\n\\(\\frac{\\partial}{\\partial m_i}\\) (partial derivatives)\n\\(\\delta_m\\) (Fréchet derivative)\n\n\nGradient type\nVector \\(\\nabla_{\\mathbf{m}} J \\in \\mathbb{R}^n\\)\nFunction \\(\\nabla_m J(\\mathbf{x})\\)\n\n\nAdjoint\nMatrix transpose \\(\\mathbf{A}^\\top\\)\nAdjoint operator \\(A^\\top\\)\n\n\nAdvantage\nConcrete, no ambiguity\nMesh-independent, elegant\n\n\n\n\nBoth give the same imaging condition: cross-correlate forward and adjoint wavefields, sum over time and shots.\n\n\n\n\n\n\n\n\nCaveat\n\n\nThe two routes don’t always commute perfectly — discretizing the adjoint PDE may differ slightly from transposing the discrete forward operator. In practice, the discretize-then-optimize route guarantees that your gradient is exactly consistent with your numerical forward solver."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#summary-key-takeaways",
+    "href": "slides/week-08/12-rtm.html#summary-key-takeaways",
+    "title": "Reverse-Time Migration",
+    "section": "Summary – Key takeaways",
+    "text": "Summary – Key takeaways\n\nDiscretize first: write the wave equation as \\(\\mathbf{A}(\\mathbf{m})\\mathbf{u}_s = \\mathbf{q}_s\\) with everything being finite vectors and matrices.\nStandard calculus: the gradient \\(\\nabla_{\\mathbf{m}} J \\in \\mathbb{R}^n\\) is computed via partial derivatives \\(\\frac{\\partial \\mathcal{L}}{\\partial m_i}\\) — no variations needed.\nThree derivatives of the Lagrangian give: the forward equation, the adjoint equation, and the gradient.\n\\(\\mathbf{A}^\\top\\) = reverse time: transposing the discrete wave-equation matrix reverses the direction of time propagation.\nRTM = one gradient step: the cross-correlation imaging condition emerges from \\(\\mathbf{v}_s^\\top \\frac{\\partial \\mathbf{A}}{\\partial m_i}\\mathbf{u}_s\\).\nFWI = iterate: keep computing gradients (RTM images) and updating the model."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#further-reading",
+    "href": "slides/week-08/12-rtm.html#further-reading",
+    "title": "Reverse-Time Migration",
+    "section": "Further Reading",
+    "text": "Further Reading\n\nPlessix, R.-É. (2006). A review of the adjoint-state method for computing the gradient of a functional with geophysical applications. Geophysical Journal International, 167(2), 495–503.\nVirieux, J. & Operto, S. (2009). An overview of full-waveform inversion in exploration geophysics. Geophysics, 74(6), WCC1–WCC26.\nNocedal, J. & Wright, S.J. (2006). Numerical Optimization. Springer. — Ch. 18 on constrained optimization."
+  },
+  {
+    "objectID": "slides/week-08/12-rtm.html#references",
+    "href": "slides/week-08/12-rtm.html#references",
+    "title": "Reverse-Time Migration",
+    "section": "References",
+    "text": "References\n\n\nEtgen, John, Samuel H. Gray, and Yu Zhang. 2009. “An Overview of Depth Imaging in Exploration Geophysics.” Geophysics 74 (6): WCA5–17. https://doi.org/10.1190/1.3223188.\n\n\nHill, Stephen J., and Andreas Rüger. 2020. Illustrated Seismic Processing, Volume 1: Imaging. Course Notes Series 15. Society of Exploration Geophysicists.\n\n\nZhou, Hua-Wei, Hao Hu, Zhihui Zou, Yukai Wo, and Oong Youn. 2018. “Reverse Time Migration: A Prospect of Seismic Imaging Methodology.” Earth-Science Reviews 179: 207–27. https://doi.org/10.1016/j.earscirev.2018.02.008."
   },
   {
     "objectID": "slides/week-06/09-inverse-problems-lecture.html#title-custom",
