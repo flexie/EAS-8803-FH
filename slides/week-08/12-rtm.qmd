@@ -107,9 +107,9 @@ Kirchhoff vs. RTM — another example [@hill2020].
 One-way WEM vs. RTM [@hill2020].
 
 
-## RTM in words
+## RTM in words{.smaller}
 
-### RTM in four steps [@zhou2018]
+RTM in four steps [@zhou2018]:
 
 1. **Forward propagation** — propagate the source wavelet forward in time through the velocity model using the two-way wave equation
 2. **Backward propagation** — inject the time-reversed recorded data at receiver locations and propagate backward through the same velocity model; stack contributions from all receivers
