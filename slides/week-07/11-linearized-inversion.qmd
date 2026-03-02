@@ -767,6 +767,8 @@ recovering the **acoustic result**. The shear contribution enters only at obliqu
 The matrix $\mathbf{M}(p)$ encodes the **sensitivity** of the reflection coefficient to each elastic parameter. At normal incidence only $\rho$ and $\alpha$ contribute; at oblique incidence all three parameters are needed.
 :::
 
+{CLAUDE: Please also derive linearization in terms of impedances and velocities and explain the difference. Hint. one may not depend on the angle...}
+
 ## Linearized Convolutional Model in $\tau$-$p$ {.smaller}
 
 For each ray parameter $p_j$ ($j = 1, \ldots, N_p$), the data at the $i$-th interface is:
