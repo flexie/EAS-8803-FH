@@ -23,6 +23,19 @@ format:
 bibliography: bibliography.bib
 ---
 
+## {#title-custom .center background-color="white"}
+
+:::{style="display: flex; justify-content: center; align-items: center; gap: 2.5em; margin-bottom: 1em;"}
+![](figures/GTLogo.png){height=100}
+![](figures/ClaudeLogo.png){height=100}
+:::
+
+### Reverse-time Migration {style="margin-bottom: 0.1em;"}
+
+**Felix J. Herrmann**
+
+School of Earth and Ocean Sciences --- Georgia Institute of Technology
+
 ## Motivation{.smaller}
 
 Seismic migration aims to move reflected energy to its true subsurface location. Not all migration methods handle complex geology equally well.
@@ -105,7 +118,6 @@ Kirchhoff vs. RTM — another example [@hill2020].
 ::::
 
 One-way WEM vs. RTM [@hill2020].
-
 
 ## RTM in words{.smaller}
 
