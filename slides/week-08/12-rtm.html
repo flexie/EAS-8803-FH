@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-03-02">
@@ -50,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-832775eafbd512325564c8c290c39367.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -165,6 +165,15 @@ Felix J. Herrmann
 </div>
 
   <p class="date">2026-03-02</p>
+</section>
+<section id="title-custom" class="slide level2 center" data-background-color="white">
+<h2></h2>
+<div style="display: flex; justify-content: center; align-items: center; gap: 2.5em; margin-bottom: 1em;">
+<p><img data-src="figures/GTLogo.png" height="100"> <img data-src="figures/ClaudeLogo.png" height="100"></p>
+</div>
+<h3 style="margin-bottom: 0.1em;" id="reverse-time-migration">Reverse-time Migration</h3>
+<p><strong>Felix J. Herrmann</strong></p>
+<p>School of Earth and Ocean Sciences — Georgia Institute of Technology</p>
 </section>
 <section id="motivation" class="slide level2 smaller center">
 <h2>Motivation</h2>
@@ -638,7 +647,7 @@ Felix J. Herrmann
 </section>
 <section id="derivative-3-w.r.t.-model-parameters" class="slide level2 smaller center">
 <h2>Derivative 3: w.r.t. model parameters</h2>
-<p>The gradient of <span class="math inline">\(m_i\)</span> -— one component at a time</p>
+<p>The gradient of <span class="math inline">\(m_i\)</span> — one component at a time</p>
 <p>Now the payoff. Differentiate <span class="math inline">\(\mathcal{L}\)</span> w.r.t. the <span class="math inline">\(i\)</span>-th model parameter <span class="math inline">\(m_i\)</span>:</p>
 <p><span class="math display">\[
 \frac{\partial \mathcal{L}}{\partial m_i} = \frac{\partial}{\partial m_i}\left[\sum_s \mathbf{v}_s^\top \mathbf{A}(\mathbf{m})\,\mathbf{u}_s\right]
@@ -1304,14 +1313,13 @@ Seismic Laboratory for Imaging and Modeling
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

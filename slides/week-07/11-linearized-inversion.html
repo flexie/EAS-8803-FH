@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-02-25">
@@ -50,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-832775eafbd512325564c8c290c39367.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -936,14 +936,66 @@ R_{PP}^{(i)}(p) = \underbrace{\begin{pmatrix} \tfrac{1}{2}(1 - 4\beta_0^2 p^2) &
 </div>
 </div>
 </div>
-<p>{CLAUDE: Please also derive linearization in terms of impedances and velocities and explain the difference. Hint. one may not depend on the angle…}</p>
+</div>
+</section>
+<section id="impedance-parameterization-of-r_pp" class="slide level2 smaller scrollable">
+<h2>Impedance Parameterization of <span class="math inline">\(R_{PP}\)</span></h2>
+<p>The Aki–Richards formula can be <strong>reparameterized</strong> using P-impedance <span class="math inline">\(Z_P = \rho\alpha\)</span> and S-impedance <span class="math inline">\(Z_S = \rho\beta\)</span>. Substituting <span class="math inline">\(\Delta\ln\alpha = \Delta\ln Z_P - \Delta\ln\rho\)</span> and <span class="math inline">\(\Delta\ln\beta = \Delta\ln Z_S - \Delta\ln\rho\)</span> into the <span class="math inline">\((\rho,\alpha,\beta)\)</span> form:</p>
+<div class="fragment">
+<p><span class="math display">\[
+\boxed{R_{PP}(p) = \frac{1}{2(1 - \alpha_0^2 p^2)}\,\Delta\ln Z_P \;-\; 4\beta_0^2 p^2\,\Delta\ln Z_S \;+\; \left(2\beta_0^2 p^2 - \frac{\alpha_0^2 p^2}{2(1 - \alpha_0^2 p^2)}\right)\Delta\ln\rho}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Comparison at normal incidence</strong> (<span class="math inline">\(p = 0\)</span>):</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameterization</th>
+<th style="text-align: left;"><span class="math inline">\(\mathbf{M}(0)\)</span></th>
+<th style="text-align: left;">Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\((\rho, \alpha, \beta)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\bigl(\tfrac{1}{2},\;\tfrac{1}{2},\;0\bigr)\)</span></td>
+<td style="text-align: left;">Both <span class="math inline">\(\rho\)</span> and <span class="math inline">\(\alpha\)</span> contribute</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\((Z_P, Z_S, \rho)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\bigl(\tfrac{1}{2},\;0,\;0\bigr)\)</span></td>
+<td style="text-align: left;"><strong>Only <span class="math inline">\(Z_P\)</span> contributes</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Angle-independent contribution</strong></p>
+</div>
+<div class="callout-content">
+<p>In the impedance parameterization, the normal-incidence reflection depends <strong>only</strong> on <span class="math inline">\(\Delta\ln Z_P\)</span> — the S-impedance and density contrasts enter only at oblique incidence (<span class="math inline">\(p &gt; 0\)</span>). This separation is the physical basis for <strong>intercept–gradient</strong> (AVO) analysis: the intercept is <span class="math inline">\(\frac{1}{2}\Delta\ln Z_P\)</span> and the gradient reveals <span class="math inline">\(Z_S\)</span> and <span class="math inline">\(\rho\)</span> contrasts.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="linearized-convolutional-model-in-tau-p" class="slide level2 smaller">
 <h2>Linearized Convolutional Model in <span class="math inline">\(\tau\)</span>-<span class="math inline">\(p\)</span></h2>
 <p>For each ray parameter <span class="math inline">\(p_j\)</span> (<span class="math inline">\(j = 1, \ldots, N_p\)</span>), the data at the <span class="math inline">\(i\)</span>-th interface is:</p>
-<p>{CLAUDE: Make this equation consistent with the notation of the previous slide.} <span class="math display">\[
-\hat{s}(p_j; \tau) = \sum_i \left[w_\rho(p_j)\,\Delta\ln\rho_i + w_\alpha(p_j)\,\Delta\ln\alpha_i + w_\beta(p_j)\,\Delta\ln\beta_i\right] w(\tau - t_i)
+<p><span class="math display">\[
+\hat{s}(p_j; \tau) = \sum_i R_{PP}^{(i)}(p_j)\,w(\tau - t_i) = \sum_i \mathbf{M}(p_j)\begin{pmatrix} \Delta\ln\rho_i \\ \Delta\ln\alpha_i \\ \Delta\ln\beta_i \end{pmatrix} w(\tau - t_i)
 \]</span></p>
 <div class="fragment">
 <p>In matrix form for all ray parameters and interfaces:</p>
@@ -1642,14 +1694,13 @@ Zoeppritz, Karl. 1919. <span>“<span>Ü</span>ber <span>R</span>eflexion Und <s
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
