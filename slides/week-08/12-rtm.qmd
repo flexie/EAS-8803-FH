@@ -436,7 +436,7 @@ $\mathbf{A}^\top\mathbf{v}_s = -\mathbf{P}^\top\delta\mathbf{d}_s$
 
 ## Derivative 3: w.r.t. model parameters{.smaller}
 
-The gradient of $m_i$ -— one component at a time
+The gradient of $m_i$ — one component at a time
 
 Now the payoff. Differentiate $\mathcal{L}$ w.r.t. the $i$-th model parameter $m_i$:
 
