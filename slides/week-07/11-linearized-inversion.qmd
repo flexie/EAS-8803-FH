@@ -767,15 +767,38 @@ recovering the **acoustic result**. The shear contribution enters only at obliqu
 The matrix $\mathbf{M}(p)$ encodes the **sensitivity** of the reflection coefficient to each elastic parameter. At normal incidence only $\rho$ and $\alpha$ contribute; at oblique incidence all three parameters are needed.
 :::
 
-{CLAUDE: Please also derive linearization in terms of impedances and velocities and explain the difference. Hint. one may not depend on the angle...}
+## Impedance Parameterization of $R_{PP}$ {.smaller .scrollable}
+
+The Aki–Richards formula can be **reparameterized** using P-impedance $Z_P = \rho\alpha$ and S-impedance $Z_S = \rho\beta$. Substituting $\Delta\ln\alpha = \Delta\ln Z_P - \Delta\ln\rho$ and $\Delta\ln\beta = \Delta\ln Z_S - \Delta\ln\rho$ into the $(\rho,\alpha,\beta)$ form:
+
+. . .
+
+$$
+\boxed{R_{PP}(p) = \frac{1}{2(1 - \alpha_0^2 p^2)}\,\Delta\ln Z_P \;-\; 4\beta_0^2 p^2\,\Delta\ln Z_S \;+\; \left(2\beta_0^2 p^2 - \frac{\alpha_0^2 p^2}{2(1 - \alpha_0^2 p^2)}\right)\Delta\ln\rho}
+$$
+
+. . .
+
+**Comparison at normal incidence** ($p = 0$):
+
+| Parameterization | $\mathbf{M}(0)$ | Interpretation |
+|:--|:--|:--|
+| $(\rho, \alpha, \beta)$ | $\bigl(\tfrac{1}{2},\;\tfrac{1}{2},\;0\bigr)$ | Both $\rho$ and $\alpha$ contribute |
+| $(Z_P, Z_S, \rho)$ | $\bigl(\tfrac{1}{2},\;0,\;0\bigr)$ | **Only $Z_P$ contributes** |
+
+. . .
+
+::: {.callout-important}
+## Angle-independent contribution
+In the impedance parameterization, the normal-incidence reflection depends **only** on $\Delta\ln Z_P$ — the S-impedance and density contrasts enter only at oblique incidence ($p > 0$). This separation is the physical basis for **intercept–gradient** (AVO) analysis: the intercept is $\frac{1}{2}\Delta\ln Z_P$ and the gradient reveals $Z_S$ and $\rho$ contrasts.
+:::
 
 ## Linearized Convolutional Model in $\tau$-$p$ {.smaller}
 
 For each ray parameter $p_j$ ($j = 1, \ldots, N_p$), the data at the $i$-th interface is:
 
-{CLAUDE: Make this equation consistent with the notation of the previous slide.}
 $$
-\hat{s}(p_j; \tau) = \sum_i \left[w_\rho(p_j)\,\Delta\ln\rho_i + w_\alpha(p_j)\,\Delta\ln\alpha_i + w_\beta(p_j)\,\Delta\ln\beta_i\right] w(\tau - t_i)
+\hat{s}(p_j; \tau) = \sum_i R_{PP}^{(i)}(p_j)\,w(\tau - t_i) = \sum_i \mathbf{M}(p_j)\begin{pmatrix} \Delta\ln\rho_i \\ \Delta\ln\alpha_i \\ \Delta\ln\beta_i \end{pmatrix} w(\tau - t_i)
 $$
 
 . . .
