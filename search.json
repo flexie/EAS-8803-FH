@@ -1629,6 +1629,69 @@
     "text": "RTM Imaging - Step 9\n\n\n\n\n\nCorrelation integral\n\n\n\n\n\nForward wavefield\n\n\n\n\n\n\nShot gather\n\n\n\n\n\nAdjoint wavefield"
   },
   {
+    "objectID": "slides/week-08/13-wavefields.html#reverse-time-migration-result",
+    "href": "slides/week-08/13-wavefields.html#reverse-time-migration-result",
+    "title": "Wavefield Propagation",
+    "section": "Reverse-Time Migration — Result",
+    "text": "Reverse-Time Migration — Result\n\nRTM image"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#complex-velocity-model",
+    "href": "slides/week-08/13-wavefields.html#complex-velocity-model",
+    "title": "Wavefield Propagation",
+    "section": "Complex Velocity Model",
+    "text": "Complex Velocity Model\n\nVelocity model"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#forward-wavefield-mathbfu",
+    "href": "slides/week-08/13-wavefields.html#forward-wavefield-mathbfu",
+    "title": "Wavefield Propagation",
+    "section": "Forward Wavefield — \\(\\mathbf{u}\\)",
+    "text": "Forward Wavefield — \\(\\mathbf{u}\\)\n\nForward wavefield propagation"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#adjoint-wavefield-mathbfv",
+    "href": "slides/week-08/13-wavefields.html#adjoint-wavefield-mathbfv",
+    "title": "Wavefield Propagation",
+    "section": "Adjoint Wavefield — \\(\\mathbf{v}\\)",
+    "text": "Adjoint Wavefield — \\(\\mathbf{v}\\)\n\nAdjoint (backward) wavefield propagation"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#source-correlation-source-1",
+    "href": "slides/week-08/13-wavefields.html#source-correlation-source-1",
+    "title": "Wavefield Propagation",
+    "section": "Source Correlation — Source 1",
+    "text": "Source Correlation — Source 1\n\nCorrelation for source 1"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#source-correlation-source-2",
+    "href": "slides/week-08/13-wavefields.html#source-correlation-source-2",
+    "title": "Wavefield Propagation",
+    "section": "Source Correlation — Source 2",
+    "text": "Source Correlation — Source 2\n\nCorrelation for source 2"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#source-correlation-source-3",
+    "href": "slides/week-08/13-wavefields.html#source-correlation-source-3",
+    "title": "Wavefield Propagation",
+    "section": "Source Correlation — Source 3",
+    "text": "Source Correlation — Source 3\n\nCorrelation for source 3"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#source-correlation-source-4",
+    "href": "slides/week-08/13-wavefields.html#source-correlation-source-4",
+    "title": "Wavefield Propagation",
+    "section": "Source Correlation — Source 4",
+    "text": "Source Correlation — Source 4\n\nCorrelation for source 4"
+  },
+  {
+    "objectID": "slides/week-08/13-wavefields.html#stacked-correlation",
+    "href": "slides/week-08/13-wavefields.html#stacked-correlation",
+    "title": "Wavefield Propagation",
+    "section": "Stacked Correlation",
+    "text": "Stacked Correlation\n\n\n\nCorrelation stack across all sources"
+  },
+  {
     "objectID": "slides/week-06/09-inverse-problems-lecture.html#title-custom",
     "href": "slides/week-06/09-inverse-problems-lecture.html#title-custom",
     "title": "Inverse Problems",
