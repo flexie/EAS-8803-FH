@@ -6,11 +6,12 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.26">
 
-  <meta name="dcterms.date" content="2026-02-09">
-  <title>Seismic Exploration Methods – Seismic Imaging</title>
+  <meta name="author" content="Felix J. Herrmann">
+  <meta name="dcterms.date" content="2026-03-04">
+  <title>Seismic Exploration Methods – Wavefield Propagation</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -129,17 +130,211 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Seismic Imaging</h1>
-  <p class="subtitle">Wavefield Extrapolation</p>
+  <h1 class="title">Wavefield Propagation</h1>
+  <p class="subtitle">Forward Wavefield Through a Velocity Model</p>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felix J. Herrmann 
+</div>
+        <p class="quarto-title-affiliation">
+            Schools of EAS, CSE, ECE — Georgia Institute of Technology
+          </p>
+    </div>
 </div>
 
-  <p class="date">2026-02-09</p>
+  <p class="date">2026-03-04</p>
 </section>
-<section id="slides" class="title-slide slide level1 center">
-<h1>Slides</h1>
-<p><a href="https://www.dropbox.com/scl/fi/hdb7wo20i0oihrhaaeqk9/07-Exploration_Seismology-migration.mov?rlkey=s1msp45ddp5ekv5stybyldfgh&amp;st=vahbhjlq&amp;dl=0">🔗 View 07-Wavefield Extrapolation</a></p>
+<section id="velocity-model-shot-gather" class="slide level2 center">
+<h2>Velocity Model &amp; Shot Gather</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/shot_gather.png"></p>
+<figcaption>Shot gather</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-1" class="slide level2 center">
+<h2>Forward Wavefield - Step 1</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t85.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-2" class="slide level2 center">
+<h2>Forward Wavefield - Step 2</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t120.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-3" class="slide level2 center">
+<h2>Forward Wavefield - Step 3</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t155.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-4" class="slide level2 center">
+<h2>Forward Wavefield - Step 4</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t190.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-5" class="slide level2 center">
+<h2>Forward Wavefield - Step 5</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t225.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-6" class="slide level2 center">
+<h2>Forward Wavefield - Step 6</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t260.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-7" class="slide level2 center">
+<h2>Forward Wavefield - Step 7</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t295.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-8" class="slide level2 center">
+<h2>Forward Wavefield - Step 8</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t330.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="forward-wavefield---step-9" class="slide level2 center">
+<h2>Forward Wavefield - Step 9</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/velocity_target.png"></p>
+<figcaption>Velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="wavefield_animation_simple/forward_u_t365.png"></p>
+<figcaption>Forward wavefield</figcaption>
+</figure>
+</div>
+</div></div>
 
 
 </section>
@@ -307,7 +502,7 @@
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'fade',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -335,7 +530,7 @@
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
