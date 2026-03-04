@@ -14,7 +14,7 @@ format:
     smaller: false
     scrollable: true
     center: false
-    transition: slide
+    transition: none
     html-math-method: mathjax
     fig-align: center
     code-fold: true
