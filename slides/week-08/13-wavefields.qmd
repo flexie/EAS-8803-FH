@@ -13,7 +13,7 @@ format:
     chalkboard: true
     smaller: false
     scrollable: false
-    center: true
+    center: false
     transition: slide
     html-math-method: mathjax
     fig-align: center
@@ -147,5 +147,158 @@ bibliography: bibliography.bib
 :::
 ::: {.column width="50%"}
 ![Forward wavefield](wavefield_animation_simple/forward_u_t365.png)
+:::
+::::
+
+---
+
+## RTM Imaging - Step 1
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t365.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t365.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t365.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t365.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 2
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t330.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t330.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t330.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t330.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 3
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t295.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t295.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t295.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t295.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 4
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t260.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t260.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t260.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t260.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 5
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t225.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t225.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t225.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t225.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 6
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t190.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t190.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t190.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t190.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 7
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t155.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t155.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t155.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t155.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 8
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t120.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t120.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t120.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t120.png){width=100%}
+:::
+::::
+
+---
+
+## RTM Imaging - Step 9
+
+:::: {.columns}
+::: {.column width="50%"}
+![Correlation integral](wavefield_animation_simple/corr_integral_t85.png){width=100%}
+
+![Forward wavefield](wavefield_animation_simple/forward_u_t85.png){width=100%}
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather_t85.png){width=100%}
+
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t85.png){width=100%}
 :::
 ::::
