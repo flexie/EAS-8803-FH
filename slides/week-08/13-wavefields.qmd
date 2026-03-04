@@ -1,0 +1,151 @@
+---
+title: "Wavefield Propagation"
+subtitle: "Forward Wavefield Through a Velocity Model"
+author: "Felix J. Herrmann"
+institute: "Schools of EAS, CSE, ECE — Georgia Institute of Technology"
+date: March 4, 2026
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+format:
+  revealjs:
+    theme: solarized
+    slide-number: true
+    chalkboard: true
+    smaller: false
+    scrollable: false
+    center: true
+    transition: slide
+    html-math-method: mathjax
+    fig-align: center
+    code-fold: true
+    highlight-style: github
+bibliography: bibliography.bib
+---
+
+## Velocity Model & Shot Gather
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Shot gather](wavefield_animation_simple/shot_gather.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 1
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t85.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 2
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t120.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 3
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t155.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 4
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t190.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 5
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t225.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 6
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t260.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 7
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t295.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 8
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t330.png)
+:::
+::::
+
+---
+
+## Forward Wavefield - Step 9
+
+:::: {.columns}
+::: {.column width="50%"}
+![Velocity model](wavefield_animation_simple/velocity_target.png)
+:::
+::: {.column width="50%"}
+![Forward wavefield](wavefield_animation_simple/forward_u_t365.png)
+:::
+::::
