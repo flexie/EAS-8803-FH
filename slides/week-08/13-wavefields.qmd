@@ -12,7 +12,7 @@ format:
     slide-number: true
     chalkboard: true
     smaller: false
-    scrollable: false
+    scrollable: true
     center: false
     transition: slide
     html-math-method: mathjax
@@ -21,6 +21,26 @@ format:
     highlight-style: github
 bibliography: bibliography.bib
 ---
+
+```{=html}
+<style>
+.reveal .slides figure figcaption {
+  font-size: 0.38em;
+  margin-top: 1px;
+  line-height: 1.0;
+}
+.reveal .slides figure {
+  margin: 0;
+  padding: 0;
+}
+.reveal section.notitle h2 {
+  display: none;
+}
+.reveal section.notitle .columns {
+  margin-top: 0;
+}
+</style>
+```
 
 ## Velocity Model & Shot Gather
 
@@ -152,153 +172,207 @@ bibliography: bibliography.bib
 
 ---
 
-## RTM Imaging - Step 1
+## RTM Imaging - Step 1 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t365.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t365.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t365.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t365.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t365.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t365.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t365.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t365.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 2
+## RTM Imaging - Step 2 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t330.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t330.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t330.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t330.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t330.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t330.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t330.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t330.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 3
+## RTM Imaging - Step 3 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t295.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t295.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t295.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t295.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t295.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t295.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t295.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t295.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 4
+## RTM Imaging - Step 4 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t260.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t260.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t260.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t260.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t260.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t260.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t260.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t260.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 5
+## RTM Imaging - Step 5 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t225.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t225.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t225.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t225.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t225.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t225.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t225.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t225.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 6
+## RTM Imaging - Step 6 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t190.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t190.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t190.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t190.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t190.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t190.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t190.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t190.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 7
+## RTM Imaging - Step 7 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t155.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t155.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t155.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t155.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t155.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t155.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t155.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t155.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 8
+## RTM Imaging - Step 8 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t120.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t120.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t120.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t120.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t120.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t120.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t120.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t120.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
 
 ---
 
-## RTM Imaging - Step 9
+## RTM Imaging - Step 9 {.notitle}
 
 :::: {.columns}
 ::: {.column width="50%"}
-![Correlation integral](wavefield_animation_simple/corr_integral_t85.png){width=100%}
+![Correlation integral](wavefield_animation_simple/corr_integral_t85.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Forward wavefield](wavefield_animation_simple/forward_u_t85.png){width=100%}
+![Forward wavefield](wavefield_animation_simple/forward_u_t85.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::: {.column width="50%"}
-![Shot gather](wavefield_animation_simple/shot_gather_t85.png){width=100%}
+![Shot gather](wavefield_animation_simple/shot_gather_t85.png){height="270px" style="max-width:100%; object-fit:contain;"}
 
-![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t85.png){width=100%}
+![Adjoint wavefield](wavefield_animation_simple/adjoint_v_t85.png){height="270px" style="max-width:100%; object-fit:contain;"}
 :::
 ::::
+
+---
+
+## Reverse-Time Migration — Result
+
+![RTM image](wavefield_animation_simple/corr_full.png){width="75%"}
+
+---
+
+## Complex Velocity Model
+
+![Velocity model](wavefield_animation_complex/velocity_target_sample_id=1.png){width="70%"}
+
+---
+
+## Forward Wavefield — $\mathbf{u}$
+
+![Forward wavefield propagation](wavefield_animation_complex/wavefield_u.png){width="80%"}
+
+---
+
+## Adjoint Wavefield — $\mathbf{v}$
+
+![Adjoint (backward) wavefield propagation](wavefield_animation_complex/wavefield_v.png){width="80%"}
+
+---
+
+## Source Correlation — Source 1
+
+![Correlation for source 1](wavefield_animation_complex/correlation_src=1.png){width="70%"}
+
+---
+
+## Source Correlation — Source 2
+
+![Correlation for source 2](wavefield_animation_complex/correlation_src=2.png){width="70%"}
+
+---
+
+## Source Correlation — Source 3
+
+![Correlation for source 3](wavefield_animation_complex/correlation_src=3.png){width="70%"}
+
+---
+
+## Source Correlation — Source 4
+
+![Correlation for source 4](wavefield_animation_complex/correlation_src=4.png){width="70%"}
+
+---
+
+## Stacked Correlation
+
+![Correlation stack across all sources](wavefield_animation_complex/correlation_stack.png){width="70%"}
