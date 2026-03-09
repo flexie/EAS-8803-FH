@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nWeek 08\n\n\nMar 3 - 6\n\n\nReverse-time Migration\n\n\n\n\n\n\nWeek 08\n\n\nMar 9 - 13\n\n\nLeast-squares Reverse-time Migration\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nWeek 08\n\n\nMar 3 - 6\n\n\nReverse-time Migration\n\n\n\n\n\n\nWeek 09\n\n\nMar 9 - 13\n\n\nLeast-squares Reverse-time Migration\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -14,7 +14,7 @@
     "href": "schedule.html#weekly-schedule",
     "title": "Schedule",
     "section": "",
-    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nWeek 08\n\n\nMar 3 - 6\n\n\nReverse-time Migration\n\n\n\n\n\n\nWeek 08\n\n\nMar 9 - 13\n\n\nLeast-squares Reverse-time Migration\n\n\n\n\n\n\nNo matching items",
+    "text": "Week\n\n\n\nDates\n\n\n\nTopic\n\n\n\n\n\n\n\n\nWeek 01\n\n\nJan 12 - Jan 16\n\n\nWelcome to Seismic Exploration Methods\n\n\n\n\n\n\nWeek 02\n\n\nJan 19 - Jan 23\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 03\n\n\nJan 26 - Jan 30\n\n\nBasics Exploration Methods\n\n\n\n\n\n\nWeek 04\n\n\nFeb 02 - 06\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 05\n\n\nFeb 09 - 13\n\n\nSeismic Imaging\n\n\n\n\n\n\nWeek 06\n\n\nFeb 16 - 20\n\n\nBasics Inverse Problems\n\n\n\n\n\n\nWeek 07\n\n\nFeb 23 - 27\n\n\nLinearized Inversion\n\n\n\n\n\n\nWeek 08\n\n\nMar 3 - 6\n\n\nReverse-time Migration\n\n\n\n\n\n\nWeek 09\n\n\nMar 9 - 13\n\n\nLeast-squares Reverse-time Migration\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Schedule"
     ]
@@ -1299,9 +1299,9 @@
   {
     "objectID": "weeks/week-09.html",
     "href": "weeks/week-09.html",
-    "title": "Week 08",
+    "title": "Week 09",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nReverse-Time Migration\n\n\nRTM via the Discretize-Then-Optimize Approach\n\n\nMon, Mar 02\n\n\n\n\n\n\nWavefield Propagation\n\n\nForward Wavefield Through a Velocity Model\n\n\nWed, Mar 04\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nLeast-Squares Migration\n\n\nFrom Normal Equations to Practical Preconditioning\n\n\nMon, Mar 09\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\nAssignment\nTitle\nDue\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "weeks/week-05.html",
@@ -2446,6 +2446,13 @@
     "title": "Linearized AVO Inversion",
     "section": "References",
     "text": "References\n\n\nAki, Keiiti, and Paul G. Richards. 1980. Quantitative Seismology: Theory and Methods. San Francisco: W.H. Freeman.\n\n\n———. 2002. Quantitative Seismology. 2nd ed. Sausalito, CA: University Science Books.\n\n\nRussell, Brian H., Dan P. Hampson, and Brad Bankhead. 2006. “An Inversion Primer.” CSEG Recorder 31: 96–103.\n\n\nShuey, R. T. 1985. “A Simplification of the Zoeppritz Equations.” Geophysics 50 (4): 609–14. https://doi.org/10.1190/1.1441936.\n\n\nWijngaarden, A. J. van. 1998. “Imaging and Characterisation of Angle-Dependent Seismic Reflection Data.” PhD thesis, Delft University of Technology.\n\n\nZoeppritz, Karl. 1919. “Über Reflexion Und Durchgang Seismischer Wellen Durch Unstetigkeitsflächen.” Nachrichten von Der Königlichen Gesellschaft Der Wissenschaften Zu Göttingen, Mathematisch-Physikalische Klasse, 66–84."
+  },
+  {
+    "objectID": "slides/week-09/14-least-squares-RTM.html#title-custom",
+    "href": "slides/week-09/14-least-squares-RTM.html#title-custom",
+    "title": "Least-Squares Migration",
+    "section": "",
+    "text": "Reverse-time Migration\nFelix J. Herrmann\nSchool of Earth and Ocean Sciences — Georgia Institute of Technology"
   },
   {
     "objectID": "slides/week-09/14-least-squares-RTM.html#outline",
