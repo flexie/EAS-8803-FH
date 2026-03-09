@@ -18,6 +18,18 @@ format:
 bibliography: Bibliography.bib
 ---
 
+## {#title-custom .center background-color="white"}
+
+:::{style="display: flex; justify-content: center; align-items: center; gap: 2.5em; margin-bottom: 1em;"}
+![](figures/GTLogo.png){height=100}
+![](figures/ClaudeLogo.png){height=100}
+:::
+
+### Reverse-time Migration {style="margin-bottom: 0.1em;"}
+
+**Felix J. Herrmann**
+
+School of Earth and Ocean Sciences --- Georgia Institute of Technology
 
 ## Outline
 
