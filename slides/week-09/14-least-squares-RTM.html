@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
+
+  <meta name="author" content="Felix J. Herrmann">
+  <meta name="dcterms.date" content="2026-03-09">
+  <title>Seismic Exploration Methods – Least-Squares Migration</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Least-Squares Migration</h1>
+  <p class="subtitle">From Normal Equations to Practical Preconditioning</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felix J. Herrmann 
+</div>
+        <p class="quarto-title-affiliation">
+            Schools of EAS, CSE, ECE — Georgia Institute of Technology
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-03-09</p>
+</section>
+<section id="outline" class="slide level2 center">
+<h2>Outline</h2>
+<ul>
+<li>The nonlinear forward problem and linearization</li>
+<li>The linearized forward problem and its adjoint</li>
+<li>The normal equations and the Hessian</li>
+<li><strong>Data-space</strong> least-squares migration (DDLSM)
+<ul>
+<li>LSQR algorithm and preconditioning</li>
+<li>Curvelet-based preconditioning</li>
+</ul></li>
+<li><strong>Image-space</strong> least-squares migration (IDLSM)
+<ul>
+<li>Approximations of the Hessian</li>
+</ul></li>
+<li>Summary and practical considerations</li>
+</ul>
+</section>
+<section id="the-nonlinear-forward-problem" class="slide level2 smaller center">
+<h2>The Nonlinear Forward Problem</h2>
+<p>For each source <span class="math inline">\(i\)</span>, the forward-modeled data are</p>
+<p><span class="math display">\[
+\mathbf{y}_i = \mathcal{F}[\mathbf{m}]\,\mathbf{q}_i + \boldsymbol{\epsilon}
+\]</span></p>
+<p>where <span class="math inline">\(\mathcal{F}[\mathbf{m}] = \mathbf{P}_r\,\mathbf{A}^{-1}[\mathbf{m}]\,\mathbf{P}_s^{\top}\)</span> maps sources to receivers through the wave equation:</p>
+<p><span class="math display">\[
+\mathbf{A}[\mathbf{m}] = \operatorname{diag}(\mathbf{m})\,\frac{\partial^2}{\partial t^2} - \nabla^2
+\]</span></p>
+<p>with squared-slowness model <span class="math inline">\(\mathbf{m}\)</span> <span class="citation" data-cites="hill2020">(see <a href="#/key-references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>, Ch. 11)</span>.</p>
+<div class="fragment">
+<p>The <strong>full-waveform inversion</strong> (FWI) objective is</p>
+<p><span class="math display">\[
+\min_{\mathbf{m}}\; f(\mathbf{m}) = \sum_{i=1}^{n_s} \|\mathcal{F}[\mathbf{m}]\,\mathbf{q}_i - \mathbf{y}_i\|_2^2
+\]</span></p>
+</div>
+</section>
+<section id="gradient-of-fwi" class="slide level2 smaller center">
+<h2>Gradient of FWI</h2>
+<p>The gradient of the FWI objective evaluated at a smooth background <span class="math inline">\(\mathbf{m}_0\)</span>:</p>
+<p><span class="math display">\[
+\nabla_{\mathbf{m}} f\big|_{\mathbf{m}_0} = \sum_{i=1}^{n_s} \mathbf{J}_i^{\top}\,\underbrace{\big(\mathcal{F}[\mathbf{m}_0]\,\mathbf{q}_i - \mathbf{y}_i\big)}_{\text{data residual for source } i}
+\]</span></p>
+<div class="fragment">
+<p>Stacking the Jacobians <span class="math inline">\(\mathbf{F} = [\mathbf{J}_1^{\top}, \ldots, \mathbf{J}_{n_s}^{\top}]^{\top}\)</span> and the residuals <span class="math inline">\(\mathbf{r}\)</span>:</p>
+<p><span class="math display">\[
+\nabla_{\mathbf{m}} f\big|_{\mathbf{m}_0} = \underbrace{\mathbf{F}^{\top}}_{\text{migration}}\,\mathbf{r}
+\]</span></p>
+<p>The gradient is computed by <strong>migrating</strong> the data residual — applying the adjoint Born scattering operator <span class="math inline">\(\mathbf{F}^{\top}\)</span> in the smooth background <span class="math inline">\(\mathbf{m}_0\)</span>.</p>
+</div>
+</section>
+<section id="linearization-born-scattering" class="slide level2 smaller center">
+<h2>Linearization: Born Scattering</h2>
+<p>Linearizing <span class="math inline">\(\mathcal{F}[\mathbf{m}]\)</span> around a smooth background <span class="math inline">\(\mathbf{m}_0\)</span> yields the <strong>Jacobian</strong> (Born scattering / demigration operator). By the chain rule:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{J} &amp;= \nabla_{\mathbf{m}}\mathcal{F}[\mathbf{m}_0] \\
+&amp;= -\mathbf{P}_r\,\mathbf{A}^{-1}[\mathbf{m}]\,\operatorname{diag}\!\left(\frac{\partial\mathbf{A}[\mathbf{m}]}{\partial\mathbf{m}}\,\mathbf{A}^{-1}[\mathbf{m}]\,\mathbf{P}_s^{\top}\mathbf{q}\right)\Bigg|_{\mathbf{m}_0}
+\end{aligned}
+\]</span></p>
+<div class="fragment">
+<p>For source <span class="math inline">\(i\)</span> gives the <strong>Born-scattered data</strong>:</p>
+<p><span class="math display">\[
+\delta\mathbf{d}_i = \mathbf{J}_i\,\delta\mathbf{m}
+\]</span></p>
+</div>
+</section>
+<section id="section" class="slide level2 smaller center">
+<h2></h2>
+<p>Writing <span class="math inline">\(\mathbf{m}\)</span> for the reflectivity perturbation and stacking over sources, <span class="math inline">\(\mathbf{F} = [\mathbf{J}_1^{\top}, \ldots, \mathbf{J}_{n_s}^{\top}]^{\top}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{d} = \mathbf{F}\,\mathbf{m} + \mathbf{n}
+\]</span></p>
+<p>where <strong><span class="math inline">\(\mathbf{F}\)</span> is the Born modeling (demigration) operator</strong> and <span class="math inline">\(\mathbf{F}^{\top}\)</span> is <strong>migration</strong>.</p>
+</section>
+<section id="the-linearized-seismic-inverse-problem" class="slide level2 smaller center">
+<h2>The Linearized Seismic Inverse Problem</h2>
+<p>Under the Born (single-scattering) approximation, observed data <span class="math inline">\(\mathbf{d}\)</span> relates to a reflectivity model <span class="math inline">\(\mathbf{m}\)</span> via</p>
+<p><span class="math display">\[
+\mathbf{d} = \mathbf{F}\,\mathbf{m} + \mathbf{n}
+\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(\mathbf{F}\)</span> — the <strong>Born modeling</strong> (demigration) operator</li>
+<li><span class="math inline">\(\mathbf{m}\)</span> — subsurface reflectivity (the image we seek)</li>
+<li><span class="math inline">\(\mathbf{n}\)</span> — noise and modeling errors</li>
+</ul>
+<div class="fragment">
+<p><strong>Goal:</strong> recover <span class="math inline">\(\mathbf{m}\)</span> from <span class="math inline">\(\mathbf{d}\)</span>, given a smooth background velocity <span class="math inline">\(v_0(\mathbf{x})\)</span>.</p>
+</div>
+</section>
+<section id="migration-as-the-adjoint" class="slide level2 center">
+<h2>Migration as the Adjoint</h2>
+<p>Conventional migration applies the <strong>adjoint</strong> <span class="math inline">\(\mathbf{F}^{\top}\)</span> to the data:</p>
+<p><span class="math display">\[
+\mathbf{m}_{\text{mig}} = \mathbf{F}^{\top}\,\mathbf{d}
+\]</span></p>
+<div class="fragment">
+<p>This is <strong>not</strong> the inverse. Substituting <span class="math inline">\(\mathbf{d} = \mathbf{F}\,\mathbf{m}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{m}_{\text{mig}} = \underbrace{\mathbf{F}^{\top}\mathbf{F}}_{\mathbf{H}}\;\mathbf{m}
+\]</span></p>
+<p>The migrated image is a <strong>blurred</strong> version of the true reflectivity, filtered by the <strong>Hessian</strong> <span class="math inline">\(\mathbf{H} = \mathbf{F}^{\top}\mathbf{F}\)</span>.</p>
+</div>
+</section>
+<section id="migration-as-the-adjoint-workflow" class="slide level2 center">
+<h2>Migration as the Adjoint — Workflow</h2>
+
+<img data-src="figures/born_modeling_adjoint.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Born modeling and adjoint migration workflow. Migration applies the adjoint, not the inverse.</p></section>
+<section id="what-does-the-hessian-encode" class="slide level2 smaller center">
+<h2>What Does the Hessian Encode?</h2>
+<p>The Hessian <span class="math inline">\(\mathbf{H} = \mathbf{F}^{\top}\mathbf{F}\)</span> captures the combined effect of:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Factor</th>
+<th>Consequence in image</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Finite acquisition aperture</td>
+<td>Dip-dependent illumination</td>
+</tr>
+<tr class="even">
+<td>Source/receiver sampling</td>
+<td>Acquisition footprint</td>
+</tr>
+<tr class="odd">
+<td>Geometric spreading</td>
+<td>Depth-dependent amplitude decay</td>
+</tr>
+<tr class="even">
+<td>Band-limited source</td>
+<td>Finite spatial resolution</td>
+</tr>
+<tr class="odd">
+<td>Velocity structure</td>
+<td>Position-dependent blurring</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>Undoing</strong> these effects <span class="math inline">\(\Rightarrow\)</span> true-amplitude, high-resolution imaging.</p>
+</div>
+</section>
+<section id="hessian-blurring-image-domain" class="slide level2 smaller center">
+<h2>Hessian Blurring — Image Domain</h2>
+<p>Figures adapted from <span class="citation" data-cites="hill2020">Hill and Rüger (<a href="#/key-references" role="doc-biblioref" onclick="">2020</a>)</span>.</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/blurred-1.png" style="width:100.0%"></p>
+<figcaption>True reflectivity</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/blurred-2.png" style="width:100.0%"></p>
+<figcaption>RTM</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/blurred-3.png" style="width:100.0%"></p>
+<figcaption>LS-RTM</figcaption>
+</figure>
+</div>
+</div></div>
+<p>RTM applies the adjoint <span class="math inline">\(\mathbf{F}^{\top}\)</span> producing a <strong>blurred</strong> image. LS-RTM inverts <span class="math inline">\(\mathbf{H}\)</span> to recover the true reflectivity with correct amplitudes and resolution <span class="citation" data-cites="yao2012">(<a href="#/key-references" role="doc-biblioref" onclick="">Yao and Jakubowicz 2012</a>)</span>.</p>
+</section>
+<section id="hessian-blurring-data-domain" class="slide level2 smaller center">
+<h2>Hessian Blurring — Data Domain</h2>
+<p>Figures adapted from <span class="citation" data-cites="hill2020">Hill and Rüger (<a href="#/key-references" role="doc-biblioref" onclick="">2020</a>)</span>.</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/data_blur_1.png" style="width:100.0%"></p>
+<figcaption>True data</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/data_blur_2.png" style="width:100.0%"></p>
+<figcaption>Predicted data from RTM</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/data_blur_3.png" style="width:100.0%"></p>
+<figcaption>Predicted data from LS-RTM</figcaption>
+</figure>
+</div>
+</div></div>
+<p>LS-RTM produces an image whose <strong>predicted data</strong> <span class="math inline">\(\mathbf{F}\mathbf{m}\)</span> closely matches the observed data <span class="math inline">\(\mathbf{d}\)</span>, confirming that the Hessian has been effectively inverted <span class="citation" data-cites="yao2012">(<a href="#/key-references" role="doc-biblioref" onclick="">Yao and Jakubowicz 2012</a>)</span>.</p>
+</section>
+<section id="rtm-vs.-ls-rtm-salt-model" class="slide level2 smaller center">
+<h2>RTM vs.&nbsp;LS-RTM — Salt Model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/RTM.png" style="width:100.0%"></p>
+<figcaption>Reverse-time migration <span class="citation" data-cites="zeng2014">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng, Dong, and Wang 2014</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/LS-RTM.png" style="width:100.0%"></p>
+<figcaption>Least-squares RTM <span class="citation" data-cites="zeng2014">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng, Dong, and Wang 2014</a>)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<p>LS-RTM recovers reflector amplitudes beneath the salt body and suppresses migration artifacts <span class="citation" data-cites="hill2020">(see also <a href="#/key-references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>, Ch. 11)</span>.</p>
+</section>
+<section id="rtm-vs.-ls-rtm-field-data" class="slide level2 smaller center">
+<h2>RTM vs.&nbsp;LS-RTM — Field Data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/RTM_2.png" style="width:100.0%"></p>
+<figcaption>Prestack migration <span class="citation" data-cites="zeng2014b">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng et al. 2014</a>)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/LS-RTM_2.png" style="width:100.0%"></p>
+<figcaption>LS-RTM <span class="citation" data-cites="zeng2014b">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng et al. 2014</a>)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<p>On field data, LS-RTM produces a higher-resolution image with more balanced amplitudes and reduced acquisition footprint <span class="citation" data-cites="hill2020">(see also <a href="#/key-references" role="doc-biblioref" onclick="">Hill and Rüger 2020</a>)</span>.</p>
+</section>
+<section id="the-normal-equations" class="slide level2 center">
+<h2>The Normal Equations</h2>
+<p>Setting <span class="math inline">\(\nabla_{\mathbf{m}} \|\mathbf{d} - \mathbf{F}\mathbf{m}\|_2^2 = 0\)</span> yields the <strong>normal equations</strong>:</p>
+<p><span class="math display">\[
+\mathbf{H}\,\mathbf{m} = \mathbf{F}^{\top}\mathbf{F}\,\mathbf{m} = \mathbf{F}^{\top}\,\mathbf{d}
+\]</span></p>
+<div class="fragment">
+<p>Two strategies to solve this:</p>
+<ol type="1">
+<li><p><strong>Data-domain LSM (DDLSM):</strong> iteratively minimize <span class="math inline">\(\|\mathbf{d} - \mathbf{F}\mathbf{m}\|_2^2\)</span> — never form <span class="math inline">\(\mathbf{H}\)</span> explicitly</p></li>
+<li><p><strong>Image-domain LSM (IDLSM):</strong> approximate <span class="math inline">\(\mathbf{H}\)</span> (or <span class="math inline">\(\mathbf{H}^{-1}\)</span>) and solve in the image domain</p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2 center">
+
+</section>
+<section>
+<section id="part-i-data-space-least-squares-migration" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Part I: Data-Space Least-Squares Migration</h1>
+
+</section>
+<section id="ddlsm-the-optimization-problem" class="slide level2 smaller center">
+<h2>DDLSM — The Optimization Problem</h2>
+<p><span class="math display">\[
+\min_{\mathbf{m}} \;\frac{1}{2}\|\mathbf{F}\,\mathbf{m} - \mathbf{d}\|_2^2
+\]</span></p>
+<div class="fragment">
+<p>Solved iteratively via <strong>LSQR</strong> <span class="citation" data-cites="paige1982">(<a href="#/key-references" role="doc-biblioref" onclick="">Paige and Saunders 1982</a>)</span> — a Krylov method based on Golub–Kahan bidiagonalization:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Each iteration requires:</strong></p>
+<ul>
+<li>One <strong>demigration</strong> <span class="math inline">\(\mathbf{F}\,\mathbf{v}^{(k)}\)</span></li>
+<li>One <strong>migration</strong> <span class="math inline">\(\mathbf{F}^{\top}\,\mathbf{u}^{(k)}\)</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Benefits:</strong></p>
+<ul>
+<li>Amplitude recovery</li>
+<li>Artifact suppression</li>
+<li>Handles incomplete data</li>
+<li>Improved resolution</li>
+</ul>
+</div></div>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Bottleneck</strong></p>
+</div>
+<div class="callout-content">
+<p>Each LSQR iteration costs <strong>application of Jacobian and Jacobian adjoint</strong>. Convergence without preconditioning is typically slow ($$20–50+ iterations).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="lsqr-algorithm-for-lsm" class="slide level2 smaller scrollable center">
+<h2>LSQR Algorithm for LSM</h2>
+<p><strong>Algorithm: LSQR</strong> <span class="citation" data-cites="paige1982">(<a href="#/key-references" role="doc-biblioref" onclick="">Paige and Saunders 1982</a>)</span></p>
+<p><strong>Input:</strong> Born operator <span class="math inline">\(\mathbf{F}\)</span>, data <span class="math inline">\(\mathbf{d}\)</span>, max iterations <span class="math inline">\(K\)</span>, tolerance <span class="math inline">\(\tau\)</span></p>
+<ol type="1">
+<li>Initialize: <span class="math inline">\(\beta_1\,\mathbf{u}_1 = \mathbf{d}\)</span>, <span class="math inline">\(\;\alpha_1\,\mathbf{v}_1 = \mathbf{F}^{\top}\mathbf{u}_1\)</span>, <span class="math inline">\(\;\mathbf{m}_0 = \mathbf{0}\)</span></li>
+<li><strong>for</strong> <span class="math inline">\(k = 1, 2, \ldots, K\)</span>:
+<ul>
+<li><strong>Bidiagonalization:</strong>
+<ul>
+<li><span class="math inline">\(\beta_{k+1}\,\mathbf{u}_{k+1} = \mathbf{F}\,\mathbf{v}_k - \alpha_k\,\mathbf{u}_k\)</span> <span class="math inline">\(\quad\)</span> <em>(one demigration)</em></li>
+<li><span class="math inline">\(\alpha_{k+1}\,\mathbf{v}_{k+1} = \mathbf{F}^{\top}\,\mathbf{u}_{k+1} - \beta_{k+1}\,\mathbf{v}_k\)</span> <span class="math inline">\(\quad\)</span> <em>(one migration)</em></li>
+</ul></li>
+<li><strong>QR update:</strong> apply Givens rotation to the bidiagonal system</li>
+<li><strong>Solution update:</strong> <span class="math inline">\(\mathbf{m}_k = \mathbf{m}_{k-1} + \phi_k\,\mathbf{w}_k\)</span></li>
+<li><strong>Convergence check:</strong> stop if <span class="math inline">\(\|\mathbf{F}\mathbf{m}_k - \mathbf{d}\|_2/\|\mathbf{d}\|_2 &lt; \tau\)</span></li>
+</ul></li>
+</ol>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Property</strong></p>
+</div>
+<div class="callout-content">
+<p>LSQR minimizes <span class="math inline">\(\|\mathbf{d} - \mathbf{F}\mathbf{m}\|_2\)</span> monotonically over the Krylov subspace <span class="math inline">\(\mathcal{K}_k(\mathbf{H}, \mathbf{F}^{\top}\mathbf{d})\)</span>. Early termination acts as <strong>implicit regularization</strong> <span class="citation" data-cites="vogel2002">(<a href="#/key-references" role="doc-biblioref" onclick="">Vogel 2002</a>)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-is-convergence-slow" class="slide level2 smaller center">
+<h2>Why Is Convergence Slow?</h2>
+<p>The convergence rate of LSQR depends on the singular-value distribution of <span class="math inline">\(\mathbf{F}\)</span>, or equivalently the eigenvalue distribution of <span class="math inline">\(\mathbf{H}\)</span>:</p>
+<p><span class="math display">\[
+\|\mathbf{m}^{(k)} - \mathbf{m}^{*}\|_{\mathbf{H}} \;\leq\; 2\left(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}\right)^k \|\mathbf{m}^{(0)} - \mathbf{m}^{*}\|_{\mathbf{H}}
+\]</span></p>
+<div class="fragment">
+<p>The Hessian has <strong>enormous dynamic range</strong> because of:</p>
+<ul>
+<li>Geometric spreading (<span class="math inline">\(\sim z^2\)</span> amplitude decay in 2D)</li>
+<li>Dip-dependent illumination gaps</li>
+<li>Acquisition footprint irregularities</li>
+</ul>
+<p><span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\kappa(\mathbf{H})\)</span> is large <span class="math inline">\(\Rightarrow\)</span> LSQR converges slowly.</p>
+</div>
+</section>
+<section id="preconditioning-the-preconditioned-system" class="slide level2 smaller center">
+<h2>Preconditioning — The Preconditioned System</h2>
+<p>Following <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span>, we reformulate the system using left and right preconditioners.</p>
+<p><strong>Right preconditioning</strong> with <span class="math inline">\(\mathbf{M}_R \approx \mathbf{H}^{1/2}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{F}\,\mathbf{M}_R^{-1}\,\mathbf{u} \approx \mathbf{d}, \qquad \mathbf{m} := \mathbf{M}_R^{-1}\,\mathbf{u}
+\]</span></p>
+<div class="fragment">
+<p><strong>Combined left + right preconditioning:</strong></p>
+<p><span class="math display">\[
+\underbrace{\mathbf{M}_L^{-1}\,\mathbf{F}\,\mathbf{M}_R^{-1}}_{\widehat{\mathbf{F}}}\;\mathbf{u} \approx \underbrace{\mathbf{M}_L^{-1}\,\mathbf{d}}_{\widehat{\mathbf{d}}}
+\]</span></p>
+</div>
+</section>
+<section id="section-1" class="slide level2 smaller center">
+<h2></h2>
+<p>The <strong>migrated</strong> and <strong>least-squares migrated</strong> images are then given by:</p>
+<p><span class="math display">\[
+\widetilde{\mathbf{m}} = \mathbf{M}_R^{-1}\,\widetilde{\mathbf{u}}, \quad \widetilde{\mathbf{u}} = \widehat{\mathbf{F}}^{\top}\,\widehat{\mathbf{d}}
+\]</span></p>
+<p><span class="math display">\[
+\widetilde{\mathbf{m}}_{LS} = \mathbf{M}_R^{-1}\,\widetilde{\mathbf{u}}_{LS}, \quad \widetilde{\mathbf{u}}_{LS} = \arg\min_{\mathbf{u}} \|\widehat{\mathbf{d}} - \widehat{\mathbf{F}}\,\mathbf{u}\|_2
+\]</span></p>
+<div class="fragment">
+<p>Our preconditioners are derived from <strong>three observations</strong> <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>:</p>
+<ol type="1">
+<li>Under certain conditions (high-frequency limit, smooth background velocity, no turning waves), the normal operator <span class="math inline">\(\mathbf{H}\)</span> is a <span class="math inline">\((d-1)\)</span>-order pseudodifferential operator (<span class="math inline">\(\Psi\)</span>DO)</li>
+<li>Migration amplitudes <strong>decay with depth</strong> due to spherical spreading of seismic body waves</li>
+<li>Zero-order <span class="math inline">\(\Psi\)</span>DOs can be approximated by a <strong>diagonal scaling in the curvelet domain</strong></li>
+</ol>
+<p>These observations define a series of increasingly accurate approximations to <span class="math inline">\(\mathbf{H}^{1/2}\)</span>, yielding better preconditioners.</p>
+</div>
+</section>
+<section id="illumination-based-preconditioning" class="slide level2 smaller center">
+<h2>Illumination-Based Preconditioning</h2>
+<p>The simplest diagonal approximation uses <strong>illumination maps</strong>.</p>
+<p>Under high-frequency asymptotics and infinite-aperture assumptions, the Hessian is approximately diagonal:</p>
+<p><span class="math display">\[
+\mathbf{H} \approx \operatorname{diag}(\mathbf{h}), \quad h(\mathbf{x}) = \sum_s \int |\hat{G}_s(\mathbf{x}, \omega)|^2\, d\omega
+\]</span></p>
+<div class="fragment">
+<p>The preconditioner is then the <strong>reciprocal illumination</strong>:</p>
+<p><span class="math display">\[
+P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
+\]</span></p>
+<ul>
+<li>Cheap to compute (byproduct of migration)</li>
+<li>Corrects gross amplitude imbalances (e.g., depth decay)</li>
+<li><strong>Does not</strong> account for dip-dependent or off-diagonal effects</li>
+</ul>
+</div>
+</section>
+<section id="limitations-of-diagonal-preconditioning" class="slide level2 smaller center">
+<h2>Limitations of Diagonal Preconditioning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>What it fixes:</strong></p>
+<ul>
+<li>Depth-dependent amplitude</li>
+<li>Gross illumination holes</li>
+<li>Source-receiver footprint (partially)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>What remains:</strong></p>
+<ul>
+<li>Dip-dependent blurring</li>
+<li>Position- and angle-dependent resolution</li>
+<li>Off-diagonal Hessian structure</li>
+</ul>
+</div></div>
+<div class="fragment">
+<p><span class="math inline">\(\Rightarrow\)</span> Need <strong>phase-space</strong> corrections that account for both position <em>and</em> dip/angle simultaneously.</p>
+</div>
+</section>
+<section id="curvelet-based-preconditioning" class="slide level2 smaller center">
+<h2>Curvelet-Based Preconditioning</h2>
+<p>Following <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span>, the key insight is that the Hessian is <strong>nearly diagonal in the curvelet domain</strong>.</p>
+<p>A pseudodifferential operator (<span class="math inline">\(\Psi\)</span>DO) has the general form:</p>
+<p><span class="math display">\[
+(\Psi f)(x) \simeq \int e^{j\xi \cdot x}\, a(x, \xi)\, \hat{f}(\xi)\, d\xi
+\]</span></p>
+<p>where <span class="math inline">\(a(x, \xi)\)</span> is the <strong>symbol</strong> — a space- and spatial-frequency-dependent filter. This is simply a <strong>non-stationary convolution</strong>: the kernel varies with position.</p>
+<div class="fragment">
+<p>Curvelets are localized in both <strong>space</strong> and <strong>dip</strong> (angle) — they live in phase space and are the natural domain to capture the anisotropic blurring of the Hessian.</p>
+<p><strong>Theorem</strong> <span class="citation" data-cites="candes2005">(<a href="#/key-references" role="doc-biblioref" onclick="">Candès and Demanet 2005</a>)</span>: <em>Under the action of the normal operator <span class="math inline">\(\mathbf{H}\)</span>, curvelets remain approximately invariant — they are only rescaled, with corrections that decay at finer scales.</em></p>
+</div>
+</section>
+<section id="why-curvelets-frequency-tiling-and-spatial-atoms" class="slide level2 smaller center">
+<h2>Why Curvelets? — Frequency Tiling and Spatial Atoms</h2>
+
+<img data-src="figures/curvepart.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">(a) Curvelet atoms in the physical domain at various scales, positions, and orientations. (b) Curvelet tiling of the 2D frequency plane showing dyadic scales with angular wedges obeying parabolic scaling <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>.</p></section>
+<section id="three-levels-of-preconditioning" class="slide level2 smaller center">
+<h2>Three Levels of Preconditioning</h2>
+<p><span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span> propose a <strong>cascade</strong> of three corrections:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 42%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Correction</th>
+<th>Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I</td>
+<td>Order of migration operator (<span class="math inline">\(|\omega|\)</span> scaling)</td>
+<td>Fourier domain</td>
+</tr>
+<tr class="even">
+<td>II</td>
+<td>Geometric spreading (depth correction)</td>
+<td>Physical domain</td>
+</tr>
+<tr class="odd">
+<td>III</td>
+<td>Position- and dip-dependent amplitude</td>
+<td><strong>Curvelet</strong> domain</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math display">\[
+\widehat{\mathbf{F}} = \mathbf{M}_L^{-1}\;\mathbf{F}\;\mathbf{M}_R^{-1}
+\]</span></p>
+<p>Each level addresses a different source of ill-conditioning.</p>
+</div>
+</section>
+<section id="level-i-left-preconditioning-by-fractional-differentiation" class="slide level2 smaller center">
+<h2>Level I — Left Preconditioning by Fractional Differentiation</h2>
+<p>The normal operator <span class="math inline">\(\mathbf{H}\)</span> is a <span class="math inline">\((d-1)\)</span>-order pseudodifferential operator (<span class="math inline">\(\Psi\)</span>DO). In 2D image space, its leading-order behavior corresponds to the Laplacian <span class="math inline">\((-\Delta)\)</span>, or <span class="math inline">\(|\xi|^2\)</span> in the Fourier domain.</p>
+<div class="fragment">
+<p><strong>Left preconditioner</strong> <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>, Eq. 6)</span>:</p>
+<p><span class="math display">\[
+\mathbf{M}_L^{-1} := \partial_{|t|}^{-1/2} \;=\; \mathcal{F}^{*}\,|\omega|^{-1/2}\,\mathcal{F}
+\]</span></p>
+<p>This half-order fractional time integration compensates for the <strong>order of the migration operator</strong>, whitening the wavenumber spectrum <span class="citation" data-cites="claerbout1994 symes2008">(cf. <a href="#/key-references" role="doc-biblioref" onclick="">Claerbout and Nichols 1994</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Symes 2008</a>)</span>.</p>
+</div>
+</section>
+<section id="level-ii-depth-correction" class="slide level2 smaller center">
+<h2>Level II — Depth Correction</h2>
+<p>Correct for <strong>geometric spreading</strong> — reflected waves experience amplitude decay proportional to <span class="math inline">\(\sqrt{z}\)</span> (in 2D) from source down to reflector and back.</p>
+<div class="fragment">
+<p><strong>Right preconditioner</strong> <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>, Eq. 7)</span>:</p>
+<p><span class="math display">\[
+\mathbf{M}_R^{-1} = \mathbf{D}_z := \operatorname{diag}(\mathbf{z})^{1/2}
+\]</span></p>
+<p>where <span class="math inline">\(z_i = i\,\Delta z\)</span>, with <span class="math inline">\(\Delta z\)</span> the depth sample interval.</p>
+</div>
+<div class="fragment">
+<p>Combined with Level I, this accounts for the smooth, position-dependent amplitude variations, but still treats all dips equally at each location.</p>
+</div>
+</section>
+<section id="level-iii-curvelet-domain-scaling" class="slide level2 smaller center">
+<h2>Level III — Curvelet-Domain Scaling</h2>
+<p>After left preconditioning, the Hessian becomes a <strong>zero-order <span class="math inline">\(\Psi\)</span>DO</strong> — a non-stationary dip filter with smooth symbol <span class="math inline">\(a(x, \xi)\)</span>.</p>
+<div class="fragment">
+<p>Key approximation <span class="citation" data-cites="herrmann2008 herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>, Eq. 9)</span>:</p>
+<p><span class="math display">\[
+\Psi\,\mathbf{r} \approx \mathbf{C}^{\top}\,\mathbf{D}_\Psi^2\,\mathbf{C}\,\mathbf{r}, \qquad \mathbf{D}_\Psi^2 := \operatorname{diag}(\mathbf{d}^2)
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{C}\)</span> is the curvelet transform and <span class="math inline">\(\mathbf{d}\)</span> are estimated from a <strong>remigrated-image matched-filtering</strong> procedure.</p>
+</div>
+<div class="fragment">
+<p>The <strong>full right preconditioner</strong> (Eq. 10):</p>
+<p><span class="math display">\[
+\mathbf{M}_R^{-1} = \mathbf{D}_z\;\mathbf{C}^{\top}\;\mathbf{D}_\Psi^{-1}
+\]</span></p>
+<p>The weights <span class="math inline">\(d_{j,l,k}\)</span> (scale <span class="math inline">\(j\)</span>, angle <span class="math inline">\(l\)</span>, position <span class="math inline">\(k\)</span>) capture the <strong>position- and dip-dependent</strong> illumination deficiencies. Cost: approximately one modeling + one migration.</p>
+</div>
+</section>
+<section id="why-curvelets" class="slide level2 smaller center">
+<h2>Why Curvelets?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Phase-space localization:</strong></p>
+<ul>
+<li>Scale (frequency band)</li>
+<li>Orientation (reflector dip)</li>
+<li>Position (spatial location)</li>
+</ul>
+<p>Curvelets obey <strong>parabolic scaling</strong>: width <span class="math inline">\(\sim\)</span> length<span class="math inline">\(^{1/2}\)</span></p>
+</div><div class="column" style="width:50%;">
+<p><strong>Key properties for imaging:</strong></p>
+<ul>
+<li>Sparsify seismic images</li>
+<li>Near-diagonalize the Hessian</li>
+<li>Approximation error <strong>decreases</strong> at finer scales</li>
+<li>Anisotropic — match wavefront geometry</li>
+</ul>
+</div></div>
+<div class="fragment">
+<p><span class="math inline">\(\Rightarrow\)</span> Curvelet-domain diagonal scaling is a far better approximation of <span class="math inline">\(\mathbf{H}^{-1}\)</span> than any isotropic (e.g., Fourier or spatial) diagonal scaling.</p>
+</div>
+</section>
+<section id="industry-adoption" class="slide level2 smaller center">
+<h2>Industry Adoption</h2>
+<p>The curvelet-domain preconditioning idea was later adopted by industry. <span class="citation" data-cites="wang2018cgg">Wang, Huang, and Wang (<a href="#/key-references" role="doc-biblioref" onclick="">2018</a>)</span> proposed “curvelet-domain Hessian filters” (CHF) for preconditioned iterative LSRTM — essentially the same approach as <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span> — demonstrating faster convergence and fewer artifacts on both SEAM I synthetic and Gulf of Mexico field data.</p>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The CGG paper does not cite the original curvelet-based preconditioning work by <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span>, despite using the same curvelet-domain diagonal approximation of the Hessian.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chf-preconditioned-lsrtm-seam-i-synthetic" class="slide level2 smaller center">
+<h2>CHF-Preconditioned LSRTM — SEAM I Synthetic</h2>
+
+<img data-src="figures/cgg1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">SEAM I synthetic study: (a) true reflectivity; (b) raw RTM; (c) conventional LSRTM (iteration 1); (d) CHF-preconditioned LSRTM (iteration 1); (e) conventional LSRTM (iteration 10); (f) CHF-preconditioned LSRTM (iteration 3) <span class="citation" data-cites="wang2018cgg">(<a href="#/key-references" role="doc-biblioref" onclick="">Wang, Huang, and Wang 2018</a>)</span>.</p></section>
+<section id="chf-preconditioned-lsrtm-gom-field-data" class="slide level2 smaller center">
+<h2>CHF-Preconditioned LSRTM — GOM Field Data</h2>
+
+<img data-src="figures/cgg2.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">GOM field data: (a) raw RTM; (b) regular LSRTM (iteration 6); (c) CHF-preconditioned LSRTM (iteration 1, equivalent to single-iteration CHF); (d) CHF-preconditioned LSRTM (iteration 2) <span class="citation" data-cites="wang2018cgg">(<a href="#/key-references" role="doc-biblioref" onclick="">Wang, Huang, and Wang 2018</a>)</span>.</p></section>
+<section id="effect-on-convergence" class="slide level2 center">
+<h2>Effect on Convergence</h2>
+<p>On the SEG/EAGE AA’ salt model <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Preconditioning level</th>
+<th>Iterations to converge</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>None</td>
+<td><span class="math inline">\(\sim\)</span> 50+</td>
+</tr>
+<tr class="even">
+<td>Level I (Fourier)</td>
+<td><span class="math inline">\(\sim\)</span> 30</td>
+</tr>
+<tr class="odd">
+<td>Level I + II (+ depth)</td>
+<td><span class="math inline">\(\sim\)</span> 15</td>
+</tr>
+<tr class="even">
+<td>Level I + II + III (+ curvelet)</td>
+<td><span class="math inline">\(\sim\)</span> 5–8</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="effect-on-convergence-1" class="slide level2 smaller center">
+<h2>Effect on Convergence</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/res.png" style="width:100.0%"></p>
+<figcaption>Data-space normalized residuals <span class="math inline">\(\mu_k\)</span> (dB) vs.&nbsp;LSQR iterations <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>.</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/cond.png" style="width:100.0%"></p>
+<figcaption>Model-space normalized residuals <span class="math inline">\(\nu_k\)</span> (dB) vs.&nbsp;LSQR iterations <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<p>Dotted blue: no preconditioning; dash-dotted green: Level I; dashed black: Level II; solid red: Level III. Level II/III curves are offset by one iteration to account for the preconditioning overhead.</p>
+</section>
+<section id="segeage-aa-salt-model" class="slide level2 smaller center">
+<h2>SEG/EAGE AA’ Salt Model</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/reflectivity.png" style="width:100.0%"></p>
+<figcaption>Reflectivity (high-pass filtered velocity)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/velocity.png" style="width:100.0%"></p>
+<figcaption>Smoothed velocity model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/case1.png" style="width:100.0%"></p>
+<figcaption>Migrated image (Eq. 1)</figcaption>
+</figure>
+</div>
+</div></div>
+<p>The migrated image suffers from deteriorated amplitudes, especially under the high-velocity salt and for steep reflectors and faults <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>.</p>
+</section>
+<section id="preconditioning-results-migrated-images" class="slide level2 smaller center">
+<h2>Preconditioning Results — Migrated Images</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/case2.png" style="width:100.0%"></p>
+<figcaption>Level I: left preconditioning</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/case3.png" style="width:100.0%"></p>
+<figcaption>Level II: + depth correction</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/case4.png" style="width:100.0%"></p>
+<figcaption>Level III: + curvelet scaling</figcaption>
+</figure>
+</div>
+</div></div>
+<p><strong>(a)</strong> Left preconditioning removes the imprint of the Laplacian, restoring low-frequency content. <strong>(b)</strong> Adding depth correction further improves amplitudes, but variations remain along the major horizontal reflector above 3500 m. <strong>(c)</strong> Curvelet-domain scaling provides additional position- and dip-dependent amplitude correction <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>.</p>
+</section>
+<section id="sparsity-promotion-as-regularization" class="slide level2 smaller center">
+<h2>Sparsity Promotion as Regularization</h2>
+<p>Beyond preconditioning, curvelet sparsity can serve as <strong>regularization</strong>:</p>
+<p><span class="math display">\[
+\min_{\mathbf{m}}\;\frac{1}{2}\|\mathbf{F}\mathbf{m} - \mathbf{d}\|_2^2 + \lambda\,\|\mathbf{C}\,\mathbf{m}\|_1
+\]</span></p>
+<div class="fragment">
+<p>The <span class="math inline">\(\ell_1\)</span> penalty in the curvelet domain:</p>
+<ul>
+<li>Suppresses incoherent migration artifacts</li>
+<li>Handles incomplete/noisy data gracefully</li>
+<li>Natural complement to curvelet preconditioning</li>
+</ul>
+<p>See also: <span class="citation" data-cites="herrmann2012">Herrmann and Li (<a href="#/key-references" role="doc-biblioref" onclick="">2012</a>)</span>, <em>Efficient least-squares imaging with sparsity promotion and compressive sensing</em>, Geophys. Prosp.</p>
+</div>
+</section>
+<section class="slide level2 center">
+
+</section></section>
+<section>
+<section id="part-ii-image-space-least-squares-migration" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Part II: Image-Space Least-Squares Migration</h1>
+
+</section>
+<section id="idlsm-key-idea" class="slide level2 smaller center">
+<h2>IDLSM — Key Idea</h2>
+<p>Instead of iterating in data space, work <strong>directly in the image domain</strong>.</p>
+<p>Start from the normal equations:</p>
+<p><span class="math display">\[
+\mathbf{m} = \mathbf{H}^{-1}\,\mathbf{m}_{\text{mig}}
+\]</span></p>
+<div class="fragment">
+<p>If we can approximate <span class="math inline">\(\mathbf{H}^{-1}\)</span> (or <span class="math inline">\(\mathbf{H}\)</span>), we solve an <strong>image-domain deconvolution</strong> problem:</p>
+<p><span class="math display">\[
+\min_{\mathbf{m}} \;\frac{1}{2}\|\mathbf{H}\,\mathbf{m} - \mathbf{m}_{\text{mig}}\|_2^2 + \mathcal{R}(\mathbf{m})
+\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Advantage:</strong> no additional modeling/migration — just matrix–vector products with <span class="math inline">\(\mathbf{H}\)</span> (or its approximation) in the image domain.</p>
+</div>
+</section>
+<section id="the-challenge" class="slide level2 center">
+<h2>The Challenge</h2>
+<p>The full Hessian <span class="math inline">\(\mathbf{H} \in \mathbb{R}^{N \times N}\)</span> where <span class="math inline">\(N\)</span> = number of image points.</p>
+<p>For a typical 3D survey: <span class="math inline">\(N \sim 10^8\)</span>–<span class="math inline">\(10^{10}\)</span></p>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Impractical to Form Explicitly</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(\mathbf{H}\)</span> has <span class="math inline">\(N^2\)</span> elements — storing it is impossible. We need <strong>structured approximations</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="approximation-strategy-1-diagonal-hessian" class="slide level2 smaller center">
+<h2>Approximation Strategy 1: Diagonal Hessian</h2>
+<p>The simplest approach — assume <span class="math inline">\(\mathbf{H}\)</span> is diagonal:</p>
+<p><span class="math display">\[
+H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
+\]</span></p>
+<p>where <span class="math inline">\(A_s, A_r\)</span> are source/receiver amplitude functions.</p>
+<div class="fragment">
+<p><strong>Pros:</strong></p>
+<ul>
+<li>Very cheap (illumination map)</li>
+<li>Often adequate for amplitude balancing</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Ignores off-diagonal terms (spatial blurring)</li>
+<li>Cannot improve resolution</li>
+<li>Fails near complex structures (salt flanks, faults)</li>
+</ul>
+</div>
+</section>
+<section id="approximation-strategy-2-point-spread-functions" class="slide level2 scrollable smaller center">
+<h2>Approximation Strategy 2: Point Spread Functions</h2>
+<p>Each column of <span class="math inline">\(\mathbf{H}\)</span> is the <strong>point spread function</strong> (PSF) at that image point:</p>
+<p><span class="math display">\[
+\text{PSF}(\mathbf{x}, \mathbf{x}') = [\mathbf{F}^{\top}\mathbf{F}](\mathbf{x}, \mathbf{x}')
+\]</span></p>
+<p>Compute PSFs on a <strong>coarse grid</strong> and interpolate:</p>
+<div class="fragment">
+<ol type="1">
+<li>Place point scatterers at selected locations <span class="math inline">\(\{\mathbf{x}_i\}\)</span></li>
+<li>Model + migrate <span class="math inline">\(\Rightarrow\)</span> local PSFs</li>
+<li>Solve local deconvolution problems</li>
+</ol>
+</div>
+<div class="fragment">
+<p><span class="citation" data-cites="fletcher2016">Fletcher et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2016</a>)</span>: compute PSFs on coarse grid with on-the-fly interpolation.</p>
+<p><span class="citation" data-cites="valenciano2006">Valenciano, Biondi, and Guitton (<a href="#/key-references" role="doc-biblioref" onclick="">2006</a>)</span>: target-oriented inversion using PSFs with one-way wave-equation migration.</p>
+</div>
+</section>
+<section id="point-spread-functions-spatial-variation" class="slide level2 center">
+<h2>Point Spread Functions — Spatial Variation</h2>
+
+<img data-src="figures/psf_schematic.png" style="width:95.0%" class="r-stretch quarto-figure-center"><p class="caption">Left: velocity model with a salt body and marked PSF sampling locations. Right: corresponding PSFs showing how resolution degrades near salt flanks and at depth.</p></section>
+<section id="approximation-strategy-3-non-stationary-filters" class="slide level2 smaller center">
+<h2>Approximation Strategy 3: Non-Stationary Filters</h2>
+<p>Approximate the Hessian action as <strong>space-varying convolution</strong>:</p>
+<p><span class="math display">\[
+[\mathbf{H}\,\mathbf{m}](\mathbf{x}) \approx \int h(\mathbf{x}, \mathbf{x}')\, m(\mathbf{x}')\, d\mathbf{x}'
+\]</span></p>
+<p>where <span class="math inline">\(h(\mathbf{x}, \mathbf{x}')\)</span> is localized (banded).</p>
+<div class="fragment">
+<p><strong>Matching-filter approach</strong> <span class="citation" data-cites="aoki2009 guo2020">(<a href="#/key-references" role="doc-biblioref" onclick="">Aoki and Schuster 2009</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Guo and Wang 2020</a>)</span>:</p>
+<ul>
+<li>Compute <span class="math inline">\(\mathbf{m}_{\text{mig}}\)</span> and <span class="math inline">\(\mathbf{H}\mathbf{m}_{\text{mig}} = \mathbf{F}^{\top}\mathbf{F}\mathbf{m}_{\text{mig}}\)</span></li>
+<li>Estimate non-stationary filters that map <span class="math inline">\(\mathbf{m}_{\text{mig}} \to \mathbf{F}^{\top}\mathbf{F}\mathbf{m}_{\text{mig}}\)</span></li>
+<li>Invert these filters <span class="math inline">\(\Rightarrow\)</span> approximate <span class="math inline">\(\mathbf{H}^{-1}\)</span></li>
+</ul>
+<p>Cost: one additional demigration/remigration cycle.</p>
+</div>
+</section>
+<section id="approximation-strategy-4-kronecker-factorization" class="slide level2 smaller center">
+<h2>Approximation Strategy 4: Kronecker Factorization</h2>
+<p><span class="citation" data-cites="gao2020">Gao, Matharu, and Sacchi (<a href="#/key-references" role="doc-biblioref" onclick="">2020</a>)</span> factorize the Hessian as a <strong>superposition of Kronecker products</strong>:</p>
+<p><span class="math display">\[
+\mathbf{H} \approx \sum_{i=1}^{r} \mathbf{A}_i \otimes \mathbf{B}_i
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{A}_i, \mathbf{B}_i\)</span> are small matrices.</p>
+<div class="fragment">
+<ul>
+<li>Only a <strong>small percentage</strong> of Hessian elements needed (matrix completion)</li>
+<li>Iterative solution replaces modeling/migration with <strong>fast matrix multiplications</strong></li>
+<li>Achieves near-identical results to full DDLSM at 5–15<span class="math inline">\(\times\)</span> speedup</li>
+</ul>
+</div>
+</section>
+<section id="approximation-strategy-5-curvelet-domain-hessian" class="slide level2 smaller center">
+<h2>Approximation Strategy 5: Curvelet-Domain Hessian</h2>
+<p>Building on the near-diagonality theorem, the Hessian in the curvelet domain can be approximated beyond a simple diagonal.</p>
+<div class="fragment">
+<p><strong>Diagonal approximation</strong> <span class="citation" data-cites="herrmann2009 sanavi2021">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Sanavi, Moghaddam, and Herrmann 2021</a>)</span>:</p>
+<p><span class="math display">\[
+\mathbf{C}\,\mathbf{H}\,\mathbf{C}^{\top} \approx \operatorname{diag}(\boldsymbol{\sigma})
+\]</span></p>
+<p>Weights <span class="math inline">\(\boldsymbol{\sigma}\)</span> estimated from demigration/remigration of curvelet atoms.</p>
+</div>
+<div class="fragment">
+<p><strong>Banded/guided filter extension</strong> <span class="citation" data-cites="li2021">(<a href="#/key-references" role="doc-biblioref" onclick="">Li et al. 2021</a>)</span>:</p>
+<ul>
+<li>Estimate a <strong>dense curvelet-domain filter</strong> (not just diagonal)</li>
+<li>Uses guided-filter methodology for robustness</li>
+<li>Better handles low-wavenumber artifacts</li>
+</ul>
+</div>
+</section>
+<section id="approximation-strategy-6-chains-of-operators" class="slide level2 smaller center">
+<h2>Approximation Strategy 6: Chains of Operators</h2>
+<p>Approximate <span class="math inline">\(\mathbf{H}^{-1}\)</span> as a <strong>chain</strong> of simple operators in complementary domains:</p>
+<p><span class="math display">\[
+\mathbf{H}^{-1} \approx \mathbf{W}_{\text{space}} \cdot \mathbf{W}_{\text{freq}} \cdot \mathbf{W}_{\text{space}}
+\]</span></p>
+<div class="fragment">
+<p><strong><span class="citation" data-cites="greer2018">Greer and Fomel (<a href="#/key-references" role="doc-biblioref" onclick="">2018</a>)</span>:</strong> non-stationary amplitude + frequency matching</p>
+<ul>
+<li>Two operators capture amplitude and frequency variations</li>
+<li>Cost comparable to a single migration</li>
+<li>Handles the principal differences between RTM and LSRTM images</li>
+</ul>
+</div>
+<div class="fragment">
+<p>This is conceptually similar to the multi-level preconditioning of <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span>, but formulated as a post-migration correction.</p>
+</div>
+</section>
+<section id="comparison-of-approaches" class="slide level2 smaller center">
+<h2>Comparison of Approaches</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 29%">
+<col style="width: 20%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Cost</th>
+<th>Resolution gain</th>
+<th>Amplitude</th>
+<th>Off-diagonal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Diagonal (illumination)</td>
+<td>Negligible</td>
+<td>No</td>
+<td>Partial</td>
+<td>No</td>
+</tr>
+<tr class="even">
+<td>PSF-based</td>
+<td>Moderate</td>
+<td>Yes (local)</td>
+<td>Yes</td>
+<td>Local</td>
+</tr>
+<tr class="odd">
+<td>Non-stationary filters</td>
+<td>1 extra cycle</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Banded</td>
+</tr>
+<tr class="even">
+<td>Kronecker</td>
+<td>Sampling <span class="math inline">\(\mathbf{H}\)</span></td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Approximate</td>
+</tr>
+<tr class="odd">
+<td>Curvelet diagonal</td>
+<td>$$1 extra cycle</td>
+<td>Partial</td>
+<td>Yes</td>
+<td>Phase-space</td>
+</tr>
+<tr class="even">
+<td>Full DDLSM</td>
+<td><span class="math inline">\(K\)</span> iterations</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Exact</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="regularization-in-idlsm" class="slide level2 smaller center">
+<h2>Regularization in IDLSM</h2>
+<p>The image-domain problem is often ill-posed. Common regularization:</p>
+<p><span class="math display">\[
+\min_{\mathbf{m}} \;\frac{1}{2}\|\mathbf{H}\,\mathbf{m} - \mathbf{m}_{\text{mig}}\|_2^2 + \lambda_1\|\mathbf{m}\|_1 + \lambda_2 \text{TV}(\mathbf{m})
+\]</span></p>
+<div class="fragment">
+<ul>
+<li><strong><span class="math inline">\(\ell_1\)</span> (sparsity):</strong> promote sparse reflectivity (curvelets, seislets, wavelets)</li>
+<li><strong>Total variation:</strong> preserve sharp edges, suppress oscillatory noise</li>
+<li><strong>Combined:</strong> high-resolution <em>and</em> geologically plausible images</li>
+</ul>
+</div>
+</section>
+<section id="ddlsm-vs.-idlsm-when-to-use-which" class="slide level2 smaller center">
+<h2>DDLSM vs.&nbsp;IDLSM — When to Use Which?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="data-domain-ddlsm">Data-Domain (DDLSM)</h3>
+<ul>
+<li>Exact Hessian action (implicit)</li>
+<li>Better for severely incomplete data</li>
+<li>Natural for simultaneous sources</li>
+<li>High computational cost</li>
+<li>Benefits greatly from preconditioning (curvelet, illumination)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="image-domain-idlsm">Image-Domain (IDLSM)</h3>
+<ul>
+<li>Requires Hessian approximation</li>
+<li>Very fast once <span class="math inline">\(\mathbf{H}\)</span> is estimated</li>
+<li>Natural for target-oriented imaging</li>
+<li>Lower computational cost</li>
+<li>Quality depends on approximation accuracy</li>
+</ul>
+</div></div>
+</section>
+<section id="ddlsm-vs.-idlsm-workflows" class="slide level2 center">
+<h2>DDLSM vs.&nbsp;IDLSM — Workflows</h2>
+
+<img data-src="figures/ddlsm_vs_idlsm.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">Side-by-side comparison of the DDLSM iterative workflow (left) and the IDLSM direct approach (right).</p></section>
+<section class="slide level2 center">
+
+</section></section>
+<section>
+<section id="connections-and-outlook" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Connections and Outlook</h1>
+
+</section>
+<section id="unifying-view" class="slide level2 smaller center">
+<h2>Unifying View</h2>
+<p>Both DDLSM and IDLSM solve the <strong>same</strong> normal equations — they differ in <em>how</em>:</p>
+<p><span class="math display">\[
+\underbrace{\mathbf{F}^{\top}\mathbf{F}}_{\text{Hessian}}\;\mathbf{m} = \underbrace{\mathbf{F}^{\top}\mathbf{d}}_{\text{migrated image}}
+\]</span></p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 41%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>DDLSM</th>
+<th>IDLSM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Access to <span class="math inline">\(\mathbf{H}\)</span></td>
+<td>Implicit (via <span class="math inline">\(\mathbf{F}, \mathbf{F}^{\top}\)</span>)</td>
+<td>Explicit approximation</td>
+</tr>
+<tr class="even">
+<td>Preconditioning</td>
+<td><span class="math inline">\(\mathbf{M}_L, \mathbf{M}_R\)</span> speed up LSQR</td>
+<td><span class="math inline">\(\hat{\mathbf{H}}^{-1}\)</span> applied directly</td>
+</tr>
+<tr class="odd">
+<td>Sweet spot</td>
+<td>Full survey, complex geology</td>
+<td>Target zones, fast turnaround</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p>The curvelet framework provides a <strong>bridge</strong> — useful both as a preconditioner in DDLSM and as a Hessian approximation in IDLSM.</p>
+</div>
+</section>
+<section id="emerging-directions" class="slide level2 smaller center">
+<h2>Emerging Directions</h2>
+<ul>
+<li><strong>Learned Hessian approximations:</strong> deep-learning-based inverse Hessian estimation <span class="citation" data-cites="kaur2020">(<a href="#/key-references" role="doc-biblioref" onclick="">Kaur, Pham, and Fomel 2020</a>)</span></li>
+<li><strong>Extended image-domain LSM:</strong> subsurface-offset gathers for velocity errors and AVA</li>
+<li><strong>Stochastic/randomized methods:</strong> phase-encoded sources to reduce per-iteration cost</li>
+<li><strong>Elastic &amp; viscoacoustic LSM:</strong> multi-parameter Hessian challenges</li>
+</ul>
+</section>
+<section id="key-references" class="slide level2 smaller scrollable">
+<h2>Key References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-aoki2009" class="csl-entry" role="listitem">
+Aoki, Naoshi, and Gerard T. Schuster. 2009. <span>“Fast Least-Squares Migration with a Deblurring Filter.”</span> <em>Geophysics</em> 74 (6): WCA83–93. <a href="https://doi.org/10.1190/1.3155164">https://doi.org/10.1190/1.3155164</a>.
+</div>
+<div id="ref-candes2005" class="csl-entry" role="listitem">
+Candès, Emmanuel J., and Laurent Demanet. 2005. <span>“The Curvelet Representation of Wave Propagators Is Optimally Sparse.”</span> <em>Communications on Pure and Applied Mathematics</em> 58 (11): 1472–1528. <a href="https://doi.org/10.1002/cpa.20078">https://doi.org/10.1002/cpa.20078</a>.
+</div>
+<div id="ref-claerbout1994" class="csl-entry" role="listitem">
+Claerbout, Jon F., and Dave Nichols. 1994. <span>“Spectral Preconditioning.”</span> SEP-82. Stanford Exploration Project.
+</div>
+<div id="ref-fletcher2016" class="csl-entry" role="listitem">
+Fletcher, Robin P., Dave Nichols, Robert Bloor, and Robin T. Coates. 2016. <span>“Least-Squares Migration — Data Domain Versus Image Domain Using Point Spread Functions.”</span> <em>The Leading Edge</em> 35 (2): 157–62. <a href="https://doi.org/10.1190/tle35020157.1">https://doi.org/10.1190/tle35020157.1</a>.
+</div>
+<div id="ref-gao2020" class="csl-entry" role="listitem">
+Gao, Zhaoqi, Gian Matharu, and Mauricio D. Sacchi. 2020. <span>“Fast Least-Squares Reverse Time Migration via a Superposition of <span>K</span>ronecker Products.”</span> <em>Geophysics</em> 85 (2): S115–34. <a href="https://doi.org/10.1190/geo2019-0272.1">https://doi.org/10.1190/geo2019-0272.1</a>.
+</div>
+<div id="ref-greer2018" class="csl-entry" role="listitem">
+Greer, Sarah, and Sergey Fomel. 2018. <span>“Matching and Merging High-Resolution and Legacy Seismic Images.”</span> <em>Geophysics</em> 83 (2): V115–22. <a href="https://doi.org/10.1190/geo2017-0338.1">https://doi.org/10.1190/geo2017-0338.1</a>.
+</div>
+<div id="ref-guo2020" class="csl-entry" role="listitem">
+Guo, Xu, and Jian Wang. 2020. <span>“Image-Domain Least-Squares Migration with a Non-Stationary Matching Filter.”</span> <em>Journal of Geophysics and Engineering</em> 17 (2): 283–95. <a href="https://doi.org/10.1093/jge/gxz113">https://doi.org/10.1093/jge/gxz113</a>.
+</div>
+<div id="ref-herrmann2009" class="csl-entry" role="listitem">
+Herrmann, Felix J., Cody R. Brown, Yogi A. Erlangga, and Peyman P. Moghaddam. 2009. <span>“Curvelet-Based Migration Preconditioning and Scaling.”</span> <em>Geophysics</em> 74 (4): A41–46. <a href="https://doi.org/10.1190/1.3124753">https://doi.org/10.1190/1.3124753</a>.
+</div>
+<div id="ref-herrmann2012" class="csl-entry" role="listitem">
+Herrmann, Felix J., and Xiang Li. 2012. <span>“Efficient Least-Squares Imaging with Sparsity Promotion and Compressive Sensing.”</span> <em>Geophysical Prospecting</em> 60 (4): 696–712. <a href="https://doi.org/10.1111/j.1365-2478.2011.01041.x">https://doi.org/10.1111/j.1365-2478.2011.01041.x</a>.
+</div>
+<div id="ref-herrmann2008" class="csl-entry" role="listitem">
+Herrmann, Felix J., Peyman P. Moghaddam, and Chris C. Stolk. 2008. <span>“Sparsity- and Continuity-Promoting Seismic Image Recovery with Curvelet Frames.”</span> <em>Applied and Computational Harmonic Analysis</em> 24 (2): 150–73. <a href="https://doi.org/10.1016/j.acha.2007.06.007">https://doi.org/10.1016/j.acha.2007.06.007</a>.
+</div>
+<div id="ref-hill2020" class="csl-entry" role="listitem">
+Hill, Stephen J., and Andreas Rüger. 2020. <em>Illustrated Seismic Processing, Volume 1: Imaging</em>. Course Notes Series 15. Society of Exploration Geophysicists.
+</div>
+<div id="ref-kaur2020" class="csl-entry" role="listitem">
+Kaur, Harpreet, Nam Pham, and Sergey Fomel. 2020. <span>“Improving the Resolution of Migrated Images by Approximating the Inverse <span>H</span>essian Using Deep Learning.”</span> <em>Geophysics</em> 85 (4): WA173–83. <a href="https://doi.org/10.1190/geo2019-0315.1">https://doi.org/10.1190/geo2019-0315.1</a>.
+</div>
+<div id="ref-li2021" class="csl-entry" role="listitem">
+Li, Chuang, Jianping Huang, Zhenchun Li, and Rongrong Wang. 2021. <span>“Image-Domain Least-Squares Reverse Time Migration with Curvelet-Domain Guided Filtering.”</span> <em>Geophysics</em> 86 (4): S327–40.
+</div>
+<div id="ref-paige1982" class="csl-entry" role="listitem">
+Paige, Christopher C., and Michael A. Saunders. 1982. <span>“<span>LSQR</span>: An Algorithm for Sparse Linear Equations and Sparse Least Squares.”</span> <em>ACM Transactions on Mathematical Software</em> 8 (1): 43–71. <a href="https://doi.org/10.1145/355984.355989">https://doi.org/10.1145/355984.355989</a>.
+</div>
+<div id="ref-sanavi2021" class="csl-entry" role="listitem">
+Sanavi, Shahin, Peyman P. Moghaddam, and Felix J. Herrmann. 2021. <span>“True-Amplitude Depth Migration Using Curvelets.”</span> <em>Geophysics</em> 86 (4): S299–310. <a href="https://doi.org/10.1190/geo2020-0580.1">https://doi.org/10.1190/geo2020-0580.1</a>.
+</div>
+<div id="ref-symes2008" class="csl-entry" role="listitem">
+Symes, William W. 2008. <span>“Approximate Linearized Inversion by Optimal Scaling of Prestack Depth Migration.”</span> <em>Geophysics</em> 73 (2): R23–35. <a href="https://doi.org/10.1190/1.2836323">https://doi.org/10.1190/1.2836323</a>.
+</div>
+<div id="ref-valenciano2006" class="csl-entry" role="listitem">
+Valenciano, Alejandro A., Biondo Biondi, and Antoine Guitton. 2006. <span>“Target-Oriented Wave-Equation Inversion.”</span> <em>Geophysics</em> 71 (4): A35–38. <a href="https://doi.org/10.1190/1.2213360">https://doi.org/10.1190/1.2213360</a>.
+</div>
+<div id="ref-vogel2002" class="csl-entry" role="listitem">
+Vogel, Curtis R. 2002. <em>Computational Methods for Inverse Problems</em>. SIAM. <a href="https://doi.org/10.1137/1.9780898717570">https://doi.org/10.1137/1.9780898717570</a>.
+</div>
+<div id="ref-wang2018cgg" class="csl-entry" role="listitem">
+Wang, Ming, Shouting Huang, and Ping Wang. 2018. <span>“Improved Iterative Least-Squares Migration Using Curvelet-Domain <span>H</span>essian Filters.”</span> In <em>88th Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2018-2998179.1">https://doi.org/10.1190/segam2018-2998179.1</a>.
+</div>
+<div id="ref-yao2012" class="csl-entry" role="listitem">
+Yao, Gang, and Henry Jakubowicz. 2012. <span>“Least-Squares Reverse-Time Migration.”</span> In <em>82nd Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2012-1425.1">https://doi.org/10.1190/segam2012-1425.1</a>.
+</div>
+<div id="ref-zeng2014b" class="csl-entry" role="listitem">
+Zeng, Chao, Sheng Dong, Jin Mao, and Ben Wang. 2014. <span>“Broadband Least-Squares Reverse Time Migration for Complex Structure Imaging.”</span> In <em>84th Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2014-0539.1">https://doi.org/10.1190/segam2014-0539.1</a>.
+</div>
+<div id="ref-zeng2014" class="csl-entry" role="listitem">
+Zeng, Chao, Sheng Dong, and Ben Wang. 2014. <span>“Least-Squares Reverse Time Migration: Inversion-Based Imaging Toward True Reflectivity.”</span> <em>The Leading Edge</em> 33 (9): 962–68. <a href="https://doi.org/10.1190/tle33090962.1">https://doi.org/10.1190/tle33090962.1</a>.
+</div>
+</div>
+</section>
+<section id="summary" class="slide level2 scrollable center">
+<h2>Summary</h2>
+<ol type="1">
+<li class="fragment">Conventional migration = adjoint, not the inverse <span class="math inline">\(\Rightarrow\)</span> Hessian blurring</li>
+<li class="fragment"><strong>DDLSM</strong> iterates in data space via LSQR — exact but expensive; preconditioning is essential</li>
+<li class="fragment"><strong>Illumination-based</strong> preconditioners correct gross amplitude but miss dip-dependent effects</li>
+<li class="fragment"><strong>Curvelet-based</strong> preconditioners exploit phase-space near-diagonality of <span class="math inline">\(\mathbf{H}\)</span> for dramatic convergence acceleration</li>
+<li class="fragment"><strong>IDLSM</strong> approximates <span class="math inline">\(\mathbf{H}\)</span> directly — fast and practical for target-oriented imaging</li>
+<li class="fragment">Hessian approximations range from <strong>diagonal</strong> <span class="math inline">\(\to\)</span> <strong>PSF</strong> <span class="math inline">\(\to\)</span> <strong>non-stationary filters</strong> <span class="math inline">\(\to\)</span> <strong>Kronecker</strong> <span class="math inline">\(\to\)</span> <strong>curvelet-domain</strong> — each trading cost for accuracy</li>
+</ol>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://flexie.github.io/EAS-8803-FH/">🔗 https://flexie.github.io/EAS-88-3-FH</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/flexie\.github\.io\/EAS-8803-FH\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

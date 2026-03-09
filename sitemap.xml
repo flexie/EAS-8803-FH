@@ -2,174 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/schedule.html</loc>
-    <lastmod>2026-03-02T00:25:36.432Z</lastmod>
+    <lastmod>2026-01-20T20:56:41.000Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/project.html</loc>
-    <lastmod>2026-03-02T00:25:36.432Z</lastmod>
+    <lastmod>2026-01-11T21:55:03.863Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-04/06-Wave-Equation.html</loc>
-    <lastmod>2026-03-02T00:25:36.434Z</lastmod>
+    <lastmod>2026-02-02T04:56:24.047Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-03/04-processing-3.html</loc>
-    <lastmod>2026-03-02T00:25:36.433Z</lastmod>
+    <lastmod>2026-01-26T17:20:32.183Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-02/03-processing-2.html</loc>
-    <lastmod>2026-03-02T00:25:36.433Z</lastmod>
+    <lastmod>2026-01-20T22:41:02.000Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-05/07-Wavefield-Extrapolation.html</loc>
-    <lastmod>2026-03-02T00:25:36.434Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-07/11-linearized-inversion.html</loc>
-    <lastmod>2026-03-04T18:10:58.968Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-06/10-decon.html</loc>
-    <lastmod>2026-03-02T00:25:36.434Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-01/02-processing-1.html</loc>
-    <lastmod>2026-03-02T00:25:36.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-08/12-rtm.html</loc>
-    <lastmod>2026-03-04T18:10:58.969Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/index.html</loc>
-    <lastmod>2026-03-02T00:25:36.421Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/hw/w2-hw01.html</loc>
-    <lastmod>2026-03-02T00:25:36.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-01.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-02.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-07.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-04.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/assignments.html</loc>
-    <lastmod>2026-03-02T00:25:36.419Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/w2-lab01-intro.html</loc>
-    <lastmod>2026-03-02T00:25:36.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/w3-lab02-NMO.html</loc>
-    <lastmod>2026-03-02T00:25:36.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/w7-lab05-Deconvolution.html</loc>
-    <lastmod>2026-03-02T00:25:36.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/w5-lab04-Imaging_Acoustic_Elastic.html</loc>
-    <lastmod>2026-03-02T00:25:36.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/04Lab/Exercise4.html</loc>
-    <lastmod>2026-03-02T00:25:36.430Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/w4-lab03-Migration.html</loc>
-    <lastmod>2026-03-02T00:25:36.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/05Lab/Exercise5.html</loc>
-    <lastmod>2026-03-02T00:25:36.431Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/02Lab/Exercise2.html</loc>
-    <lastmod>2026-03-02T00:25:36.424Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/01Intro/Exercise1.html</loc>
-    <lastmod>2026-03-02T00:25:36.422Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/labs/03Lab/Exercise3.html</loc>
-    <lastmod>2026-03-02T00:25:36.426Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-08.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-05.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-06.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-03.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/hw/w3-hw02.html</loc>
-    <lastmod>2026-03-02T00:25:36.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/goals.html</loc>
-    <lastmod>2026-03-02T00:25:36.420Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-08/13-wavefields.html</loc>
-    <lastmod>2026-03-04T19:39:18.658Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-01/01-intro.html</loc>
-    <lastmod>2026-03-02T00:25:36.433Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-06/09-inverse-problems-lecture.html</loc>
-    <lastmod>2026-03-02T00:25:36.434Z</lastmod>
-  </url>
-  <url>
-    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-07/LICENSE.html</loc>
-    <lastmod>2026-03-02T00:25:36.479Z</lastmod>
+    <lastmod>2026-02-07T18:45:39.783Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-07/10-decon.html</loc>
-    <lastmod>2026-03-02T00:25:36.479Z</lastmod>
+    <lastmod>2026-02-23T19:16:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-07/LICENSE.html</loc>
+    <lastmod>2026-02-16T14:33:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-06/09-inverse-problems-lecture.html</loc>
+    <lastmod>2026-02-16T20:05:52.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-01/02-processing-1.html</loc>
+    <lastmod>2026-01-12T16:41:08.860Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-08/12-rtm.html</loc>
+    <lastmod>2026-03-02T15:21:55.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/index.html</loc>
+    <lastmod>2026-01-07T20:23:20.343Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/hw/w2-hw01.html</loc>
+    <lastmod>2026-01-05T04:34:19.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-01.html</loc>
+    <lastmod>2026-01-12T16:28:20.895Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-02.html</loc>
+    <lastmod>2026-01-21T16:07:28.278Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-07.html</loc>
+    <lastmod>2026-02-23T15:32:36.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-04.html</loc>
+    <lastmod>2026-02-07T18:51:17.318Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-08.html</loc>
+    <lastmod>2026-03-02T00:13:45.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/03Lab/Exercise3.html</loc>
+    <lastmod>2026-02-03T01:13:53.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/01Intro/Exercise1.html</loc>
+    <lastmod>2021-02-03T14:18:37.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/02Lab/Exercise2.html</loc>
+    <lastmod>2026-01-27T17:50:20.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/05Lab/Exercise5.html</loc>
+    <lastmod>2026-02-26T18:39:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/w4-lab03-Migration.html</loc>
+    <lastmod>2026-02-03T01:13:53.077Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/04Lab/Exercise4.html</loc>
+    <lastmod>2026-02-16T14:45:14.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/w5-lab04-Imaging_Acoustic_Elastic.html</loc>
+    <lastmod>2026-02-26T18:46:06.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/w7-lab05-Deconvolution.html</loc>
+    <lastmod>2026-02-26T18:39:25.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/w3-lab02-NMO.html</loc>
+    <lastmod>2026-01-26T17:08:03.381Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/labs/w2-lab01-intro.html</loc>
+    <lastmod>2026-01-21T03:53:42.789Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/assignments.html</loc>
+    <lastmod>2026-02-23T17:28:13.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-09.html</loc>
+    <lastmod>2026-03-09T17:46:00.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-05.html</loc>
+    <lastmod>2026-02-07T18:42:17.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-06.html</loc>
+    <lastmod>2026-02-16T05:32:56.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/weeks/week-03.html</loc>
+    <lastmod>2026-02-02T05:10:50.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/hw/w3-hw02.html</loc>
+    <lastmod>2026-01-05T04:34:19.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/goals.html</loc>
+    <lastmod>2026-01-05T04:34:19.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-08/13-wavefields.html</loc>
+    <lastmod>2026-03-09T17:39:42.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-01/01-intro.html</loc>
+    <lastmod>2026-01-12T16:39:08.208Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-06/LICENSE.html</loc>
+    <lastmod>2026-02-16T14:33:54.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-06/10-decon.html</loc>
+    <lastmod>2026-02-23T19:16:44.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-07/11-linearized-inversion.html</loc>
+    <lastmod>2026-03-02T19:19:58.000Z</lastmod>
+  </url>
+  <url>
+    <loc>https://flexie.github.io/EAS-8803-FH/slides/week-09/14-least-squares-RTM.html</loc>
+    <lastmod>2026-03-09T17:50:41.000Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-05/08-Prestack-Migration.html</loc>
-    <lastmod>2026-03-02T00:25:36.434Z</lastmod>
+    <lastmod>2026-02-07T18:49:48.624Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-03/05-processing-4.html</loc>
-    <lastmod>2026-03-02T00:25:36.433Z</lastmod>
+    <lastmod>2026-01-26T17:34:58.591Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/slides/week-04/07-Wavefield-Extrapolation.html</loc>
-    <lastmod>2026-03-02T00:25:36.434Z</lastmod>
+    <lastmod>2026-02-02T05:03:13.263Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/syllabus.html</loc>
-    <lastmod>2026-03-02T00:25:36.592Z</lastmod>
+    <lastmod>2026-01-12T19:28:12.649Z</lastmod>
   </url>
   <url>
     <loc>https://flexie.github.io/EAS-8803-FH/outline.html</loc>
-    <lastmod>2026-03-02T00:25:36.432Z</lastmod>
+    <lastmod>2026-02-16T02:21:53.999Z</lastmod>
   </url>
 </urlset>
