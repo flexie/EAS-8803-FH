@@ -1,5 +1,36 @@
 [
   {
+    "listing": "/weeks/week-07.html",
+    "items": [
+      "/slides/week-07/10-decon.html",
+      "/slides/week-07/11-linearized-inversion.html",
+      "/labs/w7-lab05-Deconvolution.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-03.html",
+    "items": [
+      "/slides/week-04/06-Wave-Equation.html",
+      "/slides/week-04/07-Wavefield-Extrapolation.html",
+      "/labs/w3-lab02-NMO.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-08.html",
+    "items": [
+      "/slides/week-08/12-rtm.html",
+      "/slides/week-08/13-wavefields.html",
+      "/labs/w8-lab06-RTM_LS-RTM.html"
+    ]
+  },
+  {
+    "listing": "/weeks/week-06.html",
+    "items": [
+      "/slides/week-06/09-inverse-problems-lecture.html",
+      "/slides/week-06/10-decon.html"
+    ]
+  },
+  {
     "listing": "/schedule.html",
     "items": [
       "/weeks/week-01.html",
@@ -14,28 +45,6 @@
     ]
   },
   {
-    "listing": "/weeks/week-01.html",
-    "items": [
-      "/slides/week-01/01-intro.html",
-      "/slides/week-01/02-processing-1.html"
-    ]
-  },
-  {
-    "listing": "/weeks/week-02.html",
-    "items": [
-      "/slides/week-02/03-processing-2.html",
-      "/labs/w2-lab01-intro.html"
-    ]
-  },
-  {
-    "listing": "/weeks/week-07.html",
-    "items": [
-      "/slides/week-07/10-decon.html",
-      "/slides/week-07/11-linearized-inversion.html",
-      "/labs/w7-lab05-Deconvolution.html"
-    ]
-  },
-  {
     "listing": "/weeks/week-04.html",
     "items": [
       "/slides/week-04/06-Wave-Equation.html",
@@ -44,16 +53,10 @@
     ]
   },
   {
-    "listing": "/weeks/week-08.html",
+    "listing": "/weeks/week-02.html",
     "items": [
-      "/slides/week-08/12-rtm.html",
-      "/slides/week-08/13-wavefields.html"
-    ]
-  },
-  {
-    "listing": "/weeks/week-09.html",
-    "items": [
-      "/slides/week-09/14-least-squares-RTM.html"
+      "/slides/week-02/03-processing-2.html",
+      "/labs/w2-lab01-intro.html"
     ]
   },
   {
@@ -65,18 +68,17 @@
     ]
   },
   {
-    "listing": "/weeks/week-06.html",
+    "listing": "/weeks/week-01.html",
     "items": [
-      "/slides/week-06/09-inverse-problems-lecture.html",
-      "/slides/week-06/10-decon.html"
+      "/slides/week-01/01-intro.html",
+      "/slides/week-01/02-processing-1.html"
     ]
   },
   {
-    "listing": "/weeks/week-03.html",
+    "listing": "/weeks/week-09.html",
     "items": [
-      "/slides/week-04/06-Wave-Equation.html",
-      "/slides/week-04/07-Wavefield-Extrapolation.html",
-      "/labs/w3-lab02-NMO.html"
+      "/slides/week-09/14-least-squares-RTM.html",
+      "/labs/w9-lab06-RTM_LS-RTM.html"
     ]
   }
 ]
