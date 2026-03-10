@@ -18,13 +18,7 @@ listing:
     sort-ui: false
     filter-ui: false
   - id: assignments
-<<<<<<< HEAD
-    contents:
-  #     - ../hw/w2-*.qmd
-  #     - ../labs/w6-*.qmd
-=======
     contents: []
->>>>>>> 20e3bf3616f205a9c8e80c4a5a8b12f48e847c7c
     type: table
     fields: [categories, title, date]
     date-format: "ddd, MMM DD"
