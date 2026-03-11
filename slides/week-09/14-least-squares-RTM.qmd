@@ -483,6 +483,56 @@ Curvelets are localized in both **space** and **dip** (angle) — they live in p
 
 ---
 
+## Properties of Curvelets {.smaller}
+
+Curvelets form a **tight frame** for $L^2(\mathbb{R}^2)$ [@herrmann2008]:
+
+$$
+\mathbf{C}^{\top}\mathbf{C} = \mathbf{I} \qquad \text{(analysis followed by synthesis = identity)}
+$$
+
+but $\mathbf{C}\,\mathbf{C}^{\top} \neq \mathbf{I}$ because the system is **redundant** (more curvelet coefficients than image pixels).
+
+. . .
+
+**Parabolic scaling:** curvelet atoms at scale $2^{-j}$ satisfy
+
+$$
+\text{width} \sim 2^{-j}, \quad \text{length} \sim 2^{-j/2} \qquad \Longrightarrow \quad \text{width} \approx \text{length}^2
+$$
+
+This anisotropic scaling matches the geometry of wavefronts and $C^2$-smooth singularity curves.
+
+. . .
+
+**Nonlinear approximation:** for piecewise smooth functions with singularities along $C^2$ curves, the best $N$-term curvelet approximation $f_N$ satisfies [@candes2005]:
+
+$$
+\|f - f_N\|_2^2 = O\!\left(N^{-2}\,(\log N)^3\right)
+$$
+
+This is **near-optimal** — wavelets only achieve $O(N^{-1})$ for the same function class, because they lack directional selectivity.
+
+---
+
+## Curvelet Sparsity — Seismic Image Compression{.smaller}
+
+:::: {.columns}
+::: {.column width="33%"}
+![Reconstruction with 3% of coefficients](figures/percplot3.png){fig-align="center" width="100%"}
+:::
+::: {.column width="33%"}
+![Reconstruction with 99% of coefficients](figures/percplot_99.png){fig-align="center" width="100%"}
+:::
+::: {.column width="33%"}
+![Residual (99% − original)](figures/difim.png){fig-align="center" width="100%"}
+:::
+::::
+
+Retaining only **3%** of curvelet coefficients captures the essential structure of a migrated seismic image. The residual after keeping 99% of coefficients is negligible, confirming the near-optimal $O(N^{-2}(\log N)^3)$ approximation rate [@herrmann2008].
+
+---
+
 ## Three Levels of Preconditioning{.smaller}
 
 @herrmann2009 propose a **cascade** of three corrections:
@@ -901,7 +951,7 @@ This is conceptually similar to the multi-level preconditioning of @herrmann2009
 
 ---
 
-## Regularization in IDLSM {.smaller}
+<!-- ## Regularization in IDLSM {.smaller}
 
 The image-domain problem is often ill-posed. Common regularization:
 
@@ -915,7 +965,7 @@ $$
 - **Total variation:** preserve sharp edges, suppress oscillatory noise
 - **Combined:** high-resolution *and* geologically plausible images
 
----
+--- -->
 
 ## DDLSM vs. IDLSM — When to Use Which? {.smaller}
 
