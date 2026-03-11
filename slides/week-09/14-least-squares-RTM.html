@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.26">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-03-09">
@@ -619,6 +619,55 @@ P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
 <h2>Why Curvelets? — Frequency Tiling and Spatial Atoms</h2>
 
 <img data-src="figures/curvepart.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">(a) Curvelet atoms in the physical domain at various scales, positions, and orientations. (b) Curvelet tiling of the 2D frequency plane showing dyadic scales with angular wedges obeying parabolic scaling <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>.</p></section>
+<section id="properties-of-curvelets" class="slide level2 smaller center">
+<h2>Properties of Curvelets</h2>
+<p>Curvelets form a <strong>tight frame</strong> for <span class="math inline">\(L^2(\mathbb{R}^2)\)</span> <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>:</p>
+<p><span class="math display">\[
+\mathbf{C}^{\top}\mathbf{C} = \mathbf{I} \qquad \text{(analysis followed by synthesis = identity)}
+\]</span></p>
+<p>but <span class="math inline">\(\mathbf{C}\,\mathbf{C}^{\top} \neq \mathbf{I}\)</span> because the system is <strong>redundant</strong> (more curvelet coefficients than image pixels).</p>
+<div class="fragment">
+<p><strong>Parabolic scaling:</strong> curvelet atoms at scale <span class="math inline">\(2^{-j}\)</span> satisfy</p>
+<p><span class="math display">\[
+\text{width} \sim 2^{-j}, \quad \text{length} \sim 2^{-j/2} \qquad \Longrightarrow \quad \text{width} \approx \text{length}^2
+\]</span></p>
+<p>This anisotropic scaling matches the geometry of wavefronts and <span class="math inline">\(C^2\)</span>-smooth singularity curves.</p>
+</div>
+<div class="fragment">
+<p><strong>Nonlinear approximation:</strong> for piecewise smooth functions with singularities along <span class="math inline">\(C^2\)</span> curves, the best <span class="math inline">\(N\)</span>-term curvelet approximation <span class="math inline">\(f_N\)</span> satisfies <span class="citation" data-cites="candes2005">(<a href="#/key-references" role="doc-biblioref" onclick="">Candès and Demanet 2005</a>)</span>:</p>
+<p><span class="math display">\[
+\|f - f_N\|_2^2 = O\!\left(N^{-2}\,(\log N)^3\right)
+\]</span></p>
+<p>This is <strong>near-optimal</strong> — wavelets only achieve <span class="math inline">\(O(N^{-1})\)</span> for the same function class, because they lack directional selectivity.</p>
+</div>
+</section>
+<section id="curvelet-sparsity-seismic-image-compression" class="slide level2 smaller center">
+<h2>Curvelet Sparsity — Seismic Image Compression</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/percplot3.png" style="width:100.0%"></p>
+<figcaption>Reconstruction with 3% of coefficients</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/percplot_99.png" style="width:100.0%"></p>
+<figcaption>Reconstruction with 99% of coefficients</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/difim.png" style="width:100.0%"></p>
+<figcaption>Residual (99% − original)</figcaption>
+</figure>
+</div>
+</div></div>
+<p>Retaining only <strong>3%</strong> of curvelet coefficients captures the essential structure of a migrated seismic image. The residual after keeping 99% of coefficients is negligible, confirming the near-optimal <span class="math inline">\(O(N^{-2}(\log N)^3)\)</span> approximation rate <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>.</p>
+</section>
 <section id="three-levels-of-preconditioning" class="slide level2 smaller center">
 <h2>Three Levels of Preconditioning</h2>
 <p><span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span> propose a <strong>cascade</strong> of three corrections:</p>
@@ -1097,19 +1146,23 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 </tbody>
 </table>
 </section>
-<section id="regularization-in-idlsm" class="slide level2 smaller center">
-<h2>Regularization in IDLSM</h2>
-<p>The image-domain problem is often ill-posed. Common regularization:</p>
-<p><span class="math display">\[
+<section class="slide level2 center">
+
+<!-- ## Regularization in IDLSM {.smaller}
+
+The image-domain problem is often ill-posed. Common regularization:
+
+$$
 \min_{\mathbf{m}} \;\frac{1}{2}\|\mathbf{H}\,\mathbf{m} - \mathbf{m}_{\text{mig}}\|_2^2 + \lambda_1\|\mathbf{m}\|_1 + \lambda_2 \text{TV}(\mathbf{m})
-\]</span></p>
-<div class="fragment">
-<ul>
-<li><strong><span class="math inline">\(\ell_1\)</span> (sparsity):</strong> promote sparse reflectivity (curvelets, seislets, wavelets)</li>
-<li><strong>Total variation:</strong> preserve sharp edges, suppress oscillatory noise</li>
-<li><strong>Combined:</strong> high-resolution <em>and</em> geologically plausible images</li>
-</ul>
-</div>
+$$
+
+. . .
+
+- **$\ell_1$ (sparsity):** promote sparse reflectivity (curvelets, seislets, wavelets)
+- **Total variation:** preserve sharp edges, suppress oscillatory noise
+- **Combined:** high-resolution *and* geologically plausible images
+
+--- -->
 </section>
 <section id="ddlsm-vs.-idlsm-when-to-use-which" class="slide level2 smaller center">
 <h2>DDLSM vs.&nbsp;IDLSM — When to Use Which?</h2>
