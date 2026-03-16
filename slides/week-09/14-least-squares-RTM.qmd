@@ -908,7 +908,7 @@ Weights $\boldsymbol{\sigma}$ estimated from demigration/remigration of curvelet
 
 . . .
 
-**Banded/guided filter extension** [@li2021]:
+**Banded/guided filter extension** [@Li2022]:
 
 - Estimate a **dense curvelet-domain filter** (not just diagonal)
 - Uses guided-filter methodology for robustness
@@ -946,7 +946,7 @@ This is conceptually similar to the multi-level preconditioning of @herrmann2009
 | PSF-based | Moderate | Yes (local) | Yes | Local |
 | Non-stationary filters | 1 extra cycle | Yes | Yes | Banded |
 | Kronecker | Sampling $\mathbf{H}$ | Yes | Yes | Approximate |
-| Curvelet diagonal | $\sim$1 extra cycle | Partial | Yes | Phase-space |
+| Curvelet diagonal | ~ extra cycle | Partial | Yes | Phase-space |
 | Full DDLSM | $K$ iterations | Yes | Yes | Exact |
 
 ---
@@ -1003,11 +1003,11 @@ $$
 
 ![Side-by-side comparison of the DDLSM iterative workflow (left) and the IDLSM direct approach (right).](figures/ddlsm_vs_idlsm.png){fig-align="center" width="85%"}
 
----
+
 
 # Connections and Outlook {background-color="#2a4d69"}
 
----
+
 
 ## Unifying View {.smaller}
 
@@ -1047,7 +1047,7 @@ The curvelet framework provides a **bridge** — useful both as a preconditioner
 
 ---
 
-## Summary {.scrollable}
+## Summary {.smaller .scrollable}
 
 ::: {.incremental}
 1. Conventional migration = adjoint, not the inverse $\Rightarrow$ Hessian blurring
