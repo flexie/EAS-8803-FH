@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
+
+  <meta name="author" content="Felix J. Herrmann">
+  <meta name="dcterms.date" content="2026-03-16">
+  <title>Seismic Exploration Methods – Subsurface-Offset Image Volumes</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3a3a30af1d0df6ddb07696291d99123c.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Subsurface-Offset Image Volumes</h1>
+  <p class="subtitle">Extended Imaging, Velocity Analysis, and the Road to FWI</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felix J. Herrmann 
+</div>
+        <p class="quarto-title-affiliation">
+            Schools of EAS, CSE, ECE — Georgia Institute of Technology
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-03-16</p>
+</section>
+<section id="title-custom" class="slide level2 center" data-background-color="white">
+<h2></h2>
+<div style="display: flex; justify-content: center; align-items: center; gap: 2.5em; margin-bottom: 1em;">
+<p><img data-src="figures/GTLogo.png" height="100"> <img data-src="figures/ClaudeLogo.png" height="100"></p>
+</div>
+<h3 style="margin-bottom: 0.1em;" id="subsurface-image-volumes-and-migration-velocity-analyses">Subsurface Image Volumes and Migration Velocity Analyses</h3>
+<p><strong>Felix J. Herrmann</strong></p>
+<p>School of Earth and Ocean Sciences — Georgia Institute of Technology</p>
+<p>Based on <span class="citation" data-cites="hou2015approximate">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2015</a>)</span>, <span class="citation" data-cites="hou2016accelerating">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>, and <span class="citation" data-cites="hou2018inversion">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>.</p>
+</section>
+<section id="outline" class="slide level2 smaller center">
+<h2>Outline</h2>
+<ol type="1">
+<li><strong>Motivation</strong> — Why extend the image?</li>
+<li><strong>Born modeling recap</strong> — Connection to RTM and LSM lectures</li>
+<li><strong>The Born inverse problem</strong> — Overdetermination and velocity dependence</li>
+<li><strong>Extended Born modeling</strong> — Subsurface-offset extension</li>
+<li><strong>Extended imaging operators</strong> — RTM vs.&nbsp;approximate inverse</li>
+<li><strong>Preconditioning</strong> — Left and right weight operators</li>
+<li><strong>Extended least-squares migration</strong> — Fitting data with any velocity</li>
+<li><strong>Weighted conjugate gradient</strong> — Accelerating convergence</li>
+<li><strong>DSO velocity analysis</strong> — Focusing as a velocity criterion</li>
+<li><strong>Numerical examples</strong> — Marmousi and field data</li>
+<li><strong>Limitations of WEMVA</strong> — Artifacts and the road to FWI</li>
+</ol>
+<aside class="notes">
+<p>This lecture introduces subsurface-offset common-image gathers and their dual role: (1) migration-velocity analysis via focusing/flatness criteria, and (2) directional scattering information (AVA/AVP). We focus on the velocity-model-building aspect and motivate the transition to full-waveform inversion.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="william-w.-symes" class="slide level2 center">
+<h2>William W. Symes</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/symes_photo.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+</div><div class="column" style="width:70%;">
+<p><strong>Noah Harding Professor Emeritus</strong><br>
+Computational &amp; Applied Mathematics, Rice University</p>
+<ul>
+<li>Founded <strong>The Rice Inversion Project (TRIP)</strong> — 25+ years of industry-sponsored research</li>
+<li>Pioneered <strong>differential semblance optimization</strong> for migration velocity analysis</li>
+<li>SIAM Fellow; Desiderius Erasmus Prize (EAGE, 2015); Ralph E. Kleinman Prize (SIAM)</li>
+<li>Key insight: use the <strong>approximate inverse</strong> (not the adjoint) for velocity analysis</li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2 center">
+
+</section>
+<section>
+<section id="motivation" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Motivation</h1>
+
+</section>
+<section id="dual-purpose-of-subsurface-offset-image-gathers" class="slide level2 center">
+<h2>Dual Purpose of Subsurface-Offset Image Gathers</h2>
+<p>Subsurface-offset common-image gathers (CIGs) serve two purposes:</p>
+<ul>
+<li class="fragment"><strong>Migration-velocity analysis</strong>: Focusing of CIGs or flatness of common-angle gathers indicates the velocity model is correct</li>
+<li class="fragment"><strong>Directional scattering information</strong>: When the velocity model is correct, CIGs contain amplitude-versus-angle (AVA/AVP) information</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>This lecture</strong></p>
+</div>
+<div class="callout-content">
+<p>We focus on <strong>velocity model building</strong> — using the extended image volume to update the background velocity <span class="math inline">\(v_0\)</span>. The directional/AVA aspect will be covered later.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="recall-the-two-parameter-inverse-problem" class="slide level2 center">
+<h2>Recall: The Two-Parameter Inverse Problem</h2>
+<p>From our RTM and LSM lectures, we know:</p>
+<ul>
+<li><strong>RTM</strong> computes the gradient of the FWI objective — it is the <strong>adjoint</strong> <span class="math inline">\(\mathbf{F}^T\)</span>, not the inverse</li>
+<li><strong>LSM</strong> solves <span class="math inline">\(\mathbf{F}^T\mathbf{F}\,\delta\mathbf{m} = \mathbf{F}^T\mathbf{d}\)</span> to deconvolve illumination effects</li>
+<li>Both require a <strong>kinematically correct</strong> background velocity <span class="math inline">\(v_0\)</span></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key question</strong></p>
+</div>
+<div class="callout-content">
+<p>What if <span class="math inline">\(v_0\)</span> is wrong? Can we still extract useful information from the image to update the velocity?</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="born-modeling-recap" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Born Modeling Recap</h1>
+
+</section>
+<section id="connection-to-previous-lectures" class="slide level2 center">
+<h2>Connection to Previous Lectures</h2>
+</section>
+<section id="born-approximation-continuous-form" class="slide level2 smaller center">
+<h2>Born Approximation — Continuous Form</h2>
+<p>The velocity is decomposed as <span class="math inline">\(v(\mathbf{x}) = v_0(\mathbf{x}) + \delta v(\mathbf{x})\)</span>, where <span class="math inline">\(v_0\)</span> is smooth and <span class="math inline">\(\delta v\)</span> contains reflectors <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</p>
+<p>The <strong>Born modeling operator</strong> <span class="math inline">\(F[v_0]\)</span> maps reflectivity <span class="math inline">\(\delta v\)</span> to scattered data:</p>
+<p><span id="eq-born-continuous"><span class="math display">\[
+(F[v_0]\delta v)(\mathbf{x}_s, \mathbf{x}_r, t) = \frac{\partial^2}{\partial t^2} \int d\mathbf{x}\, d\tau\, G(\mathbf{x}_s, \mathbf{x}, \tau) \frac{2\delta v(\mathbf{x})}{v_0(\mathbf{x})^3} G(\mathbf{x}, \mathbf{x}_r, t - \tau)
+\tag{1}\]</span></span></p>
+<p>This is Equation 6 of <span class="citation" data-cites="hou2018inversion">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>.</p>
+</section>
+<section id="connection-to-lecture-notation-rtm" class="slide level2 center">
+<h2>Connection to Lecture Notation (RTM)</h2>
+<p>In the discrete notation of our RTM lecture:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 48%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Continuous (Papers)</th>
+<th style="text-align: left;">Discrete (Lecture A)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(F[v_0]\,\delta v = \delta d\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{F}\,\delta\mathbf{m} = \delta\mathbf{d}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(G(\mathbf{x}_s, \mathbf{x}, t)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{A}^{-1}(\mathbf{m})\,\mathbf{q}_s\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(F^*[v_0]\,\delta d\)</span> (RTM)</td>
+<td style="text-align: left;"><span class="math inline">\(\mathbf{F}^T\,\delta\mathbf{d}\)</span> (adjoint)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Imaging condition</td>
+<td style="text-align: left;"><span class="math inline">\([\nabla_\mathbf{m} J]_i = \sum_s \sum_k v_s(x_i,t_k)\,\ddot{u}_s(x_i,t_k)\,\Delta t\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The Born modeling operator <span class="math inline">\(F[v_0]\)</span> in the papers corresponds to the stacked Jacobians <span class="math inline">\(\mathbf{F} = [\mathbf{J}_1^T, \ldots, \mathbf{J}_{n_s}^T]^T\)</span> from our LSM lecture, where <span class="math inline">\(\mathbf{J}_i = -\mathbf{P}_r \mathbf{A}^{-1}[\mathbf{m}_0]\,\text{diag}(\ddot{\mathbf{u}}_i^0)\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-born-inverse-problem" class="slide level2 smaller center">
+<h2>The Born Inverse Problem</h2>
+<p>The <strong>Born inverse problem</strong> seeks <span class="math inline">\(v_0\)</span> and <span class="math inline">\(\delta v\)</span> such that <span class="math inline">\(F[v_0]\,\delta v \approx d\)</span> <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</p>
+<ul>
+<li class="fragment">This corresponds to the LS-RTM problem we discussed before in class</li>
+<li class="fragment"><strong>Data fit is impossible</strong> unless <span class="math inline">\(v_0\)</span> is kinematically correct to within a <strong>half-period</strong> error in traveltime prediction <span class="citation" data-cites="symes2008migration">(<a href="#/references" role="doc-biblioref" onclick="">Symes 2008</a>)</span></li>
+<li class="fragment">This is because we are solving an <strong>overdetermined</strong> problem: the data dimension exceeds the model dimension (e.g., 5D data vs.&nbsp;3D model)</li>
+<li class="fragment">Data fit is only possible in the <strong>special case</strong> of correct velocity</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The way out</strong></p>
+</div>
+<div class="callout-content">
+<p>If <span class="math inline">\(\delta v\)</span> is <strong>extended</strong> to depend on an extra dimension (subsurface offset <span class="math inline">\(h\)</span>), i.e., replaced by <span class="math inline">\(\delta\bar{v}(\mathbf{x}, h)\)</span>, then any model-consistent data can be fit with <strong>essentially any</strong> <span class="math inline">\(v_0\)</span> by proper choice of <span class="math inline">\(\delta\bar{v}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="extended-born-modeling" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Extended Born Modeling</h1>
+
+</section>
+<section id="subsurface-offset-extension" class="slide level2 center">
+<h2>Subsurface-Offset Extension</h2>
+</section>
+<section id="subsurface-offset-the-idea" class="slide level2 center">
+<h2>Subsurface Offset — The Idea</h2>
+
+<img data-src="figures/paperC_fig2.png" style="width:70.0%" class="r-stretch quarto-figure-center"><p class="caption">Sketch of the subsurface offset extension. The subsurface offset <span class="math inline">\(h\)</span> is half the distance between subsurface scattering points. This extension allows stress to produce strain at a distance <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</p></section>
+<section id="extended-born-modeling-operator" class="slide level2 smaller center">
+<h2>Extended Born Modeling Operator</h2>
+<p>The reflectivity <span class="math inline">\(\delta v(\mathbf{x})\)</span> is replaced by <span class="math inline">\(\delta\bar{v}(\mathbf{x}, h)\)</span>, and the <strong>extended Born modeling operator</strong> <span class="math inline">\(\bar{F}[v_0]\)</span> is defined as <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>, Eq. 7)</span>:</p>
+<p><span id="eq-extended-born"><span class="math display">\[
+(\bar{F}[v_0]\delta\bar{v})(\mathbf{x}_s, \mathbf{x}_r, t) = \frac{\partial^2}{\partial t^2} \int d\mathbf{x}\, dh\, d\tau\, G(\mathbf{x}_s, \mathbf{x} - h, \tau) \frac{2\delta\bar{v}(\mathbf{x}, h)}{v_0(\mathbf{x})^3} G(\mathbf{x} + h, \mathbf{x}_r, t - \tau)
+\tag{2}\]</span></span></p>
+<p>Here <span class="math inline">\(h\)</span> is half the distance between sunken source and sunken receiver in Claerbout’s survey-sinking imaging condition <span class="citation" data-cites="claerbout1985imaging">(<a href="#/references" role="doc-biblioref" onclick="">Claerbout 1985</a>)</span>.</p>
+<div class="fragment">
+<p><strong>Physical meaning</strong>: We now allow reflection at a distance — a nonphysical extension that matches the model dimension with the data dimension.</p>
+</div>
+</section>
+<section id="extended-imaging-operator-rtm" class="slide level2 smaller hscroll center">
+<h2>Extended Imaging Operator (RTM)</h2>
+<p>The <strong>extended imaging operator</strong> is the adjoint of <span class="math inline">\(\bar{F}\)</span> — i.e., extended RTM <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>, Eq. 8)</span>:</p>
+<div style="overflow-x: auto; overflow-y: hidden;">
+<p><span id="eq-extended-rtm"><span class="math display">\[
+I(\mathbf{x}, h) = (\bar{F}^*[v_0]\,d)(\mathbf{x}, h) = \frac{2}{v_0(\mathbf{x})^3} \int d\mathbf{x}_s\, d\mathbf{x}_r\, dt\, d\tau\, G(\mathbf{x}_s, \mathbf{x} - h, \tau)\, G(\mathbf{x} + h, \mathbf{x}_r, t - \tau) \frac{\partial^2}{\partial t^2} d(\mathbf{x}_s, \mathbf{x}_r, t)
+\tag{3}\]</span></span></p>
+</div>
+<p>In our lecture notation, the extended RTM corresponds to:</p>
+<p><span class="math display">\[\boldsymbol{\delta}\bar{\mathbf{v}}[\mathbf{x}, h_x]=\bar{\mathbf{F}}^T\,\delta\mathbf{d}=\sum_s\sum_t\mathbf{v}_s[\mathbf{x}+h_x]\ddot{\mathbf{u}}_s[\mathbf{x}-h_x,t]\]</span></p>
+<p>where <span class="math inline">\(\bar{\mathbf{F}}\)</span> now depends on both spatial position <span class="math inline">\(\mathbf{x}\)</span> and subsurface offset <span class="math inline">\(h\)</span>. Corresponds to the <em>cross-covariance</em> between the forward and adjoint wavefields.</p>
+</section>
+<section id="reflection-data" class="slide level2 center">
+<h2>Reflection Data</h2>
+<p>We define the <strong>reflection data</strong> as the difference between nonlinear data and data simulated in the background-velocity model <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>, Eq. 3)</span>:</p>
+<p><span class="math display">\[
+\delta d = \mathcal{F}[v] - \mathcal{F}[v_0] \approx F[v_0]\,\delta v
+\]</span></p>
+<p>where <span class="math inline">\(\mathcal{F}[v]\)</span> is the nonlinear forward modeling operator mapping velocity to data.</p>
+</section>
+<section id="what-focusing-tells-us" class="slide level2 smaller scrollable center">
+<h2>What Focusing Tells Us</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperB_fig1.png" style="width:50.0%"></p>
+<figcaption>The RTM offset gather with (a) 10% slower velocity, (b) correct velocity, (c) 10% faster velocity; approximate inverse offset gather with (d) 10% slower velocity, (e) correct velocity, (f) 10% faster velocity. All inverted gathers plotted on the same scale <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Energy focuses at <span class="math inline">\(h = 0\)</span> with correct velocity and spreads to nonzero <span class="math inline">\(h\)</span> when velocity is incorrect.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="approximate-inverse-operator" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Approximate Inverse Operator</h1>
+
+</section>
+<section id="from-adjoint-to-inversion" class="slide level2 center">
+<h2>From Adjoint to Inversion</h2>
+</section>
+<section id="paper-a-simple-model-setup" class="slide level2 center">
+<h2>Paper A: Simple Model Setup</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig1.png" style="width:30.0%"></p>
+<figcaption>Reflectivity model (<span class="math inline">\(\delta v\)</span>) with constant background (<span class="math inline">\(v_0 = 2500\)</span> m/s) and one-shot simulated Born data <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="extended-rtm-vs.-extended-inversion" class="slide level2 center">
+<h2>Extended RTM vs.&nbsp;Extended Inversion</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig2.png" style="width:30.0%"></p>
+<figcaption>Extended RTM image (a) vs.&nbsp;extended inverted reflectivity model (b). The approximate inverse produces correct amplitudes <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="data-fit-verification" class="slide level2 center">
+<h2>Data Fit Verification</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig3.png" style="width:30.0%"></p>
+<figcaption>Resimulated data from inverted reflectivity (a) and difference with original data (b). The approximate inverse accurately reproduces the data <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="approximate-inverse-main-result" class="slide level2 smaller center">
+<h2>Approximate Inverse — Main Result</h2>
+<p>The approximate inverse to the extended Born modeling operator takes the form <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>, Eq. 1)</span>:</p>
+<p><span id="eq-approx-inverse"><span class="math display">\[
+\bar{F}^\dagger[v_0] = W_{\text{model}}[v_0]\; \bar{F}^*[v_0]\; W_{\text{data}}[v_0]
+\tag{4}\]</span></span></p>
+<div class="fragment">
+<p>In our <strong>LSM lecture notation</strong>, this corresponds to <strong>left and right preconditioning</strong>:</p>
+<p><span class="math display">\[
+\tilde{\mathbf{m}} = \mathbf{M}_R^{-1}\,\tilde{\mathbf{u}}, \quad \hat{\mathbf{F}} = \mathbf{M}_L^{-1}\,\mathbf{F}\,\mathbf{M}_R^{-1}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(W_{\text{data}}[v_0]\)</span> acts as the <strong>right preconditioner</strong> <span class="math inline">\(\mathbf{M}_L^{-1}\)</span> (applied to data before migration)</li>
+<li><span class="math inline">\(W_{\text{model}}[v_0]\)</span> acts as the <strong>left preconditioner</strong> <span class="math inline">\(\mathbf{M}_R^{-1}\)</span> (applied to image after migration)</li>
+</ul>
+</div>
+</section>
+<section id="weight-operators" class="slide level2 smaller center">
+<h2>Weight Operators</h2>
+<p>The weight operators that make <span class="math inline">\(\bar{F}\)</span> approximately unitary <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>, Eq. 10)</span>:</p>
+<p><span class="math display">\[
+W_{\text{model}}^{-1} = -8v^4 D_z Q, \qquad W_{\text{data}} = I_t^3\, D_{z_s}\, D_{z_r}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(I_t\)</span> = time integration operator</li>
+<li><span class="math inline">\(D_{z_s}, D_{z_r}\)</span> = source and receiver depth derivatives</li>
+<li><span class="math inline">\(D_z\)</span> = depth derivative in image domain</li>
+<li><span class="math inline">\(Q \approx 1\)</span> near <span class="math inline">\(h = 0\)</span> (neglected in practice)</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(W_{\text{data}}\)</span> depends <strong>only</strong> on <span class="math inline">\(v_0\)</span> near sources and receivers — independent of the deep velocity structure. The computational cost of <span class="math inline">\(\bar{F}^\dagger\)</span> is roughly the same as extended RTM. Approximately unitary means that the <em>adjoint</em> is close to the <em>inverse</em> and that most enegry/information is preserved.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="inversion-with-incorrect-velocity" class="slide level2 center">
+<h2>Inversion with Incorrect Velocity</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig4.png" style="width:30.0%"></p>
+<figcaption>Extended RTM image (a) and extended inverted reflectivity (b) using an <strong>incorrect</strong> background velocity model. The inversion still produces a data-fitting model <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="data-fit-with-wrong-velocity" class="slide level2 center">
+<h2>Data Fit with Wrong Velocity</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig5.png" style="width:30.0%"></p>
+<figcaption>Resimulated data from inverted reflectivity using incorrect velocity (a) and difference with original data (b). Data fit holds even with wrong velocity <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="nonextended-inversion-result" class="slide level2 center">
+<h2>Nonextended Inversion Result</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig6.png" style="width:30.0%"></p>
+<figcaption>Nonextended inverted reflectivity (stacking over <span class="math inline">\(h\)</span>) and difference with original reflectivity model <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="gaussian-lens-example" class="slide level2 center">
+<h2>Gaussian Lens Example</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig8.jpeg" style="width:30.0%"></p>
+<figcaption>Gaussian lens background velocity model with reflector at 2 km, and corresponding rays and wavefronts <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="gaussian-lens-inversion-results" class="slide level2 center">
+<h2>Gaussian Lens — Inversion Results</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig9.png" style="width:30.0%"></p>
+<figcaption>Extended inverted reflectivity (a) and nonextended inverted reflectivity (b) for the Gaussian lens model <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="gaussian-lens-data-fit" class="slide level2 center">
+<h2>Gaussian Lens — Data Fit</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperA_fig10.png" style="width:30.0%"></p>
+<figcaption>One-shot resimulated Born data (a) and difference with original data (b) for the Gaussian lens model <span class="citation" data-cites="hou2015approximate">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2015</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="extended-least-squares-migration" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Extended Least-Squares Migration</h1>
+
+</section>
+<section id="fitting-data-with-any-velocity" class="slide level2 center">
+<h2>Fitting Data with Any Velocity</h2>
+</section>
+<section id="lsm-vs.-elsm-the-key-difference" class="slide level2 smaller center">
+<h2>LSM vs.&nbsp;ELSM — The Key Difference</h2>
+<p>From our LSM lecture, the least-squares objective is:</p>
+<p><span class="math display">\[
+J_{\text{LS}} = \frac{1}{2}\|\mathbf{F}\,\delta\mathbf{m} - \delta\mathbf{d}\|^2
+\]</span></p>
+<p><strong>Extended LSM</strong> replaces <span class="math inline">\(F\)</span> by <span class="math inline">\(\bar{F}\)</span> and <span class="math inline">\(\delta v\)</span> by <span class="math inline">\(\delta\bar{v}(\mathbf{x}, h)\)</span> <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>:</p>
+<p><span class="math display">\[
+J_{\text{ELSM}} = \frac{1}{2}\|\bar{F}[v_0]\,\delta\bar{v} - \delta d\|^2
+\]</span></p>
+<div class="fragment">
+<ul>
+<li class="fragment">With the extra offset dimension, the model dimension <strong>matches</strong> the data dimension</li>
+<li class="fragment">ELSM can fit data with <strong>correct or incorrect</strong> velocity</li>
+<li class="fragment">Correct velocity <span class="math inline">\(\Rightarrow\)</span> energy focuses at <span class="math inline">\(h = 0\)</span></li>
+<li class="fragment">Incorrect velocity <span class="math inline">\(\Rightarrow\)</span> energy spreads to nonzero <span class="math inline">\(h\)</span>, but data is still fit</li>
+</ul>
+</div>
+</section>
+<section id="lsm-correct-vs.-wrong-velocity" class="slide level2 center">
+<h2>LSM: Correct vs.&nbsp;Wrong Velocity</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig1.png" style="width:30.0%"></p>
+<figcaption>Least-squares migration after 30 CG iterations using (a) correct background velocity (2.5 km/s) and (b) incorrect background velocity (2 km/s) <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>. The wrong velocity image is wronly positioned and has incorrect amplitudes.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="elsm-correct-vs.-wrong-velocity" class="slide level2 center">
+<h2>ELSM: Correct vs.&nbsp;Wrong Velocity</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig3.png" style="width:30.0%"></p>
+<figcaption>Extended least-squares migration after 30 CG iterations using (a) correct velocity (2.5 km/s) and (b) incorrect velocity (2 km/s). Offset range: <span class="math inline">\([-500, 500]\)</span> m (correct) and <span class="math inline">\([-1000, 1000]\)</span> m (wrong) <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>With incorrect velocity, the image is not focused at <span class="math inline">\(h = 0\)</span> but the data is still fit. The offset range must be larger to accommodate the velocity error.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="convergence-lsm-vs.-elsm" class="slide level2 center">
+<h2>Convergence: LSM vs.&nbsp;ELSM</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig4.jpeg" style="width:60.0%"></p>
+<figcaption>Relative data misfit for (a) LSM and (b) ELSM with correct (blue) and wrong (red) velocity. ELSM residual converges to zero with both velocities <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="weighted-conjugate-gradient" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Weighted Conjugate Gradient</h1>
+
+</section>
+<section id="accelerating-elsm-convergence" class="slide level2 center">
+<h2>Accelerating ELSM Convergence</h2>
+</section>
+<section id="the-unitarity-property" class="slide level2 smaller center">
+<h2>The Unitarity Property</h2>
+<p>Because <span class="math inline">\(\bar{F}^\dagger \bar{F} \approx I\)</span> (the extended Born operator is approximately unitary w.r.t. weighted norms), CG with weighted norms converges dramatically faster <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</p>
+<p>The <strong>weighted CG</strong> uses inner products:</p>
+<p><span class="math display">\[
+\langle \delta\bar{v}_1, \delta\bar{v}_2 \rangle_{\text{model}} = \sum_{x,z,h} \delta\bar{v}_1(x,z,h)\,(W_{\text{model}}\,\delta\bar{v}_2)(x,z,h)
+\]</span></p>
+<p><span class="math display">\[
+\langle d_1, d_2 \rangle_{\text{data}} = \sum_{s,r,t} d_1(\mathbf{x}_s, \mathbf{x}_r, t)\,(W_{\text{data}}\, d_2)(\mathbf{x}_s, \mathbf{x}_r, t)
+\]</span></p>
+</section>
+<section id="algorithm-weighted-conjugate-gradient" class="slide level2 smaller center">
+<h2>Algorithm: Weighted Conjugate Gradient</h2>
+<p><strong>Algorithm 1</strong> from <span class="citation" data-cites="hou2016accelerating">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>. Inputs: operators <span class="math inline">\(\bar{F}\)</span>, <span class="math inline">\(\bar{F}^\dagger\)</span>, data <span class="math inline">\(\delta d\)</span>, initial estimate <span class="math inline">\(\delta\bar{v}_0\)</span>.</p>
+<div style="font-size: 0.85em;">
+<ol type="1">
+<li><span class="math inline">\(z_0 \leftarrow \bar{F}^\dagger(\delta d - \bar{F}\,\delta\bar{v}_0)\)</span></li>
+<li><span class="math inline">\(p_0 \leftarrow z_0\)</span>, <span class="math inline">\(\quad k \leftarrow 0\)</span></li>
+<li><strong>repeat</strong></li>
+<li><span class="math inline">\(\quad \alpha_k \leftarrow \dfrac{\langle z_k, z_k \rangle_{\text{model}}}{\langle \bar{F}\,p_k, \bar{F}\,p_k \rangle_{\text{data}}}\)</span></li>
+<li><span class="math inline">\(\quad \delta\bar{v}_{k+1} \leftarrow \delta\bar{v}_k + \alpha_k\, p_k\)</span></li>
+<li><span class="math inline">\(\quad z_{k+1} \leftarrow z_k - \alpha_k\, \bar{F}^\dagger \bar{F}\, p_k\)</span></li>
+<li><span class="math inline">\(\quad \beta_{k+1} \leftarrow \dfrac{\langle z_{k+1}, z_{k+1} \rangle_{\text{model}}}{\langle z_k, z_k \rangle_{\text{model}}}\)</span></li>
+<li><span class="math inline">\(\quad p_{k+1} \leftarrow z_{k+1} + \beta_{k+1}\, p_k\)</span></li>
+<li><span class="math inline">\(\quad k \leftarrow k + 1\)</span></li>
+<li><strong>until</strong> convergence</li>
+</ol>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>Each iteration costs roughly the same as standard CG — one demigration (<span class="math inline">\(\bar{F}\)</span>) and one migration (<span class="math inline">\(\bar{F}^\dagger\)</span>). The weights add negligible cost.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="simple-model-cg-vs.-wcg" class="slide level2 center">
+<h2>Simple Model — CG vs.&nbsp;WCG</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig5.jpeg" style="width:40.0%"></p>
+<figcaption>Simple layered model. (a) Background velocity model and (b) reflectivity model <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="elsm-results-cg-vs.-wcg" class="slide level2 center">
+<h2>ELSM Results — CG vs.&nbsp;WCG</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig7.png" style="width:30.0%"></p>
+<figcaption>Twenty iterations of ELSM via (a) CG and (b) WCG iteration. WCG converges dramatically faster <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="physical-image-from-wcg" class="slide level2 center">
+<h2>Physical Image from WCG</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig6.png" style="width:30.0%"></p>
+<figcaption>Physical image from stacking 20 WCG iterations along subsurface offset (a), and difference with original reflectivity (b). Same gray scale <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="marmousi-examples" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Marmousi Examples</h1>
+
+</section>
+<section id="testing-on-a-realistic-model" class="slide level2 center">
+<h2>Testing on a Realistic Model</h2>
+</section>
+<section id="marmousi-model-setup" class="slide level2 center">
+<h2>Marmousi Model Setup</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig10.jpeg" style="width:55.0%"></p>
+<figcaption>Marmousi model. (a) Background velocity obtained by smoothing the original model, and (b) reflectivity model (difference between original and smoothed) <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<aside class="notes">
+<p>Fixed spread acquisition: 231 sources (40 m spacing), 461 receivers (20 m spacing), all at 20 m depth. Spatial grid 20 m. Subsurface offset range [-500, 500] m. Band-pass wavelet 2.5-5-20-25 Hz.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="marmousi-elsm-results" class="slide level2 center">
+<h2>Marmousi — ELSM Results</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig11.png" style="width:55.0%"></p>
+<figcaption>Twenty iterations of ELSM via (a) CG and (b) WCG iteration on the Marmousi model. WCG yields noticeably higher resolution <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="marmousi-stacked-images" class="slide level2 center">
+<h2>Marmousi — Stacked Images</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig12.png" style="width:55.0%"></p>
+<figcaption>Physical images from stacking along offset: (a) 20 CG iterations and (b) 20 WCG iterations. WCG produces a higher-resolution result <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="marmousi-data-fit" class="slide level2 smaller center">
+<h2>Marmousi — Data Fit</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig14.png" style="width:30.0%"></p>
+<figcaption>Single-shot Born data at 5 km (a) and data residual (<span class="math inline">\(\times 10\)</span>) after 20 WCG iterations (b). The data is accurately reconstructed <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>The residual is amplified by a factor of 10 — the actual misfit is very small, confirming accurate data fit.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="marmousi-wrong-velocity" class="slide level2 smaller center">
+<h2>Marmousi — Wrong Velocity</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig15.png" style="width:40.0%"></p>
+<figcaption>Twenty iterations of ELSM via (a) CG and (b) WCG with incorrect velocity (0.9 × true). Energy spreads to nonzero offset but data is still fit <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>The image is <strong>not focused</strong> for the poor background velocity, yet data <strong>is fit</strong> (as in Figure 14). The offset range must be doubled (<span class="math inline">\([-1000, 1000]\)</span> m) to accommodate the velocity error. This is the key feature exploited for velocity analysis.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="marmousi-convergence-comparison" class="slide level2 center">
+<h2>Marmousi — Convergence Comparison</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperC_fig16.jpeg" style="width:80.0%"></p>
+<figcaption>Relative data misfit (a) and relative normal residual (b) for CG (red) and WCG (blue) with incorrect velocity. WCG converges faster even with velocity error <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The convergence behavior with wrong velocity is very similar to the correct velocity case — WCG acceleration is robust to velocity error.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="dso-velocity-analysis" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>DSO Velocity Analysis</h1>
+
+</section>
+<section id="differential-semblance-optimization" class="slide level2 center">
+<h2>Differential Semblance Optimization</h2>
+</section>
+<section id="dso-objective-function" class="slide level2 smaller center">
+<h2>DSO Objective Function</h2>
+<p>In the subsurface-offset domain, the semblance condition requires a <strong>focused</strong> offset gather. The DSO objective penalizes energy at nonzero offset <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>, Eq. 11)</span>:</p>
+<p><span id="eq-dso"><span class="math display">\[
+J[v] = \frac{1}{2}\|h\, I(\mathbf{x}, h)\|^2
+\tag{5}\]</span></span></p>
+<p>where <span class="math inline">\(I(\mathbf{x}, h)\)</span> is the extended image from either RTM (<span class="math inline">\(\bar{F}^*\)</span>) or the approximate inverse (<span class="math inline">\(\bar{F}^\dagger\)</span>).</p>
+<div class="fragment">
+<ul>
+<li class="fragment">Minimization penalizes energy outside <span class="math inline">\(h = 0\)</span> <span class="math inline">\(\Rightarrow\)</span> focuses the gather</li>
+<li class="fragment">Focused gather implies <strong>correct velocity</strong></li>
+<li class="fragment">This is the basic idea of DSO-based velocity analysis</li>
+</ul>
+</div>
+</section>
+<section id="rtm-vs.-inversion-objective-function" class="slide level2 smaller center">
+<h2>RTM vs.&nbsp;Inversion — Objective Function</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperB_fig2.png" style="width:60.0%"></p>
+<figcaption>Normalized objective function: MVA with RTM (red), MVA + stack power (green), and IVA with approximate inverse (blue). Velocity ranges from 2 to 3 km/s. True velocity is 2.5 km/s <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Critical observation</strong></p>
+</div>
+<div class="callout-content">
+<p>The MVA objective (red) has its minimum <strong>shifted</strong> to 2400 m/s — the wrong velocity! The IVA objective (blue) correctly minimizes at 2500 m/s. The so-called “gradient artifacts” are actually a problem of the <strong>objective function</strong>, not the gradient.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="velocity-update-results" class="slide level2 scrollable center">
+<h2>Velocity Update Results</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperB_fig3.png" style="width:25.0%"></p>
+<figcaption>(a) True model, (b) initial model, 50-iteration L-BFGS result for (c) the adjoint operator (MVA), and (d) the approximate inverse operator (IVA) <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="zero-offset-images-velocity-quality" class="slide level2 center">
+<h2>Zero-Offset Images — Velocity Quality</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperB_fig5.png" style="width:25.0%"></p>
+<figcaption>Zero-offset approximate inverse image associated with different velocity models from the velocity update <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="image-gathers-focusing-quality" class="slide level2 smaller center">
+<h2>Image Gathers — Focusing Quality</h2>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperB_fig6.png" style="width:22.0%"></p>
+<figcaption>Approximate inverse image gathers in the subsurface-offset domain corresponding to the images above. Focused gathers confirm improved velocity <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="what-goes-wrong" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>What Goes Wrong?</h1>
+
+</section>
+<section id="artifacts-and-limitations-of-wemva" class="slide level2 center">
+<h2>Artifacts and Limitations of WEMVA</h2>
+</section>
+<section id="the-artifact-problem" class="slide level2 smaller center">
+<h2>The Artifact Problem</h2>
+<p>When RTM (the adjoint) is used instead of inversion, <strong>artifacts</strong> corrupt the velocity update <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>:</p>
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/paperB_fig1.png" style="width:40.0%"></p>
+<figcaption>RTM offset gathers show noise at nonzero offset (red arrows). This noise is due to incorrect, dip-dependent amplitudes in migrated images that cannot interfere destructively <span class="citation" data-cites="hou2018inversion">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2018</a>)</span>.</figcaption>
+</figure>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="fundamental-limitations-of-wemva" class="title-slide slide level1 center" data-background-color="#2a4d69">
+<h1>Fundamental Limitations of WEMVA</h1>
+
+</section>
+<section id="problems-with-wave-equation-mva" class="slide level2 smaller center">
+<h2>Problems with Wave-Equation MVA</h2>
+<p>Despite the improvements from using the approximate inverse, WEMVA has fundamental issues:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Strong reflectors dominate the objective</strong> — The DSO objective <span class="math inline">\(J = \frac{1}{2}\|h\,I(\mathbf{x},h)\|^2\)</span> is weighted toward high-amplitude events, which may not carry the best velocity information</p></li>
+<li class="fragment"><p><strong>Fails with strong multiples</strong> — Surface-related or internal multiples violate the single-scattering (Born) assumption, corrupting the image gathers and biasing the velocity update</p></li>
+<li class="fragment"><p><strong>Requires extensive hand-holding</strong> — Dip filtering, offset range selection, regularization, and balancing of DSO vs.&nbsp;stack-power terms all require manual tuning</p></li>
+<li class="fragment"><p><strong>Limited physics</strong> — The constant-density acoustic approximation and idealized 2D acquisition geometry are restrictive</p></li>
+</ol>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The road ahead</strong></p>
+</div>
+<div class="callout-content">
+<p>These limitations motivate the transition to <strong>full-waveform inversion (FWI)</strong>, which directly fits the data without requiring image-domain proxies. FWI will be the subject of our next lectures.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="slide level2 smaller center">
+<h2>Summary</h2>
+<ul>
+<li class="fragment"><strong>Subsurface-offset extension</strong> adds degrees of freedom to match data and model dimensions</li>
+<li class="fragment"><strong>Extended imaging</strong> (RTM or approximate inverse) produces offset gathers <span class="math inline">\(I(\mathbf{x}, h)\)</span></li>
+<li class="fragment"><strong>Focusing at <span class="math inline">\(h = 0\)</span></strong> indicates correct velocity; unfocused gathers indicate velocity error</li>
+<li class="fragment">The <strong>approximate inverse</strong> <span class="math inline">\(\bar{F}^\dagger = W_{\text{model}}\,\bar{F}^*\,W_{\text{data}}\)</span> is critical — using RTM alone leads to artifacts in velocity analysis</li>
+<li class="fragment"><strong>Weighted CG</strong> dramatically accelerates extended LSM convergence</li>
+<li class="fragment"><strong>DSO</strong> provides a smooth, unimodal objective for velocity updates (when using inversion, not adjoint)</li>
+<li class="fragment">WEMVA has fundamental limitations: strong reflectors, multiples, hand-holding</li>
+<li class="fragment"><strong>Next</strong>: Full-waveform inversion — a more direct approach to velocity estimation</li>
+</ul>
+</section>
+<section id="key-takeaway" class="slide level2 center">
+<h2>Key Takeaway</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>From image volumes to FWI</strong></p>
+</div>
+<div class="callout-content">
+<p>The main goal of subsurface-offset image volumes is to obtain estimates for the <strong>background velocity model</strong> <span class="math inline">\(v_0\)</span>. While WEMVA with the approximate inverse improves upon classical MVA, its fundamental limitations (dominance of strong reflectors, sensitivity to multiples, need for hand-holding) motivate the move to <strong>full-waveform inversion</strong>, which we cover next.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>We leave the <strong>directional scattering</strong> aspect (AVA/AVP from image gathers) for a later lecture.</p>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-claerbout1985imaging" class="csl-entry" role="listitem">
+Claerbout, Jon F. 1985. <em>Imaging the Earth’s Interior</em>. Blackwell Scientific Publishers.
+</div>
+<div id="ref-hou2015approximate" class="csl-entry" role="listitem">
+Hou, Jie, and William W. Symes. 2015. <span>“An Approximate Inverse to the Extended <span>B</span>orn Modeling Operator.”</span> <em>Geophysics</em> 80 (6): R331–49. <a href="https://doi.org/10.1190/geo2014-0592.1">https://doi.org/10.1190/geo2014-0592.1</a>.
+</div>
+<div id="ref-hou2016accelerating" class="csl-entry" role="listitem">
+———. 2016. <span>“Accelerating Extended Least-Squares Migration with Weighted Conjugate Gradient Iteration.”</span> <em>Geophysics</em> 81 (4): S165–79. <a href="https://doi.org/10.1190/geo2015-0499.1">https://doi.org/10.1190/geo2015-0499.1</a>.
+</div>
+<div id="ref-hou2018inversion" class="csl-entry" role="listitem">
+———. 2018. <span>“Inversion Velocity Analysis in the Subsurface-Offset Domain.”</span> <em>Geophysics</em> 83 (2): R189–200. <a href="https://doi.org/10.1190/geo2017-0059.1">https://doi.org/10.1190/geo2017-0059.1</a>.
+</div>
+<div id="ref-symes2008migration" class="csl-entry" role="listitem">
+Symes, William W. 2008. <span>“Migration Velocity Analysis and Waveform Inversion.”</span> <em>Geophysical Prospecting</em> 56: 765–90. <a href="https://doi.org/10.1111/j.1365-2478.2008.00698.x">https://doi.org/10.1111/j.1365-2478.2008.00698.x</a>.
+</div>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../images/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://flexie.github.io/EAS-8803-FH/">🔗 https://flexie.github.io/EAS-88-3-FH</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/flexie\.github\.io\/EAS-8803-FH\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
