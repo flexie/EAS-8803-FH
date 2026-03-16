@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-03-16">
@@ -50,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3a3a30af1d0df6ddb07696291d99123c.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3281f007eb4870c8e7a16809fda2952e.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -295,7 +295,12 @@ Computational &amp; Applied Mathematics, Rice University</p>
 <p><span id="eq-born-continuous"><span class="math display">\[
 (F[v_0]\delta v)(\mathbf{x}_s, \mathbf{x}_r, t) = \frac{\partial^2}{\partial t^2} \int d\mathbf{x}\, d\tau\, G(\mathbf{x}_s, \mathbf{x}, \tau) \frac{2\delta v(\mathbf{x})}{v_0(\mathbf{x})^3} G(\mathbf{x}, \mathbf{x}_r, t - \tau)
 \tag{1}\]</span></span></p>
-<p>This is Equation 6 of <span class="citation" data-cites="hou2018inversion">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>.</p>
+<p>This is Equation 6 of <span class="citation" data-cites="hou2018inversion">Hou and Symes (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>. Compare with discrete expression</p>
+<p><span class="math display">\[
+\begin{align}\mathbf{J}&amp;=\nabla\mathcal{F}[\mathbf{x}_0]\\
+&amp;=-\mathbf{P}_r\mathbf{A}^{-1}[\mathbf{x}]\mathrm{diag}\big(\frac{\partial\mathbf{A}[\mathbf{x}]}{\partial\mathbf{x}}\mathbf{A}^{-1}[\mathbf{x}]\mathbf{P}^\top_s\mathbf{q}\big)\Bigr|_{\mathbf{x}_0}
+\end{align}
+\]</span></p>
 </section>
 <section id="connection-to-lecture-notation-rtm" class="slide level2 center">
 <h2>Connection to Lecture Notation (RTM)</h2>
@@ -340,7 +345,7 @@ Computational &amp; Applied Mathematics, Rice University</p>
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>The Born modeling operator <span class="math inline">\(F[v_0]\)</span> in the papers corresponds to the stacked Jacobians <span class="math inline">\(\mathbf{F} = [\mathbf{J}_1^T, \ldots, \mathbf{J}_{n_s}^T]^T\)</span> from our LSM lecture, where <span class="math inline">\(\mathbf{J}_i = -\mathbf{P}_r \mathbf{A}^{-1}[\mathbf{m}_0]\,\text{diag}(\ddot{\mathbf{u}}_i^0)\)</span>.</p>
+<p>The Born modeling operator <span class="math inline">\(F[v_0]\)</span> in the papers corresponds to the stacked Jacobians <span class="math inline">\(\mathbf{F} = [\mathbf{J}_1^T, \ldots, \mathbf{J}_{n_s}^T]^T\)</span> from our LSM lecture $.</p>
 </div>
 </div>
 </div>
@@ -1357,14 +1362,13 @@ Symes, William W. 2008. <span>“Migration Velocity Analysis and Waveform Invers
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
             }
-          }
-          return codeEl.innerText;
+            return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
