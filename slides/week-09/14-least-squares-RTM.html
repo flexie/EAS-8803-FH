@@ -1055,7 +1055,7 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 <p>Weights <span class="math inline">\(\boldsymbol{\sigma}\)</span> estimated from demigration/remigration of curvelet atoms.</p>
 </div>
 <div class="fragment">
-<p><strong>Banded/guided filter extension</strong> <span class="citation" data-cites="li2021">(<a href="#/key-references" role="doc-biblioref" onclick="">Li et al. 2021</a>)</span>:</p>
+<p><strong>Banded/guided filter extension</strong> <span class="citation" data-cites="Li2022">(<a href="#/key-references" role="doc-biblioref" onclick="">Li et al. 2022</a>)</span>:</p>
 <ul>
 <li>Estimate a <strong>dense curvelet-domain filter</strong> (not just diagonal)</li>
 <li>Uses guided-filter methodology for robustness</li>
@@ -1084,13 +1084,6 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 <section id="comparison-of-approaches" class="slide level2 smaller center">
 <h2>Comparison of Approaches</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 29%">
-<col style="width: 20%">
-<col style="width: 24%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Method</th>
@@ -1131,7 +1124,7 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 </tr>
 <tr class="odd">
 <td>Curvelet diagonal</td>
-<td>$$1 extra cycle</td>
+<td>~ extra cycle</td>
 <td>Partial</td>
 <td>Yes</td>
 <td>Phase-space</td>
@@ -1190,10 +1183,7 @@ $$
 <section id="ddlsm-vs.-idlsm-workflows" class="slide level2 center">
 <h2>DDLSM vs.&nbsp;IDLSM — Workflows</h2>
 
-<img data-src="figures/ddlsm_vs_idlsm.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">Side-by-side comparison of the DDLSM iterative workflow (left) and the IDLSM direct approach (right).</p></section>
-<section class="slide level2 center">
-
-</section></section>
+<img data-src="figures/ddlsm_vs_idlsm.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">Side-by-side comparison of the DDLSM iterative workflow (left) and the IDLSM direct approach (right).</p></section></section>
 <section>
 <section id="connections-and-outlook" class="title-slide slide level1 center" data-background-color="#2a4d69">
 <h1>Connections and Outlook</h1>
@@ -1290,8 +1280,8 @@ Hill, Stephen J., and Andreas Rüger. 2020. <em>Illustrated Seismic Processing, 
 <div id="ref-kaur2020" class="csl-entry" role="listitem">
 Kaur, Harpreet, Nam Pham, and Sergey Fomel. 2020. <span>“Improving the Resolution of Migrated Images by Approximating the Inverse <span>H</span>essian Using Deep Learning.”</span> <em>Geophysics</em> 85 (4): WA173–83. <a href="https://doi.org/10.1190/geo2019-0315.1">https://doi.org/10.1190/geo2019-0315.1</a>.
 </div>
-<div id="ref-li2021" class="csl-entry" role="listitem">
-Li, Chuang, Jianping Huang, Zhenchun Li, and Rongrong Wang. 2021. <span>“Image-Domain Least-Squares Reverse Time Migration with Curvelet-Domain Guided Filtering.”</span> <em>Geophysics</em> 86 (4): S327–40.
+<div id="ref-Li2022" class="csl-entry" role="listitem">
+Li, Feipeng, Jinghuai Gao, Zhaoqi Gao, Chuang Li, and Wei Zhang. 2022. <span>“Least-Squares Reverse Time Migration with Curvelet-Domain Preconditioning Operators.”</span> <em>IEEE Transactions on Geoscience and Remote Sensing</em> 60: 1–13. <a href="https://doi.org/10.1109/TGRS.2021.3129803">https://doi.org/10.1109/TGRS.2021.3129803</a>.
 </div>
 <div id="ref-paige1982" class="csl-entry" role="listitem">
 Paige, Christopher C., and Michael A. Saunders. 1982. <span>“<span>LSQR</span>: An Algorithm for Sparse Linear Equations and Sparse Least Squares.”</span> <em>ACM Transactions on Mathematical Software</em> 8 (1): 43–71. <a href="https://doi.org/10.1145/355984.355989">https://doi.org/10.1145/355984.355989</a>.
@@ -1322,7 +1312,7 @@ Zeng, Chao, Sheng Dong, and Ben Wang. 2014. <span>“Least-Squares Reverse Time 
 </div>
 </div>
 </section>
-<section id="summary" class="slide level2 scrollable center">
+<section id="summary" class="slide level2 smaller scrollable center">
 <h2>Summary</h2>
 <ol type="1">
 <li class="fragment">Conventional migration = adjoint, not the inverse <span class="math inline">\(\Rightarrow\)</span> Hessian blurring</li>
