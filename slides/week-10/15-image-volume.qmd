@@ -3,6 +3,8 @@ title: "Subsurface-Offset Image Volumes"
 subtitle: "Extended Imaging, Velocity Analysis, and the Road to FWI"
 author: "Felix J. Herrmann"
 institute: "Schools of EAS, CSE, ECE — Georgia Institute of Technology"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
 date: today
 format:
   revealjs:
@@ -14,7 +16,6 @@ format:
     center: true
     transition: slide
     html-math-method: mathjax
-    footer: "Seismic Exploration Methods — Georgia Tech"
     fig-align: center
     code-fold: true
     highlight-style: github
