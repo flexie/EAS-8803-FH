@@ -438,6 +438,7 @@ $$
 . . .
 
 :::{.incremental}
+- velocity model extension: $\delta\bar{v}(x,y,h)=\delta v(x,z)\delta(h)$
 - With the extra offset dimension, the model dimension **matches** the data dimension
 - ELSM can fit data with **correct or incorrect** velocity
 - Correct velocity $\Rightarrow$ energy focuses at $h = 0$
@@ -546,7 +547,7 @@ Each iteration costs roughly the same as standard CG — one demigration ($\bar{
 :::: {.columns}
 
 ::: {.column width="100%"}
-![Twenty iterations of ELSM via (a) CG and (b) WCG iteration. WCG converges dramatically faster [@hou2016accelerating].](figures/paperC_fig7.png){fig-align="center" width="30%"}
+![Twenty iterations of ELSM via (a) CG and (b) WCG iteration. WCG converges dramatically faster [@hou2016accelerating].](figures/paperC_fig7.png){fig-align="center" width="35%"}
 :::
 
 ::::
@@ -558,7 +559,7 @@ Each iteration costs roughly the same as standard CG — one demigration ($\bar{
 :::: {.columns}
 
 ::: {.column width="100%"}
-![Physical image from stacking 20 WCG iterations along subsurface offset (a), and difference with original reflectivity (b). Same gray scale [@hou2016accelerating].](figures/paperC_fig6.png){fig-align="center" width="30%"}
+![Physical image from stacking 20 WCG iterations along subsurface offset (a), and difference with original reflectivity (b). Same gray scale [@hou2016accelerating].](figures/paperC_fig6.png){fig-align="center" width="35%"}
 :::
 
 ::::
