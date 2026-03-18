@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-234273d1456647dabc34a594ac50e507.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Felix J. Herrmann">
-  <meta name="dcterms.date" content="2026-03-16">
+  <meta name="dcterms.date" content="2026-03-18">
   <title>Seismic Exploration Methods – Subsurface-Offset Image Volumes</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -50,7 +50,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3281f007eb4870c8e7a16809fda2952e.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3a3a30af1d0df6ddb07696291d99123c.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -164,7 +164,7 @@ Felix J. Herrmann
     </div>
 </div>
 
-  <p class="date">2026-03-16</p>
+  <p class="date">2026-03-18</p>
 </section>
 <section id="title-custom" class="slide level2 center" data-background-color="white">
 <h2></h2>
@@ -630,6 +630,7 @@ J_{\text{ELSM}} = \frac{1}{2}\|\bar{F}[v_0]\,\delta\bar{v} - \delta d\|^2
 \]</span></p>
 <div class="fragment">
 <ul>
+<li class="fragment">velocity model extension: <span class="math inline">\(\delta\bar{v}(x,y,h)=\delta v(x,z)\delta(h)\)</span></li>
 <li class="fragment">With the extra offset dimension, the model dimension <strong>matches</strong> the data dimension</li>
 <li class="fragment">ELSM can fit data with <strong>correct or incorrect</strong> velocity</li>
 <li class="fragment">Correct velocity <span class="math inline">\(\Rightarrow\)</span> energy focuses at <span class="math inline">\(h = 0\)</span></li>
@@ -757,7 +758,7 @@ J_{\text{ELSM}} = \frac{1}{2}\|\bar{F}[v_0]\,\delta\bar{v} - \delta d\|^2
 <div class="column" style="width:100%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/paperC_fig7.png" style="width:30.0%"></p>
+<p><img data-src="figures/paperC_fig7.png" style="width:35.0%"></p>
 <figcaption>Twenty iterations of ELSM via (a) CG and (b) WCG iteration. WCG converges dramatically faster <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -769,7 +770,7 @@ J_{\text{ELSM}} = \frac{1}{2}\|\bar{F}[v_0]\,\delta\bar{v} - \delta d\|^2
 <div class="column" style="width:100%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="figures/paperC_fig6.png" style="width:30.0%"></p>
+<p><img data-src="figures/paperC_fig6.png" style="width:35.0%"></p>
 <figcaption>Physical image from stacking 20 WCG iterations along subsurface offset (a), and difference with original reflectivity (b). Same gray scale <span class="citation" data-cites="hou2016accelerating">(<a href="#/references" role="doc-biblioref" onclick="">Hou and Symes 2016</a>)</span>.</figcaption>
 </figure>
 </div>
@@ -1362,13 +1363,14 @@ Symes, William W. 2008. <span>“Migration Velocity Analysis and Waveform Invers
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

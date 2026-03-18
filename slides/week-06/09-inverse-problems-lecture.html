@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.32">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-02-16">
@@ -96,7 +96,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-832775eafbd512325564c8c290c39367.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -1161,7 +1161,7 @@ w_2 &amp; w_1 &amp; w_0 &amp; \cdots \\
 <section id="numerical-examples-in-julia" class="slide level2">
 <h2>Numerical Examples in Julia</h2>
 <p>Set up matrix-free operators using <a href="https://github.com/slimgroup/JOLI.jl">JOLI.jl</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a></a><span class="im">using</span> <span class="bu">JOLI</span>, <span class="bu">LinearAlgebra</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a></a><span class="im">using</span> <span class="bu">JOLI</span>, <span class="bu">LinearAlgebra</span></span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a><span class="co"># Define a convolution operator (matrix-free)</span></span>
 <span id="cb1-4"><a></a>n <span class="op">=</span> <span class="fl">256</span></span>
@@ -1170,14 +1170,14 @@ w_2 &amp; w_1 &amp; w_0 &amp; \cdots \\
 <span id="cb1-7"><a></a></span>
 <span id="cb1-8"><a></a><span class="co"># W acts like a matrix but stores only the wavelet</span></span>
 <span id="cb1-9"><a></a><span class="co"># W  * r  → forward (convolution)</span></span>
-<span id="cb1-10"><a></a><span class="co"># W' * d  → adjoint (correlation)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a></a><span class="co"># W' * d  → adjoint (correlation)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p>The adjoint <code>W'</code> is defined to satisfy <span class="math inline">\(\langle \mathbf{W}\mathbf{r}, \mathbf{d}\rangle = \langle \mathbf{r}, \mathbf{W}^\top\mathbf{d}\rangle\)</span>.</p>
 </div>
 </section>
 <section id="julia-solving-with-lsqr" class="slide level2">
 <h2>Julia — Solving with LSQR</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a></a><span class="im">using</span> <span class="bu">IterativeSolvers</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a></a><span class="im">using</span> <span class="bu">IterativeSolvers</span></span>
 <span id="cb2-2"><a></a></span>
 <span id="cb2-3"><a></a><span class="co"># True reflectivity</span></span>
 <span id="cb2-4"><a></a>r_true <span class="op">=</span> <span class="fu">zeros</span>(n)</span>
@@ -1189,7 +1189,7 @@ w_2 &amp; w_1 &amp; w_0 &amp; \cdots \\
 <span id="cb2-10"><a></a>d <span class="op">=</span> W <span class="op">*</span> r_true <span class="op">+</span> <span class="fl">0.05</span> <span class="op">*</span> <span class="fu">randn</span>(n)</span>
 <span id="cb2-11"><a></a></span>
 <span id="cb2-12"><a></a><span class="co"># Damped least-squares via LSQR</span></span>
-<span id="cb2-13"><a></a>r_est <span class="op">=</span> <span class="fu">lsqr</span>(W, d; damp<span class="op">=</span><span class="fl">0.1</span>, maxiter<span class="op">=</span><span class="fl">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-13"><a></a>r_est <span class="op">=</span> <span class="fu">lsqr</span>(W, d; damp<span class="op">=</span><span class="fl">0.1</span>, maxiter<span class="op">=</span><span class="fl">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="fragment">
 <p>The <code>damp</code> parameter corresponds to <span class="math inline">\(\sqrt{\lambda}\)</span> in the Tikhonov formulation:</p>
 <p><span class="math display">\[
@@ -1502,13 +1502,14 @@ w_2 &amp; w_1 &amp; w_0 &amp; \cdots \\
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

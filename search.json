@@ -267,7 +267,7 @@
     "href": "slides/week-10/15-image-volume.html#lsm-vs.-elsm-the-key-difference",
     "title": "Subsurface-Offset Image Volumes",
     "section": "LSM vs. ELSM — The Key Difference",
-    "text": "LSM vs. ELSM — The Key Difference\nFrom our LSM lecture, the least-squares objective is:\n\\[\nJ_{\\text{LS}} = \\frac{1}{2}\\|\\mathbf{F}\\,\\delta\\mathbf{m} - \\delta\\mathbf{d}\\|^2\n\\]\nExtended LSM replaces \\(F\\) by \\(\\bar{F}\\) and \\(\\delta v\\) by \\(\\delta\\bar{v}(\\mathbf{x}, h)\\) (Hou and Symes 2016):\n\\[\nJ_{\\text{ELSM}} = \\frac{1}{2}\\|\\bar{F}[v_0]\\,\\delta\\bar{v} - \\delta d\\|^2\n\\]\n\n\nWith the extra offset dimension, the model dimension matches the data dimension\nELSM can fit data with correct or incorrect velocity\nCorrect velocity \\(\\Rightarrow\\) energy focuses at \\(h = 0\\)\nIncorrect velocity \\(\\Rightarrow\\) energy spreads to nonzero \\(h\\), but data is still fit"
+    "text": "LSM vs. ELSM — The Key Difference\nFrom our LSM lecture, the least-squares objective is:\n\\[\nJ_{\\text{LS}} = \\frac{1}{2}\\|\\mathbf{F}\\,\\delta\\mathbf{m} - \\delta\\mathbf{d}\\|^2\n\\]\nExtended LSM replaces \\(F\\) by \\(\\bar{F}\\) and \\(\\delta v\\) by \\(\\delta\\bar{v}(\\mathbf{x}, h)\\) (Hou and Symes 2016):\n\\[\nJ_{\\text{ELSM}} = \\frac{1}{2}\\|\\bar{F}[v_0]\\,\\delta\\bar{v} - \\delta d\\|^2\n\\]\n\n\nvelocity model extension: \\(\\delta\\bar{v}(x,y,h)=\\delta v(x,z)\\delta(h)\\)\nWith the extra offset dimension, the model dimension matches the data dimension\nELSM can fit data with correct or incorrect velocity\nCorrect velocity \\(\\Rightarrow\\) energy focuses at \\(h = 0\\)\nIncorrect velocity \\(\\Rightarrow\\) energy spreads to nonzero \\(h\\), but data is still fit"
   },
   {
     "objectID": "slides/week-10/15-image-volume.html#lsm-correct-vs.-wrong-velocity",
@@ -2290,7 +2290,7 @@
     "href": "weeks/week-10.html",
     "title": "Week 10",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSubsurface-Offset Image Volumes\n\n\nExtended Imaging, Velocity Analysis, and the Road to FWI\n\n\nMon, Mar 16\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nReverse Time Migrations (RTM) and LS-RTM\n\n\nFri, Mar 20\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSubsurface-Offset Image Volumes\n\n\nExtended Imaging, Velocity Analysis, and the Road to FWI\n\n\nWed, Mar 18\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nReverse Time Migrations (RTM) and LS-RTM\n\n\nFri, Mar 20\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "weeks/week-07.html",
