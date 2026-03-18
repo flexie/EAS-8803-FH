@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,15 +31,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e2886813ffd81db4f823f0bbbf45b6b3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-79df7ed5347781c1339259261daa236f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -95,8 +94,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="./images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://flexie.github.io/EAS-8803-FH/" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -209,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <section id="one-pager-project-proposal-5-min-pitch" class="level4">
 <h4 class="anchored" data-anchor-id="one-pager-project-proposal-5-min-pitch">One pager Project Proposal + 5 min pitch</h4>
-<p>On March 11th, everybody needs to give a 5 minute pitch on their project proposal. That same day, the “one pager” outlining the project is due by 6:00 PM on March 13. See description below. Your seminar will be evaluated with this <a href="https://www.dropbox.com/s/3qjsb9cws8ntilc/seminar_eval.pdf?dl=0">form</a>. Please send the slides for your presentation to the course instructor with CSE 8803 in the subject line or bring a memory stick. The 5 minutes presentations include time for questions. Since time is limited, the 5 minute limit will be strictly enforced. So please stick to the main message, the problem you want to tackle, what techniques you will be using, and why it is important.</p>
+<p>On March 11th, everybody needs to give a 5 minute pitch on their project proposal. That same day, the “one pager” outlining the project is due by 6:00 PM on March 13. See description below. Your seminar will be evaluated with this <a href="misc/pitch.pdf">form</a>. Please send the slides for your presentation to the course instructor with CSE 8803 in the subject line or bring a memory stick. The 5 minutes presentations include time for questions. Since time is limited, the 5 minute limit will be strictly enforced. So please stick to the main message, the problem you want to tackle, what techniques you will be using, and why it is important.</p>
 </section>
 <section id="some-hints-on-the-pitch" class="level4">
 <h4 class="anchored" data-anchor-id="some-hints-on-the-pitch">Some hints on the pitch</h4>
@@ -344,14 +342,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
