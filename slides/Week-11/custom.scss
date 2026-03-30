@@ -1,0 +1,41 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$presentation-heading-color: #002855;
+$presentation-font-size-root: 36px;
+$link-color: #B3A369;
+
+/*-- scss:rules --*/
+
+.reveal .slide-number {
+  color: #B3A369;
+}
+
+.reveal .footer {
+  color: #545454;
+  font-size: 0.5em;
+}
+
+.reveal h2 {
+  border-bottom: 2px solid #B3A369;
+  padding-bottom: 0.2em;
+}
+
+.reveal .callout-important {
+  border-left-color: #002855;
+}
+
+.reveal table {
+  font-size: 0.8em;
+}
+
+.reveal table thead th {
+  background-color: #002855;
+  color: white;
+}
+
+.reveal blockquote {
+  border-left: 4px solid #B3A369;
+  font-style: italic;
+  background: #f9f8f4;
+  padding: 0.5em 1em;
+}
