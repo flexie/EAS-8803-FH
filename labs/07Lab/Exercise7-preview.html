@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="generator" content="quarto-1.4.554">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+    <title>Seismic Exploration Methods - Exercise 7: From velocity model to subsurface offset gathers and extended LS-RTM in JUDI/ImageGather</title>
+    <style>
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.columns{display: flex; gap: min(4vw, 1.5em);}
+      div.column{flex: auto; overflow-x: auto;}
+      div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+      ul.task-list{list-style: none;}
+      ul.task-list li input[type="checkbox"] {
+        width: 0.8em;
+        margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+        vertical-align: middle;
+      }
+      /* CSS for syntax highlighting */
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+        }
+      pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+      div.sourceCode
+        {   }
+      @media screen {
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+    </style>
+
+    <style>
+      body.hypothesis-enabled #quarto-embed-header {
+        padding-right: 36px;
+      }
+
+      #quarto-embed-header {
+        height: 3em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: solid 1px;
+      }
+
+      #quarto-embed-header h6 {
+        font-size: 1.1em;
+        padding-top: 0.6em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-weight: 400;
+      }
+
+      #quarto-embed-header a.quarto-back-link,
+      #quarto-embed-header a.quarto-download-embed {
+        font-size: 0.8em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+      }
+
+      .quarto-back-container {
+        padding-left: 0.5em;
+        display: flex;
+      }
+
+      .headroom {
+          will-change: transform;
+          transition: transform 200ms linear;
+      }
+
+      .headroom--pinned {
+          transform: translateY(0%);
+      }
+
+      .headroom--unpinned {
+          transform: translateY(-100%);
+      }      
+    </style>
+
+    <script>
+    window.document.addEventListener("DOMContentLoaded", function () {
+
+      var header = window.document.querySelector("#quarto-embed-header");
+      const titleBannerEl = window.document.querySelector("body > #title-block-header");
+      if (titleBannerEl) {
+        titleBannerEl.style.paddingTop = header.clientHeight + "px";
+      }
+      const contentEl = window.document.getElementById('quarto-content');
+      for (const child of contentEl.children) {
+        child.style.paddingTop = header.clientHeight + "px";
+        child.style.marginTop = "1em";
+      }
+
+      // Use the article root if the `back` call doesn't work. This isn't perfect
+      // but should typically work
+      window.quartoBackToArticle = () => {
+        var currentUrl = window.location.href;
+        window.history.back();
+        setTimeout(() => {
+            // if location was not changed in 100 ms, then there is no history back
+            if(currentUrl === window.location.href){              
+                // redirect to site root
+                window.location.href = '/';
+            }
+        }, 100);
+      }
+
+      const headroom = new window.Headroom(header, {
+        tolerance: 5,
+        onPin: function () {
+        },
+        onUnpin: function () {
+        },
+      });
+      headroom.init();
+    });
+    </script>
+
+    
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+     <script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>  
+      </head>
+
+  <body class="nav-sidebar docked quarto-notebook">
+    <div id="quarto-embed-header" class="headroom fixed-top bg-primary">
+      
+      <a onclick="window.quartoBackToArticle(); return false;" class="btn btn-primary quarto-back-link"><i class="bi bi-caret-left"></i> Back to Article</a>
+      <h6><i class="bi bi-journal-code"></i> Common Image Gathers and extended LS-RTM</h6>
+
+            <a href="../../labs/07Lab/Exercise7.ipynb" class="btn btn-primary quarto-download-embed" download="Exercise7.ipynb">Download Notebook</a>
+          </div>
+
+     <div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Exercise 7: From velocity model to subsurface offset gathers and extended LS-RTM in JUDI/ImageGather</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/logo.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://flexie.github.io/EAS-8803-FH/" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../goals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Goals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../outline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outline</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../assignments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignments</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning goals</a></li>
+  <li><a href="#background-imaging-vs-extended-imaging-vs-inversion" id="toc-background-imaging-vs-extended-imaging-vs-inversion" class="nav-link" data-scroll-target="#background-imaging-vs-extended-imaging-vs-inversion">1. Background: imaging vs extended imaging vs inversion</a>
+  <ul class="collapse">
+  <li><a href="#synthetic-data-generation" id="toc-synthetic-data-generation" class="nav-link" data-scroll-target="#synthetic-data-generation">Synthetic data generation</a></li>
+  <li><a href="#background-model-prediction" id="toc-background-model-prediction" class="nav-link" data-scroll-target="#background-model-prediction">Background-model prediction</a></li>
+  <li><a href="#extended-linearized-modeling" id="toc-extended-linearized-modeling" class="nav-link" data-scroll-target="#extended-linearized-modeling">Extended linearized modeling</a></li>
+  <li><a href="#extended-ls-rtm" id="toc-extended-ls-rtm" class="nav-link" data-scroll-target="#extended-ls-rtm">Extended LS-RTM</a></li>
+  </ul></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">2. Packages</a></li>
+  <li><a href="#define-or-load-a-true-velocity-model" id="toc-define-or-load-a-true-velocity-model" class="nav-link" data-scroll-target="#define-or-load-a-true-velocity-model">3. Define or load a true velocity model</a></li>
+  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
+  <li><a href="#build-a-smooth-background-model" id="toc-build-a-smooth-background-model" class="nav-link" data-scroll-target="#build-a-smooth-background-model">4. Build a smooth background model</a></li>
+  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
+  <li><a href="#acquisition-geometry-and-source-wavelet" id="toc-acquisition-geometry-and-source-wavelet" class="nav-link" data-scroll-target="#acquisition-geometry-and-source-wavelet">5. Acquisition geometry and source wavelet</a></li>
+  <li><a href="#generate-synthetic-data" id="toc-generate-synthetic-data" class="nav-link" data-scroll-target="#generate-synthetic-data">6. Generate synthetic data</a></li>
+  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#subsurface-common-offset-gathers-extended-adjoint-imaging" id="toc-subsurface-common-offset-gathers-extended-adjoint-imaging" class="nav-link" data-scroll-target="#subsurface-common-offset-gathers-extended-adjoint-imaging">7. Subsurface common offset gathers (extended adjoint imaging)</a></li>
+  <li><a href="#extended-ls-rtm-1" id="toc-extended-ls-rtm-1" class="nav-link" data-scroll-target="#extended-ls-rtm-1">9. Extended LS-RTM</a></li>
+  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
+  <li><a href="#residual-check" id="toc-residual-check" class="nav-link" data-scroll-target="#residual-check">10. Residual check</a></li>
+  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
+  <li><a href="#optional-exploration" id="toc-optional-exploration" class="nav-link" data-scroll-target="#optional-exploration">11. Optional exploration</a>
+  <ul class="collapse">
+  <li><a href="#optional-discussion-prompt" id="toc-optional-discussion-prompt" class="nav-link" data-scroll-target="#optional-discussion-prompt">Optional discussion prompt</a></li>
+  </ul></li>
+  <li><a href="#take-away-summary" id="toc-take-away-summary" class="nav-link" data-scroll-target="#take-away-summary">12. Take-away summary</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">      <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exercise 7: From velocity model to subsurface offset gathers and extended LS-RTM in JUDI/ImageGather</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>     <div id="239c390d" class="cell markdown">
+<p>This notebook is a <strong>start-from-scratch imaging and inversion exercise</strong> for a seismic imaging class.</p>
+<p>You will go through this workflow:</p>
+<ol type="1">
+<li>define or load a <strong>true velocity model</strong>,</li>
+<li>build a <strong>smooth background / migration model</strong>,</li>
+<li>generate <strong>synthetic seismic data</strong>,</li>
+<li>compute <strong>subsurface common offset gathers (SCOGs / CIGs)</strong>,</li>
+<li>run <strong>extended LS-RTM (eLSRTM)</strong> with an extended Born operator.</li>
+</ol>
+<p>This replaces the RTM / LS-RTM exercise with an <strong>extended imaging</strong> point of view: instead of producing only one migrated image, we build an image volume that also depends on <strong>subsurface offset</strong>.</p>
+</div>
+<div id="50060b45" class="cell markdown">
+<section id="learning-goals" class="level2">
+<h2 class="anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>After this exercise, you should be able to explain:</p>
+<ul>
+<li>why we distinguish between a <strong>true model</strong> and a <strong>background model</strong>,</li>
+<li>how <strong>subsurface offset gathers</strong> are computed from the adjoint of an <strong>extended Born operator</strong>,</li>
+<li>why the <strong>zero-offset image</strong> is only one slice of a larger extended image volume,</li>
+<li>how <strong>extended LS-RTM</strong> differs from simply applying the adjoint once,</li>
+<li>how event focusing / defocusing in the offset dimension is connected to background-model quality.</li>
+</ul>
+</section>
+</div>
+<div id="273c38ee" class="cell markdown">
+<section id="background-imaging-vs-extended-imaging-vs-inversion" class="level2">
+<h2 class="anchored" data-anchor-id="background-imaging-vs-extended-imaging-vs-inversion">1. Background: imaging vs extended imaging vs inversion</h2>
+<p>Let (F(m)) denote the nonlinear forward operator, where (m) is squared slowness.</p>
+<section id="synthetic-data-generation" class="level3">
+<h3 class="anchored" data-anchor-id="synthetic-data-generation">Synthetic data generation</h3>
+<p>For a true model (m_{}), synthetic data are generated as [ d_{} = F(m_{}),q. ]</p>
+</section>
+<section id="background-model-prediction" class="level3">
+<h3 class="anchored" data-anchor-id="background-model-prediction">Background-model prediction</h3>
+<p>For a smooth background model (m_0), we can also generate [ d_0 = F(m_0),q. ]</p>
+<p>The <strong>data residual</strong> [ d = d_{} - d_0 ] contains the scattered information that the background model fails to explain.</p>
+</section>
+<section id="extended-linearized-modeling" class="level3">
+<h3 class="anchored" data-anchor-id="extended-linearized-modeling">Extended linearized modeling</h3>
+<p>In extended imaging, we replace the standard Born operator by an <strong>extended Jacobian</strong> [ J_{}(m_0), ] whose adjoint produces a <strong>subsurface offset gather volume</strong> [ I(x,z,h) = J_{}(m_0)^d. ]</p>
+<p>Here (h) is the subsurface horizontal offset.</p>
+</section>
+<section id="extended-ls-rtm" class="level3">
+<h3 class="anchored" data-anchor-id="extended-ls-rtm">Extended LS-RTM</h3>
+<p>Instead of using only the adjoint image, we solve [ <em>x &nbsp; |J</em>{} x - d|_2^2, ] where (x) is now an <strong>extended image volume</strong>. This is often called <strong>extended LS-RTM</strong>.</p>
+</section>
+</section>
+</div>
+<div id="bed690f3" class="cell markdown">
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">2. Packages</h2>
+<p>Run the next cell once.<br>
+If needed, uncomment the <code>Pkg.add(...)</code> line the first time you use this notebook.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div id="bcc03572" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Pkg</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(["PyPlot", "IterativeSolvers", "LinearAlgebra", "Statistics", "Random"])</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(name="JUDI", version="3.3.8")</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Pkg.add(name="ImageGather", version="0.2.6")</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">JUDI</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">ImageGather</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">PyPlot</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">IterativeSolvers</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Statistics</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Random</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="abe7f85d" class="cell markdown">
+<section id="define-or-load-a-true-velocity-model" class="level2">
+<h2 class="anchored" data-anchor-id="define-or-load-a-true-velocity-model">3. Define or load a true velocity model</h2>
+<p>This cell builds a simple synthetic 2D model so the notebook is self-contained.<br>
+For class, you can replace <code>vp_true</code> with <strong>your own velocity model array</strong>.</p>
+<p><strong>Convention used here</strong> - velocity is in <strong>km/s</strong> - grid spacing is in <strong>meters</strong> - time is in <strong>milliseconds</strong></p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div id="f3a83338" class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Grid</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>shape   <span class="op">=</span> (<span class="fl">301</span>, <span class="fl">201</span>)              <span class="co"># (nx, nz)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> shape</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>spacing <span class="op">=</span> (<span class="fl">10.0f0</span>, <span class="fl">10.0f0</span>)        <span class="co"># meters</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>origin  <span class="op">=</span> (<span class="fl">0.0f0</span>, <span class="fl">0.0f0</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># True velocity model (replace with your own model if desired)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>vp_true <span class="op">=</span> <span class="fl">1.5f0</span> <span class="op">.*</span> <span class="fu">ones</span>(<span class="dt">Float32</span>, shape)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>vp_true[<span class="op">:</span>, <span class="fl">70</span><span class="op">:</span><span class="kw">end</span>]  <span class="op">.=</span> <span class="fl">2.0f0</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>vp_true[<span class="op">:</span>, <span class="fl">130</span><span class="op">:</span><span class="kw">end</span>] <span class="op">.=</span> <span class="fl">2.5f0</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># High-velocity lens</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ix <span class="kw">in</span> <span class="fl">90</span><span class="op">:</span><span class="fl">150</span>, iz <span class="kw">in</span> <span class="fl">95</span><span class="op">:</span><span class="fl">135</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ((ix<span class="op">-</span><span class="fl">120</span>)<span class="op">/</span><span class="fl">24</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> ((iz<span class="op">-</span><span class="fl">115</span>)<span class="op">/</span><span class="fl">16</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">&lt;=</span> <span class="fl">1</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        vp_true[ix, iz] <span class="op">=</span> <span class="fl">2.9f0</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Low-velocity pocket</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ix <span class="kw">in</span> <span class="fl">185</span><span class="op">:</span><span class="fl">245</span>, iz <span class="kw">in</span> <span class="fl">120</span><span class="op">:</span><span class="fl">155</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ((ix<span class="op">-</span><span class="fl">215</span>)<span class="op">/</span><span class="fl">28</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">+</span> ((iz<span class="op">-</span><span class="fl">138</span>)<span class="op">/</span><span class="fl">18</span>)<span class="op">^</span><span class="fl">2</span> <span class="op">&lt;=</span> <span class="fl">1</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        vp_true[ix, iz] <span class="op">=</span> <span class="fl">2.15f0</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">7</span>,<span class="fl">4</span>))</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(vp_true<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"jet"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>       extent<span class="op">=</span>[<span class="fl">0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], (shape[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">2</span>], <span class="fl">0</span>])</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colorbar</span>(label<span class="op">=</span><span class="st">"Velocity (km/s)"</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"z (m)"</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"True velocity model"</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="c71c6dc7" class="cell markdown">
+<section id="question-1" class="level3">
+<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
+<p>Why is this called the <strong>true model</strong> in a synthetic experiment?<br>
+What information would be unknown in a real field-data problem?</p>
+<p><em>Write 1–2 sentences here.</em></p>
+</section>
+</div>
+<div id="668d6ca0" class="cell markdown">
+<section id="build-a-smooth-background-model" class="level2">
+<h2 class="anchored" data-anchor-id="build-a-smooth-background-model">4. Build a smooth background model</h2>
+<p>For migration / linearized inversion we usually work with a <strong>smooth</strong> background model. This model is meant to capture the main kinematics without containing every reflector explicitly.</p>
+<p>Below we use a simple repeated 5-point averaging smoother so the notebook stays lightweight.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div id="73076ad8" class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">smooth2d</span>(v; nrepeat<span class="op">=</span><span class="fl">40</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> <span class="fu">copy</span>(v)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> <span class="fu">copy</span>(v)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    nx, nz <span class="op">=</span> <span class="fu">size</span>(v)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="op">=</span> <span class="fl">1</span><span class="op">:</span>nrepeat</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        tmp <span class="op">.=</span> out</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ix <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span>nx<span class="op">-</span><span class="fl">1</span>, iz <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span>nz<span class="op">-</span><span class="fl">1</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            tmp[ix, iz] <span class="op">=</span> (</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>                out[ix, iz] <span class="op">+</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>                out[ix<span class="op">-</span><span class="fl">1</span>, iz] <span class="op">+</span> out[ix<span class="op">+</span><span class="fl">1</span>, iz] <span class="op">+</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                out[ix, iz<span class="op">-</span><span class="fl">1</span>] <span class="op">+</span> out[ix, iz<span class="op">+</span><span class="fl">1</span>]</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            ) <span class="op">/</span> <span class="fl">5.0f0</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        out <span class="op">.=</span> tmp</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>vp_bg <span class="op">=</span> <span class="fu">smooth2d</span>(vp_true; nrepeat<span class="op">=</span><span class="fl">60</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">12</span>,<span class="fl">4</span>))</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">subplot</span>(<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(vp_true<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"jet"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>       extent<span class="op">=</span>[<span class="fl">0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], (shape[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">2</span>], <span class="fl">0</span>])</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"True velocity"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"z (m)"</span>)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="fu">colorbar</span>()</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="fu">subplot</span>(<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(vp_bg<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"jet"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>       extent<span class="op">=</span>[<span class="fl">0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], (shape[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">2</span>], <span class="fl">0</span>])</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Smooth background velocity"</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"z (m)"</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="fu">colorbar</span>()</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="2d1c31c7" class="cell markdown">
+<p>We now convert velocity to squared slowness and define the JUDI models.</p>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div id="84cc314a" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m_true <span class="op">=</span> <span class="fl">1.0f0</span> <span class="op">./</span> vp_true<span class="op">.^</span><span class="fl">2</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>m_bg   <span class="op">=</span> <span class="fl">1.0f0</span> <span class="op">./</span> vp_bg<span class="op">.^</span><span class="fl">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>dm     <span class="op">=</span> m_true <span class="op">.-</span> m_bg</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>model_true <span class="op">=</span> <span class="fu">Model</span>(shape, spacing, origin, m_true; nb<span class="op">=</span><span class="fl">80</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>model_bg   <span class="op">=</span> <span class="fu">Model</span>(shape, spacing, origin, m_bg;   nb<span class="op">=</span><span class="fl">80</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">7</span>,<span class="fl">4</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">imshow</span>(dm<span class="op">'</span>, cmap<span class="op">=</span><span class="st">"gray"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       extent<span class="op">=</span>[<span class="fl">0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], (shape[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">2</span>], <span class="fl">0</span>])</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">colorbar</span>(label<span class="op">=</span><span class="st">"δm"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"z (m)"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Model perturbation: δm = m_true - m_bg"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="fc7d4d73" class="cell markdown">
+<section id="question-2" class="level3">
+<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
+<p>Why do we smooth the velocity model before constructing the imaging / inversion operator?<br>
+How is this related to <strong>kinematics</strong> versus <strong>reflectivity</strong>?</p>
+<p><em>Write 2–3 sentences here.</em></p>
+</section>
+</div>
+<div id="50854726" class="cell markdown">
+<section id="acquisition-geometry-and-source-wavelet" class="level2">
+<h2 class="anchored" data-anchor-id="acquisition-geometry-and-source-wavelet">5. Acquisition geometry and source wavelet</h2>
+<p>We now define a simple surface acquisition geometry: - sources near the surface, - receivers near the surface, - a Ricker wavelet.</p>
+<p>This follows the same spirit as the earlier acoustic imaging exercise: students explicitly build the grid, geometry, and wavelet before imaging.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div id="eeb9e318" class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Source positions</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>nsrc <span class="op">=</span> <span class="fl">15</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>xsrc <span class="op">=</span> <span class="fu">range</span>(<span class="fl">0.0f0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], length<span class="op">=</span>nsrc)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ysrc <span class="op">=</span> <span class="fl">0.0f0</span> <span class="op">.*</span> xsrc</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>zsrc <span class="op">=</span> <span class="fl">20.0f0</span> <span class="op">.*</span> <span class="fu">ones</span>(<span class="dt">Float32</span>, nsrc)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># JUDI expects arrays-of-arrays for separate sources</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>xsrc, ysrc, zsrc <span class="op">=</span> <span class="fu">convertToCell</span>.([xsrc, ysrc, zsrc])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Receiver positions</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>nrec <span class="op">=</span> <span class="fl">201</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>xrec <span class="op">=</span> <span class="fu">range</span>(<span class="fl">0.0f0</span>, (shape[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>spacing[<span class="fl">1</span>], length<span class="op">=</span>nrec)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>yrec <span class="op">=</span> <span class="fl">0.0f0</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>zrec <span class="op">=</span> <span class="fl">20.0f0</span> <span class="op">.*</span> <span class="fu">ones</span>(<span class="dt">Float32</span>, nrec)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Time axis</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>record_time   <span class="op">=</span> <span class="fl">2500.0f0</span>   <span class="co"># ms</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>sampling_rate <span class="op">=</span> <span class="fl">4.0f0</span>      <span class="co"># ms</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>src_geom <span class="op">=</span> <span class="fu">Geometry</span>(xsrc, ysrc, zsrc; dt<span class="op">=</span>sampling_rate, t<span class="op">=</span>record_time)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>rec_geom <span class="op">=</span> <span class="fu">Geometry</span>(xrec, yrec, zrec; dt<span class="op">=</span>sampling_rate, t<span class="op">=</span>record_time, nsrc<span class="op">=</span>nsrc)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Source wavelet</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>f0 <span class="op">=</span> <span class="fl">0.015f0</span>               <span class="co"># kHz = 15 Hz when time is in ms</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>wavelet <span class="op">=</span> <span class="fu">ricker_wavelet</span>(record_time, sampling_rate, f0)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="fu">judiVector</span>(src_geom, wavelet)</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">6</span>,<span class="fl">3</span>))</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>((<span class="fl">0</span><span class="op">:</span><span class="fu">length</span>(wavelet)<span class="op">-</span><span class="fl">1</span>) <span class="op">.*</span> sampling_rate <span class="op">.*</span> <span class="fl">1f-3</span>, wavelet)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">xlabel</span>(<span class="st">"Time (s)"</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ylabel</span>(<span class="st">"Amplitude"</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span>(<span class="st">"Source wavelet"</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">grid</span>(<span class="cn">true</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="06133e31" class="cell markdown">
+<section id="generate-synthetic-data" class="level2">
+<h2 class="anchored" data-anchor-id="generate-synthetic-data">6. Generate synthetic data</h2>
+<p>We compute:</p>
+<ul>
+<li>observed data from the <strong>true model</strong>,</li>
+<li>predicted data from the <strong>background model</strong>,</li>
+<li>the <strong>data residual</strong> used in extended imaging: [ d = d_{} - d_0. ]</li>
+</ul>
+<p>Optionally, we can add band-limited random noise.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="c62ae1f4" class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">1234</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> <span class="fu">Options</span>(IC<span class="op">=</span><span class="st">"isic"</span>, dt_comp<span class="op">=</span><span class="fl">1.0f0</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>F_true <span class="op">=</span> <span class="fu">judiModeling</span>(model_true, q.geometry, rec_geom; options<span class="op">=</span>opt)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>F_bg   <span class="op">=</span> <span class="fu">judiModeling</span>(model_bg,   q.geometry, rec_geom; options<span class="op">=</span>opt)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="pp">@time</span> d_obs <span class="op">=</span> F_true <span class="op">*</span> q</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="pp">@time</span> d0    <span class="op">=</span> F_bg <span class="op">*</span> q</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Residual data</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>d_res <span class="op">=</span> d_obs <span class="op">-</span> d0</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: add band-limited noise to the observed data</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>add_noise <span class="op">=</span> <span class="cn">false</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>snr <span class="op">=</span> <span class="fl">15f0</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> add_noise</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    noise_ <span class="op">=</span> <span class="fu">deepcopy</span>(d_obs)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> l <span class="op">=</span> <span class="fl">1</span><span class="op">:</span>nsrc</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        noise_.data[l] <span class="op">=</span> <span class="fu">randn</span>(<span class="dt">Float32</span>, <span class="fu">size</span>(d_obs.data[l]))</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        noise_.data[l] <span class="op">=</span> <span class="fu">real</span>.(<span class="fu">ifft</span>(<span class="fu">fft</span>(noise_.data[l]) <span class="op">.*</span> <span class="fu">fft</span>(q.data[<span class="fl">1</span>])))</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    noise_ <span class="op">=</span> noise_ <span class="op">/</span> <span class="fu">norm</span>(noise_) <span class="op">*</span> <span class="fu">norm</span>(d_obs) <span class="op">*</span> <span class="fl">10f0</span><span class="op">^</span>(<span class="op">-</span>snr<span class="op">/</span><span class="fl">20f0</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    d_obs <span class="op">=</span> d_obs <span class="op">+</span> noise_</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    d_res <span class="op">=</span> d_obs <span class="op">-</span> d0</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Number of shots: "</span>, nsrc)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Residual norm  : "</span>, <span class="fu">norm</span>(d_res))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div id="3d03bef3" class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data_extent <span class="op">=</span> [xrec[<span class="fl">1</span>], xrec[<span class="kw">end</span>], <span class="fl">1f-3</span><span class="op">*</span>record_time, <span class="fl">0</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">figure</span>(figsize<span class="op">=</span>(<span class="fl">12</span>,<span class="fl">6</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subplot</span>(<span class="fl">3</span>,<span class="fl">3</span>,i)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imshow</span>(d_obs.data[i], cmap<span class="op">=</span><span class="st">"gray"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>, extent<span class="op">=</span>data_extent)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">title</span>(<span class="st">"Observed, shot </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylabel</span>(<span class="st">"t (s)"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subplot</span>(<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">3</span><span class="op">+</span>i)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imshow</span>(d0.data[i], cmap<span class="op">=</span><span class="st">"gray"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>, extent<span class="op">=</span>data_extent)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">title</span>(<span class="st">"Background, shot </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylabel</span>(<span class="st">"t (s)"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subplot</span>(<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">6</span><span class="op">+</span>i)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">imshow</span>(d_res.data[i], cmap<span class="op">=</span><span class="st">"gray"</span>, aspect<span class="op">=</span><span class="st">"auto"</span>, extent<span class="op">=</span>data_extent)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">title</span>(<span class="st">"Residual, shot </span><span class="sc">$</span>i<span class="st">"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">xlabel</span>(<span class="st">"x (m)"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylabel</span>(<span class="st">"t (s)"</span>)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">tight_layout</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="50c68a9f" class="cell markdown">
+<section id="question-3" class="level3">
+<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
+<p>Compare <code>d_obs</code>, <code>d0</code>, and <code>d_res</code>.</p>
+<p>Which events are already explained by the background model, and which events remain in the residual?<br>
+Why is the residual the natural input for linearized imaging?</p>
+<p><em>Write 2–3 sentences here.</em></p>
+</section>
+</div>
+<div id="000391f3" class="cell markdown">
+<section id="subsurface-common-offset-gathers-extended-adjoint-imaging" class="level2">
+<h2 class="anchored" data-anchor-id="subsurface-common-offset-gathers-extended-adjoint-imaging">7. Subsurface common offset gathers (extended adjoint imaging)</h2>
+<p>We now build an <strong>extended Jacobian</strong> and apply its adjoint to the residual data.</p>
+<p>The result is a 3D volume: [ I(x,z,h) = J_{}^ op d, ] where (h) is the subsurface horizontal offset.</p>
+<p>The <code>offsetrange</code> below defines the offsets we want in the extended image.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [21]:</pre></div><div id="643c6433" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Offsets for the extended image volume (in meters)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>n_offsets <span class="op">=</span> <span class="fl">41</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>offset_start <span class="op">=</span> <span class="op">-</span><span class="fl">200</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>offset_end <span class="op">=</span> <span class="fl">200</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>offsetrange <span class="op">=</span> <span class="fu">range</span>(offset_start, stop<span class="op">=</span>offset_end, length<span class="op">=</span>n_offsets)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>nh <span class="op">=</span> <span class="fu">length</span>(offsetrange)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>J_ext <span class="op">=</span> <span class="fu">judiExtendedJacobian</span>(<span class="fu">F_bg</span>(m_bg), q, offsetrange)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="pp">@time</span> cig <span class="op">=</span> <span class="fu">adjoint</span>(J_ext) <span class="op">*</span> d_res</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Mute shallow cells to reduce source/receiver imprint</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>cig[<span class="op">:</span>, <span class="op">:</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>] <span class="op">.=</span> <span class="fl">0.0f0</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Extended image size: "</span>, <span class="fu">size</span>(cig))</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Offsets (m): "</span>, offsetrange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [66]:</pre></div><div id="d61cce98-cabb-4d66-b9c8-719c5f0919c3" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Butterfly plot</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">plot_cig</span>(cig)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> (<span class="fl">10.0f0</span>, <span class="fl">10.0f0</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># font size and label size</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    fs <span class="op">=</span> <span class="fl">10</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    ls <span class="op">=</span> <span class="fl">10</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    cig_fs <span class="op">=</span> <span class="fl">32</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># start plotting</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> <span class="fu">reshape</span>(<span class="fu">permutedims</span>(cig, [<span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">1</span>]), n[<span class="fl">1</span>], n[<span class="fl">2</span>], n_offsets, <span class="fl">1</span>);</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    PyPlot.<span class="fu">rc</span>(<span class="st">"figure"</span>, titlesize<span class="op">=</span>cig_fs)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    PyPlot.<span class="fu">rc</span>(<span class="st">"font"</span>, family<span class="op">=</span><span class="st">"serif"</span>); PyPlot.<span class="fu">rc</span>(<span class="st">"xtick"</span>, labelsize<span class="op">=</span>cig_fs); PyPlot.<span class="fu">rc</span>(<span class="st">"ytick"</span>, labelsize<span class="op">=</span>cig_fs)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    PyPlot.<span class="fu">rc</span>(<span class="st">"axes"</span>, labelsize<span class="op">=</span>cig_fs)     <span class="co"># Default fontsize for x and y labels</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    PyPlot.<span class="fu">rc</span>(<span class="st">"axes"</span>, titlesize<span class="op">=</span>cig_fs)     <span class="co"># Default fontsize for titles</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">### X, Z position in km</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    xpos <span class="op">=</span> <span class="fl">1.2f3</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    zpos <span class="op">=</span> <span class="fl">1.3f3</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># xpos = 2.4f3</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># zpos = 1.0f3</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    xgrid <span class="op">=</span> <span class="fu">Int</span>(<span class="fu">round</span>(xpos <span class="op">/</span> d[<span class="fl">1</span>]))</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    zgrid <span class="op">=</span> <span class="fu">Int</span>(<span class="fu">round</span>(zpos <span class="op">/</span> d[<span class="fl">2</span>]))</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create a figure and a 2x2 grid of subplots</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    fig, axs <span class="op">=</span> <span class="fu">subplots</span>(<span class="fl">2</span>, <span class="fl">2</span>, figsize<span class="op">=</span>(<span class="fl">20</span>,<span class="fl">12</span>), gridspec_kw <span class="op">=</span> <span class="fu">Dict</span>(<span class="st">"width_ratios"</span> <span class="op">=&gt;</span> [<span class="fl">3</span>, <span class="fl">1</span>], <span class="st">"height_ratios"</span> <span class="op">=&gt;</span> [<span class="fl">1</span>, <span class="fl">3</span>]))</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Adjust the spacing between the plots</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">subplots_adjust</span>(hspace<span class="op">=</span><span class="fl">0.0</span>, wspace<span class="op">=</span><span class="fl">0.0</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># vmin1, vmax1 = (-1, 1) .* 23716</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># vmin2, vmax2 = (-1, 1) .* 22608</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># vmin3, vmax3 = (-1, 1) .* 42511</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    vmin1, vmax1 <span class="op">=</span> (<span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>) <span class="op">.*</span> <span class="fu">quantile</span>(<span class="fu">abs</span>.(<span class="fu">vec</span>(y[<span class="op">:</span>,zgrid,<span class="op">:</span>,<span class="fl">1</span>])), <span class="fl">0.98</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    vmin2, vmax2 <span class="op">=</span> (<span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>) <span class="op">.*</span> <span class="fu">quantile</span>(<span class="fu">abs</span>.(<span class="fu">vec</span>(y[<span class="op">:</span>,<span class="op">:</span>,<span class="fu">div</span>(n_offsets,<span class="fl">2</span>)<span class="op">+</span><span class="fl">1</span>,<span class="fl">1</span>])), <span class="fl">0.88</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    vmin3, vmax3 <span class="op">=</span> (<span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span>) <span class="op">.*</span> <span class="fu">quantile</span>(<span class="fu">abs</span>.(<span class="fu">vec</span>(y[xgrid,<span class="op">:</span>,<span class="op">:</span>,<span class="fl">1</span>])), <span class="fl">0.94</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sca</span>(axs[<span class="fl">1</span>, <span class="fl">1</span>])</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Top left subplot</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">1</span>, <span class="fl">1</span>].<span class="fu">imshow</span>(y[<span class="op">:</span>,zgrid,<span class="op">:</span>,<span class="fl">1</span>]<span class="ch">', aspect="auto", cmap="gray", interpolation="none",vmin=vmin1, vmax=vmax1, extent=(0f0, (n[1]-1)*d[1], offset_start, offset_end))</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axs[1, 1].imshow(y[:,zgrid,:,1]', aspect="auto", cmap="gray", interpolation="none",vmin=-0.2, vmax=0.2, extent=(0f0, (n[1]-1)*d[1], offset_start, offset_end))</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axs[1, 1].set_ylabel("Offset [m]", fontsize=cig_fs)</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">1</span>, <span class="fl">1</span>].<span class="fu">set_xticklabels</span>([])</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">1</span>, <span class="fl">1</span>].<span class="fu">set_xlabel</span>(<span class="st">""</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hlines</span>(y<span class="op">=</span><span class="fl">0</span>, colors<span class="op">=:</span>b, xmin<span class="op">=</span><span class="fl">0</span>, xmax<span class="op">=</span>(n[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>d[<span class="fl">1</span>], linewidth<span class="op">=</span><span class="fl">3</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vlines</span>(x<span class="op">=</span>xpos, colors<span class="op">=:</span>b, ymin<span class="op">=</span>offset_start, ymax<span class="op">=</span>offset_end, linewidth<span class="op">=</span><span class="fl">3</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Bottom left subplot</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sca</span>(axs[<span class="fl">2</span>, <span class="fl">1</span>])</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">imshow</span>(y[<span class="op">:</span>,<span class="op">:</span>,<span class="fu">div</span>(n_offsets,<span class="fl">2</span>)<span class="op">+</span><span class="fl">1</span>,<span class="fl">1</span>]<span class="ch">', aspect="auto", cmap="gray", interpolation="none",vmin=vmin2, vmax=vmax2, extent=(0f0, (n[1]-1)*d[1], (n[2]-1)*d[2], 0f0))</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axs[2, 1].imshow(y[:,:,div(n_offsets,2)+1,1]', aspect="auto", cmap="gray", interpolation="none",vmin=-0.2, vmax=0.2,</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="co"># extent=(0f0, (n[1]-1)*d[1], (n[2]-1)*d[2], 0f0))</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">set_xlabel</span>(<span class="st">"X [m]"</span>, fontsize<span class="op">=</span>cig_fs)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">set_ylabel</span>(<span class="st">"Z [m]"</span>, fontsize<span class="op">=</span>cig_fs)</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">set_xticks</span>([<span class="fl">0</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">1500</span>, <span class="fl">2000</span>, <span class="fl">2500</span>])</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">set_xticklabels</span>([<span class="st">"0"</span>, <span class="st">"500"</span>, <span class="st">"1000"</span>, <span class="st">"1500"</span>, <span class="st">"2000"</span>, <span class="st">"2500"</span>])</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">set_yticks</span>([<span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">1500</span>])</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">1</span>].<span class="fu">set_yticklabels</span>([<span class="st">"500"</span>, <span class="st">"1000"</span>, <span class="st">"1500"</span>])</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axs[2, 2].get_shared_x_axes().join(axs[1, 1], axs[2, 1])</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vlines</span>(x<span class="op">=</span>xpos, colors<span class="op">=:</span>b, ymin<span class="op">=</span><span class="fl">0</span>, ymax<span class="op">=</span>(n[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>d[<span class="fl">2</span>], linewidth<span class="op">=</span><span class="fl">3</span>)</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hlines</span>(y<span class="op">=</span>zpos, colors<span class="op">=:</span>b, xmin<span class="op">=</span><span class="fl">0</span>, xmax<span class="op">=</span>(n[<span class="fl">1</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>d[<span class="fl">1</span>], linewidth<span class="op">=</span><span class="fl">3</span>)</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Top right subplot</span></span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">1</span>, <span class="fl">2</span>].<span class="fu">set_visible</span>(<span class="cn">false</span>)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Bottom right subplot</span></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sca</span>(axs[<span class="fl">2</span>, <span class="fl">2</span>])</span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">2</span>].<span class="fu">imshow</span>(y[xgrid,<span class="op">:</span>,<span class="op">:</span>,<span class="fl">1</span>], aspect<span class="op">=</span><span class="st">"auto"</span>, cmap<span class="op">=</span><span class="st">"gray"</span>, interpolation<span class="op">=</span><span class="st">"none"</span>,vmin<span class="op">=</span>vmin3, vmax<span class="op">=</span>vmax3,</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>    extent<span class="op">=</span>(offset_start, offset_end, (n[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>d[<span class="fl">2</span>], <span class="fl">0f0</span>))</span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axs[2, 2].imshow(y[xgrid,:,:,1], aspect="auto", cmap="gray", interpolation="none",vmin=-0.2, vmax=0.2,</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># extent=(offset_start, offset_end, (n[2]-1)*d[2], 0f0))</span></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">2</span>].<span class="fu">set_xlabel</span>(<span class="st">"Offset [m]"</span>, fontsize<span class="op">=</span>cig_fs)</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Share y-axis with bottom left</span></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axs[2, 2].get_shared_y_axes().join(axs[2, 2], axs[2, 1])</span></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">2</span>].<span class="fu">set_yticklabels</span>([])</span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>    axs[<span class="fl">2</span>, <span class="fl">2</span>].<span class="fu">set_ylabel</span>(<span class="st">""</span>)</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">vlines</span>(x<span class="op">=</span><span class="fl">0</span>, colors<span class="op">=:</span>b, ymin<span class="op">=</span><span class="fl">0</span>, ymax<span class="op">=</span>(n[<span class="fl">2</span>]<span class="op">-</span><span class="fl">1</span>)<span class="op">*</span>d[<span class="fl">2</span>], linewidth<span class="op">=</span><span class="fl">3</span>)</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hlines</span>(y<span class="op">=</span>zpos, colors<span class="op">=:</span>b, xmin<span class="op">=</span>offset_end, xmax<span class="op">=</span>offset_start, linewidth<span class="op">=</span><span class="fl">3</span>)</span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove the space between subplots and hide the spines</span></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ax <span class="kw">in</span> <span class="fu">reshape</span>(axs, <span class="op">:</span>)</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> spine <span class="kw">in</span> [<span class="st">"top"</span>, <span class="st">"right"</span>, <span class="st">"bottom"</span>, <span class="st">"left"</span>]</span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>            ax.spines[spine].<span class="fu">set_visible</span>(<span class="cn">false</span>)</span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>    PyPlot.<span class="fu">show</span>()</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>plot_cig (generic function with 2 methods)</code></pre>
+</div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [22]:</pre></div><div id="4c58455d-0cc6-4411-ae10-1060ba1a4d95" class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cig</span>(cig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="82dbf8cd" class="cell markdown">
+<section id="extended-ls-rtm-1" class="level2">
+<h2 class="anchored" data-anchor-id="extended-ls-rtm-1">9. Extended LS-RTM</h2>
+<p>We now solve the least-squares problem [ <em>x &nbsp;rac12 |J</em>{} x - d|_2^2, ] where (x) is an <strong>extended image volume</strong>.</p>
+<p>This is the extended analogue of LS-RTM: instead of solving for one image (x(x,z)), we solve for (x(x,z,h)).</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [24]:</pre></div><div id="4cdf44e9-f4a5-4ae9-8d17-aec07da667d2" class="cell" data-scrolled="true">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>niter <span class="op">=</span> <span class="fl">10</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># extended image in the same shape returned by the adjoint</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">Float32</span>, <span class="fu">size</span>(cig))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>fval <span class="op">=</span> <span class="fu">zeros</span>(<span class="dt">Float32</span>, niter)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="op">=</span> <span class="fl">1</span><span class="op">:</span>niter</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">println</span>(<span class="st">"Iteration "</span>, k)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># forward</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> J_ext <span class="op">*</span> x <span class="op">-</span> d_res</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># gradient</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    g <span class="op">=</span> J_ext<span class="op">'</span> <span class="op">*</span> r</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># basic step length</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    α <span class="op">=</span> <span class="fu">norm</span>(r)<span class="op">^</span><span class="fl">2</span> <span class="op">/</span> <span class="fu">norm</span>(g)<span class="op">^</span><span class="fl">2</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    x <span class="op">.-=</span> α <span class="op">.*</span> g</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    fval[k] <span class="op">=</span> <span class="fl">0.5f0</span> <span class="op">*</span> <span class="fu">norm</span>(r)<span class="op">^</span><span class="fl">2</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>img_ext_ls <span class="op">=</span> <span class="fu">copy</span>(x)          <span class="co"># (nh, nx, nz) in your case</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>img_ext_ls[<span class="op">:</span>, <span class="op">:</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">20</span>] <span class="op">.=</span> <span class="fl">0f0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div id="c2c882fc-df4a-4d03-b990-307fdd108dce" class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cig</span>(img_ext_ls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="938527b0" class="cell markdown">
+<section id="question-5" class="level3">
+<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
+<p>Compare the adjoint extended image and the extended LS-RTM result.</p>
+<p>Comment on: 1. sharpness, 2. amplitude balancing, 3. artifact suppression.</p>
+<p><em>Write 2–3 sentences or 3 short bullet points here.</em></p>
+</section>
+</div>
+<div id="30c7fbec" class="cell markdown">
+<section id="residual-check" class="level2">
+<h2 class="anchored" data-anchor-id="residual-check">10. Residual check</h2>
+<p>A useful sanity check is whether the eLSRTM solution reduces the data misfit compared with the zero extended image.</p>
+</section>
+</div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [28]:</pre></div><div id="207c6736" class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>r0 <span class="op">=</span> d_res</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>r_ls <span class="op">=</span> J_ext <span class="op">*</span> x <span class="op">-</span> d_res</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"||r0||₂      = "</span>, <span class="fu">norm</span>(r0))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"||r_ls||₂    = "</span>, <span class="fu">norm</span>(r_ls))</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">"Reduction factor ||r_ls|| / ||r0|| = "</span>, <span class="fu">norm</span>(r_ls)<span class="op">/</span><span class="fu">norm</span>(r0))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div id="ed849bec" class="cell markdown">
+<section id="question-6" class="level3">
+<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
+<p>Why does a lower least-squares residual <strong>not</strong> automatically mean that the recovered image is geologically perfect?</p>
+<p>Give one reason related to physics / modeling and one reason related to inversion / nonuniqueness.</p>
+<p><em>Write 2–3 sentences here.</em></p>
+</section>
+</div>
+<div id="d9c6964a" class="cell markdown">
+<section id="optional-exploration" class="level2">
+<h2 class="anchored" data-anchor-id="optional-exploration">11. Optional exploration</h2>
+<p>Try one or two of the following:</p>
+<ul>
+<li>change the <code>offsetrange</code>,</li>
+<li>increase or decrease the number of LS iterations,</li>
+<li>add noise by setting <code>add_noise = true</code>,</li>
+<li>compare a <strong>better</strong> and a <strong>worse</strong> background model,</li>
+<li>choose several <code>ix_gather</code> values and compare local gathers,</li>
+<li>replace the synthetic model with your own class velocity model.</li>
+</ul>
+<section id="optional-discussion-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="optional-discussion-prompt">Optional discussion prompt</h3>
+<p>If the background velocity is poor, where do you expect the error to appear first: - in the <strong>data residual</strong>, - in the <strong>focusing across subsurface offset</strong>, - in the <strong>stacked image</strong>?</p>
+</section>
+</section>
+</div>
+<div id="0739539a" class="cell markdown">
+<section id="take-away-summary" class="level2">
+<h2 class="anchored" data-anchor-id="take-away-summary">12. Take-away summary</h2>
+<ul>
+<li><strong>Observed data</strong> come from the <strong>true model</strong>.</li>
+<li><strong>Residual data</strong> are formed by subtracting the <strong>background-model prediction</strong>.</li>
+<li>The adjoint of the <strong>extended Jacobian</strong> produces a <strong>subsurface offset gather volume</strong>.</li>
+<li>The <strong>zero-offset slice</strong> is only one part of that extended image.</li>
+<li><strong>Extended LS-RTM</strong> solves a least-squares inverse problem for the full extended image volume.</li>
+<li>The quality of the gathers and the inversion depends strongly on the <strong>background velocity model</strong>.</li>
+</ul>
+</section>
+</div>
+
+
+     </main> <!-- /main -->  <script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/flexie\.github\.io\/EAS-8803-FH\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>  </div> <!-- /content --> 
+  
+</body></html>
