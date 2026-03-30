@@ -60,470 +60,470 @@
     ]
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#title-custom",
-    "href": "slides/week-11/fwi-lecture.html#title-custom",
+    "objectID": "slides/week-11/16-fwi-lecture.html#title-custom",
+    "href": "slides/week-11/16-fwi-lecture.html#title-custom",
     "title": "Basics of Full-Waveform Inversion",
     "section": "",
     "text": "Basics of Full-Waveform Inversion\nFelix J. Herrmann\nSchool of Earth and Ocean Sciences — Georgia Institute of Technology\nBased on Virieux and Operto (2009), Virieux et al. (2017), Jones (2019), Kim et al. (2022)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#outline",
-    "href": "slides/week-11/fwi-lecture.html#outline",
+    "objectID": "slides/week-11/16-fwi-lecture.html#outline",
+    "href": "slides/week-11/16-fwi-lecture.html#outline",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Outline",
     "text": "Outline\n\nMotivation — Why do we need FWI?\nTwo types of wave interactions — Forward vs. backward scattering\nSingle scattering formulation — The physics of FWI\nFresnel zones and resolution — What can FWI resolve?\nOptimization — Gradient descent to quasi-Newton\nCycle skipping — The fundamental challenge\nTopology of gradients — Banana-doughnut vs. rabbit ears\nFWI in practice with Devito — Tutorials 01–03\nSLIM contributions & conclusions\n\n\nThis is the first in a series of four lectures on Full-Waveform Inversion. We build from the motivation through the core theory and key challenges."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#why-fwi",
-    "href": "slides/week-11/fwi-lecture.html#why-fwi",
+    "objectID": "slides/week-11/16-fwi-lecture.html#why-fwi",
+    "href": "slides/week-11/16-fwi-lecture.html#why-fwi",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Why FWI?",
     "text": "Why FWI?\nThe velocity model problem\n\nMigration can only construct reliable images of the subsurface if we have an accurate representation of the parameter variation within the Earth. (Jones 2019)\n\n. . .\nConsequently, much effort has gone into developing model-building tools to estimate these parameters — the most important of which is velocity."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#migration-imaging-artefacts",
-    "href": "slides/week-11/fwi-lecture.html#migration-imaging-artefacts",
+    "objectID": "slides/week-11/16-fwi-lecture.html#migration-imaging-artefacts",
+    "href": "slides/week-11/16-fwi-lecture.html#migration-imaging-artefacts",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Migration imaging artefacts",
     "text": "Migration imaging artefacts\n\nThe migration imaging condition. (a) Simple reflection from a flat event. (b) Downgoing source-side wavefield for two-way propagation. (c) Upcoming receiver-side wavefield. (d) Imaging condition forms the final image plus cross-talk terms. Adapted from Jones (2019).\nThere is crosstalk between up and downgoing waves in the imaging condition. The grey regions along coincident portions of the ray-paths contribute unwanted cross-talk terms."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cross-talk-in-rtm-imaging",
-    "href": "slides/week-11/fwi-lecture.html#cross-talk-in-rtm-imaging",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cross-talk-in-rtm-imaging",
+    "href": "slides/week-11/16-fwi-lecture.html#cross-talk-in-rtm-imaging",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cross-talk in RTM imaging",
     "text": "Cross-talk in RTM imaging\n\nShallow section from the RTM image: (a) prior to filtering the backscattered noise; (b) after filtering of RTM angle gathers. From Jones (2019).The low-frequency background “image condition” noise is visible above the critical angle — these are the rabbit-ear components of the FWI gradient."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#what-is-fwi",
-    "href": "slides/week-11/fwi-lecture.html#what-is-fwi",
+    "objectID": "slides/week-11/16-fwi-lecture.html#what-is-fwi",
+    "href": "slides/week-11/16-fwi-lecture.html#what-is-fwi",
     "title": "Basics of Full-Waveform Inversion",
     "section": "What is FWI?",
     "text": "What is FWI?\n\n\n\n\n\n\nDefinition\n\n\nFull waveform inversion (FWI) is a high-resolution seismic imaging technique that is based on using the entire content of seismic traces for extracting physical parameters of the medium sampled by seismic waves. (Virieux et al. 2017)\n\n\n\n\nFWI provides the highest resolution of indirect osculating physical methods, compared with results from gravimetry, geomagnetism, or electromagnetism."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#two-types-of-wave-interactions",
-    "href": "slides/week-11/fwi-lecture.html#two-types-of-wave-interactions",
+    "objectID": "slides/week-11/16-fwi-lecture.html#two-types-of-wave-interactions",
+    "href": "slides/week-11/16-fwi-lecture.html#two-types-of-wave-interactions",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Two types of wave interactions",
     "text": "Two types of wave interactions\n\n\nSmooth (transmission)\n\nWave directions are slightly deviated by variations of medium properties\nSmall variations in the wavefront\nWaves continue to propagate forward after interaction\nForward scattering → transmission regime\n\n\nRough (reflection)\n\nWave directions are significantly modified by medium properties\nBackward scattering → reflection regime\nReflection waves have a completely different direction compared to incident wave\n\n\n\nThese two probing interactions have led to two strategies for imaging the medium: tomographic approaches and migration methods. (Virieux et al. 2017)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#wavenumber-coverage",
-    "href": "slides/week-11/fwi-lecture.html#wavenumber-coverage",
+    "objectID": "slides/week-11/16-fwi-lecture.html#wavenumber-coverage",
+    "href": "slides/week-11/16-fwi-lecture.html#wavenumber-coverage",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Wavenumber coverage",
     "text": "Wavenumber coverage\n\nExtraction percentage of vertical model variation when considering the vertical component \\(k_z\\) of the wavenumber vector. Tomographic tools reconstruct the smooth part of the velocity structure, whereas migration tools reconstruct the contrasted part. There is an apparent insensitivity at intermediate values of wavenumbers. After Figure 1.4-3 of Claerbout (1985). From Virieux et al. (2017)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#hierarchies-of-wave-interactions",
-    "href": "slides/week-11/fwi-lecture.html#hierarchies-of-wave-interactions",
+    "objectID": "slides/week-11/16-fwi-lecture.html#hierarchies-of-wave-interactions",
+    "href": "slides/week-11/16-fwi-lecture.html#hierarchies-of-wave-interactions",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Hierarchies of wave interactions",
     "text": "Hierarchies of wave interactions\n\nCommon shot gather with different organized hierarchies in the time recording. Yellow phases express the reflection regime with time delays, whereas undulations visible on direct waves (red curves) and on hyperbolic branches of reflected phases (yellow curves) identify the transmission regime. From Virieux et al. (2017)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#diving-waves-and-subsurface-illumination",
-    "href": "slides/week-11/fwi-lecture.html#diving-waves-and-subsurface-illumination",
+    "objectID": "slides/week-11/16-fwi-lecture.html#diving-waves-and-subsurface-illumination",
+    "href": "slides/week-11/16-fwi-lecture.html#diving-waves-and-subsurface-illumination",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Diving waves and subsurface illumination",
     "text": "Diving waves and subsurface illumination\n\nSeismic wave propagation through complex subsurface structures illustrating how diving waves interact with geological heterogeneities. From Sanford et al. (2023)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#the-fwi-approach",
-    "href": "slides/week-11/fwi-lecture.html#the-fwi-approach",
+    "objectID": "slides/week-11/16-fwi-lecture.html#the-fwi-approach",
+    "href": "slides/week-11/16-fwi-lecture.html#the-fwi-approach",
     "title": "Basics of Full-Waveform Inversion",
     "section": "The FWI approach",
     "text": "The FWI approach\nIn our approach we do not use any linearization of the forward modeling — such as the linear Born approach — which is considered in migration approaches. (Virieux et al. 2017)\n\nWhen we reconstruct our model by beginning with an initial model and revising it iteratively, nonlinearity is implicitly introduced by repeated exact forward modeling at each update stage."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#diving-waves-and-subsurface-illumination-1",
-    "href": "slides/week-11/fwi-lecture.html#diving-waves-and-subsurface-illumination-1",
+    "objectID": "slides/week-11/16-fwi-lecture.html#diving-waves-and-subsurface-illumination-1",
+    "href": "slides/week-11/16-fwi-lecture.html#diving-waves-and-subsurface-illumination-1",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Diving waves and subsurface illumination",
     "text": "Diving waves and subsurface illumination\n\nSeismic wave propagation around subsurface igneous sill complexes, showing diving wave paths and their interaction with complex geological structures. From Sanford et al. (2023)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#the-misfit-function",
-    "href": "slides/week-11/fwi-lecture.html#the-misfit-function",
+    "objectID": "slides/week-11/16-fwi-lecture.html#the-misfit-function",
+    "href": "slides/week-11/16-fwi-lecture.html#the-misfit-function",
     "title": "Basics of Full-Waveform Inversion",
     "section": "The misfit function",
     "text": "The misfit function\nThe FWI problem is defined as minimizing the least-squares misfit:\n\\[\n\\min_{\\mathbf{m}} \\mathcal{C}(\\mathbf{m}) = \\frac{1}{2} \\int_0^{T_w} \\int_{\\partial\\Omega_s} \\int_{\\partial\\Omega_r} \\left| \\mathbf{d}_\\text{syn}^\\mathbf{m}(\\mathbf{x}_r, \\mathbf{x}_s, t) - \\mathbf{d}_\\text{obs}(\\mathbf{x}_r, \\mathbf{x}_s, t) \\right|^2 \\, dx_r \\, dx_s \\, dt\n\\tag{1}\\]\nwhere \\(\\mathbf{d}_\\text{syn}^\\mathbf{m}\\) is the synthetic data computed in model \\(\\mathbf{m}\\), \\(\\mathbf{d}_\\text{obs}\\) is the observed data, \\(T_w\\) is the recording time, \\(\\partial\\Omega_s\\) and \\(\\partial\\Omega_r\\) are the source and receiver domains. (Virieux et al. 2017, eq. 3)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#iterative-model-update",
-    "href": "slides/week-11/fwi-lecture.html#iterative-model-update",
+    "objectID": "slides/week-11/16-fwi-lecture.html#iterative-model-update",
+    "href": "slides/week-11/16-fwi-lecture.html#iterative-model-update",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Iterative model update",
     "text": "Iterative model update\nThis problem is solved through local nonlinear optimization. An iterative sequence \\(\\mathbf{m}_k(\\mathbf{x})\\) is built from an initial guess \\(\\mathbf{m}_\\text{ini}(\\mathbf{x})\\):\n\\[\n\\mathbf{m}_{k+1} = \\mathbf{m}_k + \\alpha_k \\Delta\\mathbf{m}_k\n\\tag{2}\\]\nwhere \\(\\alpha_k \\in \\mathbb{R}\\) is computed through a linesearch or trust-region procedure. (Virieux et al. 2017, eq. 4)\n\nNewton equation\nFor the Newton method, \\(\\alpha_k = 1\\) and \\(\\Delta\\mathbf{m}_k\\) is the solution of:\n\\[\n\\mathcal{H}(\\mathbf{m}_k) \\Delta\\mathbf{m}_k = -\\nabla\\mathcal{C}(\\mathbf{m}_k)\n\\tag{3}\\]\nwhere \\(\\mathcal{H}(\\mathbf{m}_k)\\) is the Hessian matrix and \\(\\nabla\\mathcal{C}(\\mathbf{m})\\) is the gradient vector. (Virieux et al. 2017, eq. 5)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#gradient-and-hessian",
-    "href": "slides/week-11/fwi-lecture.html#gradient-and-hessian",
+    "objectID": "slides/week-11/16-fwi-lecture.html#gradient-and-hessian",
+    "href": "slides/week-11/16-fwi-lecture.html#gradient-and-hessian",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Gradient and Hessian",
     "text": "Gradient and Hessian\nThe FWI method can be expressed in terms of the Jacobian operator \\(\\mathcal{J}(\\mathbf{m}) = \\partial\\mathbf{d}_\\text{syn}/\\partial\\mathbf{m}\\):\n\\[\n\\nabla\\mathcal{C}(\\mathbf{m}) = \\mathcal{J}^T(\\mathbf{m})(\\mathbf{d}_\\text{syn}(\\mathbf{m}) - \\mathbf{d}_\\text{obs})\n\\]\n\\[\n\\mathcal{H}(\\mathbf{m}) = \\mathcal{J}^T(\\mathbf{m})\\mathcal{J}(\\mathbf{m}) + \\frac{\\partial\\mathcal{J}}{\\partial\\mathbf{m}}(\\mathbf{d}_\\text{syn}(\\mathbf{m}) - \\mathbf{d}_\\text{obs})\n\\tag{4}\\]\n(Virieux et al. 2017, eq. 6)\n\nGauss-Newton approximation\nDropping the second term of the Hessian gives:\n\\[\n\\mathcal{H}_\\text{GN}(\\mathbf{m}) = \\mathcal{J}^T(\\mathbf{m})\\mathcal{J}(\\mathbf{m})\n\\tag{5}\\]\nThe model update at iteration \\(k\\) becomes the least-squares solution:\n\\[\n\\mathcal{J}(\\mathbf{m}_k) \\Delta\\mathbf{m}_k = -(\\mathbf{d}_\\text{syn}(\\mathbf{m}_k) - \\mathbf{d}_\\text{obs})\n\\tag{6}\\]\n(Virieux et al. 2017, eqs. 7–9)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#the-forward-problem",
-    "href": "slides/week-11/fwi-lecture.html#the-forward-problem",
+    "objectID": "slides/week-11/16-fwi-lecture.html#the-forward-problem",
+    "href": "slides/week-11/16-fwi-lecture.html#the-forward-problem",
     "title": "Basics of Full-Waveform Inversion",
     "section": "The forward problem",
     "text": "The forward problem\nWave equation in the time domain\n\\[\n\\mathbf{M}(\\mathbf{x}) \\frac{d^2\\mathbf{u}(\\mathbf{x},t)}{dt^2} = \\mathbf{A}(\\mathbf{x})\\mathbf{u}(\\mathbf{x},t) + \\mathbf{s}(\\mathbf{x},t)\n\\tag{7}\\]\nwhere \\(\\mathbf{M}\\) and \\(\\mathbf{A}\\) are the mass and stiffness matrices, \\(\\mathbf{s}\\) is the source term, and \\(\\mathbf{u}\\) is the seismic wavefield. (Virieux and Operto 2009, eq. 1)\nWave equation in the frequency domain\n\\[\n\\mathbf{B}(\\mathbf{x},\\omega)\\mathbf{u}(\\mathbf{x},\\omega) = \\mathbf{s}(\\mathbf{x},\\omega)\n\\tag{8}\\]\nwhere \\(\\mathbf{B}\\) is the impedance matrix — a sparse complex-valued matrix. (Virieux and Operto 2009, eq. 2)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#the-wavefield-as-a-nonlinear-operator",
-    "href": "slides/week-11/fwi-lecture.html#the-wavefield-as-a-nonlinear-operator",
+    "objectID": "slides/week-11/16-fwi-lecture.html#the-wavefield-as-a-nonlinear-operator",
+    "href": "slides/week-11/16-fwi-lecture.html#the-wavefield-as-a-nonlinear-operator",
     "title": "Basics of Full-Waveform Inversion",
     "section": "The wavefield as a nonlinear operator",
     "text": "The wavefield as a nonlinear operator\nThe relationship between the seismic wavefield and the parameters is nonlinear and can be written compactly as:\n\\[\n\\mathbf{u} = \\mathbf{G}(\\mathbf{m})\n\\tag{9}\\]\n(Virieux and Operto 2009, eq. 3)\n\nThe data-misfit vector \\(\\Delta\\mathbf{d} = \\mathbf{d}_\\text{obs} - \\mathbf{d}_\\text{cal}(\\mathbf{m})\\) with \\(\\mathbf{d}_\\text{cal}(\\mathbf{m})=\\mathcal{R}\\mathbf{u}\\) of dimension \\(N\\) captures the differences at receiver positions for each source-receiver pair. The misfit function is:\n\\[\n\\mathcal{C}(\\mathbf{m}) = \\frac{1}{2} \\Delta\\mathbf{d}^\\dagger \\Delta\\mathbf{d}\n\\tag{10}\\]\nwhere \\(\\dagger\\) denotes the adjoint operator (transpose conjugate). (Virieux and Operto 2009, eq. 4)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#gradient-of-the-misfit-function",
-    "href": "slides/week-11/fwi-lecture.html#gradient-of-the-misfit-function",
+    "objectID": "slides/week-11/16-fwi-lecture.html#gradient-of-the-misfit-function",
+    "href": "slides/week-11/16-fwi-lecture.html#gradient-of-the-misfit-function",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Gradient of the misfit function",
     "text": "Gradient of the misfit function\nAdjoint-state gradient\nThe gradient can be computed without explicitly building the sensitivity matrix, using the adjoint-state method:\n\\[\n\\frac{\\partial\\mathcal{C}}{\\partial\\mathbf{m}}(\\mathbf{x}) = \\sum_s \\int_0^{T_w} dt \\, \\boldsymbol{\\lambda}^T(\\mathbf{x},t) \\frac{\\partial\\mathbf{M}}{\\partial\\mathbf{m}}(\\mathbf{x}) \\partial_t \\mathbf{w}(\\mathbf{x},t)\n\\]\n(Virieux et al. 2017, eq. 28)\n. . .\nThe gradient is formed by the zero-lag crosscorrelation between the adjoint wavefield \\(\\boldsymbol{\\lambda}\\) and the time derivative of the incident wavefield \\(\\mathbf{w}\\), multiplied by a local scattering operator."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#sensitivity-kernel-and-fresnel-zones",
-    "href": "slides/week-11/fwi-lecture.html#sensitivity-kernel-and-fresnel-zones",
+    "objectID": "slides/week-11/16-fwi-lecture.html#sensitivity-kernel-and-fresnel-zones",
+    "href": "slides/week-11/16-fwi-lecture.html#sensitivity-kernel-and-fresnel-zones",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Sensitivity kernel and Fresnel zones",
     "text": "Sensitivity kernel and Fresnel zones\nThe sensitivity kernel\n\nMisfit function gradient showing the first Fresnel zone between a source and receiver in a homogeneous background. The central ellipse represents the first Fresnel zone. The outer fringes represent migration isochrones whose width decreases with depth according to the scattering angle.The dashed red lines delineate the first Fresnel zone and an isochrone surface. From Virieux et al. (2017)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#what-are-fresnel-zones",
-    "href": "slides/week-11/fwi-lecture.html#what-are-fresnel-zones",
+    "objectID": "slides/week-11/16-fwi-lecture.html#what-are-fresnel-zones",
+    "href": "slides/week-11/16-fwi-lecture.html#what-are-fresnel-zones",
     "title": "Basics of Full-Waveform Inversion",
     "section": "What are Fresnel zones?",
     "text": "What are Fresnel zones?\nThe first Fresnel zone is the region where the phase time does not differ by more than half a period with respect to the direct arrival.\n\nWaves in the first Fresnel zone, primarily sampled by direct waves, provide a potential contribution for updating the medium with an expected smooth resolution (Woodward 1992)\nOuter interference fringes, mainly sampled by reflected waves, yield a zone with an expected high resolution\n\n\nResolution from diffraction tomography\nThe wavenumber vector \\(\\mathbf{k}\\) linking the experimental setup to spatial resolution:\n\\[\n\\mathbf{k} = \\frac{2f}{c_0} \\cos\\left(\\frac{\\theta}{2}\\right) \\mathbf{n} = \\frac{4\\pi}{\\lambda} \\cos\\left(\\frac{\\theta}{2}\\right) \\mathbf{n}\n\\tag{11}\\]\nwhere \\(f\\) is frequency, \\(c_0\\) is velocity, \\(\\theta\\) is the diffraction/aperture angle, \\(\\lambda\\) is wavelength, and \\(\\mathbf{n}\\) is the unit vector. (Virieux et al. 2017, eq. 29; Virieux and Operto 2009, eq. 30)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#resolution-from-diffraction-tomography-1",
-    "href": "slides/week-11/fwi-lecture.html#resolution-from-diffraction-tomography-1",
+    "objectID": "slides/week-11/16-fwi-lecture.html#resolution-from-diffraction-tomography-1",
+    "href": "slides/week-11/16-fwi-lecture.html#resolution-from-diffraction-tomography-1",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Resolution from diffraction tomography",
     "text": "Resolution from diffraction tomography\n\n\n\\[\n\\mathbf{k} = \\frac{2f}{c_0} \\cos\\left(\\frac{\\theta}{2}\\right) \\mathbf{n} = \\frac{4\\pi}{\\lambda} \\cos\\left(\\frac{\\theta}{2}\\right) \\mathbf{n}\n\\]\n\nOne frequency + one aperture \\(\\rightarrow\\) one wavenumber\nSmall \\(\\theta\\) (transmission) \\(\\rightarrow\\) low wavenumbers\nLarge \\(\\theta\\) (reflection) \\(\\rightarrow\\) high wavenumbers\n\n\n\n\n\nIllustration of diving wave paths and resolution. From Sanford et al. (2023)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#attainable-resolution",
-    "href": "slides/week-11/fwi-lecture.html#attainable-resolution",
+    "objectID": "slides/week-11/16-fwi-lecture.html#attainable-resolution",
+    "href": "slides/week-11/16-fwi-lecture.html#attainable-resolution",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Attainable resolution",
     "text": "Attainable resolution\nFrequency-domain sensitivity kernel\n\nWavepath. (a) Wavepath for a receiver located at a horizontal distance of 70 km. The frequency is 5 Hz and the velocity in the homogeneous background is 6 km/s. (b) Monochromatic Green’s function for a point source. From Virieux and Operto (2009).\n\n\n\n\n\nNote\n\n\nKey insight: One frequency and one aperture map one wavenumber in the model space. Frequency and aperture have redundant control of the wavenumber coverage."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#imaging-an-inclusion-by-fwi",
-    "href": "slides/week-11/fwi-lecture.html#imaging-an-inclusion-by-fwi",
+    "objectID": "slides/week-11/16-fwi-lecture.html#imaging-an-inclusion-by-fwi",
+    "href": "slides/week-11/16-fwi-lecture.html#imaging-an-inclusion-by-fwi",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Imaging an inclusion by FWI",
     "text": "Imaging an inclusion by FWI\n\nImaging an inclusion by FWI for three acquisition geometries. (a) Crosshole: 6 frequencies inverted successively, 20 iterations per frequency. (b) Vertical and horizontal crosshole. (c) Surface experiment. Note the anisotropy of resolution due to illumination. From Virieux and Operto (2009)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#optimization-methods",
-    "href": "slides/week-11/fwi-lecture.html#optimization-methods",
+    "objectID": "slides/week-11/16-fwi-lecture.html#optimization-methods",
+    "href": "slides/week-11/16-fwi-lecture.html#optimization-methods",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Optimization methods",
     "text": "Optimization methods\nGradient (steepest) descent with linesearch\nThe gradient of \\(\\mathcal{C}(\\mathbf{m})\\) with respect to model parameter \\(m_l\\):\n\\[\n\\nabla C_\\mathbf{m} = \\frac{\\partial C(\\mathbf{m})}{\\partial\\mathbf{m}} = -\\Re\\left[\\mathbf{J}^\\dagger \\Delta\\mathbf{d}\\right]\n\\tag{12}\\]\nThe perturbation model is searched in the direction of the steepest ascent (negative gradient). Step length \\(\\alpha\\) is estimated by a linesearch. (Virieux and Operto 2009, eq. 9)\n. . .\nStep length estimation\n\\[\n\\alpha = \\frac{\\langle \\nabla C(\\mathbf{m}_0) | \\nabla C(\\mathbf{m}_0) \\rangle}{\\langle \\mathbf{J}^t(\\mathbf{m}_0) \\nabla C(\\mathbf{m}_0) | \\mathbf{J}^t(\\mathbf{m}_0) \\nabla C(\\mathbf{m}_0) \\rangle}\n\\tag{13}\\]\n(Virieux and Operto 2009, eq. 13)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#newton-and-gauss-newton-methods",
-    "href": "slides/week-11/fwi-lecture.html#newton-and-gauss-newton-methods",
+    "objectID": "slides/week-11/16-fwi-lecture.html#newton-and-gauss-newton-methods",
+    "href": "slides/week-11/16-fwi-lecture.html#newton-and-gauss-newton-methods",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Newton and Gauss-Newton methods",
     "text": "Newton and Gauss-Newton methods\nFull Newton\nThe Hessian contains two terms:\n\\[\n\\frac{\\partial^2 C(\\mathbf{m}_0)}{\\partial\\mathbf{m}^2} = \\Re\\left[\\mathbf{J}_0^* \\mathbf{J}_0\\right] + \\Re\\left[\\frac{\\partial\\mathbf{J}_0^t}{\\partial\\mathbf{m}^t}(\\Delta\\mathbf{d}_0^* \\ldots \\Delta\\mathbf{d}_0^*)\\right]\n\\tag{14}\\]\n(Virieux and Operto 2009, eq. 10)\n. . .\nNewton perturbation model\n\\[\n\\Delta\\mathbf{m} = -\\left\\{ \\Re\\left[\\mathbf{J}_0^* \\mathbf{J}_0 + \\frac{\\partial\\mathbf{J}_0^t}{\\partial\\mathbf{m}^t}(\\Delta\\mathbf{d}_0^* \\ldots \\Delta\\mathbf{d}_0^*)\\right] \\right\\}^{-1} \\Re\\left[\\mathbf{J}_0^\\dagger \\Delta\\mathbf{d}_0\\right]\n\\tag{15}\\]\n(Virieux and Operto 2009, eq. 11)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#gauss-newton-and-l-bfgs",
-    "href": "slides/week-11/fwi-lecture.html#gauss-newton-and-l-bfgs",
+    "objectID": "slides/week-11/16-fwi-lecture.html#gauss-newton-and-l-bfgs",
+    "href": "slides/week-11/16-fwi-lecture.html#gauss-newton-and-l-bfgs",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Gauss-Newton and L-BFGS",
     "text": "Gauss-Newton and L-BFGS\nGauss-Newton\n\nDrop the second term of the Hessian: \\(\\mathbf{H}_a = \\mathbf{J}_0^* \\mathbf{J}_0\\)\nLocally quadratically convergent\nRequires solving a linear system at each iteration\n\n. . .\nQuasi-Newton: L-BFGS\n\nA limited-memory variant of the quasi-Newton BFGS method\nAllows computing \\(\\mathcal{H}^{(n)} \\nabla C^{(n)}\\) without explicitly forming \\(\\mathcal{H}^{(n)}\\)\nOnly 3–20 gradients from previous iterations need to be stored\nNegligible storage compared to conjugate gradient (Nocedal 1980)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#convergence-comparison",
-    "href": "slides/week-11/fwi-lecture.html#convergence-comparison",
+    "objectID": "slides/week-11/16-fwi-lecture.html#convergence-comparison",
+    "href": "slides/week-11/16-fwi-lecture.html#convergence-comparison",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Convergence comparison",
     "text": "Convergence comparison\n\n\n\nMethod\nConvergence\nCost per iteration\n\n\n\n\nGradient descent\nSlow (linear)\n1 forward + 1 adjoint\n\n\nConjugate gradient\nBetter\n1 forward + 1 adjoint\n\n\nL-BFGS\nGood\n1 forward + 1 adjoint\n\n\nGauss-Newton\nFast (quadratic)\nMultiple solves\n\n\nNewton\nFastest (quadratic)\nMost expensive"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#regularization",
-    "href": "slides/week-11/fwi-lecture.html#regularization",
+    "objectID": "slides/week-11/16-fwi-lecture.html#regularization",
+    "href": "slides/week-11/16-fwi-lecture.html#regularization",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Regularization",
     "text": "Regularization\nFWI is an ill-posed problem — an infinite number of models can match the data. The misfit function can be augmented:\n\\[\n\\mathcal{C}(\\mathbf{m}) = \\frac{1}{2} \\Delta\\mathbf{d}^\\dagger \\mathbf{W}_d \\Delta\\mathbf{d} + \\frac{1}{2} \\varepsilon (\\mathbf{m} - \\mathbf{m}_\\text{prior})^\\dagger \\mathbf{W}_m (\\mathbf{m} - \\mathbf{m}_\\text{prior})\n\\tag{16}\\]\nwhere:\n\n\\(\\mathbf{W}_d = \\mathbf{S}_d^* \\mathbf{S}_d\\) — data weighting (inverse of data covariance)\n\\(\\mathbf{W}_m = \\mathbf{S}_m^* \\mathbf{S}_m\\) — model weighting (inverse of model covariance)\n\\(\\mathbf{S}_m\\) is a roughness operator (e.g., first- or second-difference matrices)\n\\(\\varepsilon\\) controls the trade-off between data fit and model smoothness\n\n(Virieux and Operto 2009, eq. 17)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-the-fundamental-challenge",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-the-fundamental-challenge",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-the-fundamental-challenge",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-the-fundamental-challenge",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle skipping: the fundamental challenge",
     "text": "Cycle skipping: the fundamental challenge\nThe problem\n\n\n\n\n\nSchematic of cycle-skipping artifacts in FWI. If the time delay is greater than \\(T/2\\), the modeled seismogram will match the wrong cycle, leading to an erroneous model. From Virieux and Operto (2009).\n\n\n\nThe Born approximation requires that the starting model allows matching observed traveltimes with an error less than half the period (Beydoun and Tarantola 1988):\n\\[\n\\frac{\\Delta t}{T_L} &lt; \\frac{1}{N_A}\n\\]\nwhere \\(T_L\\) is the simulation duration and \\(N_A\\) is the number of propagated wavelengths.\nFor 50 wavelengths, the traveltime error must be less than 1%!"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-examples",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-examples",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle skipping examples",
     "text": "Cycle skipping examples\n\nCharacterising ice slabs in firn using seismic full waveform inversion. From Pearce et al. (2023)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-examples-cont.",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-examples-cont.",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples-cont.",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples-cont.",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle skipping examples (cont.)",
     "text": "Cycle skipping examples (cont.)\n\nLong-wavelength FWI updates in the presence of cycle skipping. From Ramos-Martínez et al. (2019)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-examples-cont.-1",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-examples-cont.-1",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples-cont.-1",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples-cont.-1",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle skipping examples (cont.)",
     "text": "Cycle skipping examples (cont.)\n\nComparative study of objective functions to overcome noise and bandwidth limitations in FWI. From Tejero et al. (2015)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-examples-cont.-2",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-examples-cont.-2",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples-cont.-2",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-examples-cont.-2",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle skipping examples (cont.)",
     "text": "Cycle skipping examples (cont.)\n\n(a) Time shift \\(\\Delta t\\) between field data (yellow) and modelled data (blue). Centre: far-offset traces for various model errors. Bottom: residual traces. (b) Cost function for various time shifts — note the local minima on either side of the global minimum. From Jones (2019)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-in-model-space",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-in-model-space",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-in-model-space",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-in-model-space",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle skipping in model space",
     "text": "Cycle skipping in model space\n\n(a) Contour plot of \\(C(m)\\) for two variables. (b) \\(C(m)\\) curve in 2D plane along gradient direction. (c) Contour plot showing minimum in the line-search direction. (d) Line-search stepping procedure. From Jones (2019), adapted from Shewchuk (1994)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#multiscale-strategies-to-avoid-cycle-skipping",
-    "href": "slides/week-11/fwi-lecture.html#multiscale-strategies-to-avoid-cycle-skipping",
+    "objectID": "slides/week-11/16-fwi-lecture.html#multiscale-strategies-to-avoid-cycle-skipping",
+    "href": "slides/week-11/16-fwi-lecture.html#multiscale-strategies-to-avoid-cycle-skipping",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Multiscale strategies to avoid cycle skipping",
     "text": "Multiscale strategies to avoid cycle skipping\nFrequency continuation\nThe hierarchical multiscale strategy successively processes data subsets of increasing resolution power to incorporate progressively smaller wavenumbers in the tomographic models. (Virieux and Operto 2009)\n\nTime domain: Bunks et al. (1995) propose successive inversion of subdata sets of increasing high-frequency content\nFrequency domain: Invert single or multiple frequencies (frequency groups) of increasing frequency"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#laplace-fourier-approach",
-    "href": "slides/week-11/fwi-lecture.html#laplace-fourier-approach",
+    "objectID": "slides/week-11/16-fwi-lecture.html#laplace-fourier-approach",
+    "href": "slides/week-11/16-fwi-lecture.html#laplace-fourier-approach",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Laplace-Fourier approach",
     "text": "Laplace-Fourier approach\nUsing complex-valued frequencies equivalent to exponential damping of seismograms:\n\\[\nP\\left(\\omega + \\frac{i}{\\tau}\\right) e^{i\\omega t} = \\int_{-\\infty}^{+\\infty} p(t) e^{-(t-t_0)/\\tau} e^{i\\omega t} \\, dt\n\\tag{17}\\]\nThe Laplace-domain inversion provides a smooth velocity model as a starting model for subsequent Fourier-domain FWI. (Shin and Cha 2009; Virieux and Operto 2009)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping---true-model",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping---true-model",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping---true-model",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping---true-model",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle-skipping - true model",
     "text": "Cycle-skipping - true model\n\nAdapted from Eric Verschuur."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-3hz",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-3hz",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-3hz",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-3hz",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle-skipping – > 3Hz",
     "text": "Cycle-skipping – &gt; 3Hz\n\nAdapted from Eric Verschuur."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#cycle-skipping-6hz",
-    "href": "slides/week-11/fwi-lecture.html#cycle-skipping-6hz",
+    "objectID": "slides/week-11/16-fwi-lecture.html#cycle-skipping-6hz",
+    "href": "slides/week-11/16-fwi-lecture.html#cycle-skipping-6hz",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Cycle-skipping – > 6Hz",
     "text": "Cycle-skipping – &gt; 6Hz\n\nAdapted from Eric Verschuur."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#multiscale-fwi-example",
-    "href": "slides/week-11/fwi-lecture.html#multiscale-fwi-example",
+    "objectID": "slides/week-11/16-fwi-lecture.html#multiscale-fwi-example",
+    "href": "slides/week-11/16-fwi-lecture.html#multiscale-fwi-example",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Multiscale FWI example",
     "text": "Multiscale FWI example\n\nMultiscale strategy for elastic FWI applied to the overthrust model. (a) FWI velocity models \\(V_P\\) (top) and \\(V_S\\) (bottom). (b) Well-log comparison. (c) Synthetic seismograms showing final residuals. From Virieux and Operto (2009)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#topology-of-the-fwi-gradient",
-    "href": "slides/week-11/fwi-lecture.html#topology-of-the-fwi-gradient",
+    "objectID": "slides/week-11/16-fwi-lecture.html#topology-of-the-fwi-gradient",
+    "href": "slides/week-11/16-fwi-lecture.html#topology-of-the-fwi-gradient",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Topology of the FWI gradient",
     "text": "Topology of the FWI gradient\nBanana-doughnut kernels vs. rabbit ears\n\nThe sensitivity kernels of acoustic FWI for one source-receiver pair: (a) without and (b) with a prior reflector. The banana-shaped kernel (blue) represents diving-wave contributions; the rabbit-ears-shaped kernel (yellow) represents reflected-wave contributions. \\(\\theta\\) is the aperture angle. From Kim et al. (2022)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#three-components-of-the-gradient",
-    "href": "slides/week-11/fwi-lecture.html#three-components-of-the-gradient",
+    "objectID": "slides/week-11/16-fwi-lecture.html#three-components-of-the-gradient",
+    "href": "slides/week-11/16-fwi-lecture.html#three-components-of-the-gradient",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Three components of the gradient",
     "text": "Three components of the gradient\n\nThe overall gradient response is comprised of three constituent parts: (a) the direct arrival “banana” refraction path (low-\\(k\\) transmission), (b) the usual migration-response-like elliptical arc (high-\\(k\\) “migration” FWI), and (c) the “cross-talk” rabbit ears (low-\\(k\\) updates from reflections). Courtesy of Chao Wang, ION. From Jones (2019)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#building-the-gradient-single-wavelet",
-    "href": "slides/week-11/fwi-lecture.html#building-the-gradient-single-wavelet",
+    "objectID": "slides/week-11/16-fwi-lecture.html#building-the-gradient-single-wavelet",
+    "href": "slides/week-11/16-fwi-lecture.html#building-the-gradient-single-wavelet",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Building the gradient: single wavelet",
     "text": "Building the gradient: single wavelet\n\n\n\n\n\n(a) Residual gather with a single wavelet at offset 5 km and time 3.7s. (b) Gradient contribution from that wavelet — showing the banana and rabbit-ear components. From Jones (2019).\n\n\n\n\nSubjecting a single residual wavelet to the FWI procedure produces banana-shaped and rabbit-ear-shaped gradient contributions\nThese closely resemble migration impulse responses\nWorking independently with these separated gradient components can facilitate faster and more reliable model update"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#summing-gradient-contributions",
-    "href": "slides/week-11/fwi-lecture.html#summing-gradient-contributions",
+    "objectID": "slides/week-11/16-fwi-lecture.html#summing-gradient-contributions",
+    "href": "slides/week-11/16-fwi-lecture.html#summing-gradient-contributions",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Summing gradient contributions",
     "text": "Summing gradient contributions\n\n(a) PreSDM image with single shot gradient contribution superimposed. (b) After summing gradient contributions for all shots — blue indicates where to increase velocity, red where to decrease. From Jones (2019)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#discussion-practical-aspects",
-    "href": "slides/week-11/fwi-lecture.html#discussion-practical-aspects",
+    "objectID": "slides/week-11/16-fwi-lecture.html#discussion-practical-aspects",
+    "href": "slides/week-11/16-fwi-lecture.html#discussion-practical-aspects",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Discussion: practical aspects",
     "text": "Discussion: practical aspects\nKey takeaways from industrial implementation (Jones 2019)\n\nFor early iterations, concentrate on the lowest available frequencies — the cost function is less oscillatory and cycle skipping is less likely\nFor deep sub-salt model update, frequencies below about 2 Hz are needed\nUsing the acoustic approximation, we ignore density changes and modelled reflection amplitudes will be in error\nFor early stages, rely on diving-wave energy (transmitted/refracted wavefield) — penetrates to ~\\(\\frac{1}{3}\\) of maximum source-receiver offset\n\nTwo-stage approach\n\nRefracted wavefield: update shallow sediment model using long offsets, low frequencies, and turning wave data\nReflected wavefield: use the rabbit-ear cross-talk terms to penetrate deeper into the model"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#valhall-field-example-resolution-improvement",
-    "href": "slides/week-11/fwi-lecture.html#valhall-field-example-resolution-improvement",
+    "objectID": "slides/week-11/16-fwi-lecture.html#valhall-field-example-resolution-improvement",
+    "href": "slides/week-11/16-fwi-lecture.html#valhall-field-example-resolution-improvement",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Valhall field example: resolution improvement",
     "text": "Valhall field example: resolution improvement\n\nInitial model (left) and final FWI model (right) for the Valhall field. Horizontal sections at 175 m, 500 m, and 1000 m depth. Note the significant increase in resolution from left to right — paleochannels, glacier imprints, and gas cloud contours become visible. From Virieux et al. (2017)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#valhall-seismogram-comparison",
-    "href": "slides/week-11/fwi-lecture.html#valhall-seismogram-comparison",
+    "objectID": "slides/week-11/16-fwi-lecture.html#valhall-seismogram-comparison",
+    "href": "slides/week-11/16-fwi-lecture.html#valhall-seismogram-comparison",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Valhall: seismogram comparison",
     "text": "Valhall: seismogram comparison\n\nCommon receiver gather in (a) the initial model and (b) the final model. Red arrows identify first-arrival phases, and black arrows identify post-critical phases. Note the increasing extraction of information achieved by FWI. From Virieux et al. (2017)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#sensitivity-to-starting-models",
-    "href": "slides/week-11/fwi-lecture.html#sensitivity-to-starting-models",
+    "objectID": "slides/week-11/16-fwi-lecture.html#sensitivity-to-starting-models",
+    "href": "slides/week-11/16-fwi-lecture.html#sensitivity-to-starting-models",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Sensitivity to starting models",
     "text": "Sensitivity to starting models\n\nSensitivity of FWI to the accuracy of different starting models for the synthetic Valhall model. (a) Close-up of the true model. (b–d) FWI models from different starting models. (e–g) Velocity profiles comparing true (black), starting (blue), and FWI models (red). From Virieux and Operto (2009)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#laplace-fourier-domain-fwi",
-    "href": "slides/week-11/fwi-lecture.html#laplace-fourier-domain-fwi",
+    "objectID": "slides/week-11/16-fwi-lecture.html#laplace-fourier-domain-fwi",
+    "href": "slides/week-11/16-fwi-lecture.html#laplace-fourier-domain-fwi",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Laplace-Fourier-domain FWI",
     "text": "Laplace-Fourier-domain FWI\n\nLaplace-Fourier-domain waveform inversion for the BP benchmark model. (a) True model. (b) Starting model. (c) After Laplace-domain inversion. (d) After Laplace-Fourier-domain inversion. (e) After frequency-domain FWI. All structures are successfully imaged from a very crude starting model. From Virieux and Operto (2009)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#fwi-in-practice-with-devito",
-    "href": "slides/week-11/fwi-lecture.html#fwi-in-practice-with-devito",
+    "objectID": "slides/week-11/16-fwi-lecture.html#fwi-in-practice-with-devito",
+    "href": "slides/week-11/16-fwi-lecture.html#fwi-in-practice-with-devito",
     "title": "Basics of Full-Waveform Inversion",
     "section": "FWI in practice with Devito",
     "text": "FWI in practice with Devito\nTutorials 01–03: From forward modelling to FWI\nThe following slides illustrate a hands-on implementation of FWI using Devito, a domain-specific language for finite-difference computations. Based on tutorials from the SLIM Group.\n\nSeismic survey setup.Three key steps:\n\nTutorial 01 — Forward modelling: solve the acoustic wave equation\nTutorial 02 — Reverse-Time Migration: adjoint wavefield and imaging condition\nTutorial 03 — Full-Waveform Inversion: gradient computation and iterative update"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-01-forward-modelling",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-01-forward-modelling",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-01-forward-modelling",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-01-forward-modelling",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 01: Forward modelling",
     "text": "Tutorial 01: Forward modelling\nThe acoustic wave equation\n\\[\n\\begin{cases}\nm \\dfrac{d^2 u(\\mathbf{x},t)}{dt^2} - \\nabla^2 u(\\mathbf{x},t) + \\eta \\dfrac{d u(\\mathbf{x},t)}{dt} = q & \\text{in } \\Omega \\\\[6pt]\nu(\\cdot,0) = 0, \\quad \\dfrac{du}{dt}\\big|_{t=0} = 0\n\\end{cases}\n\\]\nwhere:\n\n\\(m = 1/c^2\\) is the square slowness\n\\(\\eta\\) is the damping mask (absorbing boundary layer)\n\\(q\\) is the source term (Ricker wavelet): \\(q(t) = \\left(1 - 2\\pi^2 f_0^2 \\left(t - \\frac{1}{f_0}\\right)^2\\right) e^{-\\pi^2 f_0^2 \\left(t - 1/f_0\\right)^2}\\)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-01-model-and-geometry",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-01-model-and-geometry",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-01-model-and-geometry",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-01-model-and-geometry",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 01: Model and geometry",
     "text": "Tutorial 01: Model and geometry\n\n\n\n\n\nTwo-layer velocity model: 1.5 km/s (top) and 2.5 km/s (bottom).\n\n\n\n\n\n\nSource (red) and receiver (green) geometry on the velocity model."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-01-devito-implementation",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-01-devito-implementation",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-01-devito-implementation",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-01-devito-implementation",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 01: Devito implementation",
     "text": "Tutorial 01: Devito implementation\nSetting up the wave equation in Devito\nfrom devito import TimeFunction, Eq, solve, Operator\n\n# Define wavefield and PDE\nu = TimeFunction(name=\"u\", grid=model.grid,\n                 time_order=2, space_order=2)\npde = model.m * u.dt2 - u.laplace + model.damp * u.dt\n\n# Create time-marching stencil: solve for u(t+dt)\nstencil = Eq(u.forward, solve(pde, u.forward))\n\n# Source injection and receiver interpolation\nsrc_term = src.inject(field=u.forward,\n                      expr=src * dt**2 / model.m)\nrec_term = rec.interpolate(expr=u.forward)\n\n# Create and run operator\nop = Operator([stencil] + src_term + rec_term,\n              subs=model.spacing_map)\nop(time=time_range.num-1, dt=model.critical_dt)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-01-shot-record",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-01-shot-record",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-01-shot-record",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-01-shot-record",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 01: Shot record",
     "text": "Tutorial 01: Shot record\n\nSynthetic shot record from the two-layer model. The direct arrival and reflection from the interface are clearly visible."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-02-reverse-time-migration",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-02-reverse-time-migration",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-02-reverse-time-migration",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-02-reverse-time-migration",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 02: Reverse-Time Migration",
     "text": "Tutorial 02: Reverse-Time Migration\nFrom forward model to linear system\nThe forward simulation can be written as:\n\\[\n\\mathbf{A}(\\mathbf{m}) \\, \\mathbf{u} = \\mathbf{q}\n\\]\nThe adjoint (back-propagation) solves:\n\\[\n\\mathbf{A}(\\mathbf{m})^T \\, \\mathbf{v} = \\delta\\mathbf{d}\n\\]\nwhere \\(\\delta\\mathbf{d} = \\mathbf{P}_r \\mathbf{u} - \\mathbf{d}_\\text{obs}\\) is the data residual.\n. . .\nImaging condition\n\\[\n\\text{Image} = \\sum_{t=1}^{n_t} \\mathbf{u}[t] \\, \\mathbf{v}[t]\n\\]\nThe forward and adjoint wavefields meet at reflector positions at zero time offset."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-02-true-vs.-smooth-model",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-02-true-vs.-smooth-model",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-02-true-vs.-smooth-model",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-02-true-vs.-smooth-model",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 02: True vs. smooth model",
     "text": "Tutorial 02: True vs. smooth model\n\n\n\n\n\nTrue velocity model.\n\n\n\n\n\n\nSmoothed (background) model.\n\n\n\n\n\n\nModel perturbation (what RTM recovers)."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-02-rtm-imaging-operator",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-02-rtm-imaging-operator",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-02-rtm-imaging-operator",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-02-rtm-imaging-operator",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 02: RTM imaging operator",
     "text": "Tutorial 02: RTM imaging operator\ndef ImagingOperator(model, image):\n    v = TimeFunction(name='v', grid=model.grid,\n                     time_order=2, space_order=4)\n    u = TimeFunction(name='u', grid=model.grid,\n                     time_order=2, space_order=4,\n                     save=geometry.nt)\n\n    # Adjoint wave equation (note negated damping)\n    eqn = model.m * v.dt2 - v.laplace + model.damp * v.dt.T\n    stencil = Eq(v.backward, solve(eqn, v.backward))\n\n    # Inject data residual at receiver locations\n    res_term = residual.inject(field=v.backward,\n                    expr=residual * dt**2 / model.m)\n\n    # Imaging condition: correlate u and v\n    image_update = Eq(image, image - u * v)\n\n    return Operator([stencil] + res_term + [image_update],\n                    subs=model.spacing_map)"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-02-rtm-result",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-02-rtm-result",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-02-rtm-result",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-02-rtm-result",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 02: RTM result",
     "text": "Tutorial 02: RTM result\n\n\nImaging loop\nfor i in range(nshots):\n    # Forward model with true velocity\n    true_d, _, _ = solver.forward(vp=model.vp)\n    # Forward model with smooth velocity\n    smooth_d, u0, _ = solver.forward(\n        vp=model0.vp, save=True)\n    # Back-propagate residual\n    residual = smooth_d.data - true_d.data\n    op_imaging(u=u0, v=v, vp=model0.vp,\n               residual=residual)\n\n\n\n\nRTM image showing the reflector recovered from 21 shots."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-03-full-waveform-inversion",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-03-full-waveform-inversion",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-03-full-waveform-inversion",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-03-full-waveform-inversion",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 03: Full-Waveform Inversion",
     "text": "Tutorial 03: Full-Waveform Inversion\nFWI objective function\n\\[\n\\min_{\\mathbf{m}} \\; \\Phi_s(\\mathbf{m}) = \\frac{1}{2} \\left\\lVert \\mathbf{P}_r \\mathbf{u} - \\mathbf{d} \\right\\rVert_2^2, \\quad \\text{s.t.} \\quad \\mathbf{u} = \\mathbf{A}(\\mathbf{m})^{-1} \\mathbf{P}_s^T \\mathbf{q}_s\n\\]\nGradient via adjoint-state method\n\\[\n\\nabla \\Phi_s(\\mathbf{m}) = \\sum_{t=1}^{n_t} \\mathbf{u}[t] \\, \\mathbf{v}_{tt}[t] = \\mathbf{J}^T \\delta\\mathbf{d}_s\n\\]\nwhere \\(\\mathbf{v}_{tt}\\) is the second-order time derivative of the adjoint wavefield:\n\\[\n\\mathbf{A}^T(\\mathbf{m}) \\, \\mathbf{v} = \\mathbf{P}_r^T \\, \\delta\\mathbf{d}\n\\]\n\n\n\n\n\n\nNote\n\n\nThe FWI gradient is the RTM imaging condition with an extra \\(\\partial_{tt}\\) applied to the adjoint field."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-03-fwi-setup",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-03-fwi-setup",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-03-fwi-setup",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-03-fwi-setup",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 03: FWI setup",
     "text": "Tutorial 03: FWI setup\n\n\n\n\n\nTrue model (circle anomaly at 3.0 km/s in 2.5 km/s background).\n\n\n\n\n\n\nInitial model (constant 2.5 km/s — no anomaly).\n\n\n\n\n\n\nTrue perturbation to recover.\n\n\n\nTransmission geometry: sources on one side, receivers on the other — records mostly diving waves, which are essential for FWI convergence."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-03-gradient-computation",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-03-gradient-computation",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-03-gradient-computation",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-03-gradient-computation",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 03: Gradient computation",
     "text": "Tutorial 03: Gradient computation\ndef fwi_gradient(vp_in):\n    grad = Function(name=\"grad\", grid=model.grid)\n    objective = 0.\n    for i in range(nshots):\n        geometry.src_positions[0, :] = source_locations[i, :]\n\n        # Forward model with true velocity → observed data\n        _, _, _ = solver.forward(vp=model.vp, rec=d_obs)\n\n        # Forward model with current estimate → save wavefield\n        _, u0, _ = solver.forward(vp=vp_in, save=True, rec=d_syn)\n\n        # Compute residual and accumulate objective\n        compute_residual(residual, d_obs, d_syn)\n        objective += .5 * norm(residual)**2\n\n        # Back-propagate residual → gradient\n        solver.gradient(rec=residual, u=u0, vp=vp_in, grad=grad)\n\n    return objective, grad"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-03-fwi-iteration-loop",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-03-fwi-iteration-loop",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-03-fwi-iteration-loop",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-03-fwi-iteration-loop",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 03: FWI iteration loop",
     "text": "Tutorial 03: FWI iteration loop\nfor i in range(fwi_iterations):\n    # Compute functional value and gradient\n    phi, direction = fwi_gradient(model0.vp)\n\n    # Step length (in practice: linesearch)\n    alpha = .05 / mmax(direction)\n\n    # Update model with box constraints\n    update_with_box(model0.vp, alpha, direction)\n\n\n\n\n\n\nRecovered velocity model after 5 FWI iterations.\n\n\n\n\n\n\nConvergence: objective function decreasing over iterations."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#tutorial-03-gradient-vs.-perturbation",
-    "href": "slides/week-11/fwi-lecture.html#tutorial-03-gradient-vs.-perturbation",
+    "objectID": "slides/week-11/16-fwi-lecture.html#tutorial-03-gradient-vs.-perturbation",
+    "href": "slides/week-11/16-fwi-lecture.html#tutorial-03-gradient-vs.-perturbation",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Tutorial 03: Gradient vs. perturbation",
     "text": "Tutorial 03: Gradient vs. perturbation\n\n\n\n\n\nFWI gradient \\(\\nabla\\Phi_s(\\mathbf{m})\\) — shows correct sign for update.\n\n\n\n\n\n\nTrue perturbation \\(\\mathbf{m}_\\text{true} - \\mathbf{m}_0\\) — target to recover.\n\n\n\n\n\n\nModel after single gradient step — anomaly starting to appear.\n\n\n\n\n\n\n\n\n\nImportant\n\n\nThe gradient has the same sign as the true perturbation — confirming that gradient descent moves the model in the correct direction."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#slim-contributions-to-fwi",
-    "href": "slides/week-11/fwi-lecture.html#slim-contributions-to-fwi",
+    "objectID": "slides/week-11/16-fwi-lecture.html#slim-contributions-to-fwi",
+    "href": "slides/week-11/16-fwi-lecture.html#slim-contributions-to-fwi",
     "title": "Basics of Full-Waveform Inversion",
     "section": "SLIM contributions to FWI",
     "text": "SLIM contributions to FWI\nStochastic optimization and computational efficiency\n\n\nEffective method for parameter estimation with PDE constraints (Leeuwen and Herrmann 2011)\n\nReformulate multi-source problems as stochastic programming\nCombine multiple right-hand sides into fewer simultaneous sources\nReduces linear cost scaling to a tractable framework\n\n\nSeismic waveform inversion by stochastic optimization (Leeuwen, Mulder, and Herrmann 2011)\n\nStochastic optimization for seismic waveform inversion\nSub-sampling of sources reduces per-iteration cost\nConvergence guarantees under stochastic gradient framework"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#slim-contributions-cont.",
-    "href": "slides/week-11/fwi-lecture.html#slim-contributions-cont.",
+    "objectID": "slides/week-11/16-fwi-lecture.html#slim-contributions-cont.",
+    "href": "slides/week-11/16-fwi-lecture.html#slim-contributions-cont.",
     "title": "Basics of Full-Waveform Inversion",
     "section": "SLIM contributions (cont.)",
     "text": "SLIM contributions (cont.)\nRobustness and scalability\n\n\nRobust inversion, dimensionality reduction, and randomized sampling (Herrmann, Erlangga, and Lin 2012)\n\nUses Student’s t-distribution instead of least-squares\nHandles 50% corrupted data successfully\nDimensionality reduction via data averaging and sampling\n\n\n3D frequency-domain seismic inversion with controlled sloppiness (Leeuwen and Herrmann 2014)\n\nAdaptive scheme using small subsets of sources and inexact PDE solves\nSignificant computational gains while maintaining accuracy\nMakes 3D FWI computationally tractable\n\n\n. . .\n\n\n\n\n\n\nCommon theme\n\n\nAll four works address the computational bottleneck of FWI by leveraging ideas from stochastic optimization, randomized linear algebra, and dimensionality reduction."
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#summary",
-    "href": "slides/week-11/fwi-lecture.html#summary",
+    "objectID": "slides/week-11/16-fwi-lecture.html#summary",
+    "href": "slides/week-11/16-fwi-lecture.html#summary",
     "title": "Basics of Full-Waveform Inversion",
     "section": "Summary",
     "text": "Summary\nKey takeaways\n\nFWI uses the entire wavefield to reconstruct subsurface parameters at sub-wavelength resolution\nThe single scattering formulation treats all phases equally — no prior scale separation\nThe gradient is formed by crosscorrelation of forward and adjoint wavefields\nCycle skipping is the fundamental challenge — mitigated by multiscale strategies\nThe gradient has three components: banana (transmission), migration arc (reflection), and rabbit ears (cross-talk)\nOptimization methods range from gradient descent to quasi-Newton (L-BFGS)\nRegularization and starting model design are critical for convergence\nStochastic methods from SLIM make large-scale 3D FWI tractable"
   },
   {
-    "objectID": "slides/week-11/fwi-lecture.html#references",
-    "href": "slides/week-11/fwi-lecture.html#references",
+    "objectID": "slides/week-11/16-fwi-lecture.html#references",
+    "href": "slides/week-11/16-fwi-lecture.html#references",
     "title": "Basics of Full-Waveform Inversion",
     "section": "References",
     "text": "References\n\n\nBeydoun, W. B., and A. Tarantola. 1988. “First Born and Rytov Approximations: Modeling and Inversion Conditions in a Canonical Example.” Journal of the Acoustical Society of America 83: 1045–55.\n\n\nBunks, Carey, Fatimetou M. Saleck, S. Zaleski, and G. Chavent. 1995. “Multiscale Seismic Waveform Inversion.” Geophysics 60 (5): 1457–73. https://doi.org/10.1190/1.1443880.\n\n\nClaerbout, Jon F. 1985. Imaging the Earth’s Interior. Oxford: Blackwell Scientific Publications.\n\n\nHerrmann, Felix J., Yogi Erlangga, and Tim T. Y. Lin. 2012. “Robust Inversion, Dimensionality Reduction, and Randomized Sampling.” Mathematical Programming 134 (1): 101–25. https://doi.org/10.1007/s10107-012-0571-6.\n\n\nJones, Ian F. 2019. “Tutorial: The Mechanics of Waveform Inversion.” First Break 37 (5): 31–43. https://doi.org/10.3997/1365-2397.2019017.\n\n\nKim, Donggeon, Jongha Hwang, Dong-Joo Min, Ju-Won Oh, and Tariq Alkhalifah. 2022. “Two-Step Full Waveform Inversion of Diving and Reflected Waves with the Diffraction-Angle-Filtering-Based Scale-Separation Technique.” Geophysical Journal International 229 (2): 880–97. https://doi.org/10.1093/gji/ggab522.\n\n\nLeeuwen, Tristan van, and Felix J. Herrmann. 2011. “Effective Method for Parameter Estimation with PDE Constraints with Multiple Right-Hand Sides.” SLIM Technical Reports. https://slim.gatech.edu/content/effective-method-parameter-estimation-pde-constraints-multiple-right-hand-sides.\n\n\n———. 2014. “3D Frequency-Domain Seismic Inversion with Controlled Sloppiness.” SIAM Journal on Scientific Computing 36 (5): S192–217. https://doi.org/10.1137/130918629.\n\n\nLeeuwen, Tristan van, Wim A. Mulder, and Felix J. Herrmann. 2011. “Seismic Waveform Inversion by Stochastic Optimization.” International Journal of Geophysics. https://doi.org/10.1155/2011/689041.\n\n\nNocedal, Jorge. 1980. “Updating Quasi-Newton Matrices with Limited Storage.” Mathematics of Computation 35 (151): 773–82.\n\n\nPearce, Emma, Adam D. Booth, Sebastian Rost, Paul Sava, Tuğrul Konuk, Alex Brisbourne, Bryn Hubbard, and Ian Jones. 2023. “Characterising Ice Slabs in Firn Using Seismic Full Waveform Inversion, a Sensitivity Study.” Journal of Glaciology 69 (277): 1419–33. https://doi.org/10.1017/jog.2023.30.\n\n\nRamos-Martínez, Jaime, Lingyun Qiu, Alejandro A. Valenciano, Xiaoyan Jiang, and Nizar Chemingui. 2019. “Long-Wavelength FWI Updates in the Presence of Cycle Skipping.” The Leading Edge 38 (3): 193–96. https://doi.org/10.1190/tle38030193.1.\n\n\nSanford, O. G., N. Schofield, R. W. Hobbs, and R. J. Brown. 2023. “Seismic Wave Propagation Around Subsurface Igneous Sill Complexes.” Marine and Petroleum Geology 152: 106232. https://doi.org/10.1016/j.marpetgeo.2023.106232.\n\n\nShewchuk, Jonathan Richard. 1994. “An Introduction to the Conjugate Gradient Method Without the Agonizing Pain.” Technical Report.\n\n\nShin, Changsoo, and Young Ho Cha. 2009. “Waveform Inversion in the Laplace–Fourier Domain.” Geophysical Journal International 177 (3): 1067–79. https://doi.org/10.1111/j.1365-246X.2009.04102.x.\n\n\nTejero, C. E. Jiménez, D. Dagnino, V. Sallarès, and C. R. Ranero. 2015. “Comparative Study of Objective Functions to Overcome Noise and Bandwidth Limitations in Full Waveform Inversion.” Geophysical Journal International 203 (1): 632–45. https://doi.org/10.1093/gji/ggv288.\n\n\nVirieux, Jean, A. Asnaashari, R. Brossier, L. Métivier, A. Ribodetti, and W. Zhou. 2017. “An Introduction to Full Waveform Inversion.” In Encyclopedia of Exploration Geophysics. Society of Exploration Geophysicists. https://doi.org/10.1190/1.9781560803027.entry6.\n\n\nVirieux, Jean, and Stéphane Operto. 2009. “An Overview of Full-Waveform Inversion in Exploration Geophysics.” Geophysics 74 (6): WCC1–26. https://doi.org/10.1190/1.3238367.\n\n\nWoodward, Martin J. 1992. “Wave-Equation Tomography.” Geophysics 57 (1): 15–26. https://doi.org/10.1190/1.1443179."
