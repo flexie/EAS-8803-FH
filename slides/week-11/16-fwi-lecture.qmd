@@ -36,7 +36,7 @@ bibliography: references.bib
 
 School of Earth and Ocean Sciences --- Georgia Institute of Technology
 
-Based on @Virieux2009, @Virieux2017, @Jones2019, @Kim2021
+Based on @Virieux2009, @Virieux2017, @Jones2019
 
 ## Outline {.smaller}
 
@@ -58,7 +58,7 @@ This is the first in a series of four lectures on Full-Waveform Inversion. We bu
 
 ## Why FWI?
 
-### The velocity model problem
+**The velocity model problem:**
 
 > Migration can only construct reliable images of the subsurface if we have an accurate representation of the parameter variation within the Earth. [@Jones2019]
 
@@ -168,12 +168,12 @@ The misfit between observed and synthetic data is a **continuous function** that
 
 ---
 
-## The misfit function
+## The misfit function{.smaller}
 
 The FWI problem is defined as minimizing the least-squares misfit:
 
 $$
-\min_{\mathbf{m}} \mathcal{C}(\mathbf{m}) = \frac{1}{2} \int_0^{T_w} \int_{\partial\Omega_s} \int_{\partial\Omega_r} \left| \mathbf{d}_\text{syn}^\mathbf{m}(\mathbf{x}_r, \mathbf{x}_s, t) - \mathbf{d}_\text{obs}(\mathbf{x}_r, \mathbf{x}_s, t) \right|^2 \, dx_r \, dx_s \, dt
+\min_{\mathbf{m}} \mathcal{C}(\mathbf{m}) = \frac{1}{2} \int_0^{T_w} \int_{\partial\Omega_s} \int_{\partial\Omega_r} \left| \mathbf{d}_\text{syn}^\mathbf{m}(\mathbf{x}_r, \mathbf{x}_s, t) - \mathbf{d}_\text{obs}(\mathbf{x}_r, \mathbf{x}_s, t) \right|^2 \, \mathrm{d}x_r \, \mathrm{d}x_s \, \mathrm{d}t
 $$ {#eq-misfit}
 
 where $\mathbf{d}_\text{syn}^\mathbf{m}$ is the synthetic data computed in model $\mathbf{m}$, $\mathbf{d}_\text{obs}$ is the observed data, $T_w$ is the recording time, $\partial\Omega_s$ and $\partial\Omega_r$ are the source and receiver domains. [@Virieux2017, eq. 3]
@@ -236,25 +236,60 @@ $$ {#eq-gauss-newton}
 
 [@Virieux2017, eqs. 7–9]
 
+<!-- ---
+
+## Step length estimation
+
+$$
+\alpha = \frac{\langle \nabla C(\mathbf{m}_0) | \nabla C(\mathbf{m}_0) \rangle}{\langle \mathbf{J}^t(\mathbf{m}_0) \nabla C(\mathbf{m}_0) | \mathbf{J}^t(\mathbf{m}_0) \nabla C(\mathbf{m}_0) \rangle}
+$$ {#eq-steplength}
+
+[@Virieux2009, eq. 13] -->
+
+---
+
+## Quasi-Newton: L-BFGS{.smaller}
+
+- A **limited-memory** variant of the quasi-Newton BFGS method
+- Allows computing $\mathcal{H}^{(n)} \nabla C^{(n)}$ **without explicitly forming** $\mathcal{H}^{(n)}$
+- Only 3–20 gradients from previous iterations need to be stored
+- **Negligible storage** compared to conjugate gradient [@Nocedal1980]
+
+. . .
+
+### Convergence comparison
+
+| Method | Convergence | Cost per iteration |
+|--------|------------|-------------------|
+| Gradient descent | Slow (linear) | 1 forward + 1 adjoint |
+| Conjugate gradient | Better | 1 forward + 1 adjoint |
+| L-BFGS | Good | 1 forward + 1 adjoint |
+| Gauss-Newton | Fast (quadratic) | Multiple solves |
+| Newton | Fastest (quadratic) | Most expensive |
+
+
 ---
 
 ## The forward problem {.smaller}
 
-### Wave equation in the time domain
+**Wave equation in the time domain:**
 
 $$
-\mathbf{M}(\mathbf{x}) \frac{d^2\mathbf{u}(\mathbf{x},t)}{dt^2} = \mathbf{A}(\mathbf{x})\mathbf{u}(\mathbf{x},t) + \mathbf{s}(\mathbf{x},t)
-$$ {#eq-wave-time}
+\mathbf{M}(\mathbf{x}) \frac{\mathrm{d}^2\mathbf{u}(\mathbf{x},t)}{\mathrm{d}t^2} = \mathbf{A}(\mathbf{x})\mathbf{u}(\mathbf{x},t) + \mathbf{s}(\mathbf{x},t)
+$$
 
 where $\mathbf{M}$ and $\mathbf{A}$ are the mass and stiffness matrices, $\mathbf{s}$ is the source term, and $\mathbf{u}$ is the seismic wavefield. [@Virieux2009, eq. 1]
 
-### Wave equation in the frequency domain
+. . .
+
+**Wave equation in the frequency domain:**
 
 $$
 \mathbf{B}(\mathbf{x},\omega)\mathbf{u}(\mathbf{x},\omega) = \mathbf{s}(\mathbf{x},\omega)
 $$ {#eq-wave-freq}
 
 where $\mathbf{B}$ is the **impedance matrix** — a sparse complex-valued matrix. [@Virieux2009, eq. 2]
+
 
 ---
 
@@ -282,7 +317,7 @@ where $\dagger$ denotes the adjoint operator (transpose conjugate). [@Virieux200
 
 ## Gradient of the misfit function {.smaller}
 
-### Adjoint-state gradient
+**Adjoint-state gradient:**
 
 The gradient can be computed without explicitly building the sensitivity matrix, using the **adjoint-state method**:
 
@@ -312,12 +347,13 @@ The **first Fresnel zone** is the region where the phase time does not differ by
 
 - Waves in the first Fresnel zone, primarily sampled by **direct waves**, provide a potential contribution for updating the medium with an expected **smooth resolution** [@Woodward1992]
 - **Outer interference fringes**, mainly sampled by **reflected waves**, yield a zone with an expected **high resolution**
+- Width of Fresnel zone is inversely proportional to the temporal frequency
 
 . . .
 
 ### Resolution from diffraction tomography
 
-The wavenumber vector $\mathbf{k}$ linking the experimental setup to spatial resolution:
+The scattering wavenumber vector $\mathbf{k}$ linking the experimental setup to spatial resolution:
 
 $$
 \mathbf{k} = \frac{2f}{c_0} \cos\left(\frac{\theta}{2}\right) \mathbf{n} = \frac{4\pi}{\lambda} \cos\left(\frac{\theta}{2}\right) \mathbf{n}
@@ -333,19 +369,26 @@ where $f$ is frequency, $c_0$ is velocity, $\theta$ is the diffraction/aperture 
 
 ::: {.column width="50%"}
 
+<!-- 
 $$
 \mathbf{k} = \frac{2f}{c_0} \cos\left(\frac{\theta}{2}\right) \mathbf{n} = \frac{4\pi}{\lambda} \cos\left(\frac{\theta}{2}\right) \mathbf{n}
 $$
+ -->
 
-- One frequency + one aperture $\rightarrow$ one wavenumber
-- Small $\theta$ (transmission) $\rightarrow$ low wavenumbers
-- Large $\theta$ (reflection) $\rightarrow$ high wavenumbers
+![Resolution analysis of FWI. (a) Incident monochromatic plane wave (real part). (b) Scattered monochromatic plane wave (real part). (c) Gradient of FWI describing one wavenumber component (real part) built from the plane waves shown in (a) and (b). From @Virieux2009.](figures/Resolution.png){width="100%"}
+
+<!-- - One frequency + one aperture $\rightarrow$ one wavenumber in model space -->
+- Low frequencies and large appertures resolve intermediate and large wavelengths 
+- Normal incidence ($\theta=0$) leads to max resolution of $\frac{1}{2}\lambda$
+- Long offsets resolve small horizontal wavenumbers of dipping structures 
+<!-- - Small $\theta$ (transmission) $\rightarrow$ low wavenumbers
+- Large $\theta$ (reflection) $\rightarrow$ high wavenumbers -->
 
 :::
 
 ::: {.column width="50%"}
 
-![Illustration of diving wave paths and resolution. From @SANFORD2023.](figures/diving_fig2.png){width="100%"}
+![Illustration of diving wave paths and resolution. From @Virieux2009.](figures/diving_fig2.png){width="70%"}
 
 :::
 
@@ -355,21 +398,41 @@ $$
 
 ## Attainable resolution {.smaller}
 
-### Frequency-domain sensitivity kernel
+**Frequency-domain sensitivity kernel:**
 
 ![Wavepath. (a) Wavepath for a receiver located at a horizontal distance of 70 km. The frequency is 5 Hz and the velocity in the homogeneous background is 6 km/s. (b) Monochromatic Green's function for a point source. From @Virieux2009.](figures/virieux2009_fig5.png){width="80%"}
 
+. . .
+
+
 ::: {.callout-note}
-**Key insight**: One frequency and one aperture map **one wavenumber** in the model space. Frequency and aperture have **redundant control** of the wavenumber coverage.
+
+**Key insights**: 
+
+- One frequency and one aperture map **one wavenumber** in the model space. Frequency and aperture have **redundant control** of the wavenumber coverage. 
+- The central zone of elliptical shape is the first Fresnel zone of width $\sqrt{\lambda O_{sr}}$⁠, where $O_{sr}$ is the source-receiver offset. 
+- Residuals matching the first arrival with an error lower than half a period update large wavelengths. 
+- Outer fringes are isochrones associated with later-arriving reflections, providing updates of the shorter wavelengths.
 :::
 
 ---
 
-## Imaging an inclusion by FWI {.smaller}
+## Valhall OBC field example: resolution improvement {.smaller}
 
-![Imaging an inclusion by FWI for three acquisition geometries. (a) Crosshole: 6 frequencies inverted successively, 20 iterations per frequency. (b) Vertical and horizontal crosshole. (c) Surface experiment. Note the anisotropy of resolution due to illumination. From @Virieux2009.](figures/virieux2009_fig10.png){width="55%"}
+![Initial model (left) and final FWI model (right) for the Valhall field. Horizontal sections at 175 m, 500 m, and 1000 m depth. Note the significant increase in resolution from left to right — paleochannels, glacier imprints, and gas cloud contours become visible. From @Virieux2017.](figures/virieux2014_fig6.png){width="65%"}
 
 ---
+
+## Valhall: seismogram comparison {.smaller}
+
+![Common receiver gather in (a) the initial model and (b) the final model. Red arrows identify first-arrival phases, and black arrows identify post-critical phases. Note the increasing extraction of information achieved by FWI. The source signal is shown as an insert and differs between the initial and final models. From @Virieux2017.](figures/virieux2014_fig7.png){width="90%"}
+
+
+## OBC data set from the North Sea {.smaller}
+
+![Initial model in the left panels and final model in the right panels. Horizontal sections are shown at depths of 175 m, 500 m, and 1000 m. Note the significant increase of resolution from left to right. The paleoriver features are nicely visible in (d) but cannot be seen in (a), at a depth of 175 m. In (d), one can identify also the strong imprint of the acquisition. At a depth of 500 m, imprints on bedrock of former glaciers are focused in (e) but are not visible in (b). Finally, at a depth of 1000 m, very precise contours of the gas cloud are clear in (f) but are completely blurred in (c). Acquisition imprints decrease with depth but are still present. From @Virieux2017](figures/virieux2014_fig6){width="55%"}
+
+<!-- ---
 
 ## Optimization methods {.smaller}
 
@@ -429,25 +492,8 @@ $$ {#eq-newton-update}
 
 . . .
 
-### Quasi-Newton: L-BFGS
+ -->
 
-- A **limited-memory** variant of the quasi-Newton BFGS method
-- Allows computing $\mathcal{H}^{(n)} \nabla C^{(n)}$ **without explicitly forming** $\mathcal{H}^{(n)}$
-- Only 3–20 gradients from previous iterations need to be stored
-- **Negligible storage** compared to conjugate gradient [@Nocedal1980]
-
-
-## Convergence comparison
-
-| Method | Convergence | Cost per iteration |
-|--------|------------|-------------------|
-| Gradient descent | Slow (linear) | 1 forward + 1 adjoint |
-| Conjugate gradient | Better | 1 forward + 1 adjoint |
-| L-BFGS | Good | 1 forward + 1 adjoint |
-| Gauss-Newton | Fast (quadratic) | Multiple solves |
-| Newton | Fastest (quadratic) | Most expensive |
-
----
 
 ## Regularization {.smaller}
 
@@ -470,13 +516,14 @@ where:
 
 ## Cycle skipping: the fundamental challenge {.smaller}
 
-### The problem
+**The problem:**
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 ![Schematic of cycle-skipping artifacts in FWI. If the time delay is greater than $T/2$, the modeled seismogram will match the wrong cycle, leading to an erroneous model. From @Virieux2009.](figures/virieux2009_fig7.png){width="100%"}
 :::
+
 
 ::: {.column width="50%"}
 The **Born approximation** requires that the starting model allows matching observed traveltimes with an error less than **half the period** [@BeydounTarantola1988]:
@@ -494,9 +541,15 @@ For 50 wavelengths, the traveltime error must be less than **1%**!
 
 ---
 
+## Cycle skipping examples (cont.) {.smaller}
+
+![Comparative study of objective functions to overcome noise and bandwidth limitations in FWI. From @JimenezTejero2015.](figures/cycle3.png){width="75%"}
+
+---
+
 ## Cycle skipping examples {.smaller}
 
-![Characterising ice slabs in firn using seismic full waveform inversion. From @Pearce2023.](figures/cycle.png){width="75%"}
+![Characterising ice slabs in firn using seismic full waveform inversion. From @Pearce2023.](figures/cycle.png){width="70%"}
 
 ---
 
@@ -508,34 +561,50 @@ For 50 wavelengths, the traveltime error must be less than **1%**!
 
 ## Cycle skipping examples (cont.) {.smaller}
 
-![Comparative study of objective functions to overcome noise and bandwidth limitations in FWI. From @JimenezTejero2015.](figures/cycle3.png){width="75%"}
-
----
-
-## Cycle skipping examples (cont.) {.smaller}
-
 ![(a) Time shift $\Delta t$ between field data (yellow) and modelled data (blue). Centre: far-offset traces for various model errors. Bottom: residual traces. (b) Cost function for various time shifts — note the **local minima** on either side of the global minimum. From @Jones2019.](figures/jones_fig5.png){width="85%"}
 
----
 
-## Cycle skipping in model space {.smaller}
+<!-- ## Cycle skipping in model space {.smaller}
 
 ![(a) Contour plot of $C(m)$ for two variables. (b) $C(m)$ curve in 2D plane along gradient direction. (c) Contour plot showing minimum in the line-search direction. (d) Line-search stepping procedure. From @Jones2019, adapted from @Shewchuk1994.](figures/jones_fig6.png){width="85%"}
 
+--- 
+-->
+
+## Effects of Cycle-skipping - true model
+
+![Adapted from Eric Verschuur.](figures/eric_cycle_1.png){.nostretch width="70%"}
+
 ---
 
-## Multiscale strategies to avoid cycle skipping {.smaller}
+## Effects of Cycle-skipping – > 3Hz
 
-### Frequency continuation
+![Adapted from Eric Verschuur.](figures/eric_cycle_2.png){.nostretch width="70%"}
 
-The **hierarchical multiscale** strategy successively processes data subsets of increasing resolution power to incorporate **progressively smaller wavenumbers** in the tomographic models. [@Virieux2009]
+---
+
+## Effects of Cycle-skipping – > 6Hz
+
+![Adapted from Eric Verschuur.](figures/eric_cycle_3.png){.nostretch width="70%"}
+
+---
+
+## Sensitivity to starting models {.smaller}
+
+![Sensitivity of FWI to the accuracy of different starting models for the synthetic Valhall model. (a) Close-up of the true model. (b–d) FWI models from different starting models. (e–g) Velocity profiles comparing true (black), starting (blue), and FWI models (red). From @Virieux2009.](figures/virieux2009_fig10.png){width="55%"}
+
+---
+
+## Multiscale strategies{.smaller}
+
+**Frequency continuation:** The **hierarchical multiscale** strategy successively processes data subsets of increasing resolution power to incorporate **progressively smaller wavenumbers** in the tomographic models. [@Virieux2009]
 
 - **Time domain**: @BunksEtAl1995 propose successive inversion of subdata sets of increasing high-frequency content
 - **Frequency domain**: Invert single or multiple frequencies (frequency groups) of increasing frequency
 
-## Laplace-Fourier approach{.smaller}
+. . .
 
-Using complex-valued frequencies equivalent to **exponential damping** of seismograms:
+**Laplace-Fourier approach:** Using complex-valued frequencies equivalent to **exponential damping** of seismograms:
 
 $$
 P\left(\omega + \frac{i}{\tau}\right) e^{i\omega t} = \int_{-\infty}^{+\infty} p(t) e^{-(t-t_0)/\tau} e^{i\omega t} \, dt
@@ -545,23 +614,6 @@ The Laplace-domain inversion provides a **smooth velocity model** as a starting 
 
 ---
 
-## Cycle-skipping - true model
-
-![Adapted from Eric Verschuur.](figures/eric_cycle_1.png){width="85%"}
-
----
-
-## Cycle-skipping – > 3Hz
-
-![Adapted from Eric Verschuur.](figures/eric_cycle_2.png){width="85%"}
-
----
-
-## Cycle-skipping – > 6Hz
-
-![Adapted from Eric Verschuur.](figures/eric_cycle_3.png){width="85%"}
-
----
 
 ## Multiscale FWI example {.smaller}
 
@@ -569,9 +621,44 @@ The Laplace-domain inversion provides a **smooth velocity model** as a starting 
 
 ---
 
+## Laplace-Fourier-domain FWI {.smaller}
+
+![Laplace-Fourier-domain waveform inversion for the BP benchmark model. (a) True model. (b) Starting model. (c) After Laplace-domain inversion. (d) After Laplace-Fourier-domain inversion. (e) After frequency-domain FWI. All structures are successfully imaged from a very crude starting model. From @Virieux2009.](figures/virieux2009_fig11.png){width="65%"}
+
+---
+
+## Next steps{.smaller}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+While multiscale techniques mitigate some of the effects of cycle skipping they to not overcome the problem.
+
+So, far we mainly looked at transmitted diving waves whose depth of penetration depends on 
+
+- maximum offset
+- lowest temporal frequency (determines width of the Fresnel zone)
+
+In the next lectures, we will exploit 
+
+- topology of gradient to fascilitate reflection and multi-parameter FWI
+- model space extensions
+- constraints
+
+:::
+
+::: {.column width="50%"}
+
+![Adapted from @Liu2022](figures/Fresnel.png){.nostretch width="70%"}
+
+
+:::
+:::
+
 ## Topology of the FWI gradient {.smaller}
 
-### Banana-doughnut kernels vs. rabbit ears
+**Banana-doughnut kernels vs. rabbit ears:**
 
 ![The sensitivity kernels of acoustic FWI for one source-receiver pair: (a) without and (b) with a prior reflector. The banana-shaped kernel (blue) represents diving-wave contributions; the rabbit-ears-shaped kernel (yellow) represents reflected-wave contributions. $\theta$ is the aperture angle. From @Kim2021.](figures/kim_fig1.png){width="85%"}
 
@@ -608,19 +695,21 @@ The Laplace-domain inversion provides a **smooth velocity model** as a starting 
 
 ## Discussion: practical aspects {.smaller}
 
-### Key takeaways from industrial implementation [@Jones2019]
+**Key takeaways from industrial implementation [@Jones2019]:**
 
 - For **early iterations**, concentrate on the lowest available frequencies — the cost function is **less oscillatory** and cycle skipping is less likely
 - For deep sub-salt model update, frequencies below about **2 Hz** are needed
 - Using the **acoustic approximation**, we ignore density changes and modelled reflection amplitudes will be in error
 - For early stages, rely on **diving-wave energy** (transmitted/refracted wavefield) — penetrates to ~$\frac{1}{3}$ of maximum source-receiver offset
 
+. . .
 
-### Two-stage approach
+**Two-stage approach:**
+
 1. **Refracted wavefield**: update shallow sediment model using long offsets, low frequencies, and turning wave data
 2. **Reflected wavefield**: use the **rabbit-ear** cross-talk terms to penetrate deeper into the model
 
----
+<!-- ---
 
 ## Valhall field example: resolution improvement {.smaller}
 
@@ -632,19 +721,10 @@ The Laplace-domain inversion provides a **smooth velocity model** as a starting 
 
 ![Common receiver gather in (a) the initial model and (b) the final model. Red arrows identify first-arrival phases, and black arrows identify post-critical phases. Note the increasing extraction of information achieved by FWI. From @Virieux2017.](figures/virieux2014_fig7.png){width="90%"}
 
----
+--- 
 
-## Sensitivity to starting models {.smaller}
+-->
 
-![Sensitivity of FWI to the accuracy of different starting models for the synthetic Valhall model. (a) Close-up of the true model. (b–d) FWI models from different starting models. (e–g) Velocity profiles comparing true (black), starting (blue), and FWI models (red). From @Virieux2009.](figures/virieux2009_fig10.png){width="55%"}
-
----
-
-## Laplace-Fourier-domain FWI {.smaller}
-
-![Laplace-Fourier-domain waveform inversion for the BP benchmark model. (a) True model. (b) Starting model. (c) After Laplace-domain inversion. (d) After Laplace-Fourier-domain inversion. (e) After frequency-domain FWI. All structures are successfully imaged from a very crude starting model. From @Virieux2009.](figures/virieux2009_fig11.png){width="65%"}
-
----
 
 ## FWI in practice with Devito {.smaller}
 
@@ -972,13 +1052,13 @@ The gradient has the **same sign** as the true perturbation — confirming that 
 
 ## SLIM contributions to FWI {.smaller}
 
-### Stochastic optimization and computational efficiency
+**Stochastic optimization and computational efficiency:**
 
 :::: {.columns}
 
 ::: {.column width="50%"}
 
-**Effective method for parameter estimation with PDE constraints** [@vanLeeuwen2011]
+**Effective method for parameter estimation with PDE constraints** [@haber2012effective]
 
 - Reformulate multi-source problems as **stochastic programming**
 - Combine multiple right-hand sides into **fewer simultaneous sources**
@@ -1002,7 +1082,7 @@ The gradient has the **same sign** as the true perturbation — confirming that 
 
 ## SLIM contributions (cont.) {.smaller}
 
-### Robustness and scalability
+**Robustness and scalability:**
 
 :::: {.columns}
 
@@ -1039,7 +1119,7 @@ All four works address the **computational bottleneck** of FWI by leveraging ide
 
 ## Summary {.smaller}
 
-### Key takeaways
+**Key takeaways:**
 
 1. **FWI** uses the entire wavefield to reconstruct subsurface parameters at **sub-wavelength resolution**
 2. The **single scattering formulation** treats all phases equally — no prior scale separation
