@@ -1,5 +1,5 @@
 ---
-title: "Week 11"
+title: "Week 12"
 subtitle: "Wavefield Reconstruction Inversion"
 description: "Apr 6  - Apr 10"
 author: "Felix J. Herrmann"
