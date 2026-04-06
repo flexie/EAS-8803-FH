@@ -1,0 +1,1159 @@
+---
+title: "Extensions of FWI — Wavefield Reconstruction Inversion"
+subtitle: "From Penalty Methods to Time-Domain WRI"
+author: "Felix J. Herrmann"
+institute: "Schools of EAS, CSE, ECE — Georgia Institute of Technology"
+footer: "[EAS 8803-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+date: 03-30-2026
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    chalkboard: true
+    smaller: false
+    scrollable: false
+    center: true
+    transition: slide
+    html-math-method: mathjax
+    fig-align: center
+    code-fold: true
+    highlight-style: github
+bibliography: Bibliography.bib
+---
+
+## {#title-custom .center background-color="white"}
+
+:::{style="display: flex; justify-content: center; align-items: center; gap: 2.5em; margin-bottom: 1em;"}
+![](figures/GTLogo.png){height=100}
+![](figures/ClaudeLogo.png){height=100}
+:::
+
+### Extensions of FWI — Wavefield Reconstruction Inversion {style="margin-bottom: 0.1em;"}
+
+**Felix J. Herrmann**
+
+School of Earth and Atmospheric Sciences — Georgia Institute of Technology
+
+Based on @vanLeeuwen2013Penalty1, @vanLeeuwen2016Penalty, @rizzuti2021dual
+
+---
+
+## Outline {.smaller}
+
+1. **Recap** — FWI as PDE-constrained optimization
+2. **Motivation** — Why expand the search space?
+3. **The penalty method** — Relaxing the wave equation [@vanLeeuwen2013Penalty1]
+4. **Wavefield reconstruction** — The augmented wave equation
+5. **Examples** — Reduced nonlinearity and local minima
+6. **Theoretical analysis** — Convergence guarantees [@vanLeeuwen2016Penalty]
+7. **WRI\*** — Dual formulation for time-domain WRI [@rizzuti2021dual]
+8. **Numerical experiments** — Marmousi, BG Compass, TTI
+9. **Summary and conclusions**
+
+::: {.notes}
+This is the second lecture in a series on Full-Waveform Inversion extensions. We build on the FWI foundations from the previous lecture and introduce Wavefield Reconstruction Inversion (WRI).
+:::
+
+---
+
+## Recap: FWI as constrained optimization {.smaller}
+
+FWI in the frequency domain is a **PDE-constrained** optimization problem:
+
+$$
+\min_{\mathbf{m},\mathbf{u}} \sum_{i=1}^{M}\frac{1}{2}\|P_i\mathbf{u}_i - \mathbf{d}_i\|_2^2 \quad \text{s.t.} \quad A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i
+$$
+
+. . .
+
+where:
+
+- $\mathbf{m}$ — gridded medium parameters (e.g., squared slowness)
+- $A_i(\mathbf{m}) = \omega_i^2\mathsf{diag}(\mathbf{m}) + L$ — discretized Helmholtz operator with $L$ the discretized Laplacian
+- $\mathbf{u}_i$ — wavefields, $\mathbf{q}_i$ — sources
+- $P_i$ — measurement (receiver sampling) operator
+- $\mathbf{d}_i$ — observed $i^{\text{th}}$ shot record
+
+---
+
+## The Lagrangian (full-space) approach {.smaller}
+
+An elegant way to solve the constrained optimization is via the Lagrangian [@haber2000optimization]:
+
+$$
+\mathcal{L}(\mathbf{m},\mathbf{u},\mathbf{v}) = \sum_{i=1}^{M}\frac{1}{2}\|P_i\mathbf{u}_i - \mathbf{d}_i\|_2^2 + \mathbf{v}_i^{*}(A_i(\mathbf{m})\mathbf{u}_i - \mathbf{q}_i)
+$$
+
+where $\mathbf{v} = [\mathbf{v}_1; \mathbf{v}_2; \ldots]$ are the Lagrange multipliers (adjoint wavefields).
+
+. . .
+
+**Properties:**
+
+- Dependency on $\mathbf{m}$ is through $A(\mathbf{m})\mathbf{u}$ instead of $A(\mathbf{m})^{-1}\mathbf{q}$ — **less nonlinear**
+- Explores a **larger search space** — less prone to local minima
+- No need to solve the PDE; constraints only satisfied upon convergence
+
+. . .
+
+::: {.callout-important}
+## The storage problem
+Simultaneously updating and storing all $2M$ wavefields ($\mathbf{u}$ and $\mathbf{v}$) is **not feasible** for large-scale problems.
+:::
+
+---
+
+## The reduced formulation of FWI {.smaller}
+
+Eliminating the constraints by solving the PDE gives the **reduced** objective:
+
+$$
+\min_{\mathbf{m}} \phi_{\text{reduced}}(\mathbf{m}) = \sum_{i=1}^{M}\frac{1}{2}\|P_iA_i(\mathbf{m})^{-1}\mathbf{q}_i - \mathbf{d}_i\|_2^2
+$$
+
+The gradient of the reduced objective is given by:
+
+$$
+\nabla_{\mathbf{m}}\phi_{\text{reduced}}(\mathbf{m}) = \sum_{i=1}^{M} \omega_i^2\,\mathsf{diag}(\mathbf{u}_i)^{*}\mathbf{v}_i
+$$
+
+. . .
+
+where the **forward** and **adjoint** wavefields must be computed:
+
+$$
+A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}_i = P_i^{*}(P_i\mathbf{u}_i - \mathbf{d}_i)
+$$
+
+---
+
+## Properties of the reduced formulation {.smaller}
+
+**Advantages:**
+
+- Wavefields and gradient computed independently per source — **parallelizable**
+- No need to store all $2M$ wavefields simultaneously
+
+. . .
+
+**Disadvantages:**
+
+- Computing the gradient requires solving **both** forward and adjoint wave equations for all $M$ experiments at each iteration
+- The Hessian action requires **three** additional PDE solves per experiment [@pratt1998gauss]
+- The objective depends on $\mathbf{m}$ through $A(\mathbf{m})^{-1}$ — **very nonlinear**
+- This nonlinearity causes **local minima** (cycle skipping)
+
+. . .
+
+> Can we come up with a formulation that combines advantages of both the Lagrangian and reduced formulations?
+
+---
+
+## Motivation: the equation-error approach {.smaller}
+
+**Key insight** [@vanLeeuwen2016Penalty]: If we had **complete measurements** of the wavefield ($P$ invertible), we could:
+
+1. Reconstruct the state: $\mathbf{u} = P^{-1}\mathbf{d}$
+2. Recover $\mathbf{m}$ by solving:
+
+$$
+\min_{\mathbf{m}} \frac{1}{2}\|A(\mathbf{m})\mathbf{u} - \mathbf{q}\|_2^2
+$$
+
+which is **linear** in $\mathbf{m}$ for many PDEs!
+
+. . .
+
+With **incomplete measurements**, we combine physics and data:
+
+$$
+\begin{pmatrix} A(\mathbf{m}) \\ P \end{pmatrix} \mathbf{u} \approx \begin{pmatrix} \mathbf{q} \\ \mathbf{d} \end{pmatrix}
+$$
+
+
+# Part I: The Penalty Method {background-color="#002855"}
+
+@vanLeeuwen2013Penalty1
+
+---
+
+## The penalty formulation {.smaller}
+
+To arrive at a method with the best of both worlds, cast the constrained problem into an **unconstrained** penalty form [@vanLeeuwen2013Penalty1]:
+
+$$
+\min_{\mathbf{m},\mathbf{u}} \phi_{\lambda}(\mathbf{m},\mathbf{u}) = \sum_{i=1}^{M} \frac{1}{2}\|P_i\mathbf{u}_i - \mathbf{d}_i\|_2^2 + \frac{\lambda^2}{2}\|A_i(\mathbf{m})\mathbf{u}_i - \mathbf{q}_i\|_2^2
+$$
+
+. . .
+
+Two terms balanced by the trade-off parameter $\lambda$:
+
+| Term | Meaning |
+|------|---------|
+| $\frac{1}{2}\|P\mathbf{u} - \mathbf{d}\|_2^2$ | Data misfit |
+| $\frac{\lambda^2}{2}\|A(\mathbf{m})\mathbf{u} - \mathbf{q}\|_2^2$ | Wave-equation error |
+
+. . .
+
+- As $\lambda \to \infty$: recovers the constrained (FWI) solution
+- For finite $\lambda$: **relaxes the physics** — enlarges the search space over $\mathbf{m},\mathbf{u}$
+
+---
+
+## The augmented wave equation {.smaller}
+
+Minimizing $\phi_\lambda$ w.r.t. $\mathbf{u}$ ($\nabla_{\mathbf{u}}\phi_\lambda = 0$) gives the **augmented wave equation** for each source:
+
+$$
+\begin{pmatrix} \lambda A_i(\mathbf{m}) \\ P_i \end{pmatrix} \mathbf{u}_i = \begin{pmatrix} \lambda \mathbf{q}_i \\ \mathbf{d}_i \end{pmatrix}
+$$
+
+. . .
+
+This overdetermined system is a **regularized wave equation** where the solution is forced to:
+
+- Obey the wave equation (weighted by $\lambda$)
+- **Fit the observed data** at receiver locations
+
+. . .
+
+::: {.callout-note}
+## Wavefield Reconstruction
+The solution reconstructs the wavefield from **both** the physics and the data — hence the name **Wavefield Reconstruction Inversion** (WRI).
+:::
+
+---
+
+## The gradient and model update {.smaller}
+
+The gradient of $\phi_\lambda$ w.r.t. $\mathbf{m}$ is:
+
+$$
+\nabla_{\mathbf{m}}\phi_{\lambda}(\mathbf{m},\mathbf{u}) = \sum_{i=1}^{M} \lambda^2\omega_i^2\,\mathsf{diag}(\mathbf{u}_i)^{*}\!\left(A_i(\mathbf{m})\mathbf{u}_i - \mathbf{q}_i\right)
+$$
+
+. . .
+
+Compare to the **reduced (FWI) gradient**: $\nabla_{\mathbf{m}}\phi_{\text{reduced}}(\mathbf{m}) = \sum_{i=1}^{M} \omega_i^2\,\mathsf{diag}(\mathbf{u}_i)^{*}\mathbf{v}_i$
+
+. . .
+
+**Key differences:**
+
+- **No adjoint wavefield** $\mathbf{v}_i$ needed — replaced by the PDE residual $(A_i\mathbf{u}_i - \mathbf{q}_i)$
+- Correlates reconstructed wavefields with wave-equation residuals
+
+---
+
+## Newton update for the model {.smaller}
+
+Setting $\nabla_{\mathbf{m}}\phi_{\lambda} = 0$ and using $A_i(\mathbf{m}) = \omega_i^2\mathsf{diag}(\mathbf{m}) + L$ gives the system:
+
+$$
+\sum_{i=1}^{M} \omega_i^4\,\mathsf{diag}(\mathbf{u}_i)^{*}\mathsf{diag}(\mathbf{u}_i)\,\mathbf{m} = \sum_{i=1}^{M} \omega_i^2\,\mathsf{diag}(\mathbf{u}_i)^{*}\!\left(\mathbf{q}_i - L\mathbf{u}_i\right)
+$$
+
+. . .
+
+**Remarkable properties:**
+
+- The system is **strictly diagonal** — trivial to solve
+- The left-hand side is a **Hessian** of $\phi_\lambda$ w.r.t. $\mathbf{m}$ (Newton step)
+- Can be assembled in a **running sum** without storing all wavefields
+- Independent computation and accumulation per source — parallelizable
+
+---
+
+## Summary: penalty vs. reduced {.smaller}
+
+The alternating approach has three major advantages over conventional FWI:
+
+1. **No adjoint wavefields** — updates computed directly from reconstructed wavefields and PDE residuals
+2. **Each step is linear or mildly nonlinear** — the augmented wave equation is linear in $\mathbf{u}$; the model update is linear in $\mathbf{m}$
+3. **Relaxes the physics** — the wave equation is enforced in the least-squares sense, not exactly
+
+. . .
+
+::: {.callout-note}
+## Enlarged search space
+The penalty objective depends on $\mathbf{m}$ through the wave equation $A(\mathbf{m})\mathbf{u}$ (as in the Lagrangian), **not** through its inverse $A(\mathbf{m})^{-1}\mathbf{q}$ (as in the reduced formulation). This arguably makes the problem less nonlinear.
+:::
+
+---
+
+## Example 1: wavefield reconstruction {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![(a) Square velocity perturbation in constant background](figures/example1a.png){width="100%"}
+:::
+::: {.column width="50%"}
+![(b) Scattered wavefield (difference between  between the wavefield for the perturbed medium and the background medium) at 10 Hz for a point source at $z=500$ m](figures/example1b.png){width="100%"}
+:::
+::::
+
+Cross-well experiment: 51 sources and receivers at either side. The goal is to reconstruct the scattered wavefield from receiver observations at $x=990$ m, given the constant background model [@vanLeeuwen2013Penalty1].
+
+---
+
+## Example 1: reconstruction from data {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![(a) Reconstructed scattered wavefield from augmented wave equation](figures/example1c.png){width="100%"}
+:::
+::: {.column width="50%"}
+![(b) Corresponding model estimate](figures/example1d.png){width="100%"}
+:::
+::::
+
+By including the data constraint in the wave equation, the imprint of the perturbation is partly reconstructed. This information is then used to compute a new model estimate by solving the diagonal system [@vanLeeuwen2013Penalty1].
+
+---
+
+## Example 1: after 10 iterations {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![(a) Scattered wavefield after 10 iterations](figures/example1e.png){width="100%"}
+:::
+::: {.column width="50%"}
+![(b) Model estimate after 10 iterations](figures/example1f.png){width="100%"}
+:::
+::::
+
+Repeating the alternating procedure (wavefield reconstruction $\to$ model update) leads to progressively better reconstruction of both the scattered wavefield and the model. The region around receivers was windowed out to suppress artifacts [@vanLeeuwen2013Penalty1].
+
+---
+
+## Example 2: objective function landscape {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![(a) $\phi$ as function of $v_0$](figures/example2a.png){width="70%"}
+:::
+::: {.column width="50%"}
+![(b) $\phi$ as function of $\alpha$](figures/example2b.png){width="70%"}
+:::
+::::
+
+1D velocity model $v(z) = v_0 + \alpha z$, single frequency (5 Hz), single source, 201 receivers with 10 km max offset. For small $\lambda$, the penalty objective has **no local minima**. The global minima for reduced and penalty formulations **coincide**. The parameter $\lambda$ controls the **basin of attraction** width [@vanLeeuwen2013Penalty1].
+
+---
+
+## Example 2: key observations {.smaller}
+
+The objective function comparison reveals:
+
+1. The **global minima** for the reduced and penalty formulations coincide for all values of $\lambda$
+
+2. The penalty objective converges to the reduced objective as $\lambda$ increases
+
+3. $\lambda$ controls the **width of the basin of attraction** — smaller $\lambda$ means wider basin
+
+. . .
+
+4. For small $\lambda$ the minimum is less well-defined, reducing the resolution somewhat
+
+5. This loss in resolution can be overcome by **gradually increasing** $\lambda$ — a continuation technique widely used in optimization
+
+---
+
+## Example 3: convergence comparison {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![Convergence histories: misfit (solid) and $\|\nabla\|_2$ (dashed)](figures/example3b.png){width="100%"}
+:::
+::: {.column width="50%"}
+![Data fit: observed (dashed) vs. reconstructed](figures/example3c.png){width="100%"}
+:::
+::::
+
+1D gridded velocity profile $v(z) = v_0 + \alpha z + \delta v \exp(-\beta^2(z-z_0)^2)$. Single source, 5 Hz, 15 km max offset. Steepest descent with fixed step length. The penalty method residual decays faster; the reduced method stalls after ~30 iterations due to **cycle skipping** around receiver 201 [@vanLeeuwen2013Penalty1].
+
+---
+
+## Example 3: velocity reconstruction {.smaller}
+
+![Reconstructed velocity perturbations (difference between reconstructed and initial models) after 1000 steepest-descent iterations. True profile shown with dashed line. Adapted from @vanLeeuwen2013Penalty1.](figures/example3a.png){width="55%"}
+
+While the data fit of the reduced method may suggest a reasonable result, the corresponding velocity estimate is **completely wrong**. The penalty method recovers the correct velocity perturbation, confirming it suffers less from local minima.
+
+---
+
+## Example 4: imaging without adjoints {.smaller}
+
+:::: {.columns}
+::: {.column width="33%"}
+![(a) True velocity perturbation](figures/example4a.png){width="100%"}
+:::
+::: {.column width="33%"}
+![(b) RTM image](figures/example4b.png){width="100%"}
+:::
+::: {.column width="33%"}
+![(c) Penalty method image](figures/example4c.png){width="100%"}
+:::
+::::
+
+Three perturbations in constant background, 101 sources/receivers at top, frequencies 1–10 Hz. Traditional RTM (b) requires forward **and** adjoint wavefields. The penalty image (c) requires only **half the PDE solves** (no adjoint) and is **better resolved** — the Newton step naturally compensates for amplitude effects [@vanLeeuwen2013Penalty1].
+
+---
+
+## Conclusions from Part I {.smaller}
+
+The penalty formulation of wave-equation based inversion [@vanLeeuwen2013Penalty1]:
+
+1. **Relaxes the physics** by enforcing the wave equation in the least-squares sense rather than exactly
+2. Explores a **larger search space** by optimizing over both model and wavefields
+3. Leads to an efficient **two-step** algorithm: solve augmented wave equation, then update model via a diagonal system
+4. The method does **not** require adjoint wavefields — significant computational savings
+5. The trade-off parameter $\lambda$ controls the **basin of attraction** — smaller $\lambda$ widens it
+6. Initial tests show the method is **less sensitive to inaccurate initial models**
+7. Straightforward extensions to 3D, multi-parameter inversion, and randomized source subsampling
+
+
+# Part II: Theoretical Analysis {background-color="#002855"}
+
+@vanLeeuwen2016Penalty
+
+---
+
+## Broader context: all-at-once methods {.smaller}
+
+For linear PDEs, the inverse problem reads
+$$\min_{\mathbf{m},\mathbf{u}} \frac{1}{2}\|P\mathbf{u} - \mathbf{d}\|_2^2 \quad \text{s.t.} \quad A(\mathbf{m})\mathbf{u} = \mathbf{q}$$
+
+The Lagrangian gradient and Hessian involve the Jacobian matrices [@vanLeeuwen2016Penalty]:
+
+$$
+G(\mathbf{m},\mathbf{u}) = \frac{\partial A(\mathbf{m})\mathbf{u}}{\partial \mathbf{m}}, \quad K(\mathbf{m},\mathbf{v}) = \frac{\partial A(\mathbf{m})^T\mathbf{v}}{\partial \mathbf{m}}, \quad R(\mathbf{m},\mathbf{u},\mathbf{v}) = \frac{\partial G(\mathbf{m},\mathbf{u})^T\mathbf{v}}{\partial \mathbf{m}}
+$$
+
+. . .
+
+The all-at-once approach finds a stationary point of $\mathcal{L}$ by Newton iteration on the KKT system:
+
+$$
+\begin{pmatrix} R & K^T & G^T \\ K & P^TP & A^T \\ G & A & 0 \end{pmatrix}
+\begin{pmatrix} \delta\mathbf{m} \\ \delta\mathbf{u} \\ \delta\mathbf{v} \end{pmatrix}
+= -\begin{pmatrix} G^T\mathbf{v} \\ A^T\mathbf{v} + P^T(P\mathbf{u}-\mathbf{d}) \\ A\mathbf{u} - \mathbf{q} \end{pmatrix}
+$$
+
+. . .
+
+Eliminates the need to solve PDEs; constraints only satisfied upon convergence. But requires storing and updating **all** variables simultaneously — not feasible at scale.
+
+---
+
+## The reduced Gauss-Newton algorithm {.smaller}
+
+The **reduced** approach eliminates $\mathbf{u}$ and $\mathbf{v}$ via block elimination of the KKT system [@vanLeeuwen2016Penalty]:
+
+**Algorithm (Reduced Gauss-Newton):**
+
+1. Initialize $\mathbf{m}^0$
+2. **While** $\|\nabla_\mathbf{m}\mathcal{L}\|_2 \geq \epsilon$:
+   a. Solve forward: $\mathbf{u}_{\text{red}}^k = A(\mathbf{m}^k)^{-1}\mathbf{q}$
+   b. Solve adjoint: $\mathbf{v}_{\text{red}}^k = A(\mathbf{m}^k)^{-T}P^T(\mathbf{d} - P\mathbf{u}_{\text{red}}^k)$
+   c. Gradient: $\mathbf{g}^k = G(\mathbf{m}^k,\mathbf{u}_{\text{red}}^k)^T\mathbf{v}_{\text{red}}^k$
+   d. GN Hessian: $H^k = G^TA^{-T}P^TPA^{-1}G$
+   e. Update: $\mathbf{m}^{k+1} = \mathbf{m}^k - \alpha^k(H^k)^{-1}\mathbf{g}^k$
+
+. . .
+
+Constraints satisfied at **each** iteration. Requires $2K$ PDE solves per iteration (forward + adjoint).
+
+---
+
+## The penalty objective and its reduction {.smaller}
+
+Using a quadratic penalty, the constrained problem becomes [@vanLeeuwen2016Penalty]:
+
+$$
+\mathcal{P}(\mathbf{m},\mathbf{u}) = \frac{1}{2}\|P\mathbf{u} - \mathbf{d}\|_2^2 + \frac{\lambda}{2}\|A(\mathbf{m})\mathbf{u} - \mathbf{q}\|_2^2
+$$
+
+. . .
+
+Eliminate $\mathbf{u}$ by variable projection: $\mathbf{u}_\lambda(\mathbf{m}) = \arg\min_{\mathbf{u}} \mathcal{P}(\mathbf{m},\mathbf{u})$
+
+$$
+\mathbf{u}_\lambda = \left(A^T\!A + \lambda^{-1}P^T\!P\right)^{-1}\!\left(A^T\mathbf{q} + \lambda^{-1}P^T\mathbf{d}\right)
+$$
+
+. . .
+
+This defines the **reduced penalty objective**:
+
+$$
+\phi_\lambda(\mathbf{m}) = \mathcal{P}(\mathbf{m},\mathbf{u}_\lambda(\mathbf{m}))
+$$
+
+The modified system $A^TA + \lambda^{-1}P^TP$ is a **low-rank update** of the original PDE — similar sparsity, similar conditioning.
+
+---
+
+## The penalty Gauss-Newton algorithm {.smaller}
+
+**Algorithm (Penalty Gauss-Newton)** [@vanLeeuwen2016Penalty]:
+
+1. Initialize $\mathbf{m}^0$, choose $\lambda$
+2. **While** $\|\nabla_\mathbf{m}\mathcal{L}\|_2 \geq \epsilon$:
+   a. Solve augmented: $\mathbf{u}_\lambda^k = (A^TA + \lambda^{-1}P^TP)^{-1}(A^T\mathbf{q} + \lambda^{-1}P^T\mathbf{d})$
+   b. Adjoint state: $\mathbf{v}_\lambda^k = \lambda(A\mathbf{u}_\lambda^k - \mathbf{q})$
+   c. Gradient: $\mathbf{g}_\lambda^k = G(\mathbf{m}^k,\mathbf{u}_\lambda^k)^T\mathbf{v}_\lambda^k$
+   d. GN Hessian: $H_\lambda^k = \lambda G^T(I - A(A^TA + \lambda^{-1}P^TP)^{-1}A^T)G$
+   e. Update: $\mathbf{m}^{k+1} = \mathbf{m}^k - \alpha^k(H_\lambda^k)^{-1}\mathbf{g}_\lambda^k$
+
+. . .
+
+**Key difference:** The adjoint state $\mathbf{v}_\lambda^k$ does **not** require an additional PDE solve — forward and adjoint are computed simultaneously via the normal equations.
+
+---
+
+## Relationship to the reduced approach {.smaller}
+
+::: {.callout-tip}
+## Lemma [@vanLeeuwen2016Penalty]
+For fixed $\mathbf{m}$, the penalty states converge to the reduced states:
+
+$$
+\mathbf{u}_\lambda = \mathbf{u}_{\text{red}} + \mathcal{O}(\lambda^{-1}), \qquad
+\mathbf{v}_\lambda = \mathbf{v}_{\text{red}} + \mathcal{O}(\lambda^{-1})
+$$
+
+with the natural scaling: $\lambda > \|PA^{-1}\|_2^2$ is considered **large**.
+:::
+
+. . .
+
+::: {.callout-tip}
+## Theorem 1 — Convergence [@vanLeeuwen2016Penalty]
+At each iteration: $\|\mathcal{L}_\mathbf{u}\|_2 = 0$ and $\|\mathcal{L}_\mathbf{v}\|_2 = \mathcal{O}(\lambda^{-1})$.
+
+If the algorithm terminates at $\mathbf{m}^*$ with $\|\mathcal{L}_\mathbf{m}\|_2 \leq \epsilon$, then:
+
+$$
+\|\nabla\mathcal{L}(\mathbf{m}^*,\mathbf{u}^*_\lambda,\mathbf{v}^*_\lambda)\|_2 \leq \epsilon + \mathcal{O}(\lambda^{-1})
+$$
+
+Stationary point of the Lagrangian within **finite accuracy** with **finite $\lambda$**.
+:::
+
+---
+
+## Distance to the true solution {.smaller}
+
+::: {.callout-tip}
+## Theorem 2 — Error bound [@vanLeeuwen2016Penalty]
+$$
+\|\mathbf{m}_\lambda^* - \mathbf{m}^*\|_2 \leq \kappa(H)\left(\tilde{\epsilon} + \tilde{\lambda}^{-1}\tilde{\eta}\right)
+$$
+:::
+
+where:
+
+| Symbol | Meaning |
+|--------|---------|
+| $\kappa(H)$ | Condition number of reduced GN Hessian |
+| $\tilde{\epsilon} = \epsilon/\|H\|_2$ | Scaled tolerance |
+| $\tilde{\lambda} = \lambda/\|PA^{-1}\|_2^2$ | Scaled penalty parameter |
+| $\tilde{\eta} = \|\mathbf{d} - PA^{-1}\mathbf{q}\|_2/\sqrt{\|H\|_2}$ | Scaled data error |
+
+. . .
+
+**Implication:** For ill-posed inverse problems, we only reconstruct dominant eigenmodes of $H$ — a **finite $\lambda$** suffices for an acceptable reconstruction.
+
+---
+
+## Computational complexity {.smaller}
+
+| Method | PDE solves/iter | Storage | Update |
+|--------|:-:|:-:|------|
+| **Penalty** | $K$ | $N + M$ | Matrix-free, $K$ augmented PDE solves per mat-vec |
+| **Reduced** | $2K$ | $2N + M$ | Matrix-free, $2K$ PDE solves per mat-vec |
+| **All-at-once** | $0$ | $2KN + M$ | Sparse $(2KN+M)$ system |
+
+: Computational cost per iteration [@vanLeeuwen2016Penalty] {.striped}
+
+. . .
+
+The penalty method achieves **similar per-iteration cost** to the reduced method while exploring a **larger search space**. All PDE solves can be done independently and in **parallel**.
+
+---
+
+## Algorithm details {.smaller}
+
+**Solving the augmented PDE** [@vanLeeuwen2016Penalty]:
+
+- **Factorization:** $P^TP$ is nearly diagonal $\Rightarrow$ $A^TA + \lambda^{-1}P^TP$ has similar sparsity as $A^TA$
+- **Iterative methods:** LSQR, LSMR, or CGLS applicable. Eigenvalue perturbation is bounded: condition number does not worsen
+- **Direct methods:** For time-stepping with lower-triangular $A$, the augmented system becomes banded — solvable via block Thomas algorithm
+
+. . .
+
+**Choosing $\lambda$:**
+
+- Natural scaling: $\lambda = \tilde{\lambda}\cdot\mu_1(A^{-T}P^TPA^{-1})$
+- Monitor $\lambda^{-1}\|\mathcal{L}_\mathbf{v}\|_2$ relative to $\|\mathcal{L}_\mathbf{m}\|_2$ during iterations
+- Increase $\lambda$ when the penalty method stalls
+- A single fixed $\lambda$ is typically sufficient
+
+---
+
+## Nonlinearity comparison {.smaller}
+
+:::: {.columns}
+::: {.column width="30%"}
+![Ground truth ($s^2/km^2$) with source ($*$) and receiver ($\bigtriangledown$) locations](figures/2D_exp1_a.png){width="100%"}
+:::
+::: {.column width="30%"}
+![Perturbation $\mathbf{v}_1$](figures/2D_exp0_a.png){width="85%"}
+:::
+::: {.column width="30%"}
+![Perturbation $\mathbf{v}_2$](figures/2D_exp0_e.png){width="85%"}
+:::
+::::
+
+Misfit surface $\phi(\mathbf{m}^* + a_1\mathbf{v}_1 + a_2\mathbf{v}_2)$ plotted along slowly oscillatory perturbations. 2D ultrasound tomography at 5 kHz [@vanLeeuwen2016Penalty].
+
+---
+
+## Nonlinearity: reduced vs. penalty {.smaller}
+
+:::: {.columns}
+::: {.column width="25%"}
+![Reduced](figures/2D_exp0_i.png){width="100%"}
+:::
+::: {.column width="25%"}
+![$\lambda=0.1$](figures/2D_exp0_j.png){width="100%"}
+:::
+::: {.column width="25%"}
+![$\lambda=1$](figures/2D_exp0_k.png){width="100%"}
+:::
+::: {.column width="25%"}
+![$\lambda=10$](figures/2D_exp0_l.png){width="100%"}
+:::
+::::
+
+The reduced objective shows strong **nonlinearity** and spurious stationary points. For small $\lambda$, the penalty misfit is **much better behaved**. As $\lambda$ increases, the penalty misfit converges to the reduced misfit [@vanLeeuwen2016Penalty].
+
+---
+
+## 2D ultrasound: ground truth and convergence {.smaller}
+
+:::: {.columns}
+<!-- ::: {.column width="40%"}
+![Ground truth ($s^2/km^2$) with source ($*$) and receiver ($\bigtriangledown$) locations](figures/2D_exp1_a.png){width="100%"}
+::: -->
+::: {.column width="40%"}
+![Convergence history](figures/2D_exp1_b.png){width="100%"}
+:::
+::: {.column width="40%"}
+![Reconstruction error](figures/2D_exp1_c.png){width="100%"}
+:::
+::::
+
+Gauss-Newton method. The gradient stalls at $\mathcal{O}(\lambda^{-1})$ as predicted. Continuation in $\lambda = \{0.1,1,10,100,1000\}$ reaches the desired tolerance. Penalty method converges in **fewer iterations** and uses **fewer PDE solves** [@vanLeeuwen2016Penalty].
+
+---
+
+## 2D ultrasound: reconstructions {.smaller}
+
+:::: {.columns}
+::: {.column width="25%"}
+![Reduced](figures/2D_exp1_f.png){width="100%"}
+:::
+::: {.column width="25%"}
+![$\lambda=0.1$](figures/2D_exp1_g.png){width="100%"}
+:::
+::: {.column width="25%"}
+![$\lambda=1$](figures/2D_exp1_h.png){width="100%"}
+:::
+::: {.column width="25%"}
+![$\lambda=10$](figures/2D_exp1_i.png){width="100%"}
+:::
+::::
+
+Parameter estimates are nearly identical across methods. All methods start overfitting after a few iterations (countered by regularization or early stopping). The penalty method gives similar results at lower computational cost [@vanLeeuwen2016Penalty].
+
+---
+
+## Seismic tomography: Overthrust model {.smaller}
+
+![Ground truth (Overthrust, $s^2/km^2$) with sources ($*$) and receivers ($\bigtriangledown$). Domain: $[0,5]\times[0,20]$ km, frequency 2 Hz.](figures/2D_overthrust1_a.png){width="80%"}
+
+---
+
+## Initial guesses and data {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![](figures/2D_overthrust1_f.png){width="100%"}
+![Initial guess I with data](figures/2D_overthrust1_k.png){width="100%"}
+
+Data for initial guess I differ only slightly from the observed data — inversion is considered **easy**.
+:::
+::: {.column width="50%"}
+![Initial guess I with data](figures/2D_overthrust2_f.png){width="100%"}
+![Initial guess II with data](figures/2D_overthrust2_k.png){width="100%"}
+
+Data for initial guess II are shifted significantly — inversion is considered **difficult**.
+:::
+::::
+
+---
+
+## Sensitivity to initial model {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![Initial guess I $\to$ Reduced](figures/2D_overthrust1_g.png){width="100%"}
+:::
+::: {.column width="50%"}
+![Initial guess I $\to$ $\lambda=0.1$](figures/2D_overthrust1_h.png){width="100%"}
+:::
+::::
+
+Both methods converge to the same final iterate when starting from a good initial guess [@vanLeeuwen2016Penalty].
+
+---
+
+## Starting from initial guess II {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![Reduced — stuck in local minimum](figures/2D_overthrust2_g.png){width="100%"}
+:::
+::: {.column width="50%"}
+![$\lambda=0.1$ — correct reconstruction](figures/2D_overthrust2_h.png){width="100%"}
+:::
+::::
+
+The **reduced method gets stuck** in a local minimum. For small $\lambda$, the penalty method converges to the **same iterate** as with the good initial guess — demonstrating stability against changes in the initial model [@vanLeeuwen2016Penalty].
+
+---
+
+## Convergence: data misfit vs. PDE residual {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![Starting from initial guess I](figures/2D_overthrust1_e.png){width="80%"}
+:::
+::: {.column width="50%"}
+![Starting from initial guess II](figures/2D_overthrust2_e.png){width="80%"}
+:::
+::::
+
+For small $\lambda$, the penalty method reduces both data and PDE misfit to the same level from **either** starting model. The reduced method cannot reduce the data misfit from initial guess II — confirming local minimum stagnation [@vanLeeuwen2016Penalty].
+
+# Part III: WRI* — Time-Domain WRI {background-color="#002855"}
+
+@rizzuti2021dual
+
+---
+
+## The computational bottleneck of WRI {.smaller}
+
+Classical WRI solves the augmented wave equation:
+
+$$
+\begin{pmatrix} R \\ \lambda A(\mathbf{m}) \end{pmatrix} \bar{\mathbf{u}}(\mathbf{m}) = \begin{pmatrix} \mathbf{d} \\ \lambda \mathbf{q} \end{pmatrix}
+$$
+
+or equivalently:
+
+$$
+(R^*R + \lambda^2 A^*A)\bar{\mathbf{u}}(\mathbf{m}) = R^*\mathbf{d} + \lambda^2 A^*\mathbf{q}
+$$
+
+. . .
+
+::: {.callout-warning}
+## Problem
+This augmented system **cannot be trivially solved** in the time domain using standard time-marching schemes. WRI is practically limited to 2D frequency-domain problems!
+:::
+
+---
+
+## The denoising reformulation {.smaller}
+
+@rizzuti2021dual propose to **swap** objective and constraint:
+
+$$
+\min_{\mathbf{m},\mathbf{u}} \frac{1}{2}\|\mathbf{q} - A(\mathbf{m})\mathbf{u}\|^2 \quad \text{s.t.} \quad \|\mathbf{d} - R\mathbf{u}\| \leq \epsilon
+$$
+
+. . .
+
+Instead of penalizing the wave-equation error, we:
+
+- **Minimize** the wave-equation error
+- **Constrain** the data misfit to be within a noise level $\epsilon$
+
+. . .
+
+This is equivalent to the penalty formulation for a suitable $\lambda(\epsilon)$ — but leads to a **lower-dimensional** Lagrangian multiplier (data space instead of wavefield space).
+
+---
+
+## The WRI* Lagrangian {.smaller}
+
+Using Fenchel duality [@rockafellar1970convex] and variable projection $\bar{\mathbf{u}}(\mathbf{m}) = \arg\min_\mathbf{u} \mathcal{L}_\text{dat}$:
+
+$$
+\mathcal{L}_{\text{WRI}^*}(\mathbf{m},\mathbf{y}) = -\frac{1}{2}\|F^*\mathbf{y}\|^2 + \langle\mathbf{y},\mathbf{r}(\mathbf{m})\rangle - \epsilon\|\mathbf{y}\|
+$$
+
+. . .
+
+where:
+
+- $F(\mathbf{m}) = RA(\mathbf{m})^{-1}$ — the **forward modeling operator**
+- $\mathbf{r}(\mathbf{m}) = \mathbf{d} - F(\mathbf{m})\mathbf{q}$ — the **data residual**
+- $\mathbf{y}$ — Lagrangian multipliers in **data space**
+
+. . .
+
+::: {.callout-note}
+## Key advantage
+Evaluating $\mathcal{L}_{\text{WRI}^*}$ and its gradients only requires solutions of the **conventional wave equation** — enabling time-domain solvers!
+:::
+
+---
+
+## Gradient computation for WRI* {.smaller}
+
+The gradients are [@rizzuti2021dual]:
+
+$$
+\nabla_\mathbf{m}\mathcal{L}_{\text{WRI}^*} = -J[\mathbf{m},\mathbf{q}+F^*\mathbf{y}]^*\mathbf{y}
+$$
+
+$$
+\nabla_\mathbf{y}\mathcal{L}_{\text{WRI}^*} = \mathbf{d} - F(\mathbf{q}+F^*\mathbf{y}) - \epsilon\frac{\mathbf{y}}{\|\mathbf{y}\|}
+$$
+
+where $J[\mathbf{m},\mathbf{f}]\Delta\mathbf{m} = \partial_\mathbf{m}(F\mathbf{f})\Delta\mathbf{m}$ is the Jacobian action.
+
+. . .
+
+The model gradient is computed similarly to FWI:
+
+1. Backpropagate $\mathbf{y}$ to form extended source $\bar{\mathbf{q}} = A^{-*}R^*\mathbf{y}$
+2. Forward propagate $\bar{\mathbf{u}} = A^{-1}(\mathbf{q} + \bar{\mathbf{q}})$
+3. Cross-correlate $\bar{\mathbf{q}}$ and $\partial_{tt}\bar{\mathbf{u}}$
+
+---
+
+## Dual variable approximation {.smaller}
+
+Solving for the optimal $\bar{\mathbf{y}}$ exactly is expensive. Instead, use the cheap approximation [@rizzuti2021dual]:
+
+$$
+\tilde{\mathbf{y}} = \tilde{\alpha}(\mathbf{m})\,\mathbf{r}(\mathbf{m}), \qquad \tilde{\alpha} = \begin{cases} \dfrac{\|\mathbf{r}\|(\|\mathbf{r}\|-\epsilon)}{\|F^*\mathbf{r}\|^2}, & \|\mathbf{r}\| \geq \epsilon \\ 0, & \text{otherwise} \end{cases}
+$$
+
+. . .
+
+- Obtained from variable projection: $\tilde{\alpha} = \arg\max_\alpha \mathcal{L}_{\text{WRI}^*}(\mathbf{m},\alpha\mathbf{r})$
+- **No extra cost** — computed as byproduct of objective evaluation
+- The corrected gradient (accounting for $\tilde{\alpha}$ dependence on $\mathbf{m}$) improves depth scaling
+
+---
+
+## WRI* algorithm {.smaller}
+
+| Step | Operation | PDE solves |
+|:----:|-----------|:----------:|
+| 1 | Forward wavefield $\mathbf{u} = A^{-1}\mathbf{q}$, residual $\mathbf{r} = \mathbf{d} - R\mathbf{u}$ | 1 |
+| 2 | Backward wavefield $\tilde{\mathbf{q}} = A^{-*}R^*\mathbf{r}$ | 1 |
+| 3 | Compute $\alpha$ from $\|\mathbf{r}\|$, $\|\tilde{\mathbf{q}}\|$, $\epsilon$ | 0 |
+| 4 | Augmented wavefield $\tilde{\mathbf{u}} = A^{-1}(\mathbf{q} + \alpha\tilde{\mathbf{q}})$ | 1 |
+| 5 | Gradient $\mathbf{g}_1 = -\alpha\sum_t \partial_{tt}\tilde{\mathbf{u}}\cdot\tilde{\mathbf{q}}$ | 0 |
+| 6 | Gradient correction $\mathbf{v} = A^{-*}R^*\mathbf{g}_\mathbf{y}$ | 1 |
+
+: WRI* requires **4 PDE solves** per source (2$\times$ FWI cost) {.striped}
+
+---
+
+## Source-dependent weighting {.smaller}
+
+To enhance robustness, apply a **source-dependent metric** to the wave equation error [@huang2018volume; @symes2020waveform]:
+
+$$
+\mathbf{w}(\mathbf{x}) = \sqrt{|\mathbf{x} - \mathbf{x}_s|^2 + h^2}/h
+$$
+
+. . .
+
+This penalizes extended source energy located **far from the physical source position**.
+
+- Crucial for avoiding local minima in WRI and WRI* [@symes2020waveform]
+- $h$ tuned to a fraction of the reference wavelength
+- Cannot be trivially incorporated in FWI (based on exact wave-equation solutions)
+- Enhances resolution for model portions far from source
+
+---
+
+<!-- ## WRI* gradient comparison {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![True model](figures/marmousi_true.png){width="100%"}
+![FWI gradient](figures/bgcompass_ac_g0fwi.png){width="100%"}
+:::
+::: {.column width="50%"}
+![Background model](figures/marmousi_gradbg.png){width="100%"}
+![WRI* gradient](figures/bgcompass_ac_g0twri.png){width="100%"}
+:::
+:::: -->
+
+<!-- ![Background model](figures/marmousi_gradbg.png){width="35%"} -->
+
+Including the gradient correction visibly improves depth scaling and better approximates the optimal WRI gradient. Frequency domain, 5 Hz, Marmousi model [@rizzuti2021dual].
+
+---
+
+## Marmousi: WRI vs WRI* {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![True velocity model](figures/marmousi_true.png){width="100%"}
+:::
+::: {.column width="50%"}
+![Background model](figures/marmousi_bg.png){width="100%"}
+:::
+::::
+
+Marmousi model with frequency-domain data from 3–14 Hz, no noise. 100 sources, dense surface receivers. Multiscale l-BFGS inversion, 10 iterations per frequency [@rizzuti2021dual].
+
+---
+
+## Marmousi: inversion results {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![FWI — local minimum](figures/marmousi_fwi.png){width="100%"}
+:::
+::: {.column width="50%"}
+![WRI* ($\epsilon=0.01\|\mathbf{d}\|$)](figures/marmousi_wridual_e0p01.png){width="100%"}
+:::
+::::
+
+:::: {.columns}
+::: {.column width="50%"}
+![WRI* ($\epsilon=0.1\|\mathbf{d}\|$)](figures/marmousi_wridual_e0p1.png){width="100%"}
+:::
+::: {.column width="50%"}
+![Conventional WRI](figures/marmousi_wri.png){width="100%"}
+:::
+::::
+
+FWI converges to a local minimum. Both WRI* and WRI produce plausible models. Increasing $\epsilon$ yields higher resolution. Conventional WRI is less affected by the parameter choice [@rizzuti2021dual].
+
+---
+
+## Marmousi: hybrid WRI${^*}$/FWI{.smaller}
+
+![Sequential WRI* ($\epsilon=0.01\|\mathbf{d}\|$) followed by FWI with Gauss-Newton preconditioning](figures/marmousi_wrifwi.png){width="85%"}
+
+The hybrid WRI*/FWI scheme sharpens the WRI* result to achieve resolution comparable to conventional WRI, while maintaining local minimum avoidance [@rizzuti2021dual].
+
+---
+
+## Low-velocity lens: FWI vs WRI* {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![True model with acquisition](figures/gausslens_true_acq.png){width="100%"}
+:::
+::: {.column width="50%"}
+Example data (triplications cause cycle skipping):
+![](figures/gausslens_syn_acoustic_data_1.png){width="100%"}
+:::
+::::
+
+Gaussian lens model, time domain, 10 Hz Ricker wavelet. 15 sources, ~200 receivers. Low-velocity zone generates triplications causing cycle skipping [@rizzuti2021dual].
+
+---
+
+## Low-velocity lens: results {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![FWI — stuck in local minimum](figures/gausslens_fwi.png){width="100%"}
+:::
+::: {.column width="50%"}
+![WRI* — correct reconstruction](figures/gausslens_twri.png){width="100%"}
+:::
+::::
+
+FWI converges to a **local minimum** due to cycle skipping. WRI* (with source weighting, $\epsilon=0$) correctly reconstructs the anomaly. 20 iterations of l-BFGS [@rizzuti2021dual].
+
+---
+
+## BG Compass: acoustic model {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![True velocity model](figures/bgcompass_ac_true.png){width="100%"}
+:::
+::: {.column width="50%"}
+![Background model](figures/bgcompass_ac_bg.png){width="100%"}
+:::
+::::
+
+Challenging model due to **velocity kickback** at ~1 km depth, delaying turning waves. 51 sources, 10 Hz Ricker, frequencies below 5 Hz filtered out [@rizzuti2021dual].
+
+---
+
+## BG Compass: gradient comparison {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![FWI gradient — wrong water layer update](figures/bgcompass_ac_g0fwi.png){width="100%"}
+:::
+::: {.column width="50%"}
+![WRI* gradient — correct direction](figures/bgcompass_ac_g0twri.png){width="100%"}
+:::
+::::
+
+At 5 Hz, the FWI gradient produces an **erroneous update in the water layer**, while WRI* points in the correct direction [@rizzuti2021dual].
+
+---
+
+## BG Compass: inversion results {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+![FWI — local minimum](figures/bgcompass_ac_fwi.png){width="100%"}
+:::
+::: {.column width="50%"}
+![WRI* — resolves velocity structure](figures/bgcompass_ac_twri.png){width="100%"}
+:::
+::::
+
+FWI fails due to the poor water layer update. WRI* correctly resolves the high-velocity/low-velocity sequence at 1 km depth. Multiscale l-BFGS, 5–20 Hz, multiple frequency sweeps [@rizzuti2021dual].
+
+---
+
+## BG Compass: TTI — robustness to wrong physics {.smaller}
+
+:::: {.columns}
+::: {.column width="33%"}
+![Thomsen $\varepsilon$](figures/bgcompass_tti_eps_true.png){width="100%"}
+:::
+::: {.column width="33%"}
+![Thomsen $\delta$](figures/bgcompass_tti_delta_true.png){width="100%"}
+:::
+::: {.column width="33%"}
+![Dip angle $\theta$](figures/bgcompass_tti_theta_true.png){width="100%"}
+:::
+::::
+
+TTI anisotropic version of BG Compass. Thomsen parameters synthesized from the velocity model, dip angles inferred from layer orientation. Test resilience when inversion uses **smoothed (inaccurate)** anisotropic parameters [@rizzuti2021dual].
+
+---
+
+## TTI inversion: WRI* vs FWI {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**WRI***
+
+![$\sigma^2=20$](figures/bgcompass_tti_wrid_s20.png){width="80%"}
+![$\sigma^2=25$](figures/bgcompass_tti_wrid_s25.png){width="80%"}
+:::
+::: {.column width="50%"}
+**FWI**
+
+![$\sigma^2=20$](figures/bgcompass_tti_fwi_s20.png){width="80%"}
+![$\sigma^2=25$](figures/bgcompass_tti_fwi_s25.png){width="80%"}
+:::
+::::
+
+WRI* remains **relatively stable** w.r.t. starting model; FWI increasingly fails as the starting model diverges from ground truth [@rizzuti2021dual].
+
+---
+
+## TTI inversion: worse starting models {.smaller}
+
+:::: {.columns}
+::: {.column width="50%"}
+**WRI***
+
+![$\sigma^2=30$](figures/bgcompass_tti_wrid_s30.png){width="80%"}
+![$\sigma^2=40$](figures/bgcompass_tti_wrid_s40.png){width="80%"}
+:::
+::: {.column width="50%"}
+**FWI**
+
+![$\sigma^2=30$](figures/bgcompass_tti_fwi_s30.png){width="80%"}
+![$\sigma^2=40$](figures/bgcompass_tti_fwi_s40.png){width="80%"}
+:::
+::::
+
+Even with **inaccurate physics** (wrong anisotropy) and poor starting models, WRI* delivers consistently better results. WRI* benefits from relaxed wave equation that absorbs modeling errors [@rizzuti2021dual].
+
+---
+
+## TTI: RTM quality comparison {.smaller}
+
+![RTM comparison for BG Compass TTI at $\sigma=25$: (a) WRI* velocity model, (b) FWI velocity model. 20 Hz Ricker wavelet. WRI* produces less noisy migration with more accurately positioned deep reflectors.](figures/figure4_img2.png){width="50%"}
+
+RTM quality reflects the velocity model accuracy — the WRI* result produces clearer, more continuous reflectors [@rizzuti2021dual].
+
+---
+
+## Summary: three formulations compared {.smaller}
+
+| | **Reduced (FWI)** | **Penalty (WRI)** | **Dual (WRI*)** |
+|---|---|---|---|
+| **Constraint** | Enforced exactly | Relaxed via $\lambda$ | Relaxed via $\epsilon$ |
+| **Domain** | Time or frequency | Frequency (2D) | **Time domain (3D)** |
+| **PDE solves** | $2K$ per iter | $K$ per iter | $4K$ per iter |
+| **Local minima** | Severe | Mitigated | Mitigated |
+| **Storage** | $2N + M$ | $N + M$ | $N + M + N_\text{data}$ |
+| **Wrong physics** | Sensitive | More robust | More robust |
+
+: {.striped}
+
+---
+
+## Key takeaways {.smaller}
+
+1. **WRI relaxes the physics** by not solving the wave equation exactly — enlarging the search space and reducing nonlinearity [@vanLeeuwen2013Penalty1]
+
+2. The penalty method finds stationary points of the Lagrangian within **finite precision** using a **finite $\lambda$** — no need for $\lambda \to \infty$ [@vanLeeuwen2016Penalty]
+
+3. **WRI*** reformulates WRI via Fenchel duality, enabling **time-domain solvers** at roughly 2$\times$ the cost of FWI — making it **feasible for 3D** [@rizzuti2021dual]
+
+4. WRI/WRI* are more robust to **cycle skipping** and **inaccurate modeling assumptions** (e.g., wrong anisotropy)
+
+5. **Source weighting** is essential for WRI/WRI* to avoid local minima [@symes2020waveform]
+
+6. Hybrid WRI*/FWI strategies can recover resolution while maintaining robustness
+
+---
+
+## Software and references {.smaller}
+
+**Code availability:**
+
+- WRI penalty method: [github.com/slimgroup/PenaltyMethodGJI](https://github.com/slimgroup/PenaltyMethodGJI)
+- Penalty method (general): [github.com/tleeuwen/Penalty-Method](https://github.com/tleeuwen/Penalty-Method)
+- WRI* in Julia/JUDI: [github.com/slimgroup/JUDI.jl/tree/master/examples/twri](https://github.com/slimgroup/JUDI.jl/tree/master/examples/twri)
+
+**Key references:**
+
+- @vanLeeuwen2013Penalty1 — Original WRI formulation
+- @vanLeeuwen2016Penalty — Theoretical analysis of the penalty method
+- @rizzuti2021dual — WRI* dual formulation for time-domain WRI
+
+---
+
+## References
