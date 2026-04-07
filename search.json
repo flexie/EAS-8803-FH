@@ -3649,6 +3649,13 @@
     "href": "slides/week-12/17-wri-lecture.html#summary-penalty-vs.-reduced",
     "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
     "section": "Summary: penalty vs. reduced",
+    "text": "Summary: penalty vs. reduced"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#summary-penalty-vs.-reduced-1",
+    "href": "slides/week-12/17-wri-lecture.html#summary-penalty-vs.-reduced-1",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Summary: penalty vs. reduced",
     "text": "Summary: penalty vs. reduced\nThe alternating approach has three major advantages over conventional FWI:\n\nNo adjoint wavefields — updates computed directly from reconstructed wavefields and PDE residuals\nEach step is linear or mildly nonlinear — the augmented wave equation is linear in \\(\\mathbf{u}\\); the model update is linear in \\(\\mathbf{m}\\)\nRelaxes the physics — the wave equation is enforced in the least-squares sense, not exactly\n\n\n\n\n\n\n\n\nEnlarged search space\n\n\nThe penalty objective depends on \\(\\mathbf{m}\\) through the wave equation \\(A(\\mathbf{m})\\mathbf{u}\\) (as in the Lagrangian), not through its inverse \\(A(\\mathbf{m})^{-1}\\mathbf{q}\\) (as in the reduced formulation). This arguably makes the problem less nonlinear."
   },
   {
