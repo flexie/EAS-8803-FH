@@ -308,6 +308,61 @@ A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}
 \]</span></p>
 </div>
 </section>
+<section id="standard-vs-augmented-wave-equation" class="slide level2 smaller center">
+<h2>Standard vs augmented wave-equation</h2>
+<p>Standard wave-equation system:</p>
+<p><span class="math display">\[\underbrace{A(\mathbf{m})}_{\text{wave-equation}} \times \underbrace{\mathbf{u}}_{\text{wavefield}} = \underbrace{\mathbf{q}}_{\text{source}}\]</span></p>
+<p><em>versus</em> the data-augmented system:</p>
+<p><span class="math display">\[\begin{pmatrix} A(\mathbf{m}) \\ \hline P \end{pmatrix} \times \mathbf{u} = \begin{pmatrix} \mathbf{q} \\ \hline \mathbf{d} \end{pmatrix}\]</span></p>
+<p>where <span class="math inline">\(P\)</span> is the <span style="color: red;">sampling operator</span> and <span class="math inline">\(\mathbf{d}\)</span> is the observed <span style="color: red;">data</span>.</p>
+</section>
+<section id="data-augmented-solution" class="slide level2 center">
+<h2>Data-augmented solution</h2>
+
+<img data-src="figures/data_augmented_seismograms.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">Observed data, initial data, data-augmented solution</p></section>
+<section id="one-reflector-example" class="slide level2 center">
+<h2>One reflector example</h2>
+<p>true model</p>
+
+<img data-src="figures/one_reflector_true_model.png" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
+<section id="wavefields-in-homogeneous-background" class="slide level2 center" data-transition="none">
+<h2>Wavefields in <em>homogeneous</em> background</h2>
+
+<img data-src="figures/wavefields_homogeneous_1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="wavefields-in-homogeneous-background-1" class="slide level2 center">
+<h2>Wavefields in <em>homogeneous</em> background</h2>
+
+<img data-src="figures/wavefields_homogeneous_2.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="wavefields-in-homogeneous-background-2" class="slide level2 center">
+<h2>Wavefields in <em>homogeneous</em> background</h2>
+
+<img data-src="figures/wavefields_homogeneous_3.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="wavefields-in-homogeneous-background-3" class="slide level2 center">
+<h2>Wavefields in <em>homogeneous</em> background</h2>
+
+<img data-src="figures/wavefields_homogeneous_4.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="wavefields-in-homogeneous-background-4" class="slide level2 center">
+<h2>Wavefields in <em>homogeneous</em> background</h2>
+
+<img data-src="figures/wavefields_homogeneous_5.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
+<section id="fwi-vs-wri" class="slide level2 center">
+<h2>FWI vs WRI</h2>
+<p>Solutions of data-augmented system force data fits… <strong>no longer cycle skipped!</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/fwi_vs_wri_before.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/fwi_vs_wri_after.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
 <section>
 <section id="part-i-the-penalty-method" class="title-slide slide level1 center" data-background-color="#002855">
 <h1>Part I: The Penalty Method</h1>

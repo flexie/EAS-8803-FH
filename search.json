@@ -2423,7 +2423,7 @@
     "href": "weeks/week-10.html",
     "title": "Week 10",
     "section": "",
-    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSubsurface-Offset Image Volumes\n\n\nExtended Imaging, Velocity Analysis, and the Road to FWI\n\n\nMon, Apr 06\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nCommon Image Gathers and extended LS-RTM\n\n\nFri, Apr 10\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Lectures\n\n\n\n\n\n\nTopic\n\n\n\nSubtitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nSubsurface-Offset Image Volumes\n\n\nExtended Imaging, Velocity Analysis, and the Road to FWI\n\n\nTue, Apr 07\n\n\n\n\n\n\nNo matching items\n\n\n\nAssignments\n\n\n\n\n\n\nAssignment\n\n\n\nTitle\n\n\n\nDue\n\n\n\n\n\n\n\n\nLab\n\n\nCommon Image Gathers and extended LS-RTM\n\n\nFri, Apr 10\n\n\n\n\n\n\nNo matching items\n\n\n\nReadings\n\n\n\n\n\n\nHill, Stephen, and Andreas Rüger. “Illustrated Seismic Processing.” Imaging (2019). Chapter 11\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "weeks/week-05.html",
@@ -3552,6 +3552,69 @@
     "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
     "section": "Motivation: the equation-error approach",
     "text": "Motivation: the equation-error approach\nKey insight (Leeuwen and Herrmann 2016): If we had complete measurements of the wavefield (\\(P\\) invertible), we could:\n\nReconstruct the state: \\(\\mathbf{u} = P^{-1}\\mathbf{d}\\)\nRecover \\(\\mathbf{m}\\) by solving:\n\n\\[\n\\min_{\\mathbf{m}} \\frac{1}{2}\\|A(\\mathbf{m})\\mathbf{u} - \\mathbf{q}\\|_2^2\n\\]\nwhich is linear in \\(\\mathbf{m}\\) for many PDEs!\n\nWith incomplete measurements, we combine physics and data:\n\\[\n\\begin{pmatrix} A(\\mathbf{m}) \\\\ P \\end{pmatrix} \\mathbf{u} \\approx \\begin{pmatrix} \\mathbf{q} \\\\ \\mathbf{d} \\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#standard-vs-augmented-wave-equation",
+    "href": "slides/week-12/17-wri-lecture.html#standard-vs-augmented-wave-equation",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Standard vs augmented wave-equation",
+    "text": "Standard vs augmented wave-equation\nStandard wave-equation system:\n\\[\\underbrace{A(\\mathbf{m})}_{\\text{wave-equation}} \\times \\underbrace{\\mathbf{u}}_{\\text{wavefield}} = \\underbrace{\\mathbf{q}}_{\\text{source}}\\]\nversus the data-augmented system:\n\\[\\begin{pmatrix} A(\\mathbf{m}) \\\\ \\hline P \\end{pmatrix} \\times \\mathbf{u} = \\begin{pmatrix} \\mathbf{q} \\\\ \\hline \\mathbf{d} \\end{pmatrix}\\]\nwhere \\(P\\) is the sampling operator and \\(\\mathbf{d}\\) is the observed data."
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#data-augmented-solution",
+    "href": "slides/week-12/17-wri-lecture.html#data-augmented-solution",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Data-augmented solution",
+    "text": "Data-augmented solution\n\nObserved data, initial data, data-augmented solution"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#one-reflector-example",
+    "href": "slides/week-12/17-wri-lecture.html#one-reflector-example",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "One reflector example",
+    "text": "One reflector example\ntrue model"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background",
+    "href": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Wavefields in homogeneous background",
+    "text": "Wavefields in homogeneous background"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-1",
+    "href": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-1",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Wavefields in homogeneous background",
+    "text": "Wavefields in homogeneous background"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-2",
+    "href": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-2",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Wavefields in homogeneous background",
+    "text": "Wavefields in homogeneous background"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-3",
+    "href": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-3",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Wavefields in homogeneous background",
+    "text": "Wavefields in homogeneous background"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-4",
+    "href": "slides/week-12/17-wri-lecture.html#wavefields-in-homogeneous-background-4",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "Wavefields in homogeneous background",
+    "text": "Wavefields in homogeneous background"
+  },
+  {
+    "objectID": "slides/week-12/17-wri-lecture.html#fwi-vs-wri",
+    "href": "slides/week-12/17-wri-lecture.html#fwi-vs-wri",
+    "title": "Extensions of FWI — Wavefield Reconstruction Inversion",
+    "section": "FWI vs WRI",
+    "text": "FWI vs WRI\nSolutions of data-augmented system force data fits… no longer cycle skipped!"
   },
   {
     "objectID": "slides/week-12/17-wri-lecture.html#the-penalty-formulation",
