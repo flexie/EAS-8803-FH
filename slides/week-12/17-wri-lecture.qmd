@@ -325,6 +325,12 @@ $$
 
 ## Summary: penalty vs. reduced {.smaller}
 
+![](figures/wrivsfwi.png){fig-align="center"}
+
+---
+
+## Summary: penalty vs. reduced {.smaller}
+
 The alternating approach has three major advantages over conventional FWI:
 
 1. **No adjoint wavefields** — updates computed directly from reconstructed wavefields and PDE residuals
