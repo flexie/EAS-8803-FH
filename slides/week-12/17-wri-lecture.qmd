@@ -171,6 +171,63 @@ $$
 \begin{pmatrix} A(\mathbf{m}) \\ P \end{pmatrix} \mathbf{u} \approx \begin{pmatrix} \mathbf{q} \\ \mathbf{d} \end{pmatrix}
 $$
 
+## Standard vs augmented wave-equation {.smaller}
+
+Standard wave-equation system:
+
+$$\underbrace{A(\mathbf{m})}_{\text{wave-equation}} \times \underbrace{\mathbf{u}}_{\text{wavefield}} = \underbrace{\mathbf{q}}_{\text{source}}$$
+
+*versus* the data-augmented system:
+
+$$\begin{pmatrix} A(\mathbf{m}) \\ \hline P \end{pmatrix} \times \mathbf{u} = \begin{pmatrix} \mathbf{q} \\ \hline \mathbf{d} \end{pmatrix}$$
+
+where $P$ is the [sampling operator]{style="color: red;"} and $\mathbf{d}$ is the observed [data]{style="color: red;"}.
+
+## Data-augmented solution
+
+
+![Observed data, initial data, data-augmented solution](figures/data_augmented_seismograms.png){fig-align="center" width="90%"}
+
+## One reflector example
+
+true model
+
+![](figures/one_reflector_true_model.png){fig-align="center" width="40%"}
+
+## Wavefields in *homogeneous* background{transition="none"}
+
+![](figures/wavefields_homogeneous_1.png){fig-align="center" width="90%"}
+
+## Wavefields in *homogeneous* background 
+
+![](figures/wavefields_homogeneous_2.png){fig-align="center" width="90%"}
+
+## Wavefields in *homogeneous* background 
+
+![](figures/wavefields_homogeneous_3.png){fig-align="center" width="90%"}
+
+## Wavefields in *homogeneous* background 
+
+
+![](figures/wavefields_homogeneous_4.png){fig-align="center" width="90%"}
+
+## Wavefields in *homogeneous* background 
+
+
+![](figures/wavefields_homogeneous_5.png){fig-align="center" width="90%"}
+
+## FWI vs WRI
+
+Solutions of data-augmented system force data fits... **no longer cycle skipped!**
+
+::::: {.columns}
+::: {.column width="50%"}
+![](figures/fwi_vs_wri_before.png){fig-align="center"}
+:::
+::: {.column width="50%"}
+![](figures/fwi_vs_wri_after.png){fig-align="center"}
+:::
+:::::
 
 # Part I: The Penalty Method {background-color="#002855"}
 
