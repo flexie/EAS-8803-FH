@@ -837,11 +837,11 @@
     "text": "Unconstrained vs. constrained WRI\n\n\nUnconstrained WRI\n\n\nWRI + TV + Hinge loss\n\n\n\nLeft: unconstrained WRI gets stuck in local minimum\nRight: constrained WRI successfully recovers salt body"
   },
   {
-    "objectID": "slides/week-13/18-constraint-lecture.html#wri-tv-hinge-vs.-adjoint-tv-hinge",
-    "href": "slides/week-13/18-constraint-lecture.html#wri-tv-hinge-vs.-adjoint-tv-hinge",
+    "objectID": "slides/week-13/18-constraint-lecture.html#fwi-vs.-constrained-wri",
+    "href": "slides/week-13/18-constraint-lecture.html#fwi-vs.-constrained-wri",
     "title": "Constraints for Edge-Preserving Full-Waveform Inversion",
-    "section": "WRI + TV + Hinge vs. Adjoint + TV + Hinge",
-    "text": "WRI + TV + Hinge vs. Adjoint + TV + Hinge\n\n\nWRI + TV + Hinge loss\n\n\nAdjoint state + TV + Hinge loss\n\n\n\nBoth approaches successfully recover salt from poor starting model\nWRI achieves lower model error; adjoint state also produces excellent results"
+    "section": "FWI vs. constrained WRI",
+    "text": "FWI vs. constrained WRI\n\n\nUnconstraine FWI\n\n\nWRI + TV + Hinge loss"
   },
   {
     "objectID": "slides/week-13/18-constraint-lecture.html#seam-model-setup",
