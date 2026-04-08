@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
+
+  <meta name="author" content="Felix J. Herrmann">
+  <meta name="dcterms.date" content="2026-04-13">
+  <title>Seismic Exploration Methods – Constraints for Edge-Preserving Full-Waveform Inversion</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5b148319d603bb1324b6675ff8631fa1.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Constraints for Edge-Preserving Full-Waveform Inversion</h1>
+  <p class="subtitle">From Penalties to Projections for Salt Imaging</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Felix J. Herrmann 
+</div>
+        <p class="quarto-title-affiliation">
+            Schools of EAS, CSE, ECE — Georgia Institute of Technology
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-04-13</p>
+</section>
+<section id="title-custom" class="slide level2 center" data-background-color="white">
+<h2></h2>
+<div style="display: flex; justify-content: center; align-items: center; gap: 2.5em; margin-bottom: 1em;">
+<p><img data-src="figures/GTLogo.png" height="100"> <img data-src="figures/ClaudeLogo.png" height="100"></p>
+</div>
+<h3 style="margin-bottom: 0.1em;" id="constraints-for-edge-preserving-full-waveform-inversion">Constraints for Edge-Preserving Full-Waveform Inversion</h3>
+<p><strong>Felix J. Herrmann</strong></p>
+<p>School of Earth and Atmospheric Sciences — Georgia Institute of Technology</p>
+<p>Based on <span class="citation" data-cites="peters2017constraints">(<a href="#/references" role="doc-biblioref" onclick="">Peters and Herrmann 2017</a>)</span>, <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span>, <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span>, <span class="citation" data-cites="peters2019projection">(<a href="#/references" role="doc-biblioref" onclick="">Peters et al. 2019</a>)</span></p>
+</section>
+<section id="outline" class="slide level2 smaller center">
+<h2>Outline</h2>
+<ol type="1">
+<li><strong>Motivation</strong> — Avoiding local minima with extended formulations <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span></li>
+<li><strong>Tikhonov regularization</strong> — Limitations of penalty-based approaches</li>
+<li><strong>Regularization with constraints</strong> — Projection-based alternative</li>
+<li><strong>Part I: Penalties vs.&nbsp;Constraints</strong> — Practical aspects <span class="citation" data-cites="peters2017constraints esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Peters and Herrmann 2017</a>; <a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></li>
+<li><strong>Part II: Constraints — Theory</strong> — Convex sets, projections, and algorithms <span class="citation" data-cites="peters2019projection">(<a href="#/references" role="doc-biblioref" onclick="">Peters et al. 2019</a>)</span></li>
+<li><strong>Part III: Application to Salt</strong> — Automatic salt flooding <span class="citation" data-cites="esser2018tvwri esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>, <a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></li>
+</ol>
+<aside class="notes">
+<p>This is the second lecture in a series on FWI extensions. We build on the WRI foundations from the previous lecture and introduce constrained optimization for FWI/WRI, focusing on edge-preserving regularization for salt imaging.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2 center">
+
+</section>
+<section>
+<section id="motivation" class="title-slide slide level1 center" data-background-color="#002855">
+<h1>Motivation</h1>
+
+</section>
+<section id="avoiding-local-minima" class="slide level2 smaller center">
+<h2>Avoiding local minima</h2>
+<p>Full-waveform inversion solves a <strong>non-linear least-squares</strong> problem <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span>:</p>
+<p><span class="math display">\[
+\min_{m} \frac{1}{2}\sum_{j=1}^{N_s}\|F(m)q_j - d_j\|_2^2
+\]</span></p>
+<p>where <span class="math inline">\(F(m) = PA(m)^{-1}\)</span> is the forward operator combining the PDE solve <span class="math inline">\(A(m)^{-1}\)</span> with measurement <span class="math inline">\(P\)</span>.</p>
+<div class="fragment">
+<p><strong>Problem</strong>: The objective has <em>parasitic</em> local minima due to cycle-skipping.</p>
+</div>
+<div class="fragment">
+<p>Consider,</p>
+<p><span class="math display">\[
+F(c)q =
+\left(
+\begin{matrix}
+    \mathcal{F}^{-1}e^{\imath\omega\|x_1 - x_s\|_2/c}\mathcal{F}q\\
+    \mathcal{F}^{-1}e^{\imath\omega\|x_2 - x_s\|_2/c}\mathcal{F}q\\
+    \mathcal{F}^{-1}e^{\imath\omega\|x_3 - x_s\|_2/c}\mathcal{F}q\\
+\end{matrix}
+\right),
+\]</span> where <span class="math inline">\(\mathcal{F}\)</span> denotes the temporal Fourier transform, <span class="math inline">\(\omega\)</span> the angular frequency, <span class="math inline">\(\imath=\sqrt{-1}\)</span>, <span class="math inline">\(x_i\)</span> is the receiver location, <span class="math inline">\(x_s\)</span> is the source location, and <span class="math inline">\(c\)</span> is the soundspeed of the medium.</p>
+</div>
+</section>
+<section id="avoiding-local-minima-1" class="slide level2 smaller center">
+<h2>Avoiding local minima</h2>
+<p><strong>Extended formulation</strong> (WRI) mitigates this by relaxing the PDE constraint <span class="citation" data-cites="vanLeeuwen2013Penalty1">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen and Herrmann 2013</a>)</span>.</p>
+<p>This takes folllowing form for above problem:</p>
+<p><span class="math display">\[
+\min_{m,\Delta q} \frac{1}{2}\sum_{j=1}^{N_s}\|F(m)(q_j + \Delta q_j) - d_j\|_2^2 + \lambda^2 \|\Delta q_j\|_2^2
+\]</span></p>
+<p>As <span class="math inline">\(\lambda \uparrow \infty\)</span>, <span class="math inline">\(\|\Delta q\|_2\downarrow 0\)</span> and we recover the original problem.</p>
+</section>
+<section id="example-1-local-minima-in-fwi" class="slide level2 smaller center">
+<h2>Example 1 — Local minima in FWI</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/example1a.png"></p>
+<figcaption>Wavefield snapshot</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/example1b.png"></p>
+<figcaption>Recorded data at 3 receivers</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/example1c.png"></p>
+<figcaption>Conventional vs.&nbsp;extended objective</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li><strong>Conventional</strong> (<span class="math inline">\(\lambda\rightarrow\infty\)</span>): multiple local minima clearly visible</li>
+<li><strong>Extended</strong> (<span class="math inline">\(\lambda=0.1\)</span>): local minima are effectively mitigated</li>
+<li>Band-limited data makes both large- and small-scale recovery difficult</li>
+</ul>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Fig. 1.</p>
+</div></aside></section>
+<section id="example-2-why-constraints-matter" class="slide level2 smaller center">
+<h2>Example 2 — Why constraints matter</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/example2a.png"></p>
+<figcaption>True velocity and data</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/example2b.png"></p>
+<figcaption>Unconstrained: misses trend</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/example2c.png"></p>
+<figcaption>Constrained: exact recovery</figcaption>
+</figure>
+</div>
+</div></div>
+<p>Recover 1D velocity <span class="math inline">\(c(z)\)</span> from band-pass filtered data <span class="math inline">\(d = F(c)q\)</span>:</p>
+<p><span class="math display">\[
+\min_{c\geq c_0} \|F(c)q - d\|_2^2 \quad \text{subject to}\quad Dc\geq 0
+\]</span></p>
+<ul>
+<li><strong>Bounds</strong> (<span class="math inline">\(c \geq c_0 = 1500\,\mathrm{m/s}\)</span>) + <strong>monotonicity</strong> (<span class="math inline">\(Dc \geq 0\)</span>) recover broadband velocity from bandlimited data</li>
+</ul>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Fig. 2.</p>
+</div></aside></section>
+<section id="tikhonov-regularization" class="slide level2 smaller center">
+<h2>Tikhonov regularization</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="figures/Tikhonov.png" style="width:90.0%"></p>
+</div><div class="column" style="width:60%;">
+<p><span class="math display">\[
+\min_{\mathbf{m}} f(\mathbf{m}) + \frac{\alpha}{2}\|R_1\mathbf{m}\|^2+ \frac{\beta}{2}\|R_2\mathbf{m}\|^2
+\]</span></p>
+<ul>
+<li><span style="color: green;">well-known &amp; successful technique</span></li>
+<li><span style="color: green;">is differentiable</span></li>
+<li><span style="color: red;">not an exact penalty</span></li>
+<li><span style="color: red;">regularization may adversely affect gradient &amp; Hessian</span></li>
+<li><span style="color: red;">requires non-trivial choices for hyper parameters</span></li>
+<li><span style="color: red;">not easily extended to edge-preserving norms</span></li>
+<li><span style="color: red;">no guarantees that all model iterates are regularized</span></li>
+</ul>
+</div></div>
+</section>
+<section id="regularization-w-constraints" class="slide level2 smaller center">
+<h2>Regularization w/ constraints</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="figures/Moreau.png" style="width:90.0%"></p>
+</div><div class="column" style="width:60%;">
+<p><span class="math display">\[
+\min_{\mathbf{m}} f(\mathbf{m})\quad\text{subject to}\quad \mathbf{m}\in \mathcal{C}_1\cap\mathcal{C}_2
+\]</span></p>
+<ul>
+<li><span style="color: red;">not well-known in our community</span></li>
+<li><span style="color: red;">requires understanding of latest optimization techniques</span></li>
+<li><span style="color: green;">does not affect gradient &amp; Hessian</span></li>
+<li><span style="color: green;">easier parameterization</span></li>
+<li><span style="color: green;">able to uniquely project onto intersection of multiple constraint sets</span></li>
+<li><span style="color: green;">constraints do not need to be differentiable</span></li>
+<li><span style="color: green;">constraints are satisfied at every model iterate</span></li>
+</ul>
+</div></div>
+</section>
+<section id="proxy-projection" class="slide level2 center">
+<h2>Proxy projection</h2>
+<p>Find model <span class="math inline">\(\mathbf{m}\)</span>, closest to <span class="math inline">\(\mathbf{x}\)</span>, such that it satisfies the constraints:</p>
+<p><span class="math display">\[
+\mathcal{P}_\mathcal{C}(\mathbf{x})=\arg\min_\mathbf{m}\|\mathbf{m}-\mathbf{x}\|_2^2\quad\text{subject to}\quad \mathbf{m}\in \mathcal{C}_1\cap\mathcal{C}_2
+\]</span></p>
+<p>yielding</p>
+<ul>
+<li>nonlinear “minimal complexity” best approximation of <span class="math inline">\(\mathbf{m}\)</span></li>
+<li><span class="math inline">\(\mathbf{m}\rightarrow \mathbf{x}\)</span> when <span class="math inline">\(\tau\rightarrow\tau_0=\mathrm{TV}(\mathbf{x})\)</span> and <span class="math inline">\(\mathbf{m}\in \mathrm{Box}\)</span></li>
+<li>edge preserving</li>
+</ul>
+</section>
+<section id="best-approximations" class="slide level2 center">
+<h2>Best approximations</h2>
+
+<img data-src="figures/bestapprox.png" style="width:85.0%" class="r-stretch quarto-figure-center"><p class="caption">Projection onto the intersection of box and TV-norm constraints for decreasing values of <span class="math inline">\(\tau\)</span></p></section>
+<section class="slide level2 center">
+
+</section></section>
+<section>
+<section id="part-i-penalties-vs.-constraints-practical-aspects" class="title-slide slide level1 center" data-background-color="#002855">
+<h1>Part I: Penalties vs.&nbsp;Constraints — Practical Aspects</h1>
+<p>Based on <span class="citation" data-cites="peters2017constraints">(<a href="#/references" role="doc-biblioref" onclick="">Peters and Herrmann 2017</a>)</span> and <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></p>
+</section>
+<section id="total-variation-norm-velocity-blocking" class="slide level2 smaller center">
+<h2>Total-variation norm — velocity blocking</h2>
+<p>The <strong>total-variation</strong> (TV) norm of a velocity model <span class="math inline">\(\mathbf{m}\)</span> <span class="citation" data-cites="Rudin1992">(<a href="#/references" role="doc-biblioref" onclick="">Rudin et al. 1992</a>)</span>:</p>
+<p><span class="math display">\[
+\text{TV}(\mathbf{m}) = \frac{1}{h}\sum_{ij}\sqrt{({m}_{i+1,j}-{m}_{i,j})^2 + ({m}_{i,j+1}-m_{i,j})^2}
+\]</span></p>
+<div class="fragment">
+<p>Combined with <strong>box constraints</strong> (<span class="math inline">\(l \leq m_{i,j} \leq u\)</span>), the projection:</p>
+<p><span class="math display">\[
+\min_{\mathbf{m}}\|\mathbf{m} - \mathbf{m}_\ast\|^2 \quad\text{subject to}\quad \mathbf{m}\in \text{Box} \text{ and } \text{TV}(\mathbf{m}) \leq \tau
+\]</span></p>
+<p>finds a unique <strong>blocked velocity model</strong> whose blockiness depends on <span class="math inline">\(\tau\)</span>.</p>
+
+</div>
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p>
+</div></aside></section>
+<section id="projecting-onto-tv-box-constraints" class="slide level2 smaller center">
+<h2>Projecting onto TV + Box constraints</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/projected_models.png" style="width:95.0%"></p>
+<figcaption>Marmousi model projected onto box and TV-norm constraints for <span class="math inline">\(\tau=(0.15,\,0.25,\,0.5,\,0.75,\,1)\times \tau_{\mathrm{true}}\)</span></figcaption>
+</figure>
+</div>
+<ul>
+<li>As <span class="math inline">\(\tau\)</span> increases, the projected model is <strong>less blocky</strong> and <strong>closer</strong> to the original</li>
+<li>The parameter <span class="math inline">\(\tau\)</span> <strong>predictably</strong> controls model complexity</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, Fig. 1.</p>
+</div></aside></section>
+<section id="fwi-with-tv-like-penalties" class="slide level2 smaller center">
+<h2>FWI with TV-like penalties</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/FWI_smooth_penalty.png" style="width:33.0%"></p>
+<figcaption>Results using the smoothed total-variation (<span class="math inline">\(\text{TV}_\epsilon\)</span>) as a penalty for various <span class="math inline">\(\epsilon\)</span> and <span class="math inline">\(\alpha\)</span></figcaption>
+</figure>
+</div>
+<p><span class="math display">\[\min_{\mathbf{m}} f(\mathbf{m})+\alpha \text{TV}_{\epsilon}(\mathbf{m})\]</span></p>
+<ul>
+<li>Smooth approximation: <span class="math inline">\(\text{TV}_{\epsilon}(\mathbf{m}) = \frac{1}{h}\sum_{ij}\sqrt{(m_{i+1,j}-m_{i,j})^2 + (m_{i,j+1}-m_{i,j})^2 + \epsilon^2}\)</span></li>
+<li>No distinctive progression from “blocked” to less blocky</li>
+<li><strong>Unpredictable</strong> behavior as a function of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\epsilon\)</span></li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, Fig. 2.</p>
+</div></aside></section>
+<section id="fwi-with-tv-constraints-predictable" class="slide level2 smaller center">
+<h2>FWI with TV constraints — predictable</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/FWI_constrained.png" style="width:95.0%"></p>
+<figcaption>Results for constrained FWI for various total-variation budgets <span class="math inline">\(\tau\)</span></figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Predictable</strong> progression from blocky to detailed as <span class="math inline">\(\tau\)</span> increases</li>
+<li>Only <strong>one parameter</strong> (<span class="math inline">\(\tau\)</span>) to set — directly measurable from initial model</li>
+<li>Model iterates always satisfy constraints</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, Fig. 3.</p>
+</div></aside></section>
+<section id="why-constraints" class="slide level2 smaller center">
+<h2>Why constraints?</h2>
+<ol type="1">
+<li><strong>Constraints translate prior information more directly than penalties</strong>
+<ul>
+<li><span class="math inline">\(\tau\)</span> is directly measurable from a starting model; trade-off parameter <span class="math inline">\(\alpha\)</span> is not</li>
+</ul></li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
+<li><strong>Absence of user-specified weights</strong>
+<ul>
+<li>Unique projections via Dykstra’s algorithm <span class="citation" data-cites="Dykstra1983">(<a href="#/references" role="doc-biblioref" onclick="">Dykstra 1983</a>)</span> — no weight selection needed</li>
+<li>Constraints do not alter the objective (data misfit)</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><strong>Constraints are only activated when necessary</strong>
+<ul>
+<li>If a proposed model satisfies all constraints, the projection does nothing</li>
+<li>Data-fitting and constraint handling are <strong>uncoupled</strong></li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li><strong>Constraints are satisfied at each iteration</strong>
+<ul>
+<li>Penalty methods do not guarantee this — making them prone to local minima</li>
+</ul></li>
+</ol>
+
+</div>
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span></p>
+</div></aside></section>
+<section id="results-on-bp-2004-bounds-only-vs.-tv" class="slide level2 smaller center" data-transition="none">
+<h2>Results on BP 2004 — bounds only vs.&nbsp;TV</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/true_model_BP2004.png"></p>
+<figcaption>True model</figcaption>
+</figure>
+</div>
+<!-- ![Bounds only: $v_{\min}=1475$, $v_{\max}=5000\,\mathrm{m/s}$](figures/result_bounds_model_BP2004_ss8_3.png) -->
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/initial_model_BP2004.png"></p>
+<figcaption>Good starting model (smoothed)</figcaption>
+</figure>
+</div>
+<!-- ![Bounds + TV constraints](figures/result_bounds_TV_model_BP2004.png) -->
+</div></div>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, Fig. 4. West part of BP 2004 model; 8 simultaneous sources.</p>
+</div></aside></section>
+<section id="results-on-bp-2004-bounds-only-vs.-tv-1" class="slide level2 smaller center" data-transition="none">
+<h2>Results on BP 2004 — bounds only vs.&nbsp;TV</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<!-- ![True model](figures/true_model_BP2004.png) -->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/result_bounds_model_BP2004_ss8_3.png"></p>
+<figcaption>Bounds only: <span class="math inline">\(v_{\min}=1475\)</span>, <span class="math inline">\(v_{\max}=5000\,\mathrm{m/s}\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<!-- ![Starting model (smoothed)](figures/initial_model_BP2004.png) -->
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/result_bounds_TV_model_BP2004.png"></p>
+<figcaption>Bounds + TV constraints</figcaption>
+</figure>
+</div>
+</div></div>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, Fig. 4. West part of BP 2004 model; 8 simultaneous sources.</p>
+</div></aside></section>
+<section id="algorithm-proj.-gradient-w-dykstra" class="slide level2 smaller center">
+<h2>Algorithm — proj. gradient w/ Dykstra</h2>
+<div style="font-size: 0.85em;">
+<table class="table-striped caption-top">
+<caption>Pseudo-code combining projected gradients with Dykstra’s algorithm <span class="citation" data-cites="Dykstra1983">(<a href="#/references" role="doc-biblioref" onclick="">Dykstra 1983</a>)</span> for intersection of constraints.</caption>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Initialize</strong>: define constraint sets (bounds, TV, others)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>For</strong> <span class="math inline">\(k = 1, 2, \ldots\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 1. Compute gradient <span class="math inline">\(\nabla_\mathbf{m} f(\mathbf{m}_k)\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 2. Gradient step: <span class="math inline">\(\tilde{\mathbf{m}} = \mathbf{m}_k - \gamma\nabla_\mathbf{m} f(\mathbf{m}_k)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 3. Project: <span class="math inline">\(\mathbf{m}_{k+1} = \text{DYKSTRA}(\tilde{\mathbf{m}})\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>End</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<ul>
+<li>Each model update depends only on the <strong>current model and gradient</strong></li>
+<li>Updated models <strong>satisfy all constraints</strong> after each iteration</li>
+<li>Dykstra’s algorithm is <strong>parameter free</strong> in practice</li>
+</ul>
+
+</div>
+<aside><div>
+<p><span class="citation" data-cites="peters2017constraints">Peters and Herrmann (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, Algorithm 1.</p>
+</div></aside></section>
+<section id="projection-onto-tvbox-marmousi" class="slide level2 smaller center">
+<h2>Projection onto TV+Box — Marmousi</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm3.png"></p>
+<figcaption>TV at <span class="math inline">\(0.3\times\tau_{\text{true}}\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm6.png"></p>
+<figcaption>TV at <span class="math inline">\(0.6\times\tau_{\text{true}}\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm_velocity_slices.png"></p>
+<figcaption>Vertical profiles at <span class="math inline">\(x=5000\,\mathrm{m}\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Box: <span class="math inline">\(v_{\min}=1500\,\mathrm{m/s}\)</span>, <span class="math inline">\(v_{\max}=5500\,\mathrm{m/s}\)</span></li>
+<li>Smaller <span class="math inline">\(\tau\)</span> <span class="math inline">\(\Rightarrow\)</span> fewer unconformities, more “cartoon-like”</li>
+<li>Relaxing constraint (<span class="math inline">\(\tau\rightarrow\infty\)</span>) recovers original model</li>
+</ul>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></p>
+</div></aside></section>
+<section id="fwi-stuck-in-a-local-minimum" class="slide level2 smaller center">
+<h2>FWI stuck in a local minimum</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/true_velocity_BPTM.png"></p>
+<figcaption>True velocity</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/initial_velocity_BPTM.png"></p>
+<figcaption>Starting model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/BPTM1.png"></p>
+<figcaption>Unconstrained FWI</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Middle portion of BP 2004 model — FWI places a <strong>velocity low</strong> below top-of-salt</li>
+<li>Poor starting model + missing low frequencies + limited offsets</li>
+<li>FWI is <strong>stuck</strong> in an erroneous local minimum</li>
+</ul>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></p>
+</div></aside></section>
+<section id="including-constraints-with-projections" class="slide level2 smaller center">
+<h2>Including constraints with projections</h2>
+<p>After including constraints, FWI solves <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span>:</p>
+<p><span class="math display">\[
+\min_{\mathbf{m}}\Phi(\mathbf{m})\quad \text{subject to} \quad\mathbf{m}+\Delta\mathbf{m}\,\in\, \mathcal{C}
+\]</span></p>
+<p>At iteration <span class="math inline">\(k\)</span>, constraints are imposed by projecting:</p>
+<p><span class="math display">\[
+\Pi_{\mathcal{C}}(\mathbf{m}^k)  = \arg\min_\mathbf{m} \frac{1}{2} \|\mathbf{m} - \mathbf{m}^k\|^2 \quad\text{subject to}\quad \mathbf{m}\,\in\,\mathcal{C}
+\]</span></p>
+<div class="fragment">
+<p><strong>Properties:</strong></p>
+<ul>
+<li>When <span class="math inline">\(\mathcal{C}\)</span> is <strong>convex</strong>, the projection is <strong>unique</strong></li>
+<li>Intersections of convex sets are also convex</li>
+<li>Examples: <strong>box constraints</strong> (velocity bounds) and <strong>TV-norm ball</strong> (<span class="math inline">\(\text{TV}(\mathbf{m}) \leq \tau\)</span>)</li>
+</ul>
+</div>
+</section>
+<section id="the-hinge-loss-a-constraint-for-salt" class="slide level2 smaller center">
+<h2>The hinge loss — a constraint for salt</h2>
+<p><strong>Key insight</strong>: In sedimentary basins, velocity generally <strong>increases with depth</strong>. Salt bodies are high-velocity inclusions — we can step <em>into</em> salt but should not easily step <em>out</em>.</p>
+<div class="fragment">
+<p>The <strong>asymmetric (one-sided) TV constraint</strong> <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span>:</p>
+<p><span class="math display">\[
+\|\min(0, D_z \mathbf{m})\|_1 \leq \xi
+\]</span></p>
+<ul>
+<li><span class="math inline">\(D_z\)</span> = vertical finite differences</li>
+<li>Small <span class="math inline">\(\xi\)</span>: allow velocity to <strong>step into</strong> salt, discourage stepping <strong>out</strong></li>
+<li>Relaxing <span class="math inline">\(\xi\)</span>: gradually allows velocity lows to build up below salt</li>
+</ul>
+</div>
+<div class="fragment">
+<p>This is the <strong>hinge loss</strong> applied to vertical velocity differences — commonly used in machine learning for SVMs.</p>
+</div>
+</section>
+<section id="multiple-relaxed-fwi-cycles" class="slide level2 smaller center">
+<h2>Multiple relaxed FWI cycles</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw1.png"></p>
+<figcaption><span class="math inline">\({{\xi}/{\xi_{\text{true}}}} = .01\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw3.png"></p>
+<figcaption><span class="math inline">\({{\xi}/{\xi_{\text{true}}}} = .10\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw5.png"></p>
+<figcaption><span class="math inline">\({{\xi}/{\xi_{\text{true}}}} = .20\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw8.png"></p>
+<figcaption><span class="math inline">\({{\xi}/{\xi_{\text{true}}}} = .90\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Fixed box (<span class="math inline">\(v_{\min}=1500\)</span>, <span class="math inline">\(v_{\max}=5000\,\mathrm{m/s}\)</span>) and TV (<span class="math inline">\(\tau=0.9\times \tau_{\text{true}}\)</span>)</li>
+<li>Gradually relax hinge-loss <span class="math inline">\(\xi\)</span> over warm-started FWI cycles</li>
+<li>Salt body is <strong>remarkably well recovered</strong></li>
+</ul>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span>. Snapshots show half of the continuation steps.</p>
+</div></aside></section>
+<section id="why-this-automatic-approach-works" class="slide level2 smaller center">
+<h2>Why this automatic approach works</h2>
+<p>The constrained approach succeeds when:</p>
+<ol type="1">
+<li>Relaxed constraints <strong>mitigate</strong> adverse effects of local minima from prior cycles</li>
+<li>Sharp reflectors of <strong>correct sign</strong> are introduced</li>
+<li><strong>Progress</strong> is made during each FWI cycle</li>
+<li>“Fine-scales” of previous cycle contribute to “coarse-scales” of next cycle</li>
+</ol>
+<div class="fragment">
+<p><strong>Conceptual similarity to manual workflows:</strong></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 40%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Stage</th>
+<th>Manual Workflow</th>
+<th>Constrained FWI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Pick top salt</td>
+<td>TV + hinge-loss delineates top salt</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Salt flood downward</td>
+<td>Hinge-loss allows buildup into salt</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Pick bottom salt + tomography</td>
+<td>Relaxed hinge-loss allows velocity lows</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Iterate</td>
+<td>Warm-started cycles</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<aside><div>
+<p>1</p>
+</div></aside></section>
+<section class="slide level2 center">
+
+</section></section>
+<section>
+<section id="part-ii-constraints-theory" class="title-slide slide level1 center" data-background-color="#002855">
+<h1>Part II: Constraints — Theory</h1>
+<p>Based on <span class="citation" data-cites="peters2019projection">(<a href="#/references" role="doc-biblioref" onclick="">Peters et al. 2019</a>)</span></p>
+</section>
+<section id="limitations-of-unconstrained-regularization" class="slide level2 smaller center">
+<h2>Limitations of unconstrained regularization</h2>
+<p><strong>Quadratic (Tikhonov) penalties</strong> <span class="citation" data-cites="peters2019projection">(<a href="#/references" role="doc-biblioref" onclick="">Peters et al. 2019</a>)</span>:</p>
+<p><span class="math display">\[
+\phi(\mathbf{m}) = f(\mathbf{m}) + \frac{\alpha_1}{2}\|R_1\mathbf{m}\|_2^2 + \frac{\alpha_2}{2}\|R_2\mathbf{m}\|_2^2
+\]</span></p>
+<div class="fragment">
+<p><strong>Problems:</strong></p>
+<ul>
+<li>Penalties <strong>alter gradient and Hessian</strong>: <span class="math inline">\(\nabla^2_\mathbf{m} \phi = \nabla^2_\mathbf{m} f + \alpha_1 R_1^\top R_1 + \alpha_2 R_2^\top R_2\)</span></li>
+<li>Trade-off parameters <span class="math inline">\(\alpha_i\)</span> have <strong>no physical meaning</strong> and are <strong>interdependent</strong> with data misfit</li>
+<li>Cannot directly encode <strong>non-smooth</strong> priors (TV norm, monotonicity)</li>
+<li><strong>Gradient filtering</strong> <span class="math inline">\(\mathbf{m}^{k+1} = \mathbf{m}^k - \gamma\, s(\nabla_\mathbf{m} f)\)</span> — no theoretical guarantees</li>
+</ul>
+</div>
+</section>
+<section id="convex-sets-definition-and-properties" class="slide level2 smaller center">
+<h2>Convex sets — definition and properties</h2>
+<p>A set <span class="math inline">\(\mathcal{C}\)</span> is <strong>convex</strong> if for all <span class="math inline">\(\mathbf{x}, \mathbf{y} \in \mathcal{C}\)</span> and <span class="math inline">\(0 \leq c \leq 1\)</span>:</p>
+<p><span class="math display">\[
+c\mathbf{x} + (1-c)\mathbf{y} \in \mathcal{C}
+\]</span></p>
+<div class="fragment">
+<p><strong>Key properties:</strong></p>
+<ul>
+<li><strong>Intersection</strong> of convex sets is convex</li>
+<li><strong>Projection</strong> onto a convex set is <strong>unique</strong></li>
+<li>Projections are <strong>non-expansive</strong>: <span class="math inline">\(\|\mathcal{P}_\mathcal{C}(\mathbf{x}) - \mathcal{P}_\mathcal{C}(\mathbf{y})\| \leq \|\mathbf{x} - \mathbf{y}\|\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Advantages of the constrained formulation</strong> <span class="math inline">\(\min_\mathbf{m} f(\mathbf{m})\;\text{s.t.}\;\mathbf{m}\in\bigcap_{i=1}^p \mathcal{C}_i\)</span>:</p>
+<ul>
+<li>Objective (data misfit) is <strong>unchanged</strong> — gradient/Hessian unaffected</li>
+<li>Constraints in <strong>physical units</strong> (m/s, m/s per grid) — not abstract weights</li>
+<li>Model iterates <strong>feasible at every iteration</strong></li>
+<li>Multiple constraints handled <strong>without trade-off parameters</strong></li>
+</ul>
+
+</div>
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p>
+</div></aside></section>
+<section id="pocs-vs.-dykstras-algorithm" class="slide level2 smaller center">
+<h2>POCS vs.&nbsp;Dykstra’s algorithm</h2>
+<p>To project onto the <strong>intersection</strong> of convex sets <span class="math inline">\(\mathcal{C} = \bigcap_{i=1}^p \mathcal{C}_i\)</span>:</p>
+<div class="fragment">
+<p><strong>POCS</strong> (Projection Onto Convex Sets): alternate projections <span class="math inline">\(\mathcal{P}_{\mathcal{C}_2}(\mathcal{P}_{\mathcal{C}_1}(\mathbf{m}))\)</span></p>
+<ul>
+<li>Finds a <strong>feasible point</strong> — but NOT the closest one</li>
+<li>Result is <strong>order-dependent</strong> (non-unique)</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Dykstra’s algorithm</strong> <span class="citation" data-cites="Dykstra1983">(<a href="#/references" role="doc-biblioref" onclick="">Dykstra 1983</a>)</span>: alternate projections with auxiliary corrections</p>
+<ul>
+<li>Finds the <strong>unique Euclidean projection</strong> onto the intersection</li>
+<li>Result is <strong>order-independent</strong></li>
+<li><strong>No tuning parameters</strong></li>
+</ul>
+</div>
+</section>
+<section id="pocs-vs.-dykstra-toy-example" class="slide level2 smaller center">
+<h2>POCS vs.&nbsp;Dykstra — toy example</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure1.png" style="width:45.0%"></p>
+<figcaption>Trajectory of Dykstra (red dashed) vs.&nbsp;POCS (solid) for projection onto a disk <span class="math inline">\(\cap\)</span> halfspace</figcaption>
+</figure>
+</div>
+<ul>
+<li>POCS: distances 1.16 and 1.14 (order-dependent)</li>
+<li><strong>Dykstra</strong>: distance <strong>1.03</strong> (unique minimum)</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 1.</p>
+</div></aside></section>
+<section id="dykstra-vs.-pocs-on-marmousi" class="slide level2 smaller center" data-transition="none">
+<h2>Dykstra vs.&nbsp;POCS on Marmousi</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure2a.png"></p>
+<figcaption>Original Marmousi</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure2c.png"></p>
+<figcaption>POCS result 1</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure2b.png"></p>
+<figcaption>Dykstra projection</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure2d.png"></p>
+<figcaption>POCS result 2</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Dykstra finds the <strong>boundary projection</strong> (closest to original)</li>
+<li>POCS may find <strong>interior points</strong> far from the boundary — over-constraining the model</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 2.</p>
+</div></aside></section>
+<section id="impact-on-fwi-dykstra-vs.-pocs" class="slide level2 smaller center" data-transition="none">
+<h2>Impact on FWI — Dykstra vs.&nbsp;POCS</h2>
+
+<img data-src="figures/pocsdyk.png" class="r-stretch quarto-figure-center"><p class="caption">FWI with an incorrect source function with projections (with Dykstra’s algorithm) and FWI with two feasible points (with POCS) for various TV balls (as a percentage of the TV of the true model) and bound constraints. Also shown are the differences (the rightmost two columns) between results. The results show that using POCS inside a projected gradient algorithm instead of the projection leads to different results that also depend on the order in which we provide the sets to POCS. This example illustrates the differences between the methods, and it is not its intention to obtain excellent FWI results.</p><p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 3.</p>
+</section>
+<section id="projected-gradient-descent" class="slide level2 smaller center">
+<h2>Projected gradient descent</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure4a.png"></p>
+<figcaption>Unconstrained gradient descent</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure4b.png"></p>
+<figcaption>Projected gradient descent</figcaption>
+</figure>
+</div>
+</div></div>
+<p><strong>Update rule:</strong></p>
+<p><span class="math display">\[
+\mathbf{m}^{k+1} = \mathcal{P}_\mathcal{C}\!\left(\mathbf{m}^k - \gamma\nabla_\mathbf{m} f(\mathbf{m}^k)\right)
+\]</span></p>
+<ul>
+<li>Gradient step followed by projection onto <span class="math inline">\(\mathcal{C}\)</span></li>
+<li>Constraints <strong>guide</strong> optimization to different (better) local minimum</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 4.</p>
+</div></aside></section>
+<section id="spectral-projected-gradient-spg" class="slide level2 smaller center">
+<h2>Spectral Projected Gradient (SPG)</h2>
+<p>Three key improvements over standard projected gradient <span class="citation" data-cites="Birgin2000">(<a href="#/references" role="doc-biblioref" onclick="">Birgin et al. 2000</a>)</span>:</p>
+<div class="fragment">
+<ol type="1">
+<li><strong>Spectral stepsize</strong> <span class="math inline">\(\alpha\)</span> — mimics Hessian via Barzilai-Borwein <span class="citation" data-cites="Barzilai1988">(<a href="#/references" role="doc-biblioref" onclick="">Barzilai and Borwein 1988</a>)</span>: <span class="math display">\[\alpha = \frac{\mathbf{s}_k^\top \mathbf{s}_k}{\mathbf{s}_k^\top \mathbf{y}_k}\]</span> where <span class="math inline">\(\mathbf{s}_k = \mathbf{m}^{k+1} - \mathbf{m}^k\)</span> and <span class="math inline">\(\mathbf{y}_k = \nabla f(\mathbf{m}^{k+1}) - \nabla f(\mathbf{m}^k)\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li><strong>Non-monotone line search</strong> — allows temporary objective increase; reduces zigzagging</li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><strong>Single projection per iteration</strong> — update direction <span class="math inline">\(\mathbf{p}^k = \mathcal{P}_\mathcal{C}(\mathbf{m}^k - \alpha\nabla f(\mathbf{m}^k)) - \mathbf{m}^k\)</span>; line search scales <span class="math inline">\(\gamma\)</span> only</li>
+</ol>
+
+</div>
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span></p>
+</div></aside></section>
+<section id="the-3-level-nested-optimization-workflow" class="slide level2 smaller center">
+<h2>The 3-level nested optimization workflow</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure5.png" style="width:50.0%"></p>
+<figcaption>SPG <span class="math inline">\(\rightarrow\)</span> Dykstra <span class="math inline">\(\rightarrow\)</span> Individual projections</figcaption>
+</figure>
+</div>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Level</th>
+<th>Method</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Top</td>
+<td><strong>SPG</strong></td>
+<td>Nonlinear optimization (data misfit)</td>
+</tr>
+<tr class="even">
+<td>Middle</td>
+<td><strong>Dykstra</strong></td>
+<td>Project onto intersection of constraints</td>
+</tr>
+<tr class="odd">
+<td>Bottom</td>
+<td><strong>ADMM</strong> / closed-form</td>
+<td>Individual set projections</td>
+</tr>
+</tbody>
+</table>
+<p>Each level is <strong>parameter-free</strong> by design.</p>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 5.</p>
+</div></aside></section>
+<section id="spg-w-multiple-constraints-algorithm" class="slide level2 smaller center">
+<h2>SPG w/ multiple constraints — Algorithm</h2>
+<div style="font-size: 0.75em;">
+<table class="table-striped caption-top">
+<caption>Algorithm 1: Spectral Projected Gradient w/ Dykstra <span class="citation" data-cites="peters2019projection">(<a href="#/references" role="doc-biblioref" onclick="">Peters et al. 2019</a>)</span>.</caption>
+<colgroup>
+<col style="width: 100%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Input</strong>: projectors <span class="math inline">\(\mathcal{P}_{\mathcal{C}_1}, \ldots, \mathcal{P}_{\mathcal{C}_p}\)</span>; initial <span class="math inline">\(\mathbf{m}^0 \in \bigcap \mathcal{C}_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Initialize</strong>: <span class="math inline">\(M\)</span> (line-search history), <span class="math inline">\(\eta \in (0,1)\)</span>, spectral step <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(k=1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Repeat</strong>:</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 1. Compute <span class="math inline">\(f(\mathbf{m}^k)\)</span> and <span class="math inline">\(\nabla_\mathbf{m} f(\mathbf{m}^k)\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 2. <span class="math inline">\(\mathbf{r}^k = \text{DYKSTRA}(\mathbf{m}^k - \alpha\nabla f(\mathbf{m}^k),\; \mathcal{P}_{\mathcal{C}_1}, \ldots, \mathcal{P}_{\mathcal{C}_p})\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 3. <span class="math inline">\(\mathbf{p}^k = \mathbf{r}^k - \mathbf{m}^k\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 4. <strong>Line search</strong>: find <span class="math inline">\(\gamma\)</span> s.t. <span class="math inline">\(f(\mathbf{m}^k + \gamma\mathbf{p}^k) &lt; \max(f_{k}, \ldots, f_{k-M}) + \epsilon\gamma\nabla f^\top \mathbf{p}^k\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 5. <span class="math inline">\(\mathbf{m}^{k+1} = \mathbf{m}^k + \gamma\mathbf{p}^k\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\quad\)</span> 6. Update spectral step: <span class="math inline">\(\alpha = \frac{\mathbf{s}_k^\top\mathbf{s}_k}{\mathbf{s}_k^\top\mathbf{y}_k}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Until</strong> convergence</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="numerical-example-bg-compass-model" class="slide level2 smaller center">
+<h2>Numerical example — BG Compass model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure6a.png"></p>
+<figcaption>True velocity</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure6b.png"></p>
+<figcaption>Initial velocity</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>2D BG Compass model with realistic velocity “kickback”</li>
+<li>56 sources/receivers, frequency-domain inversion 3–15 Hz</li>
+<li>Challenging: poor starting model, physics mismatch</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 6.</p>
+</div></aside></section>
+<section id="bounds-only-insufficient" class="slide level2 smaller center">
+<h2>Bounds only — insufficient</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure7.png" style="width:70.0%"></p>
+<figcaption>FWI with bound constraints only (<span class="math inline">\(1425 \leq v \leq 5000\,\mathrm{m/s}\)</span>)</figcaption>
+</figure>
+</div>
+<ul>
+<li>Only top 700 m recovered reasonably</li>
+<li>Discontinuity at <strong>wrong depth and shape</strong></li>
+<li>Bounds alone cannot prevent erroneous velocity structures</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Fig. 7.</p>
+</div></aside></section>
+<section id="adding-structure-promoting-constraints" class="slide level2 smaller center">
+<h2>Adding structure-promoting constraints</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure8a.png"></p>
+<figcaption>Bounds + slope constraints (cycle 1: 3–4 Hz), then bounds only (cycle 2: 3–15 Hz)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure8b.png"></p>
+<figcaption>Cycle 2 result</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure9a.png"></p>
+<figcaption>Bounds + TV constraints (cycle 1: 3–4 Hz), then bounds only (cycle 2: 3–15 Hz)</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure9b.png"></p>
+<figcaption>Cycle 2 result</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li><strong>Two-cycle strategy</strong>: strong constraints at low frequencies, relax at higher frequencies</li>
+<li>Both slope and TV constraints dramatically improve results</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Figs. 8–9.</p>
+</div></aside></section>
+<section id="comparison-with-quadratic-penalties" class="slide level2 smaller center">
+<h2>Comparison with quadratic penalties</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure11.png" style="width:100.0%"></p>
+<figcaption>Penalty results for various <span class="math inline">\(\alpha_1, \alpha_2\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/Figure12.png" style="width:100.0%"></p>
+<figcaption>More penalty combinations</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Cannot directly encode <strong>monotonicity</strong> with quadratic penalties</li>
+<li>Parameters <strong>lack physical meaning</strong> and are <strong>interdependent</strong></li>
+<li>Easy to over- or under-estimate <span class="math inline">\(\Rightarrow\)</span> many results contain artifacts</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="peters2019projection">Peters et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, Figs. 11–12.</p>
+</div></aside></section>
+<section class="slide level2 center">
+
+</section></section>
+<section>
+<section id="part-iii-application-to-salt" class="title-slide slide level1 center" data-background-color="#002855">
+<h1>Part III: Application to Salt</h1>
+<p>Based on <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span> and <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></p>
+</section>
+<section id="constrained-wri-formulation" class="slide level2 smaller center">
+<h2>Constrained WRI formulation</h2>
+<p>The full framework combines <strong>three constraints</strong> with the WRI objective <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span>:</p>
+<p><span class="math display">\[
+\min_m f(m) \quad \text{subject to} \quad m_i \in [b_i, B_i],\; \|m\|_{TV} \leq \tau,\; \|\max(0, D_z m)\|_1 \leq \xi
+\]</span></p>
+<div class="fragment">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Constraint</th>
+<th>Role</th>
+<th>Parameter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Box</strong></td>
+<td>Physical velocity bounds</td>
+<td><span class="math inline">\(v_{\min}, v_{\max}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>TV norm</strong></td>
+<td>Edge preservation, denoising</td>
+<td><span class="math inline">\(\tau\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Hinge loss</strong></td>
+<td>Discourage velocity decrease with depth</td>
+<td><span class="math inline">\(\xi\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p><strong>Continuation strategy</strong>: gradually relax <span class="math inline">\(\xi\)</span> over warm-started cycles while keeping box and TV fixed.</p>
+</div>
+</section>
+<section id="marmousi-projections" class="slide level2 smaller center">
+<h2>Marmousi projections</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm_orig.png"></p>
+<figcaption>Original Marmousi</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm6_C.png"></p>
+<figcaption>TV at <span class="math inline">\(0.6\times\tau_0\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm3_C.png"></p>
+<figcaption>TV at <span class="math inline">\(0.3\times\tau_0\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm_slowness_slices.png"></p>
+<figcaption>Slowness squared slices</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:30%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/marm_velocity_slices.png"></p>
+<figcaption>Velocity slices</figcaption>
+</figure>
+</div>
+</div></div>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Figs. 3–4.</p>
+</div></aside></section>
+<section id="bp-2004-poor-starting-model-no-tv" class="slide level2 smaller center">
+<h2>BP 2004 — poor starting model, no TV</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/BPTM1.png"></p>
+<figcaption>Pass 1</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/BPTM2.png"></p>
+<figcaption>Pass 2</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/BPTM3.png"></p>
+<figcaption>Pass 3</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>WRI with <strong>box constraints only</strong> — noisy result, no improvement after multiple passes</li>
+<li>Velocity low after stepping into salt is <strong>persistent</strong> and cannot be overcome</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Fig. 6.</p>
+</div></aside></section>
+<section id="bp-2004-tv-constraints-insufficient" class="slide level2 smaller center">
+<h2>BP 2004 — TV constraints insufficient</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVBPTM1.png"></p>
+<figcaption>Pass 1: <span class="math inline">\(\tau = 0.75\tau_{\text{true}}\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVBPTM2.png"></p>
+<figcaption>Pass 2: <span class="math inline">\(\tau = 0.825\tau_{\text{true}}\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVBPTM3.png"></p>
+<figcaption>Pass 3: <span class="math inline">\(\tau = 0.9\tau_{\text{true}}\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>TV + box constraints recover <strong>top salt</strong> accurately</li>
+<li>But imprint of velocity low is <strong>still too strong</strong> — stuck at poor solution</li>
+<li>Motivates the need for the <strong>asymmetric hinge-loss</strong> constraint</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Fig. 7.</p>
+</div></aside></section>
+<section id="the-hinge-loss-constraint-for-salt" class="slide level2 smaller center">
+<h2>The hinge-loss constraint for salt</h2>
+<p>Asymmetric one-sided TV constraint in the vertical direction <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span>:</p>
+<p><span class="math display">\[
+\|\max(0, D_z m)\|_1 \leq \xi
+\]</span></p>
+<div class="fragment">
+<p><strong>Physical interpretation:</strong></p>
+<ul>
+<li>Penalizes the sum of <strong>positive vertical differences</strong> in slowness squared (= negative velocity jumps)</li>
+<li>Small <span class="math inline">\(\xi\)</span>: velocity can <strong>step into</strong> high-velocity salt but <strong>cannot easily step out</strong></li>
+<li>Large <span class="math inline">\(\xi\)</span>: allows velocity lows to build up below salt</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Continuation strategy:</strong></p>
+<ul>
+<li>Start with small <span class="math inline">\(\xi\)</span> (nearly monotonic velocity increase)</li>
+<li>Gradually increase <span class="math inline">\(\xi\)</span> over successive warm-started passes</li>
+<li>Sequence: <span class="math inline">\(\frac{\xi}{\xi_{\text{true}}} = .01,\, .05,\, .10,\, .15,\, .20,\, .25,\, .40,\, .90\)</span></li>
+</ul>
+</div>
+</section>
+<section id="wri-tv-hinge-loss-continuation" class="slide level2 smaller center">
+<h2>WRI + TV + Hinge-loss continuation</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw1.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .01\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw2.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .05\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw3.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .10\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw4.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .15\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw5.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .20\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw6.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .25\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw7.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .40\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/TVHLBPTMdpw8.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .90\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Fig. 8. TV fixed at <span class="math inline">\(\tau = 0.9\tau_{\text{true}}\)</span>; box: <span class="math inline">\(1500\)</span>–<span class="math inline">\(5000\,\mathrm{m/s}\)</span>.</p>
+</div></aside></section>
+<section id="constrained-fwi-adjoint-state" class="slide level2 smaller center">
+<h2>Constrained FWI (adjoint state)</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw1.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .01\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw3.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .10\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw5.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .20\)</span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:25%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/ASTVHLBPTMdpw8.png"></p>
+<figcaption><span class="math inline">\(\xi/\xi_{\text{true}} = .90\)</span></figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Same continuation strategy applied to <strong>conventional FWI</strong> (adjoint-state method)</li>
+<li>Results nearly as good as WRI — constraints are the key ingredient</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Fig. 9.</p>
+</div></aside></section>
+<section id="data-and-model-error-evolution" class="slide level2 smaller center">
+<h2>Data and model error evolution</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/WRI_data_error_reduced.png" style="width:50.0%"></p>
+<figcaption>WRI data misfit and model error</figcaption>
+</figure>
+</div>
+<!-- ![](figures/WRI_model_error.png) -->
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/FWI_data_error_reduced.png" style="width:50.0%"></p>
+<figcaption>FWI data misfit and model error</figcaption>
+</figure>
+</div>
+<!-- ![](figures/FWI_model_error.png) -->
+</div></div>
+<ul>
+<li>Both WRI and FWI: model error <strong>continues to decrease</strong> with constraint relaxation</li>
+<li>Sudden drops correspond to relaxation passes; increases correspond to higher frequencies</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Figs. 10.</p>
+</div></aside></section>
+<section id="data-and-model-error-evolution-1" class="slide level2 smaller center">
+<h2>Data and model error evolution</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<!-- ![WRI data misfit and model error](figures/WRI_data_error_reduced.png) -->
+<p><img data-src="figures/WRI_model_error.png"></p>
+</div><div class="column" style="width:33%;">
+<!-- ![FWI data misfit and model error](figures/FWI_data_error_reduced.png) -->
+<p><img data-src="figures/FWI_model_error.png"></p>
+</div></div>
+<ul>
+<li>Both WRI and FWI: model error <strong>continues to decrease</strong> with constraint relaxation</li>
+<li>Sudden drops correspond to relaxation passes; increases correspond to higher frequencies</li>
+</ul>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2018tvwri">Esser et al. (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Figs. 10.</p>
+</div></aside></section>
+<section id="unconstrained-vs.-constrained-wri" class="slide level2 smaller center">
+<h2>Unconstrained vs.&nbsp;constrained WRI</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Unconstrained WRI</strong></p>
+<video id="video_shortcode_videojs_video1" width="500%" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="figures/Movies/molar.mov"></video>
+</div><div class="column" style="width:50%;">
+<p><strong>WRI + TV + Hinge loss</strong></p>
+<video id="video_shortcode_videojs_video2" width="500%" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="figures/Movies/TVHLmolar.mov"></video>
+</div></div>
+<ul>
+<li>Left: unconstrained WRI gets stuck in local minimum</li>
+<li>Right: constrained WRI successfully recovers salt body</li>
+</ul>
+</section>
+<section id="wri-tv-hinge-vs.-adjoint-tv-hinge" class="slide level2 smaller center">
+<h2>WRI + TV + Hinge vs.&nbsp;Adjoint + TV + Hinge</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>WRI + TV + Hinge loss</strong></p>
+<video id="video_shortcode_videojs_video3" width="500%" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="figures/Movies/TVHLmolar.mov"></video>
+</div><div class="column" style="width:50%;">
+<p><strong>Adjoint state + TV + Hinge loss</strong></p>
+<video id="video_shortcode_videojs_video4" width="500%" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="figures/Movies/ASmolar.mov"></video>
+</div></div>
+<ul>
+<li>Both approaches successfully recover salt from poor starting model</li>
+<li>WRI achieves lower model error; adjoint state also produces excellent results</li>
+</ul>
+</section>
+<section id="seam-model-setup" class="slide level2 smaller center">
+<h2>SEAM model — setup</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-orig.png"></p>
+<figcaption>True SEAM model</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-start.png"></p>
+<figcaption>Starting model (no salt)</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-FWI.png"></p>
+<figcaption>Unconstrained FWI</figcaption>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Phase I SEAM model <span class="citation" data-cites="SEAM2010">(<a href="#/references" role="doc-biblioref" onclick="">Fehler and Keliher 2011</a>)</span>: rugose top salt, steep sides, complicated base</li>
+<li>96 sources, 196 receivers, 8000 m spread; 3–12 Hz bandwidth</li>
+<li>Starting model: 1D compaction trend — <strong>no salt present</strong></li>
+<li>Unconstrained FWI fails catastrophically</li>
+</ul>
+
+<aside><div>
+<p>Adapted from <span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></p>
+</div></aside></section>
+<section id="seam-constrained-fwi-result" class="slide level2 smaller center">
+<h2>SEAM — constrained FWI result</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-hinge.png"></p>
+<figcaption>Hinge-loss constrained FWI result</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:40%;">
+<p><strong>Recovered features:</strong></p>
+<ul>
+<li>Rugose top salt boundary</li>
+<li>Uniform salt interior</li>
+<li>Correct depth/geometry of bottom salt</li>
+<li>Salt flanks</li>
+<li>Sub-salt velocity structure</li>
+</ul>
+<p><strong>No assumptions about salt velocity</strong> — recovered directly from data.</p>
+</div></div>
+
+<aside><div>
+<p><span class="citation" data-cites="esser2016salt">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2016</a>)</span></p>
+</div></aside></section>
+<section id="seam-evolution" class="slide level2 smaller center">
+<h2>SEAM — evolution</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-hingesnaps1.png" style="width:80.0%"></p>
+<figcaption>Early iterations: strong constraints</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-hingesnaps2.png" style="width:80.0%"></p>
+<figcaption>Salt body develops</figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-hingesnaps3.png" style="width:80.0%"></p>
+<figcaption>Salt interior and flanks</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/SEAM-hingesnaps4.png" style="width:80.0%"></p>
+<figcaption>Final: sub-salt structure appears</figcaption>
+</figure>
+</div>
+</div></div>
+
+<aside><div>
+<ol class="example" type="1">
+<li>Progressive relaxation of hinge-loss constraint.</li>
+</ol>
+</div></aside></section>
+<section id="seam-model-movie" class="slide level2 smaller center">
+<h2>SEAM model — movie</h2>
+<video id="video_shortcode_videojs_video5" width="500%" class="video-js vjs-default-skin vjs-big-play-centered " controls="" preload="auto" data-setup="{}" title=""><source src="figures/Movies/seam.mp4"></video>
+<p>Evolution of the model as the inversion proceeds and constraints are relaxed. Initially, strong constraints introduce a salt-like body extending to bottom. As constraints relax, salt geometry develops and sub-salt structure appears.</p>
+</section>
+<section id="in-memoriam" class="slide level2 smaller center">
+<h2>In memoriam</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="figures/ernie.png" style="width:100.0%"></p>
+</div><div class="column" style="width:70%;">
+<blockquote>
+<p><strong>John “Ernie” Esser<span class="math inline">\(^\dagger\)</span> (May 19, 1980 – March 8, 2015)</strong></p>
+</blockquote>
+<p><em>The work presented in this lecture is in large part a tribute to Ernie Esser, who passed away in tragic circumstances. He was a young and very promising scientist whose contributions to constrained optimization for seismic inversion remain foundational.</em></p>
+<p><em>To our knowledge, Ernie’s work is the first successful attempt to replace labour-intensive manual salt-flooding workflows with an automatic heuristic: successive relaxations of asymmetric TV-norm constraints with warm-started passes through frequency batches.</em> <span class="citation" data-cites="esser2018tvwri">(<a href="#/references" role="doc-biblioref" onclick="">Esser et al. 2018</a>)</span></p>
+</div></div>
+</section>
+<section id="summary" class="slide level2 smaller center">
+<h2>Summary</h2>
+<ul>
+<li><strong>Penalties vs.&nbsp;constraints</strong>: constraints are more predictable, require fewer parameters, and guarantee feasibility at every iterate</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Key ingredients</strong>: box constraints (physical bounds), TV norm (edge preservation), hinge loss (asymmetric salt constraint)</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Algorithms</strong>: Dykstra’s algorithm for projections onto intersections; SPG for nonlinear optimization; 3-level nested workflow</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Results</strong>: automatic salt flooding from poor starting models on BP 2004 and SEAM benchmarks — replacing labor-intensive manual workflows</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Both WRI and FWI</strong> benefit from the constrained framework</li>
+</ul>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Barzilai1988" class="csl-entry" role="listitem">
+Barzilai, Jonathan, and Jonathan M. Borwein. 1988. <span>“Two-Point Step Size Gradient Methods.”</span> <em>IMA Journal of Numerical Analysis</em> 8 (1): 141–48. <a href="https://doi.org/10.1093/imanum/8.1.141">https://doi.org/10.1093/imanum/8.1.141</a>.
+</div>
+<div id="ref-Birgin2000" class="csl-entry" role="listitem">
+Birgin, Ernesto G., José Mario Martı́nez, and Marcos Raydan. 2000. <span>“Nonmonotone Spectral Projected Gradient Methods on Convex Sets.”</span> <em>SIAM Journal on Optimization</em> 10 (4): 1196–211. <a href="https://doi.org/10.1137/S1052623497330963">https://doi.org/10.1137/S1052623497330963</a>.
+</div>
+<div id="ref-Dykstra1983" class="csl-entry" role="listitem">
+Dykstra, Richard L. 1983. <span>“An Algorithm for Restricted Least Squares Regression.”</span> <em>Journal of the American Statistical Association</em> 78 (384): 837–42. <a href="https://doi.org/10.1080/01621459.1983.10477029">https://doi.org/10.1080/01621459.1983.10477029</a>.
+</div>
+<div id="ref-esser2016salt" class="csl-entry" role="listitem">
+Esser, Ernie, Lluı́s Guasch, Felix J. Herrmann, and Mike Warner. 2016. <span>“Constrained Waveform Inversion for Automatic Salt Flooding.”</span> <em>The Leading Edge</em> 35 (3): 235–39. <a href="https://doi.org/10.1190/tle35030235.1">https://doi.org/10.1190/tle35030235.1</a>.
+</div>
+<div id="ref-esser2018tvwri" class="csl-entry" role="listitem">
+Esser, Ernie, Lluı́s Guasch, Tristan van Leeuwen, Aleksandr Y. Aravkin, and Felix J. Herrmann. 2018. <span>“Total-Variation Regularization Strategies in Full-Waveform Inversion.”</span> <em>SIAM Journal on Imaging Sciences</em> 11 (1): 376–406. <a href="https://doi.org/10.1137/17M111328X">https://doi.org/10.1137/17M111328X</a>.
+</div>
+<div id="ref-SEAM2010" class="csl-entry" role="listitem">
+Fehler, Michael, and P. J. Keliher. 2011. <em>SEAM Phase 1: Challenges of Subsalt Imaging in Tertiary Basins, with Emphasis on Deepwater Gulf of Mexico</em>. Society of Exploration Geophysicists. <a href="https://doi.org/10.1190/1.9781560802945">https://doi.org/10.1190/1.9781560802945</a>.
+</div>
+<div id="ref-vanLeeuwen2013Penalty1" class="csl-entry" role="listitem">
+Leeuwen, Tristan van, and Felix J. Herrmann. 2013. <span>“Mitigating Local Minima in Full-Waveform Inversion by Expanding the Search Space.”</span> <em>Geophysical Journal International</em> 195 (1): 661–67. <a href="https://doi.org/10.1093/gji/ggt258">https://doi.org/10.1093/gji/ggt258</a>.
+</div>
+<div id="ref-peters2017constraints" class="csl-entry" role="listitem">
+Peters, Bas, and Felix J. Herrmann. 2017. <span>“Constraints Versus Penalties for Edge-Preserving Full-Waveform Inversion.”</span> <em>The Leading Edge</em> 36 (1): 94–100. <a href="https://doi.org/10.1190/tle36010094.1">https://doi.org/10.1190/tle36010094.1</a>.
+</div>
+<div id="ref-peters2019projection" class="csl-entry" role="listitem">
+Peters, Bas, Brendan R. Smithyman, and Felix J. Herrmann. 2019. <span>“Projection Methods and Applications for Seismic Nonlinear Inverse Problems with Multiple Constraints.”</span> <em>Geophysics</em> 84 (2): R251–69. <a href="https://doi.org/10.1190/geo2018-0192.1">https://doi.org/10.1190/geo2018-0192.1</a>.
+</div>
+<div id="ref-Rudin1992" class="csl-entry" role="listitem">
+Rudin, Leonid I., Stanley Osher, and Emad Fatemi. 1992. <span>“Nonlinear Total Variation Based Noise Removal Algorithms.”</span> <em>Physica D: Nonlinear Phenomena</em> 60 (1–4): 259–68. <a href="https://doi.org/10.1016/0167-2789(92)90242-F">https://doi.org/10.1016/0167-2789(92)90242-F</a>.
+</div>
+</div>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="figures/logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://flexie.github.io/EAS-8803-FH/">EAS 8803-FH</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/flexie\.github\.io\/EAS-8803-FH\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    <script>videojs(video_shortcode_videojs_video1);</script>
+    <script>videojs(video_shortcode_videojs_video2);</script>
+    <script>videojs(video_shortcode_videojs_video3);</script>
+    <script>videojs(video_shortcode_videojs_video4);</script>
+    <script>videojs(video_shortcode_videojs_video5);</script>
+    
+
+</body></html>

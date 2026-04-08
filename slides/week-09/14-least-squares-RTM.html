@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-03-09">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -33,7 +36,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -50,7 +52,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-832775eafbd512325564c8c290c39367.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-1a8385bbf955fbb4448938bc10efacf4.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -403,14 +405,14 @@ Felix J. Herrmann
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="figures/RTM_2.png" style="width:100.0%"></p>
-<figcaption>Prestack migration <span class="citation" data-cites="zeng2014b">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng et al. 2014</a>)</span></figcaption>
+<figcaption>Prestack migration <span class="citation" data-cites="zeng2014b">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng, Dong, Mao, et al. 2014</a>)</span></figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="figures/LS-RTM_2.png" style="width:100.0%"></p>
-<figcaption>LS-RTM <span class="citation" data-cites="zeng2014b">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng et al. 2014</a>)</span></figcaption>
+<figcaption>LS-RTM <span class="citation" data-cites="zeng2014b">(<a href="#/key-references" role="doc-biblioref" onclick="">Zeng, Dong, Mao, et al. 2014</a>)</span></figcaption>
 </figure>
 </div>
 </div></div>
@@ -618,10 +620,10 @@ P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
 <section id="why-curvelets-frequency-tiling-and-spatial-atoms" class="slide level2 smaller center">
 <h2>Why Curvelets? — Frequency Tiling and Spatial Atoms</h2>
 
-<img data-src="figures/curvepart.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">(a) Curvelet atoms in the physical domain at various scales, positions, and orientations. (b) Curvelet tiling of the 2D frequency plane showing dyadic scales with angular wedges obeying parabolic scaling <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>.</p></section>
+<img data-src="figures/curvepart.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">(a) Curvelet atoms in the physical domain at various scales, positions, and orientations. (b) Curvelet tiling of the 2D frequency plane showing dyadic scales with angular wedges obeying parabolic scaling <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2008</a>)</span>.</p></section>
 <section id="properties-of-curvelets" class="slide level2 smaller center">
 <h2>Properties of Curvelets</h2>
-<p>Curvelets form a <strong>tight frame</strong> for <span class="math inline">\(L^2(\mathbb{R}^2)\)</span> <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>:</p>
+<p>Curvelets form a <strong>tight frame</strong> for <span class="math inline">\(L^2(\mathbb{R}^2)\)</span> <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2008</a>)</span>:</p>
 <p><span class="math display">\[
 \mathbf{C}^{\top}\mathbf{C} = \mathbf{I} \qquad \text{(analysis followed by synthesis = identity)}
 \]</span></p>
@@ -666,7 +668,7 @@ P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
 </figure>
 </div>
 </div></div>
-<p>Retaining only <strong>3%</strong> of curvelet coefficients captures the essential structure of a migrated seismic image. The residual after keeping 99% of coefficients is negligible, confirming the near-optimal <span class="math inline">\(O(N^{-2}(\log N)^3)\)</span> approximation rate <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>)</span>.</p>
+<p>Retaining only <strong>3%</strong> of curvelet coefficients captures the essential structure of a migrated seismic image. The residual after keeping 99% of coefficients is negligible, confirming the near-optimal <span class="math inline">\(O(N^{-2}(\log N)^3)\)</span> approximation rate <span class="citation" data-cites="herrmann2008">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2008</a>)</span>.</p>
 </section>
 <section id="three-levels-of-preconditioning" class="slide level2 smaller center">
 <h2>Three Levels of Preconditioning</h2>
@@ -738,7 +740,7 @@ P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
 <h2>Level III — Curvelet-Domain Scaling</h2>
 <p>After left preconditioning, the Hessian becomes a <strong>zero-order <span class="math inline">\(\Psi\)</span>DO</strong> — a non-stationary dip filter with smooth symbol <span class="math inline">\(a(x, \xi)\)</span>.</p>
 <div class="fragment">
-<p>Key approximation <span class="citation" data-cites="herrmann2008 herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann, Moghaddam, and Stolk 2008</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>, Eq. 9)</span>:</p>
+<p>Key approximation <span class="citation" data-cites="herrmann2008 herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2008</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>, Eq. 9)</span>:</p>
 <p><span class="math display">\[
 \Psi\,\mathbf{r} \approx \mathbf{C}^{\top}\,\mathbf{D}_\Psi^2\,\mathbf{C}\,\mathbf{r}, \qquad \mathbf{D}_\Psi^2 := \operatorname{diag}(\mathbf{d}^2)
 \]</span></p>
@@ -778,7 +780,7 @@ P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
 </section>
 <section id="industry-adoption" class="slide level2 smaller center">
 <h2>Industry Adoption</h2>
-<p>The curvelet-domain preconditioning idea was later adopted by industry. <span class="citation" data-cites="wang2018cgg">Wang, Huang, and Wang (<a href="#/key-references" role="doc-biblioref" onclick="">2018</a>)</span> proposed “curvelet-domain Hessian filters” (CHF) for preconditioned iterative LSRTM — essentially the same approach as <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span> — demonstrating faster convergence and fewer artifacts on both SEAM I synthetic and Gulf of Mexico field data.</p>
+<p>The curvelet-domain preconditioning idea was later adopted by industry. <span class="citation" data-cites="wang2018cgg">Wang et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2018</a>)</span> proposed “curvelet-domain Hessian filters” (CHF) for preconditioned iterative LSRTM — essentially the same approach as <span class="citation" data-cites="herrmann2009">Herrmann et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2009</a>)</span> — demonstrating faster convergence and fewer artifacts on both SEAM I synthetic and Gulf of Mexico field data.</p>
 <div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -798,11 +800,11 @@ P_{\text{illum}}(\mathbf{x}) = \frac{1}{h(\mathbf{x}) + \epsilon}
 <section id="chf-preconditioned-lsrtm-seam-i-synthetic" class="slide level2 smaller center">
 <h2>CHF-Preconditioned LSRTM — SEAM I Synthetic</h2>
 
-<img data-src="figures/cgg1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">SEAM I synthetic study: (a) true reflectivity; (b) raw RTM; (c) conventional LSRTM (iteration 1); (d) CHF-preconditioned LSRTM (iteration 1); (e) conventional LSRTM (iteration 10); (f) CHF-preconditioned LSRTM (iteration 3) <span class="citation" data-cites="wang2018cgg">(<a href="#/key-references" role="doc-biblioref" onclick="">Wang, Huang, and Wang 2018</a>)</span>.</p></section>
+<img data-src="figures/cgg1.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">SEAM I synthetic study: (a) true reflectivity; (b) raw RTM; (c) conventional LSRTM (iteration 1); (d) CHF-preconditioned LSRTM (iteration 1); (e) conventional LSRTM (iteration 10); (f) CHF-preconditioned LSRTM (iteration 3) <span class="citation" data-cites="wang2018cgg">(<a href="#/key-references" role="doc-biblioref" onclick="">Wang et al. 2018</a>)</span>.</p></section>
 <section id="chf-preconditioned-lsrtm-gom-field-data" class="slide level2 smaller center">
 <h2>CHF-Preconditioned LSRTM — GOM Field Data</h2>
 
-<img data-src="figures/cgg2.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">GOM field data: (a) raw RTM; (b) regular LSRTM (iteration 6); (c) CHF-preconditioned LSRTM (iteration 1, equivalent to single-iteration CHF); (d) CHF-preconditioned LSRTM (iteration 2) <span class="citation" data-cites="wang2018cgg">(<a href="#/key-references" role="doc-biblioref" onclick="">Wang, Huang, and Wang 2018</a>)</span>.</p></section>
+<img data-src="figures/cgg2.png" style="width:90.0%" class="r-stretch quarto-figure-center"><p class="caption">GOM field data: (a) raw RTM; (b) regular LSRTM (iteration 6); (c) CHF-preconditioned LSRTM (iteration 1, equivalent to single-iteration CHF); (d) CHF-preconditioned LSRTM (iteration 2) <span class="citation" data-cites="wang2018cgg">(<a href="#/key-references" role="doc-biblioref" onclick="">Wang et al. 2018</a>)</span>.</p></section>
 <section id="effect-on-convergence" class="slide level2 center">
 <h2>Effect on Convergence</h2>
 <p>On the SEG/EAGE AA’ salt model <span class="citation" data-cites="herrmann2009">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>)</span>:</p>
@@ -1005,7 +1007,7 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 </div>
 <div class="fragment">
 <p><span class="citation" data-cites="fletcher2016">Fletcher et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2016</a>)</span>: compute PSFs on coarse grid with on-the-fly interpolation.</p>
-<p><span class="citation" data-cites="valenciano2006">Valenciano, Biondi, and Guitton (<a href="#/key-references" role="doc-biblioref" onclick="">2006</a>)</span>: target-oriented inversion using PSFs with one-way wave-equation migration.</p>
+<p><span class="citation" data-cites="valenciano2006">Valenciano et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2006</a>)</span>: target-oriented inversion using PSFs with one-way wave-equation migration.</p>
 </div>
 </section>
 <section id="point-spread-functions-spatial-variation" class="slide level2 center">
@@ -1031,7 +1033,7 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 </section>
 <section id="approximation-strategy-4-kronecker-factorization" class="slide level2 smaller center">
 <h2>Approximation Strategy 4: Kronecker Factorization</h2>
-<p><span class="citation" data-cites="gao2020">Gao, Matharu, and Sacchi (<a href="#/key-references" role="doc-biblioref" onclick="">2020</a>)</span> factorize the Hessian as a <strong>superposition of Kronecker products</strong>:</p>
+<p><span class="citation" data-cites="gao2020">Gao et al. (<a href="#/key-references" role="doc-biblioref" onclick="">2020</a>)</span> factorize the Hessian as a <strong>superposition of Kronecker products</strong>:</p>
 <p><span class="math display">\[
 \mathbf{H} \approx \sum_{i=1}^{r} \mathbf{A}_i \otimes \mathbf{B}_i
 \]</span></p>
@@ -1048,7 +1050,7 @@ H(\mathbf{x}, \mathbf{x}) \approx \sum_{s,r} A_s(\mathbf{x})\, A_r(\mathbf{x})
 <h2>Approximation Strategy 5: Curvelet-Domain Hessian</h2>
 <p>Building on the near-diagonality theorem, the Hessian in the curvelet domain can be approximated beyond a simple diagonal.</p>
 <div class="fragment">
-<p><strong>Diagonal approximation</strong> <span class="citation" data-cites="herrmann2009 sanavi2021">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Sanavi, Moghaddam, and Herrmann 2021</a>)</span>:</p>
+<p><strong>Diagonal approximation</strong> <span class="citation" data-cites="herrmann2009 sanavi2021">(<a href="#/key-references" role="doc-biblioref" onclick="">Herrmann et al. 2009</a>; <a href="#/key-references" role="doc-biblioref" onclick="">Sanavi et al. 2021</a>)</span>:</p>
 <p><span class="math display">\[
 \mathbf{C}\,\mathbf{H}\,\mathbf{C}^{\top} \approx \operatorname{diag}(\boldsymbol{\sigma})
 \]</span></p>
@@ -1235,7 +1237,7 @@ $$
 <section id="emerging-directions" class="slide level2 smaller center">
 <h2>Emerging Directions</h2>
 <ul>
-<li><strong>Learned Hessian approximations:</strong> deep-learning-based inverse Hessian estimation <span class="citation" data-cites="kaur2020">(<a href="#/key-references" role="doc-biblioref" onclick="">Kaur, Pham, and Fomel 2020</a>)</span></li>
+<li><strong>Learned Hessian approximations:</strong> deep-learning-based inverse Hessian estimation <span class="citation" data-cites="kaur2020">(<a href="#/key-references" role="doc-biblioref" onclick="">Kaur et al. 2020</a>)</span></li>
 <li><strong>Extended image-domain LSM:</strong> subsurface-offset gathers for velocity errors and AVA</li>
 <li><strong>Stochastic/randomized methods:</strong> phase-encoded sources to reduce per-iteration cost</li>
 <li><strong>Elastic &amp; viscoacoustic LSM:</strong> multi-parameter Hessian challenges</li>
@@ -1243,15 +1245,15 @@ $$
 </section>
 <section id="key-references" class="slide level2 smaller scrollable">
 <h2>Key References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-aoki2009" class="csl-entry" role="listitem">
 Aoki, Naoshi, and Gerard T. Schuster. 2009. <span>“Fast Least-Squares Migration with a Deblurring Filter.”</span> <em>Geophysics</em> 74 (6): WCA83–93. <a href="https://doi.org/10.1190/1.3155164">https://doi.org/10.1190/1.3155164</a>.
 </div>
 <div id="ref-candes2005" class="csl-entry" role="listitem">
-Candès, Emmanuel J., and Laurent Demanet. 2005. <span>“The Curvelet Representation of Wave Propagators Is Optimally Sparse.”</span> <em>Communications on Pure and Applied Mathematics</em> 58 (11): 1472–1528. <a href="https://doi.org/10.1002/cpa.20078">https://doi.org/10.1002/cpa.20078</a>.
+Candès, Emmanuel J., and Laurent Demanet. 2005. <span>“The Curvelet Representation of Wave Propagators Is Optimally Sparse.”</span> <em>Communications on Pure and Applied Mathematics</em> 58 (11): 1472–528. <a href="https://doi.org/10.1002/cpa.20078">https://doi.org/10.1002/cpa.20078</a>.
 </div>
 <div id="ref-claerbout1994" class="csl-entry" role="listitem">
-Claerbout, Jon F., and Dave Nichols. 1994. <span>“Spectral Preconditioning.”</span> SEP-82. Stanford Exploration Project.
+Claerbout, Jon F., and Dave Nichols. 1994. <em>Spectral Preconditioning</em>. SEP-82. Stanford Exploration Project.
 </div>
 <div id="ref-fletcher2016" class="csl-entry" role="listitem">
 Fletcher, Robin P., Dave Nichols, Robert Bloor, and Robin T. Coates. 2016. <span>“Least-Squares Migration — Data Domain Versus Image Domain Using Point Spread Functions.”</span> <em>The Leading Edge</em> 35 (2): 157–62. <a href="https://doi.org/10.1190/tle35020157.1">https://doi.org/10.1190/tle35020157.1</a>.
@@ -1299,13 +1301,13 @@ Valenciano, Alejandro A., Biondo Biondi, and Antoine Guitton. 2006. <span>“Tar
 Vogel, Curtis R. 2002. <em>Computational Methods for Inverse Problems</em>. SIAM. <a href="https://doi.org/10.1137/1.9780898717570">https://doi.org/10.1137/1.9780898717570</a>.
 </div>
 <div id="ref-wang2018cgg" class="csl-entry" role="listitem">
-Wang, Ming, Shouting Huang, and Ping Wang. 2018. <span>“Improved Iterative Least-Squares Migration Using Curvelet-Domain <span>H</span>essian Filters.”</span> In <em>88th Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2018-2998179.1">https://doi.org/10.1190/segam2018-2998179.1</a>.
+Wang, Ming, Shouting Huang, and Ping Wang. 2018. <span>“Improved Iterative Least-Squares Migration Using Curvelet-Domain <span>H</span>essian Filters.”</span> <em>88th Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2018-2998179.1">https://doi.org/10.1190/segam2018-2998179.1</a>.
 </div>
 <div id="ref-yao2012" class="csl-entry" role="listitem">
-Yao, Gang, and Henry Jakubowicz. 2012. <span>“Least-Squares Reverse-Time Migration.”</span> In <em>82nd Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2012-1425.1">https://doi.org/10.1190/segam2012-1425.1</a>.
+Yao, Gang, and Henry Jakubowicz. 2012. <span>“Least-Squares Reverse-Time Migration.”</span> <em>82nd Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2012-1425.1">https://doi.org/10.1190/segam2012-1425.1</a>.
 </div>
 <div id="ref-zeng2014b" class="csl-entry" role="listitem">
-Zeng, Chao, Sheng Dong, Jin Mao, and Ben Wang. 2014. <span>“Broadband Least-Squares Reverse Time Migration for Complex Structure Imaging.”</span> In <em>84th Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2014-0539.1">https://doi.org/10.1190/segam2014-0539.1</a>.
+Zeng, Chao, Sheng Dong, Jin Mao, and Ben Wang. 2014. <span>“Broadband Least-Squares Reverse Time Migration for Complex Structure Imaging.”</span> <em>84th Annual International Meeting, SEG, Expanded Abstracts</em>. <a href="https://doi.org/10.1190/segam2014-0539.1">https://doi.org/10.1190/segam2014-0539.1</a>.
 </div>
 <div id="ref-zeng2014" class="csl-entry" role="listitem">
 Zeng, Chao, Sheng Dong, and Ben Wang. 2014. <span>“Least-Squares Reverse Time Migration: Inversion-Based Imaging Toward True Reflectivity.”</span> <em>The Leading Edge</em> 33 (9): 962–68. <a href="https://doi.org/10.1190/tle33090962.1">https://doi.org/10.1190/tle33090962.1</a>.

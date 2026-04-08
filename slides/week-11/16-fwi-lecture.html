@@ -6,8 +6,8 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Felix J. Herrmann">
   <meta name="dcterms.date" content="2026-03-30">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -99,7 +102,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -116,7 +118,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3a3a30af1d0df6ddb07696291d99123c.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5b148319d603bb1324b6675ff8631fa1.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -558,8 +560,8 @@ $$
 <ul>
 <li>Low frequencies and large appertures resolve intermediate and large wavelengths</li>
 <li>Normal incidence (<span class="math inline">\(\theta=0\)</span>) leads to max resolution of <span class="math inline">\(\frac{1}{2}\lambda\)</span></li>
-<li>Long offsets resolve small horizontal wavenumbers of dipping structures <!-- - Small $\theta$ (transmission) $\rightarrow$ low wavenumbers
-- Large $\theta$ (reflection) $\rightarrow$ high wavenumbers --></li>
+<li>Long offsets resolve small horizontal wavenumbers of dipping structures &lt;!– - Small <span class="math inline">\(\theta\)</span> (transmission) <span class="math inline">\(\rightarrow\)</span> low wavenumbers</li>
+<li>Large <span class="math inline">\(\theta\)</span> (reflection) <span class="math inline">\(\rightarrow\)</span> high wavenumbers –&gt;</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -1186,14 +1188,14 @@ u(\cdot,0) = 0, \quad \dfrac{du}{dt}\big|_{t=0} = 0
 <p><strong>Stochastic optimization and computational efficiency:</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Effective method for parameter estimation with PDE constraints</strong> <span class="citation" data-cites="haber2012effective">(<a href="#/references" role="doc-biblioref" onclick="">Haber, Chung, and Herrmann 2012</a>)</span></p>
+<p><strong>Effective method for parameter estimation with PDE constraints</strong> <span class="citation" data-cites="haber2012effective">(<a href="#/references" role="doc-biblioref" onclick="">Haber et al. 2012</a>)</span></p>
 <ul>
 <li>Reformulate multi-source problems as <strong>stochastic programming</strong></li>
 <li>Combine multiple right-hand sides into <strong>fewer simultaneous sources</strong></li>
 <li>Reduces <strong>linear cost scaling</strong> to a tractable framework</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<p><strong>Seismic waveform inversion by stochastic optimization</strong> <span class="citation" data-cites="vanLeeuwen2010">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen, Aravkin, and Herrmann 2011</a>)</span></p>
+<p><strong>Seismic waveform inversion by stochastic optimization</strong> <span class="citation" data-cites="vanLeeuwen2010">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen et al. 2011</a>)</span></p>
 <ul>
 <li>Stochastic optimization for seismic waveform inversion</li>
 <li><strong>Sub-sampling</strong> of sources reduces per-iteration cost</li>
@@ -1206,7 +1208,7 @@ u(\cdot,0) = 0, \quad \dfrac{du}{dt}\big|_{t=0} = 0
 <p><strong>Robustness and scalability:</strong></p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><strong>Robust inversion, dimensionality reduction, and randomized sampling</strong> <span class="citation" data-cites="Herrmann2012robust">(<a href="#/references" role="doc-biblioref" onclick="">Herrmann, Erlangga, and Lin 2012</a>)</span></p>
+<p><strong>Robust inversion, dimensionality reduction, and randomized sampling</strong> <span class="citation" data-cites="Herrmann2012robust">(<a href="#/references" role="doc-biblioref" onclick="">Herrmann et al. 2012</a>)</span></p>
 <ul>
 <li>Uses <strong>Student’s t-distribution</strong> instead of least-squares</li>
 <li>Handles <strong>50% corrupted data</strong> successfully</li>
@@ -1252,7 +1254,7 @@ u(\cdot,0) = 0, \quad \dfrac{du}{dt}\big|_{t=0} = 0
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-BeydounTarantola1988" class="csl-entry" role="listitem">
 Beydoun, W. B., and A. Tarantola. 1988. <span>“First Born and <span>R</span>ytov Approximations: Modeling and Inversion Conditions in a Canonical Example.”</span> <em>Journal of the Acoustical Society of America</em> 83: 1045–55.
 </div>
@@ -1260,7 +1262,7 @@ Beydoun, W. B., and A. Tarantola. 1988. <span>“First Born and <span>R</span>yt
 Bunks, Carey, Fatimetou M. Saleck, S. Zaleski, and G. Chavent. 1995. <span>“Multiscale Seismic Waveform Inversion.”</span> <em>Geophysics</em> 60 (5): 1457–73. <a href="https://doi.org/10.1190/1.1443880">https://doi.org/10.1190/1.1443880</a>.
 </div>
 <div id="ref-Claerbout1985" class="csl-entry" role="listitem">
-Claerbout, Jon F. 1985. <em>Imaging the <span>E</span>arth’s Interior</em>. Oxford: Blackwell Scientific Publications.
+Claerbout, Jon F. 1985. <em>Imaging the <span>E</span>arth’s Interior</em>. Blackwell Scientific Publications.
 </div>
 <div id="ref-haber2012effective" class="csl-entry" role="listitem">
 Haber, Eldad, Matthias Chung, and Felix Herrmann. 2012. <span>“An Effective Method for Parameter Estimation with PDE Constraints with Multiple Right-Hand Sides.”</span> <em>SIAM Journal on Optimization</em> 22 (3): 739–57.
@@ -1275,19 +1277,19 @@ Jones, Ian F. 2019. <span>“Tutorial: The Mechanics of Waveform Inversion.”</
 Kim, Donggeon, Jongha Hwang, Dong-Joo Min, Ju-Won Oh, and Tariq Alkhalifah. 2022. <span>“Two-Step Full Waveform Inversion of Diving and Reflected Waves with the Diffraction-Angle-Filtering-Based Scale-Separation Technique.”</span> <em>Geophysical Journal International</em> 229 (2): 880–97. <a href="https://doi.org/10.1093/gji/ggab522">https://doi.org/10.1093/gji/ggab522</a>.
 </div>
 <div id="ref-vanLeeuwen2010" class="csl-entry" role="listitem">
-Leeuwen, Tristan van, Aleksandr Y. Aravkin, and Felix J. Herrmann. 2011. <span>“Seismic Waveform Inversion by Stochastic Optimization.”</span> <em>International Journal of Geophysics</em>. <a href="https://doi.org/10.1155/2011/689041">https://doi.org/10.1155/2011/689041</a>.
+Leeuwen, Tristan van, Aleksandr Y. Aravkin, and Felix J. Herrmann. 2011. <span>“Seismic Waveform Inversion by Stochastic Optimization.”</span> <em>International Journal of Geophysics</em>, ahead of print. <a href="https://doi.org/10.1155/2011/689041">https://doi.org/10.1155/2011/689041</a>.
 </div>
 <div id="ref-vanLeeuwen2014" class="csl-entry" role="listitem">
 Leeuwen, Tristan van, and Felix J. Herrmann. 2014. <span>“3<span>D</span> Frequency-Domain Seismic Inversion with Controlled Sloppiness.”</span> <em>SIAM Journal on Scientific Computing</em> 36 (5): S192–217. <a href="https://doi.org/10.1137/130918629">https://doi.org/10.1137/130918629</a>.
 </div>
 <div id="ref-Liu2022" class="csl-entry" role="listitem">
-Liu, Nengchao, Gang Yao, Zhihui Zou, Shangxu Wang, Di Wu, Xiang Li, and Jianye Zhou. 2022. <span>“Two Improved Acquisition Systems for Deep Subsurface Exploration.”</span> <em>Frontiers in Earth Science</em> Volume 10 - 2022. <a href="https://doi.org/10.3389/feart.2022.850766">https://doi.org/10.3389/feart.2022.850766</a>.
+Liu, Nengchao, Gang Yao, Zhihui Zou, et al. 2022. <span>“Two Improved Acquisition Systems for Deep Subsurface Exploration.”</span> <em>Frontiers in Earth Science</em> Volume 10 - 2022. <a href="https://doi.org/10.3389/feart.2022.850766">https://doi.org/10.3389/feart.2022.850766</a>.
 </div>
 <div id="ref-Nocedal1980" class="csl-entry" role="listitem">
 Nocedal, Jorge. 1980. <span>“Updating Quasi-<span>N</span>ewton Matrices with Limited Storage.”</span> <em>Mathematics of Computation</em> 35 (151): 773–82.
 </div>
 <div id="ref-Pearce2023" class="csl-entry" role="listitem">
-Pearce, Emma, Adam D. Booth, Sebastian Rost, Paul Sava, Tuğrul Konuk, Alex Brisbourne, Bryn Hubbard, and Ian Jones. 2023. <span>“Characterising Ice Slabs in Firn Using Seismic Full Waveform Inversion, a Sensitivity Study.”</span> <em>Journal of Glaciology</em> 69 (277): 1419–33. <a href="https://doi.org/10.1017/jog.2023.30">https://doi.org/10.1017/jog.2023.30</a>.
+Pearce, Emma, Adam D. Booth, Sebastian Rost, et al. 2023. <span>“Characterising Ice Slabs in Firn Using Seismic Full Waveform Inversion, a Sensitivity Study.”</span> <em>Journal of Glaciology</em> 69 (277): 1419–33. <a href="https://doi.org/10.1017/jog.2023.30">https://doi.org/10.1017/jog.2023.30</a>.
 </div>
 <div id="ref-RamosMartinez2019" class="csl-entry" role="listitem">
 Ramos-Martínez, Jaime, Lingyun Qiu, Alejandro A. Valenciano, Xiaoyan Jiang, and Nizar Chemingui. 2019. <span>“Long-Wavelength <span>FWI</span> Updates in the Presence of Cycle Skipping.”</span> <em>The Leading Edge</em> 38 (3): 193–96. <a href="https://doi.org/10.1190/tle38030193.1">https://doi.org/10.1190/tle38030193.1</a>.

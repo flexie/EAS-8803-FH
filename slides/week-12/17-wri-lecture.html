@@ -6,11 +6,11 @@
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Felix J. Herrmann">
-  <meta name="dcterms.date" content="2026-03-30">
+  <meta name="dcterms.date" content="2026-04-08">
   <title>Seismic Exploration Methods – Extensions of FWI — Wavefield Reconstruction Inversion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -33,7 +36,6 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
-      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -50,7 +52,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-3a3a30af1d0df6ddb07696291d99123c.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-5b148319d603bb1324b6675ff8631fa1.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -164,7 +166,7 @@ Felix J. Herrmann
     </div>
 </div>
 
-  <p class="date">2026-03-30</p>
+  <p class="date">2026-04-08</p>
 </section>
 <section id="title-custom" class="slide level2 center" data-background-color="white">
 <h2></h2>
@@ -222,7 +224,7 @@ Felix J. Herrmann
 </section>
 <section id="the-lagrangian-full-space-approach" class="slide level2 smaller center">
 <h2>The Lagrangian (full-space) approach</h2>
-<p>An elegant way to solve the constrained optimization is via the Lagrangian <span class="citation" data-cites="haber2000optimization">(<a href="#/references" role="doc-biblioref" onclick="">Haber, Ascher, and Oldenburg 2000</a>)</span>:</p>
+<p>An elegant way to solve the constrained optimization is via the Lagrangian <span class="citation" data-cites="haber2000optimization">(<a href="#/references" role="doc-biblioref" onclick="">Haber et al. 2000</a>)</span>:</p>
 <p><span class="math display">\[
 \mathcal{L}(\mathbf{m},\mathbf{u},\mathbf{v}) = \sum_{i=1}^{M}\frac{1}{2}\|P_i\mathbf{u}_i - \mathbf{d}_i\|_2^2 + \mathbf{v}_i^{*}(A_i(\mathbf{m})\mathbf{u}_i - \mathbf{q}_i)
 \]</span></p>
@@ -279,7 +281,7 @@ A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}
 <p><strong>Disadvantages:</strong></p>
 <ul>
 <li>Computing the gradient requires solving <strong>both</strong> forward and adjoint wave equations for all <span class="math inline">\(M\)</span> experiments at each iteration</li>
-<li>The Hessian action requires <strong>three</strong> additional PDE solves per experiment <span class="citation" data-cites="pratt1998gauss">(<a href="#/references" role="doc-biblioref" onclick="">Pratt, Shin, and Hicks 1998</a>)</span></li>
+<li>The Hessian action requires <strong>three</strong> additional PDE solves per experiment <span class="citation" data-cites="pratt1998gauss">(<a href="#/references" role="doc-biblioref" onclick="">Pratt et al. 1998</a>)</span></li>
 <li>The objective depends on <span class="math inline">\(\mathbf{m}\)</span> through <span class="math inline">\(A(\mathbf{m})^{-1}\)</span> — <strong>very nonlinear</strong></li>
 <li>This nonlinearity causes <strong>local minima</strong> (cycle skipping)</li>
 </ul>
@@ -1246,7 +1248,7 @@ G(\mathbf{m},\mathbf{u}) = \frac{\partial A(\mathbf{m})\mathbf{u}}{\partial \mat
 </section>
 <section id="source-dependent-weighting" class="slide level2 smaller center">
 <h2>Source-dependent weighting</h2>
-<p>To enhance robustness, apply a <strong>source-dependent metric</strong> to the wave equation error <span class="citation" data-cites="huang2018volume symes2020waveform">(<a href="#/references" role="doc-biblioref" onclick="">Huang, Nammour, and Symes 2018</a>; <a href="#/references" role="doc-biblioref" onclick="">Symes 2020</a>)</span>:</p>
+<p>To enhance robustness, apply a <strong>source-dependent metric</strong> to the wave equation error <span class="citation" data-cites="huang2018volume symes2020waveform">(<a href="#/references" role="doc-biblioref" onclick="">Huang et al. 2018</a>; <a href="#/references" role="doc-biblioref" onclick="">Symes 2020</a>)</span>:</p>
 <p><span class="math display">\[
 \mathbf{w}(\mathbf{x}) = \sqrt{|\mathbf{x} - \mathbf{x}_s|^2 + h^2}/h
 \]</span></p>
@@ -1576,7 +1578,7 @@ G(\mathbf{m},\mathbf{u}) = \frac{\partial A(\mathbf{m})\mathbf{u}}{\partial \mat
 <h2>References</h2>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-haber2000optimization" class="csl-entry" role="listitem">
 Haber, Eldad, Uri M. Ascher, and Doug Oldenburg. 2000. <span>“On Optimization Techniques for Solving Nonlinear Inverse Problems.”</span> <em>Inverse Problems</em> 16 (5): 1263–80. <a href="https://doi.org/10.1088/0266-5611/16/5/309">https://doi.org/10.1088/0266-5611/16/5/309</a>.
 </div>
@@ -1587,7 +1589,7 @@ Huang, Guanghui, Rami Nammour, and William W. Symes. 2018. <span>“Full-Wavefor
 Leeuwen, Tristan van, and Felix J. Herrmann. 2013. <span>“Mitigating Local Minima in Full-Waveform Inversion by Expanding the Search Space.”</span> <em>Geophysical Journal International</em> 195 (1): 661–67. <a href="https://doi.org/10.1093/gji/ggt258">https://doi.org/10.1093/gji/ggt258</a>.
 </div>
 <div id="ref-vanLeeuwen2016Penalty" class="csl-entry" role="listitem">
-———. 2016. <span>“A Penalty Method for <span>PDE</span>-Constrained Optimization in Inverse Problems.”</span> <em>Inverse Problems</em> 32 (1): 015007. <a href="https://doi.org/10.1088/0266-5611/32/1/015007">https://doi.org/10.1088/0266-5611/32/1/015007</a>.
+Leeuwen, Tristan van, and Felix J. Herrmann. 2016. <span>“A Penalty Method for <span>PDE</span>-Constrained Optimization in Inverse Problems.”</span> <em>Inverse Problems</em> 32 (1): 015007. <a href="https://doi.org/10.1088/0266-5611/32/1/015007">https://doi.org/10.1088/0266-5611/32/1/015007</a>.
 </div>
 <div id="ref-pratt1998gauss" class="csl-entry" role="listitem">
 Pratt, R. Gerhard, Changsoo Shin, and Graham J. Hicks. 1998. <span>“Gauss-<span>N</span>ewton and Full <span>N</span>ewton Methods in Frequency-Space Seismic Waveform Inversion.”</span> <em>Geophysical Journal International</em> 133 (2): 341–62. <a href="https://doi.org/10.1046/j.1365-246X.1998.00498.x">https://doi.org/10.1046/j.1365-246X.1998.00498.x</a>.
