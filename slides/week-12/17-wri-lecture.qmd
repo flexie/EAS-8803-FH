@@ -194,25 +194,23 @@ true model
 
 ![](figures/one_reflector_true_model.png){fig-align="center" width="40%"}
 
-## Wavefields in *homogeneous* background{transition="none"}
+## Wavefields in *homogeneous* background {data-transition="none"}
 
 ![](figures/wavefields_homogeneous_1.png){fig-align="center" width="90%"}
 
-## Wavefields in *homogeneous* background 
+## Wavefields in *homogeneous* background {data-transition="none"}
 
 ![](figures/wavefields_homogeneous_2.png){fig-align="center" width="90%"}
 
-## Wavefields in *homogeneous* background 
+## Wavefields in *homogeneous* background {data-transition="none"}
 
 ![](figures/wavefields_homogeneous_3.png){fig-align="center" width="90%"}
 
-## Wavefields in *homogeneous* background 
-
+## Wavefields in *homogeneous* background {data-transition="none"}
 
 ![](figures/wavefields_homogeneous_4.png){fig-align="center" width="90%"}
 
-## Wavefields in *homogeneous* background 
-
+## Wavefields in *homogeneous* background {data-transition="none"}
 
 ![](figures/wavefields_homogeneous_5.png){fig-align="center" width="90%"}
 
