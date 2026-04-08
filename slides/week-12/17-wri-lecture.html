@@ -538,7 +538,7 @@ A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}
 </div></div>
 <p>By including the data constraint in the wave equation, the imprint of the perturbation is partly reconstructed. This information is then used to compute a new model estimate by solving the diagonal system <span class="citation" data-cites="vanLeeuwen2013Penalty1">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen and Herrmann 2013</a>)</span>.</p>
 </section>
-<section id="example-1-after-10-iterations" class="slide level2 smaller center">
+<section id="example-1-after-10-iterations" class="slide level2 smaller center" data-transition="none">
 <h2>Example 1: after 10 iterations</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -558,7 +558,7 @@ A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}
 </div></div>
 <p>Repeating the alternating procedure (wavefield reconstruction <span class="math inline">\(\to\)</span> model update) leads to progressively better reconstruction of both the scattered wavefield and the model. The region around receivers was windowed out to suppress artifacts <span class="citation" data-cites="vanLeeuwen2013Penalty1">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen and Herrmann 2013</a>)</span>.</p>
 </section>
-<section id="example-2-objective-function-landscape" class="slide level2 smaller center">
+<section id="example-2-objective-function-landscape" class="slide level2 smaller center" data-transition="none">
 <h2>Example 2: objective function landscape</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -578,7 +578,7 @@ A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}
 </div></div>
 <p>1D velocity model <span class="math inline">\(v(z) = v_0 + \alpha z\)</span>, single frequency (5 Hz), single source, 201 receivers with 10 km max offset. For small <span class="math inline">\(\lambda\)</span>, the penalty objective has <strong>no local minima</strong>. The global minima for reduced and penalty formulations <strong>coincide</strong>. The parameter <span class="math inline">\(\lambda\)</span> controls the <strong>basin of attraction</strong> width <span class="citation" data-cites="vanLeeuwen2013Penalty1">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen and Herrmann 2013</a>)</span>.</p>
 </section>
-<section id="example-2-key-observations" class="slide level2 smaller center">
+<section id="example-2-key-observations" class="slide level2 smaller center" data-transition="none">
 <h2>Example 2: key observations</h2>
 <p>The objective function comparison reveals:</p>
 <ol type="1">
@@ -593,7 +593,7 @@ A_i(\mathbf{m})\mathbf{u}_i = \mathbf{q}_i, \qquad A_i(\mathbf{m})^{*}\mathbf{v}
 </ol>
 </div>
 </section>
-<section id="example-3-convergence-comparison" class="slide level2 smaller center">
+<section id="example-3-convergence-comparison" class="slide level2 smaller center" data-transition="none">
 <h2>Example 3: convergence comparison</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1025,7 +1025,7 @@ G(\mathbf{m},\mathbf{u}) = \frac{\partial A(\mathbf{m})\mathbf{u}}{\partial \mat
 <p>Data for initial guess II are shifted significantly — inversion is considered <strong>difficult</strong>.</p>
 </div></div>
 </section>
-<section id="sensitivity-to-initial-model" class="slide level2 smaller center">
+<section id="sensitivity-to-initial-model" class="slide level2 smaller center" data-transition="none">
 <h2>Sensitivity to initial model</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1045,7 +1045,7 @@ G(\mathbf{m},\mathbf{u}) = \frac{\partial A(\mathbf{m})\mathbf{u}}{\partial \mat
 </div></div>
 <p>Both methods converge to the same final iterate when starting from a good initial guess <span class="citation" data-cites="vanLeeuwen2016Penalty">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen and Herrmann 2016</a>)</span>.</p>
 </section>
-<section id="starting-from-initial-guess-ii" class="slide level2 smaller center">
+<section id="starting-from-initial-guess-ii" class="slide level2 smaller center" data-transition="none">
 <h2>Starting from initial guess II</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1065,7 +1065,7 @@ G(\mathbf{m},\mathbf{u}) = \frac{\partial A(\mathbf{m})\mathbf{u}}{\partial \mat
 </div></div>
 <p>The <strong>reduced method gets stuck</strong> in a local minimum. For small <span class="math inline">\(\lambda\)</span>, the penalty method converges to the <strong>same iterate</strong> as with the good initial guess — demonstrating stability against changes in the initial model <span class="citation" data-cites="vanLeeuwen2016Penalty">(<a href="#/references" role="doc-biblioref" onclick="">Leeuwen and Herrmann 2016</a>)</span>.</p>
 </section>
-<section id="convergence-data-misfit-vs.-pde-residual" class="slide level2 smaller center">
+<section id="convergence-data-misfit-vs.-pde-residual" class="slide level2 smaller center" data-transition="none">
 <h2>Convergence: data misfit vs.&nbsp;PDE residual</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
