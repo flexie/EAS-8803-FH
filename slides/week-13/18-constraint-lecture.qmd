@@ -1105,23 +1105,21 @@ $$
 
 ---
 
-## WRI + TV + Hinge vs. Adjoint + TV + Hinge {.smaller}
+## FWI vs. constrained WRI {.smaller}
 
 :::: {.columns}
 ::: {.column width="50%"}
-**WRI + TV + Hinge loss**
-
-{{< video figures/Movies/TVHLmolar.mov width="500%" >}}
-:::
-::: {.column width="50%"}
-**Adjoint state + TV + Hinge loss**
+**Unconstraine FWI**
 
 {{< video figures/Movies/ASmolar.mov width="500%" >}}
 :::
+::: {.column width="50%"}
+**WRI + TV + Hinge loss**
+{{< video figures/Movies/TVHLmolar.mov width="500%" >}}
+
+:::
 ::::
 
-- Both approaches successfully recover salt from poor starting model
-- WRI achieves lower model error; adjoint state also produces excellent results
 
 ---
 
