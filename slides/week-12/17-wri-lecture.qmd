@@ -374,7 +374,7 @@ By including the data constraint in the wave equation, the imprint of the pertur
 
 ---
 
-## Example 1: after 10 iterations {.smaller}
+## Example 1: after 10 iterations {.smaller data-transition="none"}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -389,7 +389,7 @@ Repeating the alternating procedure (wavefield reconstruction $\to$ model update
 
 ---
 
-## Example 2: objective function landscape {.smaller}
+## Example 2: objective function landscape {.smaller data-transition="none"}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -404,7 +404,7 @@ Repeating the alternating procedure (wavefield reconstruction $\to$ model update
 
 ---
 
-## Example 2: key observations {.smaller}
+## Example 2: key observations {.smaller data-transition="none"}
 
 The objective function comparison reveals:
 
@@ -422,7 +422,7 @@ The objective function comparison reveals:
 
 ---
 
-## Example 3: convergence comparison {.smaller}
+## Example 3: convergence comparison {.smaller data-transition="none"}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -768,7 +768,7 @@ Data for initial guess II are shifted significantly — inversion is considered 
 
 ---
 
-## Sensitivity to initial model {.smaller}
+## Sensitivity to initial model {.smaller data-transition="none"}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -783,7 +783,7 @@ Both methods converge to the same final iterate when starting from a good initia
 
 ---
 
-## Starting from initial guess II {.smaller}
+## Starting from initial guess II {.smaller data-transition="none"}
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -798,7 +798,7 @@ The **reduced method gets stuck** in a local minimum. For small $\lambda$, the p
 
 ---
 
-## Convergence: data misfit vs. PDE residual {.smaller}
+## Convergence: data misfit vs. PDE residual {.smaller data-transition="none"}
 
 :::: {.columns}
 ::: {.column width="50%"}
