@@ -1,12 +1,12 @@
 ---
-title: "Full-waveform Inversion"
+title: "Full-waveform Inversion (Optional)"
 date: "April 24, 2026"
 categories: "Lab"
 resources:
   - 08Lab/Exercise8.ipynb
 notebook-view: 
   - notebook: 08Lab/Exercise8.ipynb
-    title: "Full-waveform Inversion"
+    title: "Full-waveform Inversion (Optional)"
 ---
 
 <!-- The notebooks can be downloaded from here
