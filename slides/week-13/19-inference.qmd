@@ -26,8 +26,8 @@ csl: https://www.zotero.org/styles/geophysics
 ## {#title-custom .center background-color="white"}
 
 :::{style="display: flex; justify-content: center; align-items: center; gap: 1.5em; margin-bottom: 1em;"}
-![](../images/GTLogo.png){height=80}
-![](../images/ClaudeLogo.png){height=80}
+![](figures/GTLogo.png){height=80}
+![](figures/ClaudeLogo.png){height=80}
 :::
 
 ### Full-Waveform Inference with Uncertainty Quantification {.smaller style="margin-bottom: 0.1em;"}
