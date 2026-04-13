@@ -1,0 +1,1103 @@
+---
+title: "Full-Waveform Inference with Uncertainty Quantification"
+subtitle: "From WISE to WISER and Beyond"
+author: "Felix J. Herrmann"
+institute: "Georgia Institute of Technology"
+footer: "[🔗 https://flexie.github.io/EAS-88-3-FH](https://flexie.github.io/EAS-8803-FH/)"
+logo: "../images/logo.png"
+date: 04-15-2026
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    slide-number: true
+    chalkboard: true
+    preview-links: auto
+    # theme: simple
+    width: 1200
+    height: 700
+    margin: 0.05
+    center: true
+    navigation-mode: linear
+    controls: true
+bibliography: Bibliography2.bib
+csl: https://www.zotero.org/styles/geophysics
+---
+
+## {#title-custom .center background-color="white"}
+
+:::{style="display: flex; justify-content: center; align-items: center; gap: 1.5em; margin-bottom: 1em;"}
+![](figures/GTLogo.png){height=80}
+![](figures/ClaudeLogo.png){height=80}
+:::
+
+### Full-Waveform Inference with Uncertainty Quantification {.smaller style="margin-bottom: 0.1em;"}
+
+<!-- School of Earth and Atmospheric Sciences — Georgia Institute of Technology -->
+
+This lecture is based on:
+
+- @yin2024wise --- WISE: full-Waveform variational Inference via Subsurface Extensions
+- @yin2024wiser --- WISER: multimodal variational inference for FWI without dimensionality reduction
+- @orozco2025aspire --- ASPIRE: Iterative Amortized Posterior Inference for Bayesian Inverse Problems
+- @orozco2024ml --- Machine learning enabled velocity model building with uncertainty quantification
+
+
+<!-- Based on @yin2024wise, @yin2024wiser, @orozco2025aspire, @orozco2024ml -->
+
+
+# Part I: Motivation {background-color="#2c3e50" .white}
+
+## Why Uncertainty Quantification?
+
+- Seismic inversion produces a **single** velocity model --- but how confident should we be?
+- Subsurface characterization is fundamentally **ill-posed**: many velocity models can explain the observed data equally well [@tarantola2005inverse]
+- Decision-making (e.g., well placement, reservoir management) requires not just a best estimate but a **distribution of plausible models** consistent with the data
+- Traditional full-waveform inversion (FWI) gives a point estimate --- no uncertainty information [@virieux2009overview]
+
+::: {.notes}
+Motivate the need for probabilistic approaches to subsurface imaging.
+:::
+
+## The Challenge of Bayesian Inference for FWI
+
+::: {.medium-text}
+- Bayesian inference provides a principled framework for UQ
+- But the posterior $p(\mathbf{x}|\mathbf{y})$ is intractable for realistic problems
+- **MCMC methods** require $\mathcal{O}(10^5\text{--}10^6)$ forward PDE solves --- each costs minutes to hours in 3D
+- This makes MCMC **computationally infeasible** for production-scale FWI
+- We need **scalable** approaches that combine physics with modern machine learning
+:::
+
+## Our Approach: Generative AI + Wave Physics
+
+::: {.medium-text}
+- Combine **conditional generative models** (normalizing flows, diffusion networks) with **wave physics**
+- Key innovation: use **physics-based summary statistics** to make the problem tractable
+- Develop a progression of methods:
+  - **WISE**: Amortized inference with subsurface extensions [@yin2024wise]
+  - **ASPIRE**: Iterative refinement of amortized inference [@orozco2025aspire]
+  - **WISER**: Semi-amortized inference closing the amortization gap [@yin2024wiser]
+  - **ML-enabled velocity building**: Scalable deployment with quantitative UQ [@orozco2024ml]
+:::
+
+## Workflow Overview
+
+![Schematic workflow for ML-enabled probabilistic velocity model building with UQ.](Images/Workflow.png){width="90%"}
+
+
+# Part II: Background --- Bayesian Inference {background-color="#2c3e50" .white}
+
+## Conditional Distributions
+
+::: {.medium-text}
+- In many problems, we want to infer an unknown quantity $\mathbf{x}$ given observations $\mathbf{y}$
+- The **conditional distribution** $p(\mathbf{x}\mid\mathbf{y})$ encodes our knowledge about $\mathbf{x}$ after seeing data $\mathbf{y}$
+- Example: given seismic shot records $\mathbf{y}$, what are the plausible velocity models $\mathbf{x}$?
+- The conditional distribution captures **all** the information about $\mathbf{x}$ that is contained in $\mathbf{y}$
+:::
+
+## Bayes' Theorem{.smaller}
+
+$$
+p(\mathbf{x}\mid\mathbf{y}) = \frac{p(\mathbf{y}\mid\mathbf{x})\, p(\mathbf{x})}{p(\mathbf{y})}
+$$
+
+::: {.medium-text}
+| Term | Name | Meaning |
+|------|------|---------|
+| $p(\mathbf{x}\mid\mathbf{y})$ | **Posterior** | Distribution of $\mathbf{x}$ given data $\mathbf{y}$ |
+| $p(\mathbf{y}\mid\mathbf{x})$ | **Likelihood** | How well model $\mathbf{x}$ explains data $\mathbf{y}$ |
+| $p(\mathbf{x})$ | **Prior** | Our beliefs about $\mathbf{x}$ before seeing data |
+| $p(\mathbf{y})$ | **Evidence** | Normalizing constant (intractable!) |
+:::
+
+## Simulation-Based Inference (SBI)
+
+::: {.medium-text}
+- Classical Bayesian inference requires evaluating the likelihood $p(\mathbf{y}\mid\mathbf{x})$ analytically
+- In many scientific problems, we have a **simulator** $\mathcal{F}$ (e.g., wave equation solver) but no closed-form likelihood
+- **Simulation-based inference** [@cranmer2020frontier] learns the posterior directly from simulated pairs $\{(\mathbf{x}^{(i)}, \mathbf{y}^{(i)})\}$
+  - Sample from prior: $\mathbf{x}^{(i)} \sim p(\mathbf{x})$
+  - Simulate: $\mathbf{y}^{(i)} = \mathcal{F}(\mathbf{x}^{(i)}) + \boldsymbol{\varepsilon}^{(i)}$
+  - Train a neural network to approximate $p(\mathbf{x}\mid\mathbf{y})$
+:::
+
+## Uncertainty Quantification (UQ)
+
+::: {.medium-text}
+- UQ goes beyond point estimates to characterize the **range of plausible solutions**
+- Key quantities:
+  - **Posterior mean**: $\mathbb{E}[\mathbf{x}\mid\mathbf{y}]$ --- a good single estimate
+  - **Posterior variance**: $\text{Var}[\mathbf{x}\mid\mathbf{y}]$ --- how uncertain we are at each point
+  - **Posterior samples**: $\mathbf{x}^{(1)}, \ldots, \mathbf{x}^{(M)} \sim p(\mathbf{x}\mid\mathbf{y})$ --- individual plausible models
+- Enables **downstream uncertainty propagation** (e.g., uncertainty in migrated images or ML-based image segmentation)
+:::
+
+## Summary Statistics
+
+::: {.medium-text}
+- Raw seismic data $\mathbf{y}$ is very high-dimensional (millions of samples)
+- A **summary statistic** $h(\mathbf{y})$ compresses data into a lower-dimensional, informative representation
+- Good summary statistics are **sufficient**: $p(\mathbf{x}\mid\mathbf{y}) = p(\mathbf{x}\mid h(\mathbf{y}))$
+- Examples:
+  - **Reverse-time migration (RTM)**: $h(\mathbf{y}) = \nabla\mathcal{F}(\mathbf{x}_0)^\top \mathbf{y}$
+  - **Common-image gathers (CIGs)**: $h(\mathbf{y}) = \overline{\nabla\mathcal{F}}(\mathbf{x}_0)^\top \mathbf{y}$
+- Physics-based summaries leverage knowledge of the forward operator
+:::
+
+## Normalizing Flows --- Unconditional
+
+::: {.medium-text}
+- A **normalizing flow** is an invertible neural network $f_{\boldsymbol{\theta}}$ that transforms a simple distribution (e.g., Gaussian) into a complex one
+- Forward: $\mathbf{z} = f_{\boldsymbol{\theta}}(\mathbf{x})$ maps data $\mathbf{x}$ to latent $\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$
+- Inverse: $\mathbf{x} = f_{\boldsymbol{\theta}}^{-1}(\mathbf{z})$ generates samples from noise
+- Training: maximize likelihood using the change-of-variables formula
+
+$$
+\log p(\mathbf{x}) = \log p(\mathbf{z}) + \log\left|\det \mathbf{J}_{f_{\boldsymbol{\theta}}}\right|
+$$
+:::
+
+## Normalizing Flows --- Illustration (1)
+
+![Normalizing flows transform a simple distribution into a complex one via an invertible mapping.](Images/NF_1.png){width="80%"}
+
+## Normalizing Flows --- Illustration (2)
+
+![Normalizing flows learn complex distributions by composing simple invertible transformations.](Images/NF_2.png){width="80%"}
+
+## Normalizing Flows --- Conditional
+
+::: {.medium-text}
+- **Conditional normalizing flows** (CNFs) learn $p(\mathbf{x}\mid\mathbf{y})$ by conditioning on observed data
+- The network $f_{\boldsymbol{\theta}}(\mathbf{x}; \mathbf{y})$ transforms velocity model $\mathbf{x}$ to noise $\mathbf{z}$, conditioned on data $\mathbf{y}$
+- After training, draw samples: $\mathbf{z} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$, then $\mathbf{x} = f_{\boldsymbol{\theta}}^{-1}(\mathbf{z}; \mathbf{y})$
+- Each sample $\mathbf{x}$ is a plausible velocity model consistent with $\mathbf{y}$
+:::
+
+## The Forward Problem
+
+::: {.medium-text}
+The seismic forward problem [@orozco2024ml]:
+
+$$
+\mathbf{y} = \mathcal{F}(\mathbf{x}) + \boldsymbol{\varepsilon}
+$$
+
+where:
+
+- $\mathbf{y}$: observed shot records (seismic data)
+- $\mathbf{x}$: subsurface velocity model (what we want to recover)
+- $\mathcal{F}$: forward operator (solution of the wave equation PDE restricted to receivers)
+- $\boldsymbol{\varepsilon}$: noise
+
+Likelihood: $p(\mathbf{y}\mid\mathbf{x}) \propto \exp\!\left(-\frac{1}{2\sigma^2}\|\mathcal{F}(\mathbf{x}) - \mathbf{y}\|_2^2\right)$
+:::
+
+## Conditional Normalizing Flows (1)
+
+![](Images/CNF_1.png){width="80%"}
+
+## Conditional Normalizing Flows (2)
+
+![](Images/CNF_2.png){width="80%"}
+
+## Conditional Normalizing Flows (3)
+
+![](Images/CNF_3.png){width="80%"}
+
+## Conditional Normalizing Flows (4)
+
+![](Images/CNF_4.png){width="80%"}
+
+## Posterior Samples via CNFs
+
+::: {.medium-text}
+- Given a trained CNF $f_{\boldsymbol{\theta}^*}$ and observed data $\mathbf{y}_\text{obs}$:
+  1. Compute summary statistic: $\overline{\mathbf{y}}_\text{obs} = h(\mathbf{y}_\text{obs})$
+  2. Draw random noise: $\mathbf{z}_i \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$, for $i = 1, \ldots, M$
+  3. Generate posterior samples: $\mathbf{x}_i = f_{\boldsymbol{\theta}^*}^{-1}(\mathbf{z}_i; \overline{\mathbf{y}}_\text{obs})$
+
+- **Conditional mean**: $\hat{\mathbf{x}}_\text{CM} = \frac{1}{M}\sum_{i=1}^M \mathbf{x}_i$
+- **Conditional standard deviation**: $\hat{\boldsymbol{\sigma}} = \sqrt{\frac{1}{M-1}\sum_{i=1}^M (\mathbf{x}_i - \hat{\mathbf{x}}_\text{CM})^2}$
+:::
+
+## Amortized vs. Non-Amortized Inference
+
+::: {.medium-text}
+**Amortized inference**:
+
+- Train **once** on many simulated pairs $\{(\mathbf{x}^{(i)}, \mathbf{y}^{(i)})\}_{i=1}^N$
+- At inference: just pass new $\mathbf{y}_\text{obs}$ through trained network --- very fast!
+- $\boldsymbol{\theta}^* = \underset{\boldsymbol{\theta}}{\operatorname{argmin}} \;\frac{1}{N}\sum_{i=1}^{N}\left(\frac{1}{2}\|f_{\boldsymbol{\theta}}(\mathbf{x}^{(i)};\overline{\mathbf{y}}^{(i)})\|_2^2 - \log|\det\mathbf{J}_{f_{\boldsymbol{\theta}}}|\right)$
+- But: generalizing across datasets introduces an **amortization gap**
+
+**Non-amortized inference**:
+
+- Optimize for each specific $\mathbf{y}_\text{obs}$ individually
+<!-- - $\underset{\boldsymbol{\phi}}{\operatorname{minimize}} \; \mathbb{KL}(q_{\boldsymbol{\phi}}(\mathbf{x}) \| p(\mathbf{x}|\mathbf{y}_\text{obs}))$ -->
+- Better approximation but **much more expensive** (many PDE solves per dataset)
+:::
+
+
+# Part III: WISE {background-color="#2c3e50" .white}
+
+## WISE: Training Objective 
+
+::: {.medium-text}
+**WISE** = full-**W**aveform variational **I**nference via **S**ubsurface **E**xtensions [@yin2024wise]
+
+CNF training objective (Eq. 1 from @yin2024wise):
+
+$$
+\underset{\boldsymbol{\theta}}{\operatorname{minimize}} \quad \frac{1}{N}\sum_{i=1}^{N} \left(\frac{1}{2}\|f_{\boldsymbol{\theta}}\left(\mathbf{x}^{(i)};\mathbf{y}^{(i)}\right)\|_2^2-\log\left|\det\mathbf{J}_{f_{\boldsymbol{\theta}}}\right|\right)
+$$
+:::
+
+::: {.medium-text}
+- $f_{\boldsymbol{\theta}}$: conditional normalizing flow with parameters $\boldsymbol{\theta}$
+- $\mathbf{x}^{(i)}$: velocity model sample from the prior
+- $\mathbf{y}^{(i)}$: corresponding observation (summary statistic)
+- $\mathbf{J}_{f_{\boldsymbol{\theta}}}$: Jacobian of the flow
+- $\|\cdot\|_2^2$: enforces that transformed samples follow a standard Gaussian
+- $\log|\det\mathbf{J}|$: volume-preservation term
+:::
+
+## Physics-Based Summary Statistics
+
+::: {.medium-text}
+Why not use raw data? Training CNFs on raw seismic data is impractical.
+
+**RTM as summary statistic** [@siahkoohi2023reliable]:
+
+$$h_\text{RTM}(\mathbf{y}) = \nabla\mathcal{F}(\mathbf{x}_0)^\top \mathbf{y}$$
+
+- Problem: for inaccurate background-velocity model, $\mathbf{x}_0$, RTM does not correctly summarize the data
+- $p(\mathbf{x}\mid\mathbf{y}) \neq p(\mathbf{x}\mid\nabla\mathcal{F}(\mathbf{x}_0)^\top \mathbf{y})$ when $\mathbf{x}_0$ is inaccurate
+
+**CIGs as summary statistic** (WISE innovation):
+
+$$h_\text{CIG}(\mathbf{y}) = \overline{\nabla\mathcal{F}}(\mathbf{x}_0)^\top \mathbf{y}$$
+
+- CIGs from extended Born modeling are closer to an **isometry**
+- $p(\mathbf{x}\mid\mathbf{y}) \approx p(\mathbf{x}\mid\overline{\nabla\mathcal{F}}(\mathbf{x}_0)^\top \mathbf{y})$ --- even for inaccurate $\mathbf{x}_0$!
+:::
+
+## WISE --- Velocity-model Inference 
+
+::: {layout-ncol=3}
+![Ground-truth velocity model](Images/wise_true-v-colorbar.png){width="100%"}
+
+![1D initial FWI-velocity model](Images/wise_background-colorbar.png){width="100%"}
+
+![Cond. mean from RTM (SSIM=0.48)](Images/wise_RTM-cm-colorbar.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wise, Fig. 1(a-c).
+:::
+
+## WISE --- CIGs vs. RTM 
+
+::: {layout-ncol=3}
+![Cond. mean from CIGs (SSIM=0.56)](Images/wise_SOG-cm-colorbar.png){width="100%"}
+
+![CIGs at initial velocity](Images/wise_15Hz_gather_init.png){width="100%"}
+
+![CIGs at conditional mean](Images/wise_15Hz_gather_cm.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wise, Fig. 1(d-f). WISE (CIG-based) captures the shape of the unconformity that RTM-based inference misses. Mean SSIM over 50 test samples: CIGs = 0.63, RTM = 0.52.
+:::
+
+## WISE --- Posterior Velocity-model Samples
+
+::: {layout-ncol=2}
+![Posterior velocity samples from WISE](Images/wise_v-samples.png){width="100%"}
+
+![Point-wise standard deviation](Images/wise_WISE-std.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wise, Fig. 2(a-b). Posterior samples reveal geological uncertainty. Standard deviation increases with depth and in regions of complex geology.
+:::
+
+## WISE --- Downstream Uncertainty RTMs
+
+::: {layout-ncol=3}
+![Imaged reflector samples](Images/wise_rtm-samples.png){width="100%"}
+
+![Reflector std. deviation](Images/wise_UQ_rtm.png){width="100%"}
+
+![Maximum depth shift](Images/wise_depth-shift.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wise, Fig. 2(c-e). Propagating velocity uncertainty to migrated images reveals amplitude variations, dimming at edges, and depth shifts most notable in deeper regions.
+:::
+
+## WISE --- Conclusions
+
+::: {.medium-text}
+- CIGs as summary statistics **preserve more information** than RTM, especially for inaccurate migration velocities
+- WISE produces **distributions of velocity models** conditioned on seismic data in ~6 minutes per inference
+- Enables quantification of amplitude and positioning uncertainty in migration
+- **Limitation**: the amortization gap --- CNFs optimize across many datasets rather than excelling at any single observation
+- Computational cost: ~80 hours for training pairs, ~16 hours for CNF training, but amortized across all future inferences
+:::
+
+
+# Part IV: ASPIRE {background-color="#2c3e50" .white}
+
+## ASPIRE: Closing the Amortization Gap
+
+::: {.medium-text}
+**ASPIRE** = **A**mortized Posterior Inference with **R**efined **E**stimates [@orozco2025aspire]
+
+Key insight: Iteratively **refine** the physics-based summary statistics to extract more information from the data
+
+The gradient of the log-likelihood is a maximally informative summary statistic:
+
+$$\overline{\mathbf{y}} = \nabla_\mathbf{x} \log p(\mathbf{y}\mid\mathbf{x})\big|_{\mathbf{x}_0} = \nabla\mathcal{F}^\top[\mathbf{x}_0](\mathcal{F}(\mathbf{x}_0) - \mathbf{y})$$
+
+Quality depends on the **fiducial point=background velocity** $\mathbf{x}_0$ being close to the true model. ASPIRE uses posterior means as improved fiducials!
+:::
+
+## ASPIRE --- Baseline Amortized Inference
+
+::: {layout-ncol=4}
+![Posterior sample 1](Images/aspire_fig4a.png){width="100%"}
+
+![Posterior sample 2](Images/aspire_fig4b.png){width="100%"}
+
+![Posterior mean](Images/aspire_fig4c.png){width="100%"}
+
+![Ground truth](Images/aspire_gt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2025aspire, Fig. 4. Baseline amortized inference from raw acoustic waveforms --- poor quality due to the difficulty of learning the direct mapping.
+:::
+
+## The Amortization Gap
+
+![ASPIRE is a middle ground between amortized and non-amortized variational inference.](Images/aspire_main_fig.png){width="80%"}
+
+::: aside
+From @orozco2025aspire, Fig. 1. Amortized methods are fast but suboptimal; non-amortized methods are slow but better. ASPIRE bridges this gap.
+:::
+
+## ASPIRE --- Refined Summary Statistics
+
+::: {layout-ncol=2}
+![Initial summary statistic at water velocity fiducial](Images/aspire_grad_iter_1.png){width="70%"}
+
+![Refined summary statistic at improved fiducial](Images/aspire_grad_iter_2.png){width="70%"}
+:::
+
+::: aside
+From @orozco2025aspire, Fig. 5. The improved fiducial point (from ASPIRE iteration 1) allows the summary statistic to "illuminate" inside the skull.
+:::
+
+## ASPIRE --- First Iteration Results
+
+::: {layout-ncol=4}
+![Posterior sample 1](Images/aspire_fig6a.png){width="100%"}
+
+![Posterior sample 2](Images/aspire_fig6b.png){width="100%"}
+
+![Posterior mean](Images/aspire_fig6c.png){width="100%"}
+
+![Ground truth](Images/aspire_gt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2025aspire, Fig. 6. After ASPIRE iteration 1, the method reconstructs a reasonable estimate of the skull outline by leveraging the refined summary statistic.
+:::
+
+## ASPIRE --- Progressive Improvement
+
+::: {layout-ncol=4}
+![ASPIRE 1](Images/aspire_fig7a.png){width="100%"}
+
+![ASPIRE 2](Images/aspire_fig7b.png){width="100%"}
+
+![ASPIRE 4](Images/aspire_fig7c.png){width="100%"}
+
+![Ground truth](Images/aspire_gt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2025aspire, Fig. 7. The posterior mean quality improves with each ASPIRE iteration as the summary statistics become more informative.
+:::
+
+<!-- ## ASPIRE --- Quantitative Improvement
+
+![Image quality metric (SSIM) measured over 50-sample test set improves after each ASPIRE refinement.](Images/aspire_reconstruction.png){width="45%"}
+
+::: aside
+From @orozco2025aspire, Fig. 8.
+::: -->
+
+## ASPIRE  --- Comparison with Benchmarks
+
+::: {layout-ncol=4}
+![Mean-field approx.](Images/aspire_gaush.png){width="100%"}
+
+![Amortized ASPIRE 4](Images/aspire_fig7c.png){width="100%"}
+
+![Non-amortized gold std.](Images/aspire_hint2.png){width="100%"}
+
+![Ground truth](Images/aspire_gt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2025aspire, ASPIRE 4 achieves quality close to the expensive non-amortized gold standard.
+:::
+
+## ASPIRE  --- Uncertainty Comparison (Std.)
+
+::: {layout-ncol=3}
+![Mean-field std.](Images/aspire_std_gaush.png){width="100%"}
+
+![ASPIRE 4 std.](Images/aspire_std_4.png){width="100%"}
+
+![Non-amortized std.](Images/aspire_std_hint2.png){width="100%"}
+:::
+
+::: aside
+From @orozco2025aspire, Fig. 13 (top row). Posterior standard deviation comparison. All plots share the same colorbar (0--50 m/s).
+:::
+
+## ASPIRE --- Uncertainty Comparison (Errors)
+
+::: {layout-ncol=3}
+![Mean-field error](Images/aspire_error_gaush.png){width="100%"}
+
+![ASPIRE 4 error](Images/aspire_error_4.png){width="100%"}
+
+![Non-amortized error](Images/aspire_error_hint2.png){width="100%"}
+:::
+
+::: aside
+From @orozco2025aspire, Fig. 13 (bottom row). Errors from all methods. ASPIRE's uncertainty correlates well with error, similar to the gold standard.
+:::
+
+## ASPIRE --- Conclusions
+
+::: {.medium-text}
+- Iteratively **refines summary statistics** by moving fiducial points closer to maximum likelihood estimates
+- Each iteration extracts **more information** from the data while remaining amortized
+- Online cost: only ~8 PDE solves vs. $10^4$+ for non-amortized methods
+- Achieves quality close to the non-amortized gold standard at a fraction of the cost
+- Combines generative modeling, physics-hybrid methods, and statistics in a principled framework
+:::
+
+
+# Part V: WISER {background-color="#2c3e50" .white}
+
+## Out-of-Distribution and Model Misspecification
+
+::: {.medium-text}
+**Challenge**: Amortized methods are trained on synthetic data from a specific prior
+
+- At deployment, **real data may be out-of-distribution (OOD)**: geology, noise levels, or acquisition parameters differ from training
+- **Model misspecification**: the simulator (e.g., acoustic) may not match reality (e.g., elastic)
+- WISE's posterior samples under OOD conditions closely resemble training-distribution velocities --- **inductive bias** from training
+
+**WISER** addresses this by adding physics-based refinements on top of amortized inference [@yin2024wiser]
+:::
+
+## WISER Equation 1 --- Strong Formulation
+
+::: {.medium-text}
+The objective for physics-based refinements (Eq. 1, @yin2024wiser):
+
+$$
+\underset{\boldsymbol{\phi}}{\operatorname{minimize}} \; \mathbb{E}_{\mathbf{z}\sim\mathcal{N}(\mathbf{0},\mathbf{I})} \; \mathbb{KL}\!\left(p(h_{\boldsymbol{\phi}}(\mathbf{z})) \,\|\, p_{\boldsymbol{\theta}^*}(\mathbf{z}\mid\overline{\mathbf{y}}_\text{obs})\right)
+$$
+
+Expanded:
+
+$$
+= \frac{1}{2\sigma^2}\|\mathcal{F}\circ f_{\boldsymbol{\theta}^*}^{-1}(h_{\boldsymbol{\phi}}(\mathbf{z});\overline{\mathbf{y}}_\text{obs}) - \mathbf{y}_\text{obs}\|_2^2 + \frac{1}{2}\|h_{\boldsymbol{\phi}}(\mathbf{z})\|_2^2 - \log|\det\mathbf{J}_{h_{\boldsymbol{\phi}}}|
+$$
+
+| Term | Role |
+|------|------|
+| Data misfit | Ties posterior samples to observed data |
+| $\frac{1}{2}\|h_{\boldsymbol{\phi}}(\mathbf{z})\|_2^2$ | Keeps corrected latent space near Gaussian (prior) |
+| $-\log\|\det\mathbf{J}_{h_{\boldsymbol{\phi}}}\|$ | Prevents mode collapse |
+:::
+
+## WISER --- Weak Formulation{.smaller}
+
+Computationally efficient weak formulation (Eq. 2, @yin2024wiser):
+
+$$
+\underset{\mathbf{x}_{1:M},\boldsymbol{\phi}}{\operatorname{minimize}} \; \frac{1}{M}\sum_{i=1}^{M}\left[\frac{1}{2\sigma^2}\|\mathcal{F}(\mathbf{x}_i)-\mathbf{y}_\text{obs}\|_2^2 + \frac{1}{2\gamma^2}\|\mathbf{x}_i - f_{\boldsymbol{\theta}^*}^{-1}(h_{\boldsymbol{\phi}}(\mathbf{z}_i);\overline{\mathbf{y}}_\text{obs})\|_2^2 + \frac{1}{2}\|h_{\boldsymbol{\phi}}(\mathbf{z}_i)\|_2^2 - \log|\det\mathbf{J}_{h_{\boldsymbol{\phi}}}|\right]
+$$
+
+Key components:
+
+- $\{\mathbf{x}_i\}_{i=1}^M$: **particles** (velocity model samples) updated via gradient descent with wave physics
+- $h_{\boldsymbol{\phi}}$: shallow refinement network correcting the latent space
+- $\gamma$: trade-off parameter ($\gamma=0$ recovers the strong form)
+- **Key insight**: decouples expensive forward operator $\mathcal{F}$ from cheaper network evaluations
+
+
+## WISER Algorithm 1 --- Offline Phase
+
+::: {.medium-text}
+**Dataset generation** (same as WISE):
+
+1. For $i = 1, \ldots, N$:
+   - Draw $\mathbf{x}^{(i)} \sim p(\mathbf{x})$, $\boldsymbol{\varepsilon}^{(i)} \sim p(\boldsymbol{\varepsilon})$
+   - Simulate: $\mathbf{y}^{(i)} = \mathcal{F}(\mathbf{x}^{(i)}) + \boldsymbol{\varepsilon}^{(i)}$
+   - Compute CIGs: $\overline{\mathbf{y}}^{(i)} = \overline{\nabla\mathcal{F}}(\mathbf{x}_0)^\top \mathbf{y}^{(i)}$
+
+**Train CNF** (same as WISE):
+
+$$\boldsymbol{\theta}^* = \underset{\boldsymbol{\theta}}{\operatorname{argmin}} \; \frac{1}{N}\sum_{i=1}^{N}\left(\frac{1}{2}\|f_{\boldsymbol{\theta}}(\mathbf{x}^{(i)};\overline{\mathbf{y}}^{(i)})\|_2^2 - \log|\det\mathbf{J}_{f_{\boldsymbol{\theta}}}|\right)$$
+:::
+
+## WISER Algorithm 1 --- Online Phase
+
+::: {.medium-text}
+**Amortized initialization** (fast):
+
+- Compute CIGs: $\overline{\mathbf{y}}_\text{obs} = \overline{\nabla\mathcal{F}}(\mathbf{x}_0)^\top\mathbf{y}_\text{obs}$
+- Generate initial samples: $\mathbf{x}_i = f_{\boldsymbol{\theta}^*}^{-1}(\mathbf{z}_i; \overline{\mathbf{y}}_\text{obs})$ for $\mathbf{z}_i \sim \mathcal{N}(\mathbf{0},\mathbf{I})$
+
+**Physics-based refinements** (alternating optimization):
+
+- **Outer loop**: update particles $\mathbf{x}_i$ via gradient descent with wave physics (costly)
+- **Inner loop**: update refinement network $h_{\boldsymbol{\phi}}$ with ADAM --- **no PDE solves needed** (cheap)
+
+The outer loop performs FWI-like updates; the inner loop keeps the generative model consistent.
+:::
+
+## WISER --- OOD Velocity Perturbation
+
+::: {layout-ncol=2}
+![Velocity-value perturbation curves](Images/wiser_perturbv.png){width="100%"}
+
+![Histograms at depths 0.5 km and 2.8 km](Images/wiser_histogram.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wiser, Fig. 1(a-b). The OOD velocity model is created by elementwise perturbation, shifting values significantly from the training distribution.
+:::
+
+## WISER --- In-Distribution vs. OOD Models
+
+::: {layout-ncol=2}
+![In-distribution velocity model](Images/wiser_true-v-colorbar.png){width="100%"}
+
+![OOD ground-truth velocity model](Images/wiser_v-ood.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wiser, Fig. 1(c-d). The OOD model has significantly different velocity values than the training distribution.
+:::
+
+## WISER --- WISE vs. WISER (Velocity)
+
+::: {layout-ncol=2}
+![WISE velocity estimates (OOD)](Images/wiser_WISE-v-3D-ood.png){width="100%"}
+
+![WISER velocity estimates (OOD)](Images/wiser_WISER-v-3D-ood.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wiser, Fig. 1(e-f). WISE samples resemble training distribution (inductive bias). WISER shows significant improvement after physics-based refinements.
+:::
+
+## WISER --- WISE vs. WISER (Migration)
+
+::: {layout-ncol=2}
+![WISE imaged reflectivity (OOD)](Images/wiser_WISE-ood-rtm-3D.png){width="100%"}
+
+![WISER imaged reflectivity (OOD)](Images/wiser_WISER-ood-rtm-3D.png){width="100%"}
+:::
+
+::: aside
+From @yin2024wiser, Fig. 1(g-h). WISER's physics-based refinements also improve downstream migration quality under OOD conditions.
+:::
+
+## WISER --- Case Study
+
+::: {.medium-text}
+- 2D slices of the **Compass model** with acoustic wave physics
+- 512 x 256 gridpoints, 12.5 m resolution ($>10^5$ degrees of freedom)
+- OOD scenario: elementwise velocity perturbation + higher noise (S/N = 0 dB)
+- WISER parameters:
+  - 160 outer iterations (gradient descent with wave physics)
+  - 16 particles
+  - 1 OBN per gradient (stochastic)
+  - 128 inner iterations (network update, no PDE solves)
+  - Frequency continuation from low to high
+- Total cost: ~40 data passes (5120 PDE solves) --- far fewer than non-amortized VI
+:::
+
+## WISER --- Conclusions
+
+::: {.medium-text}
+- **Semi-amortized framework**: combines fast amortized initialization with physics-based refinements
+- Uses WISE as a **conditional prior** (conditioned on observed data) --- more informative than unconditional priors
+- Closes the amortization gap, especially for **out-of-distribution** scenarios
+- Computationally feasible: outer loop is costly but inner loop is cheap
+- NFs' invertible layers enable **memory-efficient** backpropagation (constant memory regardless of depth)
+- Sets the stage for deploying generative AI to facilitate high-dimensional Bayesian inference in 3D
+:::
+
+
+# Part VI: Applications {background-color="#2c3e50" .white}
+
+## ML-Enabled Velocity Building [@orozco2024ml]
+
+::: {.medium-text}
+- Deploys conditional **diffusion networks** (an alternative to normalizing flows) for amortized inference
+- Tests on three synthetic datasets: **Compass**, **Synthoseis**, and **SEAM**
+- Systematically compares **RTM vs. CIG** summary statistics
+- Proposes four quantitative **metrics for UQ quality**
+- Applies iterative ASPIRE workflow to complex salt scenarios
+- First demonstration from short-offset acoustic reflection-only data
+:::
+
+## Compass Results (RTM & Ground Truth)
+
+::: {layout-ncol=2}
+![Reverse-time migration](Images/ml_rtm_0850.png){width="100%"}
+
+![Ground truth velocity model](Images/ml_gt_0850.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 1(a-b). Compass dataset test example.
+:::
+
+## Compass Results (Posterior Means)
+
+::: {layout-ncol=2}
+![Posterior mean w/ RTMs (SSIM=0.78)](Images/ml_offsetsFalse150_mean_compass.png){width="100%"}
+
+![Posterior mean w/ CIGs (SSIM=0.84)](Images/ml_offsetsTrue120_mean_compass.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 1(c-d). CIGs improve posterior mean quality significantly.
+:::
+
+## Compass Results Error
+
+::: {layout-ncol=2}
+![Error w/ RTMs (RMSE=0.13)](Images/ml_offsetsFalse150_error_compass.png){width="100%"}
+
+![Error w/ CIGs (RMSE=0.10)](Images/ml_offsetsTrue120_error_compass.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 1(e-h).
+:::
+
+## Compass Results UQ
+
+::: {layout-ncol=2}
+![Posterior std w/ RTMs](Images/ml_offsetsFalse150_std_compass.png){width="100%"}
+
+![Posterior std w/ CIGs](Images/ml_offsetsTrue120_std_compass.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 1(e-h).
+:::
+
+## Synthoseis Results (RTM & Ground Truth)
+
+::: {layout-ncol=2}
+![Reverse-time migration](Images/ml_rtm_0841.png){width="100%"}
+
+![Ground truth velocity model](Images/ml_gt_0841.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 2(a-b). Synthoseis dataset test example with salt bodies.
+:::
+
+## Synthoseis Posterior Samples
+
+::: {layout-ncol=2}
+![Posterior sample w/ RTMs](Images/ml_offsetsFalse931_postsynth_salt.png){width="100%"}
+
+![Posterior sample w/ CIGs](Images/ml_offsetsTrue631_postsynth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 2(a-b). Synthoseis dataset test example with salt bodies.
+:::
+
+
+## Synthoseis Posterior Sample Mean
+
+::: {layout-ncol=2}
+![Posterior mean w/ RTMs (SSIM=0.84)](Images/ml_offsetsFalse931_mean_synth_salt.png){width="100%"}
+
+![Posterior mean w/ CIGs (SSIM=0.89)](Images/ml_offsetsTrue631_mean_synth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 2(c-f).
+:::
+
+## Synthoseis Error
+
+::: {layout-ncol=2}
+![Error w/ RTMs (RMSE=0.15)](Images/ml_offsetsFalse931_error_synth_salt.png){width="100%"}
+
+![Error w/ CIGs (RMSE=0.10)](Images/ml_offsetsTrue631_error_synth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 2(g-j).
+:::
+
+## Synthoseis UQ
+
+::: {layout-ncol=2}
+![Posterior std w/ RTMs](Images/ml_offsetsFalse931_std_synth_salt.png){width="100%"}
+
+![Posterior std w/ CIGs](Images/ml_offsetsTrue631_std_synth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 2(g-j).
+:::
+
+## Quantitative Assessment of UQ
+
+::: {.medium-text}
+Four metrics to assess UQ quality [@orozco2024ml]:
+
+1. **z-score** --- percentage of pixels where error $>$ 2$\times$ uncertainty. Lower is better.
+2. **Uncertainty Calibration Error (UCE)** --- correlation between predicted uncertainty and actual error. Lower is better.
+3. **Posterior coverage** --- fraction of pixels where the ground truth falls within the 1st--99th percentile of posterior samples. Higher is better.
+4. **Data fit** --- ratio $\|\boldsymbol{\varepsilon}\|_2 / \|\mathcal{F}(\mathbf{x}_\text{post}) - \mathbf{y}^\text{obs}\|_2$ as percentage; 100% = perfect fit. Importantly, **does not require ground truth**.
+:::
+
+## z-Score Comparison
+
+::: {layout-ncol=2}
+![Compass w/ RTMs (z=10.55%)](Images/ml_offsetsFalse150_bouman_compass.png){width="100%"}
+
+![Compass w/ CIGs (z=6.08%)](Images/ml_offsetsTrue120_bouman_compass.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 3. Red areas: error $>$ 2$\times$ uncertainty. CIGs reduce problematic regions.
+:::
+
+## z-Score Comparison
+
+::: {layout-ncol=2}
+![Synthoseis w/ RTMs (z=7.36%)](Images/ml_offsetsFalse931_bouman_synth_salt.png){width="100%"}
+
+![Synthoseis w/ CIGs (z=4.48%)](Images/ml_offsetsTrue631_bouman_synth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 3. Red areas: error $>$ 2$\times$ uncertainty. CIGs reduce problematic regions.
+:::
+
+## Calibration Test
+
+::: {layout-ncol=4}
+![Compass w/ RTMs](Images/ml_offsetsFalse150_calibration_compass.png){width="100%"}
+
+![Compass w/ CIGs](Images/ml_offsetsTrue120_calibration_compass.png){width="100%"}
+
+![Synthoseis w/ RTMs](Images/ml_offsetsFalse931_calibration_synth_salt.png){width="100%"}
+
+![Synthoseis w/ CIGs](Images/ml_offsetsTrue631_calibration_synth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 4. CIG-trained networks show lower UCE --- better calibrated uncertainty.
+:::
+
+## Coverage Traces (Compass)
+
+::: {layout-ncol=2}
+![Compass w/ RTMs (Coverage=82.1%)](Images/ml_offsetsFalse150_traces_compass.png){width="100%"}
+
+![Compass w/ CIGs (Coverage=90.6%)](Images/ml_offsetsTrue120_traces_compass.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 5(a-b). Vertical traces through posterior samples with ground truth overlay. CIGs achieve 90.6% coverage vs. 82.1% for RTMs.
+:::
+
+## Coverage Traces (Synthoseis)
+
+::: {layout-ncol=2}
+![Synthoseis w/ RTMs (Coverage=87.0%)](Images/ml_offsetsFalse931_traces_synth_salt.png){width="100%"}
+
+![Synthoseis w/ CIGs (Coverage=89.7%)](Images/ml_offsetsTrue631_traces_synth_salt.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 5(c-d). CIGs improve coverage on Synthoseis dataset as well.
+:::
+
+## Data Misfit (Compass)
+
+::: {layout-ncol=2}
+![Compass w/ RTM (data fit 56%)](Images/ml_datamisfit_compass_rtm.png){width="100%"}
+
+![Compass w/ CIG (data fit 58%)](Images/ml_datamisfit_compass_cig.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 6(a-b). Interleaved comparison between observed and synthetic shot data.
+:::
+
+## Data Misfit (Synthoseis)
+
+::: {layout-ncol=2}
+![Synthoseis w/ RTM (data fit 41%)](Images/ml_datamisfit_synth_rtm.png){width="100%"}
+
+![Synthoseis w/ CIG (data fit 47%)](Images/ml_datamisfit_synth_cig.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 6(c-d).
+:::
+
+## Compass & Synthoseis Metrics
+
+::: aside
+| Dataset | RMSE $\downarrow$ | SSIM $\uparrow$ | Coverage [%] $\uparrow$ | UCE $\downarrow$ | z-score [%] $\downarrow$ | Data fit [%] $\uparrow$ |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Compass w/o CIGs | 0.12 | 0.81 | 73.8 | 0.013 | 10.7 | 53.7 |
+| **Compass w/ CIGs** | **0.11** | **0.85** | **74.8** | **0.011** | **9.9** | **54.2** |
+| Synthoseis w/o CIGs | 0.085 | 0.91 | 72.5 | 0.012 | 7.8 | 77.1 |
+| **Synthoseis w/ CIGs** | **0.079** | **0.92** | **74.6** | **0.009** | **5.4** | **79.6** |
+
+: Image and uncertainty quality metrics [@orozco2024ml, Table 1]. CIGs improve **all** metrics on both datasets. {.striped}
+:::
+
+## ASPIRE on SEAM (Initial & Iteration 1)
+
+::: {layout-ncol=2}
+![Initial velocity model](Images/ml_gt0_seam.png){width="100%"}
+
+![Initial migration](Images/ml_rtm_seam_0.png){width="100%"}
+:::
+
+::: {layout-ncol=2}
+![ASPIRE 1 posterior mean (SSIM=0.70)](Images/ml_seam_mean_1.png){width="100%"}
+
+![ASPIRE 1 migration (no flooding)](Images/ml_rtm_seam_1_noflood.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 8(a-d).
+:::
+
+## ASPIRE on SEAM (With Flooding & Iteration 2)
+
+::: {layout-ncol=2}
+![ASPIRE 1 velocity w/ flooding](Images/ml_gt0_seam_1.png){width="100%"}
+
+![ASPIRE 1 migration w/ flooding](Images/ml_rtm_seam_1.png){width="100%"}
+:::
+
+::: {layout-ncol=2}
+![ASPIRE 2 posterior mean (SSIM=0.72)](Images/ml_seam_mean_2.png){width="100%"}
+
+![Ground truth velocity model](Images/ml_gt_seam.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 8(e-h). Salt flooding between ASPIRE iterations improves results.
+:::
+
+## ASPIRE UQ (Error & Std.)
+
+::: {layout-ncol=2}
+![ASPIRE 1 Error (RMSE=0.26)](Images/ml_seam_error_1.png){width="100%"}
+
+![ASPIRE 2 Error (RMSE=0.20)](Images/ml_seam_error_2.png){width="100%"}
+:::
+
+::: {layout-ncol=2}
+![ASPIRE 1 std.](Images/ml_seam_std_1.png){width="100%"}
+
+![ASPIRE 2 std.](Images/ml_seam_std_2.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 9(a-d). Both error and uncertainty decrease from ASPIRE 1 to 2.
+:::
+
+## ASPIRE UQ (z-Score & Coverage)
+
+::: {layout-ncol=2}
+![ASPIRE 1 z-score=3.44%](Images/ml_seam_bouman_1.png){width="100%"}
+
+![ASPIRE 2 z-score=2.03%](Images/ml_seam_bouman_2.png){width="100%"}
+:::
+
+::: {layout-ncol=2}
+![ASPIRE 1 coverage=61.79%](Images/ml_traces_seam_1.png){width="100%"}
+
+![ASPIRE 2 coverage=70.24%](Images/ml_traces_seam_2.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 9(e-h). All UQ metrics improve from iteration 1 to 2.
+:::
+
+## SEAM ASPIRE Metrics
+
+::: {.medium-text}
+| Dataset | RMSE $\downarrow$ | SSIM $\uparrow$ | Coverage [%] $\uparrow$ | UCE $\downarrow$ | z-score [%] $\downarrow$ | Data fit [%] $\uparrow$ |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| ASPIRE 1 | 0.25 | 0.71 | 66.6 | 0.043 | **3.44** | 13.3 |
+| **ASPIRE 2** | **0.21** | **0.73** | **67.3** | **0.042** | 3.96 | **15.5** |
+
+: Image and uncertainty quality metrics on SEAM dataset ASPIRE iterations [@orozco2024ml, Table 2]. {.striped}
+:::
+
+## Downstream RTM Quality (Part 1)
+
+::: {layout-ncol=2}
+![Migration in ground truth velocity](Images/ml_rtm_seam_gt_noaxis_half.png){width="100%"}
+
+![Mean of migrations in ASPIRE 2 velocities](Images/ml_mean_rtms_post_half.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 10(a-b). The migration in ASPIRE 2 posterior velocity models closely matches the ground truth migration.
+:::
+
+## Downstream RTM Quality (Part 2)
+
+::: {layout-ncol=2}
+![Error between mean of migrations and ground truth](Images/ml_error_rtms_post_half.png){width="100%"}
+
+![Std. of migrations in ASPIRE 2 velocities](Images/ml_std_rtms_post_half.png){width="100%"}
+:::
+
+::: aside
+From @orozco2024ml, Fig. 10(c-d). Uncertainty in migrated images captures structural uncertainty in the subsurface.
+:::
+
+## Conclusions
+
+::: {.medium-text}
+- Conditional diffusion networks advance the state of the art in **amortized migration-velocity building with UQ**
+- CIGs as summary statistics improve **all** UQ metrics across datasets
+- Four proposed metrics provide a systematic benchmark for UQ assessment
+- Iterative ASPIRE workflow with salt flooding handles **complex salt scenarios**
+- Posterior velocity models propagate uncertainty to final **RTM images**
+- Computationally feasible: fast inference with manageable offline training costs
+- First demonstration of ML-enabled probabilistic velocity building from **short-offset acoustic reflection-only data**
+:::
+
+## Outlook
+
+::: {.medium-text}
+- **Representative training datasets** remain the key challenge for amortized methods
+- Path forward: curate datasets for a **foundation model** using field data + well-log pairs from national repositories
+- **Non-amortized refinements** (WISER, ASPIRE) are crucial for bridging the gap between synthetic training and real-world deployment
+- Field data application revealed **bias toward synthetic training distribution** --- highlights the need for realistic training data
+- Extension to **3D** is computationally viable thanks to memory-efficient invertible architectures
+:::
+
+## SEAM Model --- Initial Migration
+
+::: {layout-ncol=2}
+![Initial RTM](Images/rtm_seam_0.png){width="100%"}
+
+![Posterior samples (ASPIRE 1)](Images/aspire_1_posterior.gif){width="100%"}
+:::
+
+::: aside
+Initial migration and animated posterior samples from ASPIRE iteration 1.
+:::
+
+## SEAM Model --- Refined Migration
+
+::: {layout-ncol=2}
+![Refined RTM (ASPIRE 1)](Images/rtm_seam_1.png){width="100%"}
+
+![Posterior samples (ASPIRE 2)](Images/aspire_2_posterior.gif){width="100%"}
+:::
+
+::: aside
+Refined migration and animated posterior samples from ASPIRE iteration 2.
+:::
+
+## SEAM Model --- Overview
+
+![SEAM model overview](Images/seamdown.png){width="90%"}
+
+## SEAM Model --- Detail
+
+![SEAM model detail](Images/seamdown2.png){width="90%"}
+
+## RTM Animation
+
+![Animated reverse-time migration through posterior velocity samples](Images/rtm_movie_half.gif){width="80%"}
+
+::: aside
+Each frame shows RTM computed in a different posterior velocity sample, visualizing the effect of velocity uncertainty on the final image.
+:::
+
+## Summary of Outcomes
+
+::: {.medium-text}
+- **Physics-based summary statistics** (CIGs) are key to reliable amortized inference
+- **Amortized methods** (WISE, diffusion networks) provide fast, cost-effective first approximations
+- **Iterative refinement** (ASPIRE) progressively improves results by extracting more information from data
+- **Semi-amortized methods** (WISER) close the amortization gap using physics-based fine-tuning
+- **Quantitative UQ metrics** (z-score, UCE, coverage, data fit) enable systematic evaluation
+- **Downstream uncertainty propagation** to migrated images is now computationally feasible
+:::
+
+
+# Part VII: Lecture Highlights & Outlook {background-color="#2c3e50" .white}
+
+## Course Highlights{.smaller}
+
+::: {.medium-text}
+- **Inverse problems** are central to Earth sciences --- from seismic imaging to reservoir characterization
+- **Bayesian inference** provides the principled framework for quantifying uncertainty
+- **Machine learning** makes large-scale Bayesian inference computationally feasible
+- Key concepts covered:
+  - Forward and inverse problems
+  - Bayesian inference and posterior sampling
+  - Normalizing flows and diffusion models
+  - Physics-informed summary statistics
+  - Amortized vs. non-amortized inference
+  - Quantitative UQ assessment
+:::
+
+## Outlook
+
+::: {.medium-text}
+- **Foundation models** for geophysics: train once, deploy everywhere
+- **3D deployment**: memory-efficient architectures make this possible
+- **Multi-physics**: extend beyond acoustic to elastic, anisotropic models
+- **Real-world deployment**: bridge the simulation gap with semi-amortized methods
+- **Beyond velocity**: apply to other geophysical parameters (anisotropy, attenuation)
+- **Decision support**: propagate uncertainty to reservoir management and risk assessment
+- The future of geophysical imaging is **probabilistic** --- not deterministic!
+:::
+
+## References
+
+::: {#refs}
+:::
