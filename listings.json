@@ -28,8 +28,7 @@
   {
     "listing": "/weeks/week-12.html",
     "items": [
-      "/slides/week-12/17-wri-lecture.html",
-      "/labs/w10-lab07-CIG_extended_LS-RTM.html"
+      "/slides/week-12/17-wri-lecture.html"
     ]
   },
   {
@@ -81,8 +80,7 @@
   {
     "listing": "/weeks/week-11.html",
     "items": [
-      "/slides/week-11/16-fwi-lecture.html",
-      "/labs/w10-lab07-CIG_extended_LS-RTM.html"
+      "/slides/week-11/16-fwi-lecture.html"
     ]
   },
   {
@@ -90,7 +88,7 @@
     "items": [
       "/slides/week-13/18-constraint-lecture.html",
       "/slides/week-13/19-inference.html",
-      "/labs/w10-lab07-CIG_extended_LS-RTM.html"
+      "/labs/w13-lab08-FWI.html"
     ]
   },
   {
