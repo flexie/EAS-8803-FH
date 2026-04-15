@@ -34,7 +34,7 @@ csl: https://www.zotero.org/styles/geophysics
 
 <!-- School of Earth and Atmospheric Sciences — Georgia Institute of Technology -->
 
-This lecture is based on:
+<!-- This lecture is based on: -->
 
 - @yin2024wise --- WISE: full-Waveform variational Inference via Subsurface Extensions
 - @yin2024wiser --- WISER: multimodal variational inference for FWI without dimensionality reduction
@@ -62,8 +62,8 @@ Motivate the need for probabilistic approaches to subsurface imaging.
 
 ::: {.medium-text}
 - Bayesian inference provides a principled framework for UQ
-- But the posterior $p(\mathbf{x}|\mathbf{y})$ is intractable for realistic problems
-- **MCMC methods** require $\mathcal{O}(10^5\text{--}10^6)$ forward PDE solves --- each costs minutes to hours in 3D
+- But the posterior $p(\mathbf{x}\mid\mathbf{y})$ is intractable for realistic problems
+- **MCMC methods** require $\mathcal{O}(10^5\text{-}10^6)$ forward PDE solves --- each costs minutes to hours in 3D
 - This makes MCMC **computationally infeasible** for production-scale FWI
 - We need **scalable** approaches that combine physics with modern machine learning
 :::
@@ -242,7 +242,7 @@ Likelihood: $p(\mathbf{y}\mid\mathbf{x}) \propto \exp\!\left(-\frac{1}{2\sigma^2
 
 # Part III: WISE {background-color="#2c3e50" .white}
 
-## WISE: Training Objective 
+## WISE: Training Objective{.smaller}
 
 ::: {.medium-text}
 **WISE** = full-**W**aveform variational **I**nference via **S**ubsurface **E**xtensions [@yin2024wise]
@@ -340,7 +340,7 @@ From @yin2024wise, Fig. 2(c-e). Propagating velocity uncertainty to migrated ima
 ## WISE --- Conclusions
 
 ::: {.medium-text}
-- CIGs as summary statistics **preserve more information** than RTM, especially for inaccurate migration velocities
+- CIGs as summary statistics **preserve more information** than RTMs, especially for inaccurate migration velocities
 - WISE produces **distributions of velocity models** conditioned on seismic data in ~6 minutes per inference
 - Enables quantification of amplitude and positioning uncertainty in migration
 - **Limitation**: the amortization gap --- CNFs optimize across many datasets rather than excelling at any single observation
@@ -361,7 +361,15 @@ The gradient of the log-likelihood is a maximally informative summary statistic:
 
 $$\overline{\mathbf{y}} = \nabla_\mathbf{x} \log p(\mathbf{y}\mid\mathbf{x})\big|_{\mathbf{x}_0} = \nabla\mathcal{F}^\top[\mathbf{x}_0](\mathcal{F}(\mathbf{x}_0) - \mathbf{y})$$
 
-Quality depends on the **fiducial point=background velocity** $\mathbf{x}_0$ being close to the true model. ASPIRE uses posterior means as improved fiducials!
+Quality depends on the **fiducial point = background velocity** $\mathbf{x}_0$ being close to the true model. ASPIRE uses posterior means as improved fiducials!
+:::
+
+## The Amortization Gap
+
+![ASPIRE is a middle ground between amortized and non-amortized variational inference.](Images/aspire_main_fig.png){width="80%"}
+
+::: aside
+From @orozco2025aspire, Fig. 1. Amortized methods are fast but suboptimal; non-amortized methods are slow but better. ASPIRE bridges this gap.
 :::
 
 ## ASPIRE --- Baseline Amortized Inference
@@ -378,14 +386,6 @@ Quality depends on the **fiducial point=background velocity** $\mathbf{x}_0$ bei
 
 ::: aside
 From @orozco2025aspire, Fig. 4. Baseline amortized inference from raw acoustic waveforms --- poor quality due to the difficulty of learning the direct mapping.
-:::
-
-## The Amortization Gap
-
-![ASPIRE is a middle ground between amortized and non-amortized variational inference.](Images/aspire_main_fig.png){width="80%"}
-
-::: aside
-From @orozco2025aspire, Fig. 1. Amortized methods are fast but suboptimal; non-amortized methods are slow but better. ASPIRE bridges this gap.
 :::
 
 ## ASPIRE --- Refined Summary Statistics
@@ -459,11 +459,11 @@ From @orozco2025aspire, ASPIRE 4 achieves quality close to the expensive non-amo
 ## ASPIRE  --- Uncertainty Comparison (Std.)
 
 ::: {layout-ncol=3}
-![Mean-field std.](Images/aspire_std_gaush.png){width="100%"}
+![Mean-field std.](Images/aspire_std_gaush.png){width="90%"}
 
-![ASPIRE 4 std.](Images/aspire_std_4.png){width="100%"}
+![ASPIRE 4 std.](Images/aspire_std_4.png){width="90%"}
 
-![Non-amortized std.](Images/aspire_std_hint2.png){width="100%"}
+![Non-amortized std.](Images/aspire_std_hint2.png){width="90%"}
 :::
 
 ::: aside
@@ -473,11 +473,11 @@ From @orozco2025aspire, Fig. 13 (top row). Posterior standard deviation comparis
 ## ASPIRE --- Uncertainty Comparison (Errors)
 
 ::: {layout-ncol=3}
-![Mean-field error](Images/aspire_error_gaush.png){width="100%"}
+![Mean-field error](Images/aspire_error_gaush.png){width="90%"}
 
-![ASPIRE 4 error](Images/aspire_error_4.png){width="100%"}
+![ASPIRE 4 error](Images/aspire_error_4.png){width="90%"}
 
-![Non-amortized error](Images/aspire_error_hint2.png){width="100%"}
+![Non-amortized error](Images/aspire_error_hint2.png){width="90%"}
 :::
 
 ::: aside
@@ -509,7 +509,7 @@ From @orozco2025aspire, Fig. 13 (bottom row). Errors from all methods. ASPIRE's 
 **WISER** addresses this by adding physics-based refinements on top of amortized inference [@yin2024wiser]
 :::
 
-## WISER Equation 1 --- Strong Formulation
+## WISER Equation 1 --- Strong Formulation{.smaller}
 
 ::: {.medium-text}
 The objective for physics-based refinements (Eq. 1, @yin2024wiser):
@@ -547,7 +547,7 @@ Key components:
 - **Key insight**: decouples expensive forward operator $\mathcal{F}$ from cheaper network evaluations
 
 
-## WISER Algorithm 1 --- Offline Phase
+## WISER Algorithm 1 --- Offline Phase{.smaller}
 
 ::: {.medium-text}
 **Dataset generation** (same as WISE):
@@ -562,7 +562,7 @@ Key components:
 $$\boldsymbol{\theta}^* = \underset{\boldsymbol{\theta}}{\operatorname{argmin}} \; \frac{1}{N}\sum_{i=1}^{N}\left(\frac{1}{2}\|f_{\boldsymbol{\theta}}(\mathbf{x}^{(i)};\overline{\mathbf{y}}^{(i)})\|_2^2 - \log|\det\mathbf{J}_{f_{\boldsymbol{\theta}}}|\right)$$
 :::
 
-## WISER Algorithm 1 --- Online Phase
+## WISER Algorithm 1 --- Online Phase{.smaller}
 
 ::: {.medium-text}
 **Amortized initialization** (fast):
@@ -581,7 +581,7 @@ The outer loop performs FWI-like updates; the inner loop keeps the generative mo
 ## WISER --- OOD Velocity Perturbation
 
 ::: {layout-ncol=2}
-![Velocity-value perturbation curves](Images/wiser_perturbv.png){width="100%"}
+![Velocity-value perturbation curves](Images/wiser_perturbv.png){width="90%"}
 
 ![Histograms at depths 0.5 km and 2.8 km](Images/wiser_histogram.png){width="100%"}
 :::
@@ -626,7 +626,7 @@ From @yin2024wiser, Fig. 1(e-f). WISE samples resemble training distribution (in
 From @yin2024wiser, Fig. 1(g-h). WISER's physics-based refinements also improve downstream migration quality under OOD conditions.
 :::
 
-## WISER --- Case Study
+## WISER --- Case Study{.smaller}
 
 ::: {.medium-text}
 - 2D slices of the **Compass model** with acoustic wave physics
@@ -890,15 +890,15 @@ From @orozco2024ml, Fig. 6(c-d).
 ## ASPIRE on SEAM (Initial & Iteration 1)
 
 ::: {layout-ncol=2}
-![Initial velocity model](Images/ml_gt0_seam.png){width="100%"}
+![Initial velocity model](Images/ml_gt0_seam.png){width="95%"}
 
-![Initial migration](Images/ml_rtm_seam_0.png){width="100%"}
+![Initial migration](Images/ml_rtm_seam_0.png){width="95%"}
 :::
 
 ::: {layout-ncol=2}
-![ASPIRE 1 posterior mean (SSIM=0.70)](Images/ml_seam_mean_1.png){width="100%"}
+![ASPIRE 1 posterior mean (SSIM=0.70)](Images/ml_seam_mean_1.png){width="95%"}
 
-![ASPIRE 1 migration (no flooding)](Images/ml_rtm_seam_1_noflood.png){width="100%"}
+![ASPIRE 1 migration (no flooding)](Images/ml_rtm_seam_1_noflood.png){width="95%"}
 :::
 
 ::: aside
@@ -908,15 +908,15 @@ From @orozco2024ml, Fig. 8(a-d).
 ## ASPIRE on SEAM (With Flooding & Iteration 2)
 
 ::: {layout-ncol=2}
-![ASPIRE 1 velocity w/ flooding](Images/ml_gt0_seam_1.png){width="100%"}
+![ASPIRE 1 velocity w/ flooding](Images/ml_gt0_seam_1.png){width="95%"}
 
-![ASPIRE 1 migration w/ flooding](Images/ml_rtm_seam_1.png){width="100%"}
+![ASPIRE 1 migration w/ flooding](Images/ml_rtm_seam_1.png){width="95%"}
 :::
 
 ::: {layout-ncol=2}
-![ASPIRE 2 posterior mean (SSIM=0.72)](Images/ml_seam_mean_2.png){width="100%"}
+![ASPIRE 2 posterior mean (SSIM=0.72)](Images/ml_seam_mean_2.png){width="95%"}
 
-![Ground truth velocity model](Images/ml_gt_seam.png){width="100%"}
+![Ground truth velocity model](Images/ml_gt_seam.png){width="95%"}
 :::
 
 ::: aside
@@ -926,15 +926,15 @@ From @orozco2024ml, Fig. 8(e-h). Salt flooding between ASPIRE iterations improve
 ## ASPIRE UQ (Error & Std.)
 
 ::: {layout-ncol=2}
-![ASPIRE 1 Error (RMSE=0.26)](Images/ml_seam_error_1.png){width="100%"}
+![ASPIRE 1 Error (RMSE=0.26)](Images/ml_seam_error_1.png){width="95%"}
 
-![ASPIRE 2 Error (RMSE=0.20)](Images/ml_seam_error_2.png){width="100%"}
+![ASPIRE 2 Error (RMSE=0.20)](Images/ml_seam_error_2.png){width="95%"}
 :::
 
 ::: {layout-ncol=2}
-![ASPIRE 1 std.](Images/ml_seam_std_1.png){width="100%"}
+![ASPIRE 1 std.](Images/ml_seam_std_1.png){width="95%"}
 
-![ASPIRE 2 std.](Images/ml_seam_std_2.png){width="100%"}
+![ASPIRE 2 std.](Images/ml_seam_std_2.png){width="95%"}
 :::
 
 ::: aside
@@ -944,15 +944,15 @@ From @orozco2024ml, Fig. 9(a-d). Both error and uncertainty decrease from ASPIRE
 ## ASPIRE UQ (z-Score & Coverage)
 
 ::: {layout-ncol=2}
-![ASPIRE 1 z-score=3.44%](Images/ml_seam_bouman_1.png){width="100%"}
+![ASPIRE 1 z-score=3.44%](Images/ml_seam_bouman_1.png){width="90%"}
 
-![ASPIRE 2 z-score=2.03%](Images/ml_seam_bouman_2.png){width="100%"}
+![ASPIRE 2 z-score=2.03%](Images/ml_seam_bouman_2.png){width="90%"}
 :::
 
 ::: {layout-ncol=2}
-![ASPIRE 1 coverage=61.79%](Images/ml_traces_seam_1.png){width="100%"}
+![ASPIRE 1 coverage=61.79%](Images/ml_traces_seam_1.png){width="90%"}
 
-![ASPIRE 2 coverage=70.24%](Images/ml_traces_seam_2.png){width="100%"}
+![ASPIRE 2 coverage=70.24%](Images/ml_traces_seam_2.png){width="90%"}
 :::
 
 ::: aside
@@ -1056,7 +1056,7 @@ Refined migration and animated posterior samples from ASPIRE iteration 2.
 Each frame shows RTM computed in a different posterior velocity sample, visualizing the effect of velocity uncertainty on the final image.
 :::
 
-## Summary of Outcomes
+## Summary of Outcomes{.smaller}
 
 ::: {.medium-text}
 - **Physics-based summary statistics** (CIGs) are key to reliable amortized inference
@@ -1067,7 +1067,7 @@ Each frame shows RTM computed in a different posterior velocity sample, visualiz
 - **Downstream uncertainty propagation** to migrated images is now computationally feasible
 :::
 
-
+<!-- 
 # Part VII: Lecture Highlights & Outlook {background-color="#2c3e50" .white}
 
 ## Course Highlights{.smaller}
@@ -1095,7 +1095,7 @@ Each frame shows RTM computed in a different posterior velocity sample, visualiz
 - **Beyond velocity**: apply to other geophysical parameters (anisotropy, attenuation)
 - **Decision support**: propagate uncertainty to reservoir management and risk assessment
 - The future of geophysical imaging is **probabilistic** --- not deterministic!
-:::
+::: -->
 
 ## References
 
